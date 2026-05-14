@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27. The Four Iddhipāda</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="26._Find_Solitude_in_Non-Solitude.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(26)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="28._Giving.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(28)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/27.%20The%20Four%20Iddhip%C4%81da.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>27. The Four Iddhipāda</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p><strong>May 4, 1985</strong></p>
+<p>Everyone knows the Four Iddhipāda because they want to fulfill them — that is, they want to succeed according to the aims and aspirations as taught. Everyone already has the Iddhipāda: Chanda (desire/zeal), Viriya (effort/persistence), Citta (mind/attention), and Vīmaṁsā (investigation/wisdom). Everyone has mastered them fluently, remembers them well, but they haven't yet fulfilled them. In truth, having them, one should bring them to completion in line with reality. It must be that way. But as yet, they haven't been fulfilled.</p>
+<p>The Buddha taught that for one who has <em>chanda</em> — delight in that thing, in that activity, in that duty, in that recitation, in that Dhamma — success arises. Success in that place arises precisely from that chanda. Now, chanda exists, but people don't use it to its full extent. They don't reach the full measure of chanda. If they did reach it, they would surely succeed according to their aspirations — whether much or little, the result would definitely come.</p>
+<p>Chanda is certain, as the Buddha taught. The truth is exactly that. Let us try and see. The confidence within us — that itself is called chanda. It exists within us. "By doing this, it will bring benefit. This Dhamma will give me benefit." For example, when we have confidence in the truth of the Buddha's teachings — that the five aggregates are suffering, etc. — if we investigate with genuine sincerity, we see it is truly suffering, without any deviation.</p>
+<p>The five aggregates are suffering. The Buddha described them in detail — the five clinging-aggregates. The five aggregates exist and occur. If we cling to them, even then they are not our self. But if we don't cling, the matter is finished. Things are as they are. This is called confidence in the Buddha's teachings. We investigate and see the truth as the Buddha taught. Then benefit is fully achieved in line with reality. Seeing things as they truly are — that is called achieving benefit. Having confidence, we investigate and see things as they truly are. That very confidence leads to seeing the truth in all matters. It is exactly like that. Such is chanda.</p>
+<p><em>Viriya</em> — persistence. Once chanda exists, persistence must follow. They go together as a pair. We are diligent and persistent. Whatever we are confident in, we must do that thing and carry it through to the end. That is called persistence. Delighting in what we want and aspire to, without thinking of suffering, difficulty, or toil, without thinking of hardship or fatigue — having the determination to bring it to completion, to succeed according to our aim and aspiration — then viriya follows. When chanda is present, everything is there. Viriya arises right there.</p>
+<p>It's like a person digging a well. Water lies underground. Normally, water is under the ground. He digs down and down. Seeing the soil become moist, he gains confidence in his digging — there must be water. He digs until he sees clay, and keeps digging until he reaches water. The person who doesn't reach water does so because he doesn't believe there is water. He digs just a little bit, then thinks, "Oh! This is too hard, too much toil. Digging further, there won't be any water," so he gives up and starts a new well. He digs down to moist soil, then says, "It's no use. The water isn't this deep," and abandons it. Thus he never sees water, never sees the result. But at the very least, if he digs down as deep as possible, even without reaching water, he can still be said to have practiced the Iddhipāda.</p>
+<p>At that point, his Iddhipāda is fully engaged. Even if not successful, he can still be said to have had sufficient Iddhipāda. People would praise him, saying, "Oh! This person is truly persistent and determined. To dig that deep — even without water, he still had the effort to dig deep." At least he would receive some praise. But if one hesitates and doubts without ever settling, digging just a little then letting go, taking no responsibility — lacking viriya, lacking persistence — then no benefit is achieved. The Buddha taught that one with lowly persistence does not achieve benefit.</p>
+<p><em>Citta</em> — now, when viriya is present, one must investigate and reflect accordingly. Take the example of digging a well. As you dig, you must believe there is water. You dig deeper and deeper. You see the soil becoming moist, you see clay. Seeing clay, the moisture increases more and more. You reflect, "Ah… there must certainly be water." Your mind becomes fully resolute, not discouraged. Citta — the reflection and consideration of causes and effects — "The water must be there because it's moist. The deeper I dig, the more moist it becomes. The more moist it becomes, the clearer the water appears."</p>
+<p>In Dhamma practice, it's the same. When we investigate any Dhamma, we see it more and more clearly, step by step. We establish the mind in one-pointedness, resolute and undaunted, and see things more clearly. All mental objects pass away, they cease and disappear. We see those Dhammas ever more clearly. Citta — the investigation and consideration — becomes ever more resolute.</p>
+<p>Citta and vīmaṁsā are essentially comparable. Once we reflect, consider, and investigate thoroughly, that is vīmaṁsā. When we reflect and consider, investigating clearly, seeing it vividly within the mind, then it becomes manifest.</p>
+<p>All four Iddhipāda exist in this world. The Buddha pointed them out and taught that there are only these four means for bringing success to completion. If anyone applies them — in truth, we don't even need to talk about the Four Iddhipāda. That confidence need not be spoken of. Even an uneducated person, who has never studied anything, if he is confident that something will bring benefit, he does it fully and resolutely, and so chanda and viriya arise by themselves. No need to talk about the Four Iddhipāda — chanda, viriya, citta, vīmaṁsā. It becomes true on its own. But those who study and learn, who only memorize the Four Iddhipāda without putting them into practice — whereas those who genuinely practice apply the Four Iddhipāda fully — chanda, viriya, citta, vīmaṁsā — use them to the utmost, no need to even mention citta, whether it exists or not is unknown. Whether one designates it or not, whether one does not designate it, it doesn't matter. They see the benefit clearly in their hearts and succeed in what they aspire to.</p>
+<p>It's like someone holding a weapon. Some people see that they have a weapon for killing wild animals or whatever — they have a gun in hand, ready. A tiger is coming right toward them, they intend to kill it. They hide there, off to the side of the path. When the tiger actually comes, they say, "I'll shoot it with this gun." They go "bang" and it must surely die. When the tiger comes, they go "bang" — but it's just "bang" from their mouth. The gun never gets fired. What benefit will that bring? It's just talk. The real benefit comes from action. When someone actually kills or shoots a tiger, he doesn't have to make the gun sound with his mouth. The gun goes "bang" on its own. If it hits the tiger, it dies.</p>
+<p>In the same way, a practitioner who is constantly resolute in these four Dhammas — the Four Iddhipāda are present at all times. Whatever the Buddha taught — it's because they exist in reality. They already exist; the Buddha simply taught about them. These four qualities are present in every person. The Buddha had to teach accordingly. It's not like the learner who studies and just picks up the words of the speaker, but doesn't practice himself. That doesn't bring benefit. The difference between practice and mere study lies right here: actually doing versus just learning. That's the difference.</p>
+<p>Therefore, it is said that all Dhammas, every single one, are true in every aspect. If you truly practice, the Four Iddhipāda converge into one single place. Having chanda alone is enough. No need to speak of viriya, citta, or vīmaṁsā. No need even to speak of chanda. In truth, genuine, sincere determination brings about one's own benefit, according to what is fitting for one's situation. That's all.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="26._Find_Solitude_in_Non-Solitude.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">26</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">26. Find Solitude in Non-Solitude</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="28._Giving.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">28</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">28. Giving</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

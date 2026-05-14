@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>96. Strategies for Fighting Defilements</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="95._Basics_of_Meditation_Practice.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(95)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="97._Dhamma_Practice_Principles.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(97)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/96.%20Strategies%20for%20Fighting%20Defilements.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>96. Strategies for Fighting Defilements</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>Defilements are like an ordinary river. Water must flow from high ground down to low ground. Whatever things exist there, the river washes them all away — every place, every spot, leaving nothing behind. Even the riverbanks are eroded away. It has immense power. Human beings are just like the objects swept into that river — children, adults, women, men, young and old — all are carried away by the current. What remains of us is only the residue: our humanity.</p>
+<p>In truth, the current sweeps everything down to the lowlands. Those lowlands are called the paths to ruin (<em>apāyamukha</em>). That is to say, if one falls into hell, one must go down, not up. The human mind is the same — it falls into low paths, toward depravity, which is called falling into hell. If it rises to heaven, it must go upward. Only then does it reach heaven. The simile is apt: hell is underground, heaven is in the sky, but no one has ever seen them. People die and go to hell or heaven but never come back to tell us. So we merely guess: doing merit brings peace of mind — that's heaven; doing evil brings sorrow — that's hell.</p>
+<p>As for defilements: they sweep and carry away people's minds, mostly toward evil. Just think: our own minds, every day — how many times are they swept away? One moment thinking of this, another moment thinking of that — thinking of our homes, our children and grandchildren, our work, wealth and poverty, suffering, sorrow, distress — all kinds of things. Defilements spin our minds around like this, without ever stopping.</p>
+<p>Human beings, when born, are like being placed on a pile of garbage. Ants, insects, and all sorts of creatures swarm over it. Defilements are just like those ants and insects on the garbage heap — all kinds surround us, all kinds gnaw and devour us.</p>
+<p>Our minds experience only anguish. The single reason we become base and depraved in every way is that we do not know our own minds. If we knew our minds just once, all depravity arising from the mind would cease to exist for us. But we only know <em>about</em> the mind, we understand <em>about</em> the mind — yet where is the actual mind itself? The water that sweeps things away never returns. It flows on and on until it reaches the ocean. Defilements likewise sweep away us humans. Water has no self or substance, yet it has tremendous power to carry us down to low places. Our defilements also have no self or substance, yet they can sweep people away as they please.</p>
+<p>This thing called <em>citta</em> or mind has no self or substance. If we understand the matter of citta or mind, it becomes easy. The practice of meditation is for purifying the mind, or for fighting against these defilements of the mind. If we do not see the citta or mind, we won't know where to fight the defilements.</p>
+<p>Because defilements arise at the mind.</p>
+<p>A war without trenches — we wouldn't know how to fight. We need trenches to hold as defenses against the enemy. Only then can we learn to fight, to lose, to win. I ask everyone to contemplate the matter of their own mind. Have you seen your mind yet? Where is your mind? What is its nature?</p>
+<p>Defilements are worldly things. From the moment of birth, as soon as we are born, they are already there, fully present. Defilements are called "the world." If there are defilements, that is called "the world." If something is done, that defilement is called "the world." Praise and blame are the world; gain and loss are the world; status and loss of status are the world. All eight worldly conditions flow and sweep us away. Sorrow — the Buddha taught that <em>sampayoga</em> (union) and <em>vippayoga</em> (separation) — grief, sorrow, lamentation — all are simply normal things of the world. Every human being born must experience them.</p>
+<p>Even the Buddha experienced these things. But He completely purified them from His nature, leaving no residue — that is called <em>visuddhidhammasantānaṅ</em> (one whose mental continuum is purified). Other people do not purify; they hold on, letting defilements sweep them away as they please. It's fine — we don't have to walk; defilements carry us down to low places even faster. Greed, hatred, delusion — go ahead and grab as much as you want. Whoever grabs more will be heavier, more suffering, more troubled. Whoever purifies and gives up more will be lighter. Whoever purifies and gives up a little will be a little lighter.</p>
+<p>I say further: the Buddha and the Arahant disciples — they gave up everything. No defilements remained in their hearts, in their minds. Human beings are born and then compete with each other, thinking those defilements are something precious and excellent, wonderful and marvelous — competing for superiority and prominence, competing for power and status, competing for gains and praise, afraid only of not getting them for ourselves. But in truth, they are things the Buddha and the Noble Ones have discarded. They threw them away, yet we still think they are good. All these behaviors are called a mind that has fallen low, a mind without freedom.</p>
+<p>If we know that these things are base, bad things, we can protect ourselves. We will not be under the power of defilements. This is called the mind being master. This "mind being master" is not mastery over the world — only over itself. Let the world be as it may. But one has freedom within oneself, not under the power of defilements. A person with inner freedom lives happily. A person who cannot conquer the world lives in suffering. The Buddha conquered Himself. Others are not affected — no matter how many or how few defilements someone has, it doesn't affect anyone else. Conquering the world by conquering others certainly brings conflict and trouble. You intend to conquer them, but in truth you cannot conquer even a single person. No matter how great you are, no matter how much power and fortune you have — in the end, you fall flat on your back.</p>
+<p>The Buddha taught us not to live without a refuge.</p>
+<p>Have a refuge to live by: the Buddha, the Dhamma, and the Sangha as your stable sanctuary. Then the water of defilements will not sweep you down to low places. The Buddha taught: <em>Padīpaṃ na kave sattha yaṃ ogho nābhikirati</em> — "Set up a lamp, you householders, so that the flood does not overwhelm you." The flood is defilements — greed, hatred, delusion, etc. — which flow and sweep away human beings and all creatures. When you have found a refuge (that is, the mind), the water will not be able to sweep you away. You will live in peace and comfort.</p>
+<p>In truth, the Buddha taught us to have an island or a rock as a refuge. We are all drowning in the water. The water sweeps us away, yet we don't even realize we're being swept away. For example, when we are angry at someone, we see the mind. When we are angry, we stop right there and stay with our own mind. When we love someone, we stop right at that mind — don't go loving that person. When we are envious of someone, it is the mind that is envious — bring it back to the mind itself, don't go being envious of that person. That is called having an island, having a rock as a refuge, so that it does not sweep us into anger — that would be being swept away; into loving that person — that would be being swept away; it carries us far away until we become angry, loving, envious of others. If we have an island as a refuge — that is, guarding the mind to be stable — then we can escape suffering, because we have an island, a rock, as a refuge.</p>
+<p>The Buddha taught only a little, not much — He taught to see one's own mind, that's enough. Study a lot, know a lot — if you don't see your own mind, it's all useless. Studying a lot and knowing a lot just sends everything outward, not realizing that this is the water sweeping you away. The person who studies little, but studies the mind, and can guard the mind to be stable — that is enough. They can escape suffering because of the mind. That is, we guard our own mind so that the water does not sweep it away. If we can truly guard our mind, we can make it angry or not angry as we wish, or keep it neutral. Just think — is that comfortable? When it's about to get angry but doesn't — is that comfortable or not? Or when fire burns down our house — how could that be comfortable? Conquering others is like that.</p>
+<p>But conquering oneself — peaceful, neutral, no anger — only comfort. Everyone is comfortable. Everything we do, we seek comfort. Earning money, gold, possessions — all of it is seeking comfort. Worldly people say: "A person who doesn't know how to get angry has no heart. What good is it to be neutral?" Don't believe their words — you'll be ruined. Believe in yourself instead. These defilements — greed, hatred, delusion, etc. — we have plenty of them, but we don't use them because they cause trouble and suffering for ourselves and others. It's better not to use them.</p>
+<p>All that I have said — love, hatred, anger, and so on — all of that is called defilements. We want to abandon defilements. We meditate, practice concentration, precisely to abandon defilements. Travel far and wide to listen to Dhamma talks, go to teachers, go wherever you like — if you can abandon defilements in this mind, that's enough. If you can't abandon them, you're still the same. Go as far as you like — it's difficult. Almost everyone has defilements. If we purify defilements, we are at ease. If we don't, we are troubled and agitated all the time.</p>
+<p>Ānanda praised again and again, praising the Buddha: "How marvelous! The Blessed One is truly marvelous — He awakened in the midst."</p>
+<p>What is "awakening in the midst"? It means awakening in the very middle of defilements. When humans are born, they have lust, aversion, delusion, and wrong views — everyone. The Buddha had them too. He was born right in the middle of them. Yet He awakened in that midst — that is, within the heap of defilements themselves. Without defilements, what would one use to awaken? Therefore Ānanda praised so much. Not only Ānanda — all of us should also praise.</p>
+<p><strong>Strategies for Fighting Defilements (Kilesa Mara)</strong></p>
+<p>Our own body is, in truth, a battlefield for fighting defilements specifically. We must fight against various forms of hardship. Once born with name-and-form (<em>nāma-rūpa</em>), we have hunger and thirst, desires for this and that. Necessarily, we must satisfy the body's needs.</p>
+<p>This body can be further divided into: eye (1), ear (2), nose (3), tongue (4), body (5), and mind (6). Each has its own different needs. When one person wants something, everyone must work together to satisfy that need. Before we can even satisfy one need, or we get something but it's not enough, then another person wants something else — we run to provide for that one, running back and forth, providing for this one and that one, continuously, endlessly, until this life ends. Most of the things we desire are not inherently present within us. What is not inherently present is hard to obtain. And when we desire something that is not inherently present and hard to obtain, if we don't get it as wished, then stealing and thievery arise — that is defilement.</p>
+<p>The eye is for seeing forms. But it doesn't just see passively — it sees many things: for example, seeing something as beautiful or ugly. If beautiful, one likes it and desires to possess it. If ugly, one dislikes it and does not wish to see it. If that form is already within us, no problem. But if that form belongs to something outside of us, then it becomes a big trouble — trouble because we steal from one another.</p>
+<p>All human beings in this world are thieves.</p>
+<p>Servants, maids, young, old, aged, decrepit — no matter what profession — all are thieves. Even recluses in the Buddhist religion are not exempt from thievery. When the eye sees a beautiful form of someone's child, wife, or husband — we don't know — we must steal it. At the very least, we think "this form is truly beautiful." A little more, and it sticks in the eye and won't disappear. If desire is strong, we might even snatch or seize it until we get it. That is called a thief. At the beginning, one doesn't even know that one loves or likes it — that unawareness itself is called being a thief.</p>
+<p>Any house or city full of thieves — that house or city cannot live in peace. People living together in the world, being without moral precepts, bring trouble into the world — that's one point. If you want the world to live in peace, then eliminate the root cause: each person's own heart. First, stop being a thief. That is: the eye sees forms — know that you see forms, but don't concoct them as beautiful or ugly. If you do concoct them as beautiful or ugly, then don't cling to them as mental objects. Forms arise due to karmic shaping — no one can shape them at will. Once arisen, they experience their results (<em>vipāka</em>), experiencing happiness and suffering continuously until life ends. The eye's function is to see forms — so just see them. See the karmic results manifesting as various postures and behaviors. Then the eye is not a thief; the eye has pure precepts — that's one person.</p>
+<p>The ear is for hearing sounds. Just hear — don't go stealing other people's sounds. Sound has no self. Sound arises from external material elements striking each other. Once arisen, the ear perceives it, clings to it, and then concocts all sorts of things — pleasant or unpleasant. Sometimes if the sound is pleasant, one likes it; if unpleasant, one gets angry. Sound is a mental phenomenon (<em>nāmadhamma</em>), yet to that extent, one still clings and steals it.</p>
+<p>There was a certain monk from Khemara who, before he practiced meditation, was a musician. When he came to practice meditation for tranquility, if he heard a musical instrument being played out of rhythm somewhere, he would go and rearrange everything: "Playing like that is wrong, not good, out of rhythm, out of tune — play like this, then it will be beautiful." He couldn't do his meditation. Sometimes he even got up from meditation. To that extent — this thief, even as an ordained monk wrapped in yellow robes, wouldn't listen — that's the second thief.</p>
+<p>The nose is for breathing in and out — but that's not enough. At the same time, it must also inhale foul and fragrant smells. Sometimes, if a foul smell is unpleasant, one must endure it. If one can't endure, one covers the nostrils with a hand. If truly unbearable, one runs away. Among all the organs in our body, the nose is the most pitiable. The foulest, most disgusting smells — it must inhale them. If it doesn't inhale, there's no air for the lungs. If it inhales foul smells into the lungs, pneumonia may develop. Yet even so, the nose becomes a thief. The nose's thievery is a little better — not as harmful as the eye's thievery.</p>
+<p>A certain deity saw a monk smelling a flower and said, "Why are you stealing someone's property?" The monk replied, "I haven't stolen anything — I'm just smelling a flower." The deity said, "That itself is stealing. The flower's scent goes with the wind. You receive and inhale it — that is stealing, not being restrained."</p>
+<p>The tongue is for tasting the flavors of food — sweet, sour, spicy, salty. Without knowing these flavors, we couldn't live; we would die. Besides knowing those flavors, it is also for speaking, for knowing language, tone, short and long vowels, etc.</p>
+<p>If no one brings food and puts it in our mouth, the tongue would receive no flavor at all. Because it depends on others to bring food to it, when it receives a pleasing flavor, it clings to it, wanting that flavor to last long. When the flavor disappears, it regrets and wants it again. Not getting it, it struggles and suffers. That flavor does not disappear — so it becomes a thief, but only inside its own home (the body).</p>
+<p>The body is for touching cold, heat, softness, hardness, and soft, smooth things, etc. The body is not only for receiving tactile impressions — it also serves as a support for all kinds of burdens and paraphernalia. When born, one must first establish this body as the foundation, then it divides into eye, ear, nose, tongue, and mind, each taking on its own function. If we consider it, we live because of the body. The body is called the "householder" of all the organs. The eye, ear, nose, tongue, and mind — whenever they perform their functions, they must connect with the body. Perhaps for this reason, nature has gathered them all at the head, near the brain, to facilitate their work. The body is slightly different from the eye, ear, nose, and tongue. Even if others don't bring something to it, it can go and touch things by itself. Whatever it needs — no matter how near or far — it must get it. And what the body brings to touch, it steals from others without them even realizing it. Even if they realize, it has already stolen first. So that's another thief.</p>
+<p>The mind is the sixth thief. This one is even more vicious. It steals indiscriminately — regardless of face, time, or person. As soon as it encounters an object, whether good or bad, coarse or subtle, it steals it all. Whether the owner knows or not — it's all stealing. Even if others aren't harmed, we, the thief, are harmed. Harmed because the mind is not at peace; it wanders and projects outward.</p>
+<p>In summary, all six are thieves together — unable to restrain themselves, lacking mindfulness. Whoever has these six sense-bases — eye, ear, nose, tongue, body, and mind — and does not restrain them, letting them wander after their objects, stealing from others — they are truly thieves. If these six are thieves inside the house (the body), then millions of other houses are also thieves — it becomes chaotic.</p>
+<p>Defilements sweep and carry human beings along the current, unable to find anything to cling to — like a person who has fallen into the water and is about to drown. The Buddha gave the teaching: <em>Padīpaṃ n'agavesathaṃ ogho nābhikirati</em> — "Seek a lamp, so that the flood does not overwhelm you." When defilements carry all beings away, you should find a refuge — an island that the water cannot reach (that is, the peace of the mind).</p>
+<p>Defilements arise entirely within ourselves. Whoever sees the danger and suffering in defilements and intends to fight them should first establish the battlefield right here in this body (that is, at the six sense-bases) as the foundation. Then set up a guard post to keep watch (that is, mindfulness). When defilements come in through any door, you will know them — they are the mind itself, deceiving the mind, causing wisdom to decline. The defilements pretend not to be defilements. If the guard lets the enemy in and does not guard the battlefield well, the enemy becomes friendly with the guard, and the guard becomes heedless. The guard must not be friendly with anyone. He must perform his duty with utmost strength. Whenever he sees someone coming, he must report to the commander periodically. If he recognizes an enemy, he must shoot immediately, not giving the enemy a chance to react. Even if the enemy is far, far away, the bullet can still reach — and shoot without missing, able to break up a large enemy force.</p>
+<p>A good warrior, brave and skilled in fighting the enemy of defilements (Kilesa Māra), must have these qualities: shoot fast, shoot quickly, shoot far, shoot accurately at large enemy forces. When defilements like lust arise through thoughts, quickly establish mindfulness, determine to destroy them before they can arise. Once they arise, they will spread widely — that is called "shooting fast."</p>
+<p>Even if defilements arise far away from us, but they connect to us, quickly establish mindfulness, take those defilements as the object, see their root, and destroy them — that is called "shooting far." All defilements — with lust, aversion, delusion as the generals leading all the other defilements to surround us, making our minds defiled — must be eliminated with <em>anattā</em> (not-self) as the weapon, striking the large enemy force flat. Once we have these three generals in our grasp, we need not fear the internal enemies that would attack and destroy our concentration.</p>
+<p>All you meditators who truly intend to fight defilements — when defilements come, you surrender to them and confess, yet you think you have won. Defilements deceive you into believing them. Some people, when practicing for a while and the mind becomes calm, reaching <em>appanā samādhi</em> (absorption concentration) which they have never experienced before, think they have eliminated defilements. They smile, radiant and bright, all alone, or boast that the Path, Fruition, Nibbāna, jhānas, attainments — are easy, just a little thing. But they don't truly know what that state is, what level it belongs to. Some are deceived by defilements into thinking: "You have already made great effort — now rest. You've practiced too much, too tightly, too tensely — soon your limbs will be paralyzed. You won't be able to practice, or your life will be short. You won't be able to benefit others." Some are deceived by defilements into thinking: "It's too cold, too hot, or sitting too long — leg pain, back pain, waist pain, etc. Rest first, then do it later." All of these are being deceived by defilements, becoming compliant to them.</p>
+<p>If one truly fights, the words "I've made great effort, now rest to give the body strength" or "fear of cold, heat, pain here or there" — all of that is simply fear of death. Such things never occur to a serious spiritual practitioner. They only strive with effort to attain their goal. Even the thought "I am striving for such-and-such Path and Fruition" does not arise. There is only striving for the purity of the mind. Seeing whatever causes defilement of the mind, they strive only to completely eliminate that.</p>
+<p>End of Dhamma Talk</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="95._Basics_of_Meditation_Practice.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">95</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">95. Basics of Meditation Practice</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="97._Dhamma_Practice_Principles.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">97</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">97. Dhamma Practice Principles</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

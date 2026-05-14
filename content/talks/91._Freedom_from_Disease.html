@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>91. Freedom from Disease</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="90._Emotions_of_the_Mind.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(90)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="92._Dhamma_Dwells_with_the_World.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(92)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/91.%20Freedom%20from%20Disease.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>91. Freedom from Disease is the Greatest Blessing</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p><strong>People are born with inherent diseases.</strong></p>
+<p>The Buddha taught that freedom from disease is the greatest blessing because from birth, people already have inherent diseases. Every cell is composed of earth, water, fire, and wind — these are material elements. Those material elements are the basis, the source of countless diseases. Apart from cellular diseases, there is another kind of disease that modern doctors cannot find: greed, anger, and delusion. Only the Buddha discovered them, and he can cure them completely.</p>
+<p>And that knowledge has been passed down to this day. Want me to teach you first aid? First, you must practice sitting and fixing your mind to know about the mind itself, because the mind is the source of countless diseases. If you don’t know about the mind, when disease arises you won’t know, and you won’t know where to treat it. Establish mindfulness to know your own mind: what kind of good or evil, coarse or subtle thoughts you have. See your own mind in every moment.</p>
+<p>This state of self-awareness is good and beneficial knowledge, better than knowing about other people or other things. This is the first aid the Buddha taught for the disease that everyone already has, but they don’t know how to treat it and don’t understand that they are sick. Only when the disease becomes fully acute do they realize they have a disease — by then there is no way to cure it.</p>
+<p><strong>We seek the four necessities solely to care for physical diseases.</strong></p>
+<p>In truth, each of us has built a hospital on two pillars, and we are constantly nursing ourselves, also serving as our own director. Discomfort called fever — from headaches, fevers, stomachaches, colds, coughs, even hunger and thirst, severe or mild pain — is all called fever. The director must examine and know it all by themselves, then constantly treat, remedy, nurture, and eliminate it themselves.</p>
+<p>Clothing to cover the body, dwellings, beds, shelters that we seek — all are to care for this fever. And we care for it every day, every moment. This kind of disease has been present in the world before we were even born. Our parents, grandparents, and ancestors once lay in this hospital (the world) before us. Our descendants, when born, will lie in this hospital again endlessly, without end.</p>
+<p>Go ahead and study medical science — no matter how much you study, you will never finish. Treat patients — they will never end. The caregivers will keep caring as long as the hospital and patients exist (the world does not perish). Caregivers will care endlessly: headaches, stomachaches, fevers, coughs, colds, etc. These are diseases arising from the body.</p>
+<p><strong>Mental diseases are chronic and difficult to cure.</strong></p>
+<p>Another kind of disease arises in the mind. When it arises in anyone's mind, they will suffer to the point of death or near death — no less than diseases arising in the body. These diseases are: rāga (lust), dosa (aversion), moha (delusion) — or greed, anger, delusion. They are chronic diseases, very difficult to cure. Even the world’s best doctors may have these diseases in themselves, to a greater or lesser extent.</p>
+<p><strong>The disease of rāga (lust)</strong></p>
+<p>Rāga is desire. It makes the mind restless, thirsting for the objects it craves, thus causing discomfort. This is called the disease of rāga. It must be cared for by alleviation — allowing the eye to see forms, the ear to hear sounds, the nose to smell odors, the tongue to taste flavors, the body to touch pleasing, desirable things — the five strands of sensual pleasure. That is the care for the disease of rāga.</p>
+<p><strong>The disease of lobha (greed)</strong></p>
+<p>Lobha is boundless wanting. It causes the mind distress from insatiability, from never having enough. Whether one has much or little, one always feels lacking. This is called the disease of lobha. It must be cared for by alleviation — giving material things that the disease desires: money, possessions, etc.</p>
+<p><strong>The disease of dosa (anger/hatred)</strong></p>
+<p>Dosa is thoughts of harming a person or thing one dislikes, wishing to destroy that person or thing. When destruction is achieved as desired, the anger gradually subsides. Thus, leniency is a way of caring for the disease of dosa.</p>
+<p><strong>The disease of moha (delusion)</strong></p>
+<p>Mohá is not knowing wrong from right, good from evil, what should or should not be done. It depends on the lamp of wisdom. If there is analysis or reflection, it can be alleviated. Therefore, reasoning about things, or receiving advice and admonishment from wise people — these are ways of caring for the disease of moha.</p>
+<p><strong>Mental diseases, if moderate, can also produce benefits.</strong></p>
+<p>The diseases of rāga and lobha, if they arise in the human mind in moderation and are cared for appropriately according to one’s condition, become constructive forces that make this world solid and stable, causing it to prosper and last long.</p>
+<p>The disease of dosa is hot and very dangerous. If it arises in someone’s mind in moderation and is applied appropriately in suitable activities, it can produce benefits. But if it arises violently, it will bring ruin to oneself, others, or the community at large.</p>
+<p>The disease of moha is very dark; it hinders progress for oneself and others.</p>
+<p>All the diseases described above, if they become excessive beyond normal limits, are called "madness." As we often hear people say: that person is mad with lust, that one mad with greed, this one mad with anger, mad with delusion, etc. In short, if it reaches the stage of madness, hope is lost — it is very difficult to remedy.</p>
+<p><strong>The world is a hospital for beings sick in body and mind.</strong></p>
+<p>All three realms are called a hospital for beings still afflicted with physical and mental diseases. Beings still sick in this great hospital (the world) — those born from a womb are said to be lying in a special room and require special doctors (mother and father) for special care. After birth, lying in arms, in a cradle, or in a house is said to be lying in a recovery room — the medicine and doctor must be appropriate for the convalescent patient.</p>
+<p><strong>The Buddha is the physician of the mind.</strong></p>
+<p>The body arises from material elements: earth, water, fire, wind, etc. When a disease arises in these material elements — perhaps lacking some element — once the doctor diagnoses the true cause, they must treat by adding that element. The mind, however, is a conditioned phenomenon that arises and ceases together with its object. The knowing element is the one that presides. Whatever disease arises in the mind must be measured by its object (ārammaṇa).</p>
+<p>Therefore, ordinary doctors who lack knowledge and skill regarding those objects cannot treat mental diseases. Our Buddha is a supreme physician who uses the medicine of Dhamma to cure diseases completely. Once cured, it does not arise again, leading to deathlessness, the extinguishing of suffering and fever, the abandoning of longing, without anxiety. Because the Buddha fully understood the origin of mental diseases in every respect, and prescribed a supreme medicine named "The Eightfold Path" or "Morality, Concentration, Wisdom" suitable for each disease.</p>
+<p><strong>The supreme medicine used to treat mental diseases</strong></p>
+<p>Furthermore, for convenience in treating specific diseases, the Buddha specially prepared medicines for each:</p>
+<p><strong>For the disease of rāga (lust):</strong> It makes the mind incline toward passion and attachment. Whether seeing a form with the eye, hearing a sound with the ear, etc., one sees it as lovely and pleasing, giving rise to passion and delight. The prescribed medicine is <strong>asubha</strong> — contemplating it as repulsive, loathsome, or as a cause of suffering, etc.</p>
+<p><strong>For the disease of lobha (greed):</strong> The craving to acquire without knowing satisfaction, because one does not see the value of giving and sharing with others. Therefore, the Buddha taught to cure it with <strong>generosity (dāna)</strong>. When one gives, the recipient expresses gratitude and joy, and may do something in return, bringing satisfaction. Then one sees the priceless value of giving. Or one realizes that all possessions in this world are not one's own alone but are communal — they merely change hands for use. When we die, everyone leaves them behind in this world; no one takes them along except merit and demerit.</p>
+<p><strong>For the disease of dosa (anger/hatred):</strong> One thinks only in terms of destruction, focusing solely on others' faults and wrongdoings without reflecting on their good qualities or virtues. Even a small fault is magnified, or if others have no fault at all, we create one ourselves out of our own displeasure. This is a very dangerous disease — it can create hell even in heaven, causing trouble for others. The Buddha taught to apply the cooling medicine of <strong>mettā (loving-kindness)</strong> — wishing others to be happy, seeing the danger of causing trouble to others.</p>
+<p>Everyone is born with defilements to some degree, and everyone hates suffering and desires happiness. So they engage in what they think is good and right, which will bring happiness. But because defilements still dwell in the heart, mistakes can sometimes occur. Therefore, if you are about to be angry with someone, consider their intention, or gather their faults and wrongdoings as far as you can, then subtract their virtues as far as you can. If their virtues still remain, it is acceptable — do not be angry with them yet. Also, do not forget to subtract your own faults or wrongdoings from your own virtues — see what result you get.</p>
+<p><strong>For the disease of moha (delusion):</strong> Wrong thought, wrong view leading to wrong action and wrong speech contrary to truth — seeing wrong as right, good as bad, etc. This prevents affairs from succeeding as they should, like a fish caught in a net or a bird trapped in a snare. It brings ruin only to oneself. It must be treated with the medicine of <strong>suta</strong> — repeatedly listening, hearing, inquiring, and reflecting.</p>
+<p>In addition to these specific medicines for each type of disease, the Buddha also provided medicine for various diseases and complications — namely, the <strong>40 meditation subjects</strong> (as detailed elsewhere).</p>
+<p><strong>People with mental diseases that are incurable because they have become accustomed to them.</strong></p>
+<p>The mind is a mental phenomenon; the diseases arising in it are also mental phenomena. The Buddha was supremely skilled in mental phenomena, so he knew them and prepared the medicine of Dhamma — also mental — to treat them correctly and cure them completely. Once cured, they never return again. The Buddha and the Arahants completely cured their mental diseases with this supreme medicine.</p>
+<p>They look at us, whose diseases are currently acute, with compassion. Therefore, they gave us the medicine and the medical texts so that we can use them. But here's the problem: people who have had a chronic disease since birth — neither dying nor recovering — their lives have become accustomed to that disease.</p>
+<p>The Buddha's saying: "Arogya paramā lābhā" — Freedom from disease is the greatest blessing. They will never know it, because they have never seen or experienced freedom from disease. They have only ever seen and experienced disease constantly. Therefore, it is difficult for such people to cure that disease. Or if the disease disappears from their body and mind, they may feel uncomfortable.</p>
+<p><strong>A person with the disease of rāga</strong> manifests it outwardly through singing and enjoyment. People with the same disease who hear it are delighted; some even take that disease as their profession. But the Buddha said that singing is the crying sound of a person afflicted with rāga. When it shows its poison through dancing, wiggling eyebrows, shrugging shoulders, lifting feet and hands, tossing the head and tail — acting like someone possessed by a spirit — the Buddha said that is the behavior of a mad person.</p>
+<p>Yet people with the same disease find it amusing and laugh heartily. Sometimes they even pay money to watch that laughter — which is one symptom of the disease of rāga. The Buddha said that behavior is like that of an infant.</p>
+<p><strong>Therefore, to cure mental diseases is the greatest blessing — the blessing of freedom from disease.</strong></p>
+<p>In summary, all human beings in this world are born as patients. Everyone has fevers and diseases arising from body and mind. Everyone is born, so to speak, nursing their own fever. Those who have not yet cured their mental diseases die and return to their "old home," then are reborn and come back to lie in this hospital again, suffering and troubled for eons and ages.</p>
+<p>Those who have cured the diseases arising from the mind — those who have ended defilements — even if physical diseases still appear in their bodies, they are merely sensations; they do not cause the mind to become acute. Because their mental disease is gone; the cause (upādāna) has been completely uprooted. Therefore, they are happy and have obtained the greatest blessing — freedom from disease.</p>
+<p><strong>The five aggregates are a heavy burden.</strong></p>
+<p>There are two kinds of saṅkhāra (conditioned phenomena):<br />
+1. <strong>Rūpa saṅkhāra</strong> — the body composed of the four elements (earth, water, fire, wind).<br />
+2. <strong>Nāma saṅkhāra</strong> — thoughts that concoct and condition mental states.  </p>
+<p>Both of these are the basis for the diseases described above. If the body has no pain, sickness, headache, stomachache, etc., then it is still subject to heat, cold, and various contacts. Once this body is born, if it cannot care for itself, it must depend on others. When it grows up, it must become its own director, and then also take on the burden of directing, nurturing, and serving others — cycling on endlessly without end. Thus, it accords with the Buddha's saying: "Bhārā have pañcakkhandhā" — The five aggregates are indeed a heavy burden.</p>
+<p><strong>Saṅkhāra is the basis of suffering. When saṅkhāra is calmed, one dwells in happiness.</strong></p>
+<p>As for nāma saṅkhāra — thoughts that concoct and condition, arising from the six sense bases (eye, etc.). When they contact a form, they concoct and condition the mind toward pleasant or unpleasant objects. If the object is pleasant, delight arises — the disease of rāga. If they concoct toward an unpleasant object, displeasure arises — suffering and distress, giving rise to the disease of dosa. Both of these saṅkhāras are the source and basis of all suffering.</p>
+<p>This accords with the Buddha's saying: "Saṅkhārā paramā dukkhā" — Saṅkhāras are the utmost suffering. No matter how great any other suffering in this world may be, it does not go beyond saṅkhāra; it all comes down to this single saṅkhāra. Therefore, it is called the utmost suffering. If there were no saṅkhāra, where would suffering come from? Thus, the Buddha said: "Tesaṃ vūpasamo sukho" — When those saṅkhāras are completely calmed, one dwells in happiness.</p>
+<p><strong>The Dhamma medicine is contemplating saṅkhāra as impermanent, suffering, and not-self.</strong></p>
+<p>The Buddha and the Arahants — when they had mental diseases — treated them in this great hospital (the world), acting as their own directors (their own selves), using the Buddha's medical texts and the Dhamma medicine by contemplating both saṅkhāras as impermanent (anicca), suffering (dukkha), and not-self (anattā).</p>
+<p>As the monks chant at a funeral or when reflecting on impermanence:<br />
+"Aniccā vata saṅkhārā, uppādavayadhammino" — Impermanent, indeed, are conditioned phenomena; they have the nature to arise and pass away.<br />
+The meaning: All saṅkhāras are impermanent. When they arise, they are just phenomena. Rūpa saṅkhāra arises as a phenomenon; nāma saṅkhāra arises as a phenomenon. Because they arise by themselves according to their own causes and conditions — we cannot force them to be this or that according to our wishes, such as wishing to be born beautiful or very wealthy. That is impossible. Whatever the causes and conditions have done, they arise with the power of those causes and conditions. Both the causes and conditions, and the arising of those saṅkhāras, are phenomena — they already operate according to their own reasons.</p>
+<p>The next line: "Uppajjitvā nirujjhanti" — Having arisen, they cease. That too is a phenomenon, because it is their nature to be that way. Rūpa saṅkhāra arises to serve as the basis for all diseases that can occur in the body — that is its function. Nāma saṅkhāra, which dwells within the body, has the function of knowing and directing the care of itself — it commands according to its function. Whether one recovers or dies, it is all learning in itself.</p>
+<p>When the mind does not cling to these as "me" or "mine," then the mind will not suffer. The body may be in pain or feverish, even break apart and die — that is just the nature of the body, which must be that way.</p>
+<p><strong>Having cured mental diseases, one need not return to lie in this hospital of the world again.</strong></p>
+<p>As for nāma saṅkhāra, when it comes to dwell in this body, it must perform the functions of a dweller — such as sensing contacts through the six sense bases, giving commands for those functions, etc. At the same time, as long as the mind is not yet pure, diseases such as rāga, dosa, moha arise. The mind must be its own director for these diseases, treating them only with the Dhamma medicine. No other medicine can cure them. Nāma saṅkhāra has no form, so the medicine must also be mental — Dhamma medicine. This means taking those diseases and contemplating them to see their origin. For example, rāga arises from form because of grasping it as beautiful, lovely, desirable, etc., and then abides in the concocting of that form, and ceases when one contemplates its true nature with right wisdom. Only then is it completely cured. And once cured, one never needs to return to lie in any hospital in this world again.</p>
+<p><strong>Freedom from disease is the greatest blessing.</strong></p>
+<p>Therefore, all of us, when we realize that we are still patients because diseases have arisen in body and mind, should see the danger of those diseases and then treat them as described. Then we will become cured, obtaining the greatest blessing in this life, in accord with the Buddha's saying:</p>
+<p><strong>"Arogya paramā lābhā" — Freedom from disease is the greatest blessing.</strong></p>
+<p>The care described here is correct and certain, and yields results in line with everyone’s intentions. When everyone understands this method of care, whether living at home, in a monastery, or in the forest, they can care for themselves anywhere — free from all dangers, diseases, and calamities, attaining happiness and peace.</p>
+<hr />
+<p><strong>Someone asked Luang Pu Thate Desaraṅsī:</strong></p>
+<p>"I have a chronic disease that appears periodically. For the past twenty years, I've had a sensation in my brain like something pressing — very painful in my head. Tests showed no tumor, no pathology in the brain. I went to London for treatment; the doctor gave me injections and the symptoms disappeared for five years. After that, it returned periodically — coming and going until the present. Right now, it has been gone for four days, but it will probably return. I don't want surgery or injections. I'm trying to practice meditation. Is there any way to remedy this?"</p>
+<p><strong>Luang Pu:</strong></p>
+<p>"It depends on our mind. If our mind is calm and has enough power to let go — not to cling to that pain — meaning to renounce it, as if discarding it entirely. See it as tiresome, as suffering that has been going on for a long time. Discard it. Renounce it in the present moment. When the mind has full power, it can be completely cured."</p>
+<p><strong>Questioner:</strong></p>
+<p>"What are the methods of practice for letting go?"</p>
+<p><strong>Luang Pu:</strong></p>
+<p>"There are two methods, especially for contending with vedanā (feeling). Wherever it hurts, wherever the pain is, wherever the vedanā arises — fix your mind right there. Focus exclusively on that spot. Know only that one thing. Don't let it wander elsewhere. When the mind is steady, staring only at that pain, contemplating that pain — sometimes, when the mind becomes unified and calm, it may burst apart and vanish instantly. Sometimes, when we bring the mind right into that spot, staring right there, it may suddenly converge and disappear. Or alternatively, we can abandon it entirely as I explained — this is a mass of suffering that has tormented you for a long time. This time, abandon everything. We will fix on only the mind — the mind that sees that suffering, that feels it as suffering. Grasp only the awareness. Don't engage with the sufferer. Grasp the awareness that is staring — only that. When the mind has this power, it can be cured as well."</p>
+<p><strong>Questioner:</strong></p>
+<p>"When we feel pain, does the pain reside in the brain or in the mind?"</p>
+<p><strong>Luang Pu:</strong></p>
+<p>"It's hard to say. Only when the mind is calm to the point of completely letting go, and there remains one distinct mind, will you know that the mind and the brain are separate matters. Right now, they are still connected. You can't separate them in time. If you speak of one, you hit the other. Speak of the mind, you hit the brain cells. Speak of the brain cells, you hit the mind. Speak of pain, you hit the mind. Speak of the mind, you hit the pain. When the mind lets go completely, the pain disappears — there remains a distinct, separate something. It does not appear. Then gradually you come to know that the mind and the brain are separate. But as long as you are alive, they work together."</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="90._Emotions_of_the_Mind.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">90</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">90. Emotions of the Mind</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="92._Dhamma_Dwells_with_the_World.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">92</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">92. Dhamma Dwells with the World</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

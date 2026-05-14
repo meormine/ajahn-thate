@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23. Body and Mind</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="22._Relying_on_Oneself.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(22)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="24._The_Knowing_Element.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(24)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/23.%20Body%20and%20Mind.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>23. Body and Mind</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p><strong>February 19, 1985</strong></p>
+<p>Buddhism is the teaching of the Buddha. If we speak of what is close, it is close; if we speak of what is far, it is far. Speaking of what is close means what exists within oneself. The Buddha established his teachings right here. Only because there are people, human beings, did the Buddha set down Buddhism. For those without form or self, who have only mind, the Buddha did not establish a religion. For example, various celestial beings, Indras, Brahmas – the Buddha did not establish a religion for them. Or for disembodied beings like pretas (hungry ghosts) and spirits – the Buddha did not establish a religion for them either. The Buddha established and prescribed the religion specifically for each individual person. This is called the very root of Buddhism, right here, nowhere else.</p>
+<p>If a person practices this religion right here, the religion flourishes within that person. If they do not practice, it does not flourish within them. The Buddha taught specifically to the person, not extensively. All the vast and extensive teachings are merely elaborations based on this. They elaborate on the body, on the five aggregates – that is, form, feeling, perception, mental formations, consciousness – within ourselves, expanding them further. Once we have the five aggregates, expansion is natural. Whether expansive or not, they encompass the entire world. The five aggregates are not something small. What the Buddha prescribed within the five aggregates is expansive in that way. The five aggregates extend throughout the whole world. But if we focus specifically on just the mind alone, then it is not expansive.</p>
+<p>When contemplating the five aggregates, do not contemplate extensively. When contemplating all phenomena (dhammas), do not contemplate broadly. Contemplate specifically just this one thing, and then it will expand on its own. We contemplate body, feeling, mind right here. If we contemplate only the mind, it narrows down. If we contemplate the body, it expands outward. Contemplating the mind itself makes it narrow down – that is, letting go of the external part, which is the body, and contemplating only the mind inwardly. Once it is inward, it converges inward and reaches Dhamma directly. Contemplating only the mind reaches Dhamma directly.</p>
+<p>However, when one has reached Dhamma, it is difficult to speak of the mind, difficult for people to understand. Therefore, we must contemplate to know both the external and the internal. When speaking to others, when explaining for them to understand, we must establish this body and then contemplate body and mind together, so that listeners understand easily. If we contemplate only the mind, and reach just the mind, when it comes to external things, they won't understand. Hence, we cannot contemplate only the mind; we must contemplate body and mind in tandem, because body and mind exist together. People who contemplate the mind, who speak of the mind – those who are not practitioners will not understand.</p>
+<p>Therefore, today I will explain the matter of body and mind. That is, we contemplate the body and mind right within ourselves. Contemplate to truly reach body and mind. Do not let it go outward. Contemplate things like <em>kesā</em> (hair of the head), <em>lomā</em> (hair of the body), <em>nakhā</em> (nails), <em>dantā</em> (teeth), <em>taco</em> (skin) – these sorts of things. <em>Kesā</em> means head-hair; we know it only in our mind. Contemplate head-hair until we truly understand it within our own mind. <em>Lomā</em> means body-hair; contemplate it to see it truly within our own mind. Nails, teeth, skin, flesh, sinews – contemplate to see them only within that single mind. Contemplate like this all the way through. Or contemplate the 32 parts of the body to see them only within the mind. Or you can contemplate any single part. If it becomes clear within your own mind, you don't need to contemplate a lot. Contemplating just one thing can also lead to attainment.</p>
+<p>When you contemplate just one thing, taking only the mind this time, and you reach the mind, then you let go of the body entirely. Contemplate only the mind. When the mind is established, then you see that 'heart' (<em>citta</em>) and 'mind' (<em>mano</em>) are different things. The act of contemplating is a matter of the mind (<em>mano</em>). When you reach the heart (<em>citta</em>), there is no activity; it converges into one thing alone: knowing. It can be called knowing or the Element (<em>dhātu</em>). The Element of Knowing encompasses all things throughout this entire world.</p>
+<p>The Element of Knowing, alone, is not involved with external things. That Element of Knowing is merely the 'knower' – that is enough. Even Nibbāna is called the Element of Knowing. Even Nibbāna is called Nibbāna-dhātu. Path, Fruition, Nibbāna – all of them converge into this single Element of Knowing. That is when religion reaches its limit. Go ahead and contemplate, no matter how much. When it descends, when it reaches the Element of Knowing, that is the final limit. No matter how much you practice, that's it.</p>
+<p>No matter how you practice – whether it's morality (<em>sīla</em>), concentration (<em>samādhi</em>), wisdom (<em>paññā</em>), or any practice – it all converges into this single Element of Knowing. What is called <em>samādhi</em> is the mind becoming one. The mind becomes one, not two. That is reaching the Element of Knowing. Or you can call it one-pointed mind (<em>ekaggatācitta</em>), or absorption mind (<em>appanācitta</em>) – whatever you call it. But that Element is not named according to those terms; we merely use conventional designations to help us understand. The Element of Knowing exists in that way. When you reach the Element of Knowing, you have reached the goal, reached the final limit. Buddhism ends right there, only that much. Whoever practices in whatever way, practice away. The final limit is just the Element of Knowing – that alone is sufficient.</p>
+<p>Now, all the extensive talk, all the vast elaborations – they are all expansions from the Element of Knowing. They are called aggregates (<em>khandha</em>), sense-bases (<em>āyatana</em>), elements (<em>dhātu</em>), faculties (<em>indriya</em>) – all of them. They are all differentiated out from the Element of Knowing. When you reach the Element of Knowing, you return to the original. The 84,000 Dhamma aggregates – when you reach the Element of Knowing, they all converge into one and the same.</p>
+<p>This Element of Knowing – let it reach the Element of Knowing frequently, let it attain it constantly. When we are alive, we have to go along with the mind – that is, with its fabrications, with various mental formations (<em>saṅkhāra</em>), with form, feeling, perception, formations, consciousness – it fabricates all sorts of things. After it has fabricated, then it converges into the Element of Knowing, resting for a while before continuing. If there is no rest, we die – that's all. The mind is the same. If there is no Element of Knowing, there is no rest. If one does not reach the Element of Knowing, one becomes insane.</p>
+<p>You must reach the Element of Knowing to reach the ultimate of Dhamma. But as for what truly, genuinely is the ultimate – that which has the ultimate knowledge of Dhamma – that belongs to each individual separately. No matter how much or how little anyone knows, it is their own individual possession.</p>
+<p>Contemplating phenomena that expand broadly outward, we contemplate the body. We are born as human beings, so we contemplate the matter of being human. We contemplate the matter of birth. We contemplate seeing the human being. The Element of Knowing exists within that human being. Human beings arise, they have a self, a form. It is necessary to contemplate that form – the human being – our own self, its value and benefit. Investigate and contemplate to see its supreme value and benefit. It all arises from the Element of Knowing, which can know everything. If we do not contemplate to reach the Element of Knowing, we will not see the value of the human being. Human beings are born with immense benefit. For example, the fact that we are able to ordain is because we are human beings. Being born as a human being is considered a great merit and virtue. To ordain in Buddhism, we need to have a human being, a self, a form – only then can we ordain. The immense value within ourselves – we can do everything. So think of the value of being human, see the worth of being human.</p>
+<p>We ordain in this religion, we wear the yellow robe because we have a form and a self. We can observe morality, practice concentration and meditation because we have a form and a self. To attain Path, Fruition, and Nibbāna, we must contemplate the Element of Knowing together with our self – only then can we attain Path, Fruition, and Nibbāna.</p>
+<p>Constantly contemplate the value of being human. This serves as a dwelling place for Dhamma, one kind of abiding. If you do not contemplate this, you have no dwelling place. A person becomes empty of benefit. Contemplate this as your dwelling, and you will live in happiness. If you do not contemplate the value of being human, how will you live? A person just existing, without any benefit, will become weary. Even if you are a monk or a noble one, you will become weary of monkhood and the Sangha, neglect your duties and practices, forget everything, become muddled and confused. You practice but you don't know what you're practicing – you just go through the motions.</p>
+<p>But if you think of the value – whatever you do, each and every thing – you must contemplate it thoroughly, carefully, and completely, seeing its worth, its benefit. Then you will have the energy, effort, and persistence to practice. That becomes your dwelling. When you practice this as your dwelling, and it reaches the heart, then gradually you will see the great value and benefit within your own heart.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="22._Relying_on_Oneself.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">22</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">22. Relying on Oneself</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="24._The_Knowing_Element.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">24</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">24. The Knowing Element</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

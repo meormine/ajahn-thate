@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>59. The Five Maras</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="58._A_Neutral_Mind_is_Very_Important.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(58)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="60._Seeing_Defilements_as_Good.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(60)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/59.%20The%20Five%20Maras.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>59. The Five Maras</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>August 12, 1988</p>
+<p>If you keep your mind neutral and simply at ease, it remains clear and pure at all times. The Lord Buddha abided in that state, had that kind of mind, and thus was freed from Mara.</p>
+<p>Our physical body is an adversary to the inner mind. Every person has this adversary. The Lord Buddha taught about "Mara" — the obstacles that hinder the performance of wholesome deeds. The term "Mara" here, as taught by the Buddha, consists of five kinds: (1) the Khandha Mara, (2) the Kilesa Mara, (3) the Abhisankhara Mara, (4) the Devaputta Mara, and (5) the Maccu Mara. These five are present within each of us.</p>
+<p><strong>Khandha Mara</strong> refers to our own aggregates. They present all sorts of obstacles when we try to do good and wholesome deeds. For example, being sick or unwell, not at ease — especially inner laziness and sloth when it comes to performing wholesome actions. We tend to take shortcuts, seeing only our personal benefit, thinking we are acting for our own good, which we believe is wholesome. But in reality, it is defilement, it is Mara itself. Suppose we intend to practice diligent meditation, but then we feel tired, so we rest and sleep first, waiting until we wake up, thinking that is fine. But in truth, Mara laughs. When we follow Mara's will, Mara laughs heartily. Hence it is called "Mara." When it comes to daily duties and rituals, we are lazy and indifferent, seeing them as trivial and thus neglecting them. This becomes a major obstacle to performing wholesome deeds.</p>
+<p>Sickness and discomfort are similar. If a person is diligent, resolute, and courageous, no matter how much they suffer, they become even more courageous. By retreating into solitude, they become even more at ease, bravely fighting until they win. That is called conquering Mara.</p>
+<p><strong>Kilesa Mara</strong> — the Khandha Mara is itself a part of the defilements arising from within the mind, making everything we do steeped in laziness and sloth. That is called "Kilesa Mara." When we practice wholesome deeds and live the holy life in Buddhism, aiming for the Path, Fruition, and Nibbana, aiming for purity, defilements come to obstruct and hinder us, giving rise to love, anger, hatred, and aversion. These create obstacles so that we cannot accomplish our goal. Defilements arise internally; in whatever we do, defilements block us. Therefore, it is called "Mara."</p>
+<p><strong>Abhisankhara Mara</strong> is great craving, the desire to become great and mighty. It is the insatiable desire to gain more and more success. Whatever we have done, we are not satisfied; we want even more. Why is it called Abhisankhara Mara? Because it is dissatisfied with things as they are. Being content with what we have and our station in life — that is called being satisfied.</p>
+<p><strong>Maccu Mara</strong> is death. Death comes to destroy. When we are doing wholesome deeds, death comes to destroy them. Before the right time, it cuts short our goodness. Whatever we do for our own benefit, comfort, and happiness, death cuts it short. That is called Maccu Mara.</p>
+<p><strong>Devaputta Mara</strong> refers to the realm of a certain divine being in heaven, the Mara who came to challenge the Lord Buddha. That is called Devaputta Mara — that is one aspect.</p>
+<p>Now, speaking of <strong>Khandha Mara</strong>: form, feeling, perception, mental formations, and consciousness — each of these is a khandha, and each of these is a Mara. Therefore, we ourselves are entirely within the domain of Mara. If we are entirely within Mara's domain, then we are disciples of Mara, grandchildren of Mara.</p>
+<p>How can one become free from "Mara"? The Lord Buddha became free from Mara and thereby attained the Path, Fruition, and Nibbana. The Lord Buddha conquered the "Five Maras" and thus attained Supreme Self-Awakening, becoming a Buddha.</p>
+<p>We have Mara within us. How can we become free from this Mara? How can we become free from form? How can we become free from name-and-form? Freedom does not come by running away, nor by fighting and killing. It comes by seeing the danger of it, by knowing it thoroughly, by understanding the nature of Mara — that the aggregates are just that. Even if they are sick, we know that the aggregates are sick, that they are uncomfortable. The mind does not become discouraged or weak. We fight with knowledge and understanding, seeing the truth of it. The aggregates are the aggregates' business; the five aggregates are the five aggregates' business; our practice is our practice; the mind is our mind.</p>
+<p>The five aggregates are indeed mental phenomena (nama): feeling, perception, formations, consciousness — they are nama, they are aggregates. But when speaking of the truth, the aggregates are one thing, the heart is another. As I say, the "heart" (jai) is not the aggregates. "Mind" (citta) is something else. When the heart is one, neutral, unaffected, then feeling, perception, and formations do not disturb it. What disturbs is the mind. That which is neutral is called the heart. Nothing can disturb that neutrality. The Lord Buddha was freed through this state, not through fighting or killing. That is how He conquered Mara.</p>
+<p>Nevertheless, while still within Mara's sphere — before His final Nibbana — He remained in Mara's sphere, yet He maintained mindfulness to dominate at all times, protecting Himself constantly. He kept His mind neutral at all times. That is one way He conquered.</p>
+<p><strong>Kilesa Mara</strong> is the same. Defilements are things that defile the mind, making it unclear. Everything — love, anger, hatred, liking, disliking, all the taints — they are matters of the mind. Love is a poison, hatred is a poison, anger is a poison, liking and disliking are poisons. The "heart" (jai) does not know liking, does not know anger, does not know hatred, does not have conceit or opinions. That belongs to the "mind" (citta). The mind becomes defiled because it goes out to love, to like, to hate, to dislike, and holds onto conceit. That is how it gradually becomes defiled. When the mind becomes free from that — that is, when it knows and understands that from the beginning these things have always been that way — we become free by making the heart neutral. Keep the heart neutral, simply at ease, and it remains clear and pure at all times. The Lord Buddha abided in that state, had that kind of mind, and thus was freed from Mara, freed from Kilesa Mara.</p>
+<p><strong>Abhisankhara Mara</strong> is the same. When we practice meditation, we crave success, we want it to be this way or that, we want to know this or that, we want it to unify, to become calm, bright, and clear — this itself becomes an obstacle to practice. That is called Abhisankhara Mara — the craving for more and more. In truth, when practicing meditation, make the heart neutral, set it down in equanimity. No need to crave, no need to be troubled, no need to be agitated. Once the heart is neutral and at ease, it lets go and becomes meditative concentration. Then we are freed from Abhisankhara Mara.</p>
+<p><strong>Maccu Mara</strong> is death. Let it die if it must die. Contemplate it clearly, see it clearly. What is death? Upon death, it becomes earth, water, fire, and wind — no longer associated with form or name. Form arises from earth, water, fire, and wind, then disintegrates and dissolves back into earth, water, fire, and wind. We have been clinging to it as self, as belonging to me or to others. Let it go, be equanimous, neutral. The mind remains peaceful. Even if it is disturbed or afflicted in various ways, we know and understand it again. There is no way to avoid all affliction. The Lord Buddha's endurance was the endurance of one who sees things as they truly are and then lets go at all times.</p>
+<p><strong>Devaputta Mara</strong> is difficult to discuss, but the Lord Buddha conquered all five Maras in this very way.</p>
+<p>Therefore, the Lord Buddha taught us to do wholesome deeds, to have sharp, discerning wisdom, to know thoroughly and completely the nature of the five Maras. Even if Mara becomes angry or hateful, let it be. It cannot do anything to us. Mara's hell does not exist; only the hell that the Buddha taught about exists. That is where we conquer Mara. When we contemplate, see clearly, understand, and realize the truth like this, Mara becomes disheartened and cannot do anything to us. That is called his defeat, in every situation. Enough.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="58._A_Neutral_Mind_is_Very_Important.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">58</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">58. A Neutral Mind is Very Important</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="60._Seeing_Defilements_as_Good.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">60</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">60. Seeing Defilements as Good</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

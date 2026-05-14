@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>85. The Four Elements</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="84._Principles_of_Meditation_Practice.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(84)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="86._Buddhism_Teaches_the_Mind.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(86)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/85.%20The%20Four%20Elements.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>85. The Four Elements</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>July 14, 1982</p>
+<p>"When we practice meditation, we must first abandon conventional designations and labels. Then the mind will reach meditative absorption. Those conventions and labels will have no name. That is the real thing. That which has no name is real. That which has a name is counterfeit."</p>
+<p>Today I will give a discourse on the <em>elements</em> for you to listen to. The entire foundation of human beings comes from the elements. The whole world, all that is established, comes from the elements. Therefore, it is most necessary to speak about the foundation first, and then gradually speak about other matters. If we don't first understand the foundation, we lose ourselves. Listening to a discourse like this, you won't know what to take as your principle. Practicing, you won't know what to take as your principle. You must first grasp the evidence. Consider this: All human beings, and the entire world, everything that is established, must be established from the four elements. The four elements are the evidence for all elements. Speaking like this, some people might not understand. When we say "a person," or "man, woman, father-in-law, mother-in-law" — that is a person — first abandon the word "person." Speak the truth: the four elements are what is female, what is male, what is a person, what is a human, what is a monk, what is the Sangha. All of it — plants, trees, mountains, absolutely everything, all things without exception — must have the four elements, arise from the four elements. These four elements become established as the foundation, then they transform according to circumstances, taking on different forms, features, appearances. What we call different shapes, different forms, different occupations, different ways of living — understand that the four elements are the primary basis of everything. The masters have explained these four elements extensively. What they explain is nothing far away — it is the real thing itself. They set up conventions and designations in order to speak so that listeners can understand. If they did not set up conventions and designations, things would remain in their original natural state. The masters gave them names, and so the matter became lengthy.</p>
+<p>For example, the eye is called an element. The ear is called an element. The nose, tongue, body, mind are called elements. The eye seeing form is called contact. The contact through the eye is called an element. The ear hearing a sound — that sound is also an element. The hearing, the arising of contact-knowing, is also called an element. The nose smelling an odor — the nose is an element, the odor is an element, the contact-knowing of the odor is called an element. The body and tangible objects are elements. The contact-knowing through the body is called an element. Mind and mental objects are elements. The contact-knowing through the mind is called an element. It extends out into eighteen elements. This is the real thing. The masters spoke according to its natural principle. But the people of the world find it hard to remember, so they designate "person," "animal," "man," "woman," "father," "mother." However, when the Buddha attained enlightenment and saw clearly according to the truth, he then designated those things, calling them <em>elements</em>. When people did not understand, the Buddha called them according to the world's conventions. Thus, all things — whether spoken of or not — remain just as they are. When we practice meditation, we must first abandon conventional designations and labels. Then the mind will reach meditative absorption. Those conventions and labels will have no name. That is the real thing. That which has no name is real. That which has a name is counterfeit. Abandon this self of ours. Even though we have a self, a being, abandon it first when contemplating the elements. Otherwise, you won't see. If you hold it as self, as a being, you won't see the elements. Do not have a sense of "our self" — that is, it is absent from the mind. The earth, water, fire, and wind elements cease to exist in the mind, and thus you will reach the real thing.</p>
+<p>These four elements, as long as they still exist within our body, and as long as people still engage in conventions, it is necessary to rely on the external four elements for support in order to survive. Without the support of the external four elements, we cannot survive; we will die. At the very least, we will live in suffering and torment.</p>
+<p>As can be seen in the Buddha's teaching on the <em>dhātupaccavekkhaṇa</em> (reflection on the elements), he taught us to contemplate the four requisites, seeing them as merely elements, not as any living being or person. The cloth, the robes that cover the body — they cover the four elements, protecting the internal four elements from heat, cold, chill, and various dangerous creatures such as gnats, flies, mosquitoes, etc. Then they become old, worn, decay, and rot away into earth, water, fire, and wind — the old elements. All food and consumables, such as rice, sweets, betel nuts, fruits, and vegetables that we consume — these arise from the elements. They are not living beings, not persons, not "us" or "them." They have no life or consciousness. They are merely taking external elements to plaster onto the internal elements, or to coat, smear, or patch the deficiencies of the internal elements.</p>
+<p>All dwellings and lodgings — such as houses, buildings, two-story or three-story houses made of brick and wood, roofed with clay tiles or cement or thatch or nipa palm — all arise from the earth element. People come along, invent, concoct, and fashion them into dwellings. These things are merely the four elements. They are not living beings, not persons, not selves, not "us" or "them." They have no life or consciousness. Humans have fashioned them into dwellings for the internal elements (that is, for us people) to live in temporarily, for the lifespan of the external elements and the internal elements.</p>
+<p>Medicines and remedies for the various illnesses that may occur to this body — this body (that is, the four elements) internally becomes disordered, distorted, disturbed, abnormal due to an excess or deficiency of any one of the elements — must use external medicines (that is, external elements) to nourish, increase, and help. These medicines are merely the four elements (i.e., they arise from the four elements). They are not any living being, person, self, "us" or "them" at all. When the internal four elements are deficient in something, it is necessary to rely on external elements (the four elements) to treat and help.</p>
+<p>Human beings are not really "people." In truth, they are just a heap of elements. If we were to compare, human beings are like a lump of clay rolling on the surface of the earth, going almost everywhere. That lump of clay is nothing special. It is the human being that is the whole lump of clay. If we see it as a lump of clay, then we will not give rise to conceit and arrogance. We will not cling to status or ego, thinking we are great or important, or that we are inferior or young, or perhaps a child, small, a young woman, and so on. None of that clinging occurs. There is no "youth," no "maidenhood," no "greatness," no "smallness," no "child." All are equal. The Buddha taught us to contemplate in this way, so that we may see things as they truly are. If we do not see this way, if we still cling to self, to ego, clinging to "them" and "us," then anger, hatred, love, and aversion arise. That hatred, that anger, that aversion — it is the mind itself that clings. It does not see things as they truly are. If we see things as they truly are, there will be no clinging to self or ego at all. That is Dhamma. Clinging to conceit and arrogance, clinging to "them" and "us," to <em>ahaṅkāra</em> (I-making) and <em>mamaṅkāra</em> (mine-making) — that is not Dhamma at all. True Dhamma must see things as merely elements, as explained above. The masters say: food and consumption, cloth and robes, dwellings and sleeping places, medicines and remedies — these four requisites are merely elements. They are not living beings, not persons, not selves, not "us" or "them." They are <em>suñño</em> (empty), void. They are empty, you see. They have no self, no being. They are not self.</p>
+<p>We human beings living together are the same. If we contemplate and see things as merely elements — that is, empty of self — then we are at ease. We live together happily and peacefully, without envy, without jealousy, without harming one another. How could elements harm one another? Each lives their own life. There is no killing, no cooking up revenge, no beating, no hitting. There is nothing to see. No pain, no suffering is seen. When they disintegrate and cease, they transform and dissolve back into earth, water, fire, and wind as before. When they are to arise again, they take those old elements — earth, water, fire, wind — and arise again.</p>
+<p>In truth, they are already elements. It's just that we don't contemplate and see them as such. At that time, you could say we have no wisdom, or that we don't know how to contemplate. That's right: they are already elements, but we don't see them as elements. This is called "contemplating incorrectly," "contemplating wrongly." We don't see them as elements. This not seeing, not being able to do it — that is called "not being able to practice meditation." That's the difficult point. And I don't know how else to teach you. In truth, it is already true. But we don't see it according to the truth. That's the thing itself.</p>
+<p>Therefore, it is said: In the beginning, to give rise to clear knowledge and insight, do not abandon meditation. First train in meditation until it is firmly established, then gradually contemplate. Practice mindfulness of breathing (<em>ānāpānasati</em>) until the mind forgets everything, until only mindfulness of breathing remains. Then you will attain mindfulness of breathing. After that, it will gradually contemplate on its own. When you practice meditation until it is firmly established as described, where will it go? Everything is already present within ourselves. Everything is already true. The Buddha taught: <em>yathābhūtaṃ sammappaññāya daṭṭhabbaṃ</em> — "It is to be seen with right wisdom as it has come to be." However it is true, see it accordingly as true. When you have trained in meditation until it is firmly established, it will see the truth on its own. Don't trouble yourself over it. Don't worry that you won't see this or that in your contemplation. Oh, don't be anxious or involved with it. It doesn't go anywhere else. It becomes clear right here, right now. Alright, that's enough.</p>
+<p>Now sit in meditation.</p>
+<p>(The teacher leads the instruction beforehand.)</p>
+<p>Contemplate the elements as described. Some people focus their contemplation so that this body becomes entirely elements. When the mind gathers and sinks in, they see it as a whole lump of clay — that happens. Some contemplate seeing it as the water element, and it becomes entirely water. The same for the fire element and the wind element. Such occurrences are called <em>paṭibhāga</em> (counterpart sign). The arising of the counterpart sign occurs in those in <em>jhāna</em>. It is good. It is beneficial for those who want that. But it is only beneficial to a small degree for those who want concentration. If it sees, it sees on its own. Others don't know. And when it happens, one does not intend for it to happen. It arises on its own. It would be correct to call it a <em>saññā</em> (perception). The mind will calm down for a while first, and then it arises because we focus on it. The arising of perception due to decaying things — we have seen that before. As for seeing through the counterpart sign, that occurs because our mind is calm, forgets all perceptions and objects, and then sees. Seeing other things is the same. This counterpart sign — people want it to happen so much. It's fun and entertaining. Sometimes, after seeing it, they become weary, disgusted, and revulsed. Even living at home with their children, spouse, or husband, they become completely weary. But only occasionally. Later, they return to their old ways. When they see beautiful forms, lovely forms, raw forms, refined forms, and so on, they become fond and loving again. It's better to contemplate according to the truth, as taught by the Buddha. He taught: see it as it really is. See it exactly as it is true. That is clearer and better. You don't need to produce a counterpart sign. Whether standing, walking, sitting, lying down, in any posture, simply see birth, aging, sickness, and death occurring in that way according to their truth at all times. Contemplating the counterpart sign is not something you can do all the time. Contemplating in this way can be done in every posture. It's easy and good, and it's the real thing. When this body is about to disintegrate and cease, we won't be shaken, because we have seen it according to the truth in every way.</p>
+<p>As for the counterpart sign, when it's time to disintegrate and cease, it won't happen. It only happens in normal, healthy times. Therefore, it's not as clear as meditation. If you truly see in that way, it is full and clear within yourself.</p>
+<p>Seeing through the counterpart sign or through <em>jhāna</em> — you see only one side: you look only internally. Even if you see with the physical eye, you see only with the mind. Seeing with wisdom means seeing with both the external eye and the internal eye — that is, through contemplation. For example, with the human body, contemplate and see clearly with the mind that it is truly suffering — birth, aging, sickness, death — no one can escape it. Then you become disenchanted and see the danger in yourself too much. That means you can contemplate to see the danger, to become disenchanted, or to see the benefit.</p>
+<p><em>Jhāna</em> is a tool for play and abiding for <em>yogāvacara</em> (meditation practitioners) while they are still alive. Seeing through contemplation — that is, through concentration — is a tool for cutting off craving (<em>taṇhā</em>), attachment (<em>upādāna</em>), cutting off becoming (<em>bhava</em>), cutting off birth (<em>jāti</em>). Learning signs (<em>uggaha nimitta</em>) and counterpart signs (<em>paṭibhāga nimitta</em>), the sub-conscious life-continuum (<em>bhavaṅgupāta</em>), the sub-conscious continuum (<em>bhavaṅgacaraṇa</em>), and the sub-conscious cessation (<em>bhavaṅgupaccheda</em>) — these are all <em>jhāna</em>. As for momentary concentration (<em>khaṇikasamādhi</em>), access concentration (<em>upacārasamādhi</em>), and absorption concentration (<em>appanāsamādhi</em>) — these are concentration alone. The method of using them is as already explained.</p>
+<p>Alright, now sit in meditation.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="84._Principles_of_Meditation_Practice.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">84</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">84. Principles of Meditation Practice</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="86._Buddhism_Teaches_the_Mind.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">86</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">86. Buddhism Teaches the Mind</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04. Dhamma-Vinaya</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="03._Pariyatti-Patipatti-Pativedha.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(03)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="05._Single_Principle_of_Buddhism.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(05)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/04.%20Dhamma-Vinaya.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>04. Dhamma-Vinaya</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>Date 1983</p>
+<p>We practice Dhamma to know Dhamma, to know Vinaya. There is Dhamma, and there is Vinaya.</p>
+<p>Vinaya refers to rules, regulations, disciplines, customs. When living together in large groups, there must be rules and regulations. That is called Vinaya. Dhamma has no fixed boundaries; one can choose to practice it or not. As for the monastic Vinaya, it has binding rules and limitations. If one does not follow them, there is an offense (āpatti). But in truth, Dhamma came first before the Vinaya. You can see this from the time of the Buddha: before the training rules (sikkhāpada) were laid down, people still attained the paths, fruits, and Nibbāna. As Buddhism grew and there were more and more monastic disciples, more people came to ordain. They came from different parents, different families, and clans to ordain in the same place. These individuals practiced according to their own tendencies and dispositions, making mistakes and errors. For this reason, the Buddha gradually laid down the training rules. In the beginning, there were no training rules, yet many still attained the paths, fruits, and Nibbāna.</p>
+<p>The Venerable Mahākassapa asked the Buddha: "When the religion first arose, many who went forth attained the paths, fruits, and Nibbāna. But now that you have laid down more and more training rules, fewer attain the paths, fruits, and Nibbāna. Why is this?" The Buddha taught: "Satthu-sāsana, bāhira-sāsana" — meaning, genuine and counterfeit.</p>
+<p>Satthu-sāsana is the true teaching of the Buddha, the authentic principle. That is called Satthu-sāsana.</p>
+<p>Bāhira-sāsana is the counterfeit teaching. As the counterfeit teachings increase, those who attain the paths, fruits, and Nibbāna diminish. Later, the Buddha said that the Vinaya is the foundation of the Buddhist religion. If the Vinaya were lost, this religion would completely decline.</p>
+<p>He also spoke about the decline of the religion: The decline begins from the highest level, meaning the paths, fruits, and Nibbāna, declining down through the stages of non-returner (anāgāmī), once-returner (sakadāgāmī), stream-enterer (sotāpanna), declining until only virtuous people remain, and ultimately only ordinary worldlings (puthujjana). The various training rules decline; the proper conduct (sekhiya vatta) is no longer practiced, followed by the offenses requiring confession (pācittiya) and those requiring forfeiture (nissaggiya), declining in succession. Only the four rules entailing defeat (pārājika) remain. Later, even the four pārājika rules decline completely, leaving only a small piece of cloth tied around the wrist as a symbol of being a monastic. Therefore, it is said that this religion has the Vinaya as its foundation. He spoke this way, yet earlier it was stated that Dhamma came first, the Vinaya came later, and the precepts were laid down afterward.</p>
+<p>What is Dhamma? It is the teaching concerning the body and mind, known as materiality (rūpa-dhamma) and mentality (nāma-dhamma). Anyone who possesses a sense of moral shame and fear of wrongdoing (hiri-ottappa) within their heart is incapable of committing an offense. They know for themselves what is wrong and what is right. That is true Vinaya. Therefore, the Buddha taught that Vinaya lies solely in the intention to refrain. That alone is the entirety of the matter. Dhamma and Vinaya are interwoven in this way. People who do not understand this become confused about Dhamma and Vinaya. The Buddha said later that the Vinaya is the foundation of the Buddhist religion. If there is no Vinaya, the religion is lost. What he said earlier — that Dhamma came first — means that when one teaches Dhamma to reach the heart and mind, and then a person with hiri-ottappa is unable to violate the training rules, and he emphasizes again that Vinaya is simply the intention to refrain. This is the nature of Dhamma-Vinaya. I am explaining this so you will understand; otherwise, there might be confusion.</p>
+<p>The Dhamma taught by the Buddha points to Dhamma as reality — things that exist and persist according to their own nature. Merit and demerit, good and evil, exist according to their own nature. They maintain their own intrinsic nature. It is not that the Buddha maintains them, nor does anyone else. True Dhamma exists according to its own nature. It is as it is; no one can change it. Dhamma that is merit is called wholesome states (kusala dhamma). Dhamma that is demerit is called unwholesome states (akusala dhamma). That which is neutral is called indeterminate states (avyākata dhamma).</p>
+<p>Wholesome Dhamma must be trained and cultivated. When we are born, no one has trained or cultivated us before. Wholesome Dhamma does not arise, is not inherently present within us. It naturally follows the ways of the world; it becomes unwholesome. Unwholesome things require no forcing, no restrictions, no boundaries. They proceed according to their nature, as do various unwholesome kammas. People act according to their own dispositions. Demerit exists in that way; people engage in it. Merit exists in that way, but people engage in it. When they engage in it, it becomes their merit or demerit. That is why it is called Dhamma — it exists, maintaining its own intrinsic nature.</p>
+<p>When we practice Dhamma and accumulate Dhamma, this is called accumulating goodness. It is called perfecting the perfections (pāramī) or cultivating good habits to grow and develop, thereby becoming good people. If left to follow their own course, things proceed according to their nature, leading downward. Unwholesome states that are demerit already exist. In this world, bad things exist; people who practice become worse. As for indeterminate states (avyākata), they are neutral — not meritorious, not demeritorious, not involving fault or benefit. Practitioners can see this when the mind is neutral, not thinking in terms of merit or demerit, good or bad, but simply remaining neutral. That is the indeterminate state. There are many different kinds of Dhamma existing throughout the entire world.</p>
+<p>Among all these Dhammas, for example, birth, aging, sickness, and death constitute one Dhamma. Whether we are born or not, they exist as they are. If we are born, they exist as they are. Birth, aging, sickness, and death exist as they are. No matter how much anyone tries to change them, they cannot. Ultimately, even the doctors who try to remedy them must die as well. That is Dhamma. This Dhamma exists as a characteristic of materiality (rūpa). One who sees this Dhamma is said to see materiality as it truly is: birth, aging, sickness, death. We come to train and cultivate our body, speech, and mind. We are not training birth, aging, sickness, death; rather, we use these to contemplate, to see their drawbacks and dangers. Then we set about guarding our own minds to abide in the state of no birth, no aging, no death.</p>
+<p>Birth, aging, sickness, and death are like water flowing steadily onward all the time. No matter whether a person born does good or evil, it flows steadily onward, never flowing back. That which flows steadily onward signifies that the life-body is subject to dissolution, ceasing every day and every night. That is what flows onward like water, flowing from above down to lower places, never returning. Therefore, Dhamma is something worthy of contemplation. Dhamma is something worthy of investigation, worthy of examination. Dhamma is something that a person should practice correctly. Since it flows onward like that, let us use that water as a simile. Now, we aim to make that water flow back, which is to say, we aim to train our minds. We resist being deluded by moods, not flowing with the stream. We establish firmness within ourselves. That, precisely, is the practice of Dhamma. Thus, we practice Dhamma to understand, to know the nature of Dhamma. If we don't understand, if we don't know, then when we practice we won't know whether it's correct or not. We will grope around blindly, seeing no path for progress.</p>
+<p>Those who practiced correctly saw the progress in their own practice. Only then did they achieve results.</p>
+<p>Therefore, Dhamma is something worthy of contemplation. Dhamma is something worthy of investigation, worthy of examination. Dhamma is something that a person should practice correctly.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="03._Pariyatti-Patipatti-Pativedha.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">03</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">03. Pariyatti-Patipatti-Pativedha</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="05._Single_Principle_of_Buddhism.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">05</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">05. Single Principle of Buddhism</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

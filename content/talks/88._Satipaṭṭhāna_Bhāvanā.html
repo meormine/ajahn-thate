@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>88. Satipaṭṭhāna Bhāvanā</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="87._The_Six_Sense_Bases.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(87)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="89._The_Ground_of_Vipassana.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(89)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/88.%20Satipa%E1%B9%AD%E1%B9%ADh%C4%81na%20Bh%C4%81van%C4%81.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>88. Satipaṭṭhāna Bhāvanā (Development of the Foundations of Mindfulness)</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>The practice of meditation through the method of developing the four Satipaṭṭhāna is a profound Dhamma principle found only in Buddhism. The four Satipaṭṭhāna exist complete and ready within the body and mind of every one of us, and they are an excellent Dhamma. The Buddha prophesied that anyone who deliberately and faithfully practices them with heedfulness, to the best of their ability, will, at most in seven years, at least in seven days, at best attain Arahantship, and at minimum become an Anāgāmī, etc.</p>
+<p>When the Buddha was practicing severe asceticism for six years, He tested the principles he had studied to find the truth, but it bore no fruit. It only caused restlessness and lack of peace, preventing Him from realizing the true Dhamma. When He turned back to follow the path of <em>jhāna</em> (absorption) and <em>samādhi</em> (concentration) that He had attained as a child (which no one had taught Him), His mind was able to attain the <em>jhāna</em> factors and achieve Buddhahood, becoming the Supremely Enlightened One by Himself.</p>
+<p>This shows that <em>jhāna-samādhi</em> and the path of practice are means to remove and cleanse defilements and mental defilements from the mind. Once the mind is pure, this knowledge purifies the mind and then genuine, true Dhamma arises, as the Dhamma principle states: "All phenomena have mind as their forerunner, mind is their chief, and they are accomplished by mind."</p>
+<p>In simple Thai terms, this means that all phenomena arise at the mind and are known only by one's own mind (<em>paccattaṃ</em>). Therefore, the mind is superior to everything because it accomplishes all tasks.</p>
+<p>Thus, the Buddha taught the practice He had followed to the Buddhist community. Body and mind are interdependent. When one does good or evil, they rely on each other. Training, purifying, and clearing away must be done simultaneously. One must rely on <em>sīla</em> (morality) as a means of cleansing. For <em>sīla</em> to be effective in purifying bodily conduct, it must be accompanied by the mind's intention to abstain from wrongdoing, with a sense of shame and fear of evil.</p>
+<p>Human beings are born through the power of merit and demerit, which shape their birth. After birth, latent tendencies follow along, driven by habitual patterns. Our minds tend to comply because we are accustomed to being enslaved by them.</p>
+<p>Therefore, when we try to observe precepts, we often feel constrained and hesitant because defilements are commanding. Our minds become troubled because of the restrictions of <em>sīla</em>. Thus, <em>sīla</em> can feel like a burden or even a sin to those who undertake it; the mind constantly waits for the precept-observance period to end. Even those ordained as novices or monks experience this. Therefore, we must understand that observing <em>sīla</em> or practicing Dhamma is accomplished by the mind, by the intention to uphold that Dhamma. Before practicing the four Satipaṭṭhāna, one should first establish <em>sīla</em> to purify body and speech, then the mind will become pure later, which will greatly accelerate progress in Satipaṭṭhāna practice.</p>
+<p>The four Satipaṭṭhāna are supramundane Dhamma (<em>lokuttara dhamma</em>) and provide excellent training for mindfulness. They consist of:</p>
+<ol>
+<li><strong>Kāyānupassanā Satipaṭṭhāna</strong> – Contemplating the body as just a body, not a being, a self, a person, 'I' or 'he'.</li>
+<li><strong>Vedanānupassanā Satipaṭṭhāna</strong> – Contemplating feelings (pleasant, painful, neutral) as just feelings, not a being, a self, a person, 'I' or 'he'.</li>
+<li><strong>Cittānupassanā Satipaṭṭhāna</strong> – Contemplating the mind (defiled or pure) as just a mind, not a being, a self, a person, 'I' or 'he'.</li>
+<li><strong>Dhammānupassanā Satipaṭṭhāna</strong> – Contemplating phenomena (wholesome and unwholesome states that arise with the mind) as just phenomena, not a being, a self, a person, 'I' or 'he'.</li>
+</ol>
+<p>Although the four Satipaṭṭhāna are classified as supramundane Dhamma, they still refer to us worldly beings. This means that to practice and attain them, we must start with our own body and mind, just as we need conventional realities (<em>sammuti</em>) first before developing towards non-self (<em>anattā</em>).</p>
+<p>Before developing each Satipaṭṭhāna, one should first determine in one's mind that mindfulness and mind are together. Where mindfulness is, the mind is there; where the mind is, mindfulness is there. The foundation or training ground for mindfulness is the four Satipaṭṭhāna, namely: body, feelings, mind, and phenomena.</p>
+<p><strong>Method of Practicing Satipaṭṭhāna Bhāvanā</strong></p>
+<p>A person who undertakes the development of each of the four Satipaṭṭhāna must, besides seeing the drawbacks, suffering, and weariness, abandon delight and attachment to the five cords of sensual pleasure, and have faith and satisfaction in practicing the Satipaṭṭhāna, trusting the Buddha's prophecy that this is the path leading truly out of suffering. Do not hesitate or doubt other Satipaṭṭhāna that you have not yet practiced, because when any one of the four is mastered, the others will become clear and resolve all doubts. Also, do not hope or wish for anything in advance to become an object, as that will hinder the practice.</p>
+<p><strong>Method 1:</strong> Place mindfulness on the body, then simply observe the body as it is. Do not analyze the body into elements or impurities. Even the word "body" or "self" should not be considered. Just establish mindfulness and observe it steadily. When the mind is firmly fixed on a single object, other objects will disappear on their own. At that moment, the mind will not wander to past or future. Even conventional designations like "that is this" or "this is that" will not exist. The body that the mind is observing will be seen as merely a physical element, not 'me', not 'him', not a being, self, or person. This is called the mind entering <em>ekaggatārammaṇa</em> (unified object), truly reaching Satipaṭṭhāna bhāvanā.</p>
+<p>When the mind observes that object without withdrawing for a while, that object suddenly vanishes. When mindfulness has no object, its function ends, and mindfulness disappears simultaneously. Then the mind and that object merge into one single mind. This state resembles sleep, but it is not sleep because there is still a distinct awareness by itself. Yet calling it "knowing" is not quite accurate either, because it is beyond ordinary knowing. This is called <em>ekaggatā citta</em> (unified mind). This is the culmination of Satipaṭṭhāna practice. The other Satipaṭṭhāna are the same.</p>
+<p>The process of developing the four Satipaṭṭhāna: if the mind does not unify but remains dual or multiple, the mind will withdraw and become agitated, restless, or hesitant. Simply put, during the initial stages of Satipaṭṭhāna before the mind attains <em>ekaggatārammaṇa</em> and <em>ekaggatā citta</em>, the mind is actively working, having to struggle or confront various things. Once the mind has unified into <em>ekaggatā citta</em>, it will rest appropriately for a period, then emerge to review, organize, and appreciate its work, accompanied by joy, delight, and satisfaction in the results.</p>
+<p>The results of practicing any Satipaṭṭhāna are generally similar. There may be slight differences due to differing stores of merit and inherent tendencies.</p>
+<p>In truth, the work of the body and the work of the mind are similar. The difference is that bodily work deals with material objects, completing unfinished tasks and then resting. The mind's work deals with mental phenomena (wisdom). When it is deluded and clings without true understanding, but then sees clearly with wisdom, its function ends, and it lets go and rests on its own.</p>
+<p>Furthermore, visions and various knowledges may arise during practice without intention. They can arise spontaneously due to the power of concentration, depending on the level of development. This does not mean that everyone who practices will have visions. These things occur based on each person's merit, tendencies, and past kamma. Besides visions, many other phenomena may occur.</p>
+<p>Therefore, a person practicing Satipaṭṭhāna should stay close to someone wise and skilled in this practice. When problems or doubts arise, that person can guide the way, enabling correct and faster progress.</p>
+<p><strong>Method 2:</strong> Place mindfulness on feeling (often painful feeling). Then simply observe the feeling as it is. Do not investigate where the feeling arose, how it remains, or where it ceases. Even the word "feeling" should not be present there. Observing like this, the mind will let go of its former attachment to conventions and designations. There will be a mere awareness of a certain affective state, which is neither outside nor inside 'our' body. Other objects will all disappear.</p>
+<p>When the mind is firmly and steadily fixed on that characteristic, sometimes a strong painful feeling present at that moment will suddenly vanish. If it does not completely disappear but remains somewhat, it is no longer a 'feeling' as such; it is merely a phenomenon serving as an object for mindfulness to observe. This is called the mind attaining <em>ekaggatārammaṇa</em>. As the mind, without withdrawing, becomes progressively more refined, that phenomenon upon which mindfulness was established will disappear, leaving only <em>ekaggatā citta</em> – a single, pure, radiant mind. After remaining for a while, it will withdraw and then follow the same course as described in the first Satipaṭṭhāna.</p>
+<p><strong>Method 3:</strong> Place mindfulness on the mind (here meaning the knowing, thinking faculty). Then simply observe the mind as it is. Do not think: "the mind is meritorious, the mind is sinful in such and such a way, the mind is good, bad, coarse, subtle, etc." Even other names and designations for the mind should not be present there. Leave only mindfulness that observes a certain phenomenon that flickers and flashes, but does not go out to grasp or concoct anything.</p>
+<p>When the mind and mindfulness become one and unified, mindfulness is firmly and exclusively established on that mind. This is called <em>ekaggatārammaṇa</em>. As the mind, without withdrawing, becomes more refined, the mind (the object of mindfulness) will disappear, and mindfulness will disappear along with it, transforming into <em>ekaggatā citta</em>. Apart from that, the process is exactly as described above.</p>
+<p><strong>Method 4:</strong> Place mindfulness on <em>dhamma</em> (meaning mental objects arising from contact at the six sense bases). Then simply observe that <em>dhamma</em> as it is. Do not analyze: "this <em>dhamma</em> is such and such, arising and ceasing thus." Even the word "<em>dhamma</em>" should not be present there. Just observe the mere phenomenon that occurs when internal and external sense bases contact each other, producing a reaction. If a question arises here: "What is the difference between mind and <em>dhamma</em>?" – the answer is: <em>Dhamma</em> here means the mental object arising from the six sense bases, e.g., when the eye sees a pleasant, alluring form, the mind then intervenes, gets involved, desires, loves, delights, clings, and adheres tightly to that form. This is called <em>dhammārammaṇa</em> (mental object). Such a <em>dhammārammaṇa</em> is precisely what is meant by <em>Dhammānupassanā Satipaṭṭhāna</em> – the training of mindfulness in impure phenomena to bring about pure, genuine phenomena.</p>
+<p>When mindfulness is firmly and unwaveringly established on that <em>dhammārammaṇa</em>, it is called <em>ekaggatārammaṇa</em>. As the mind becomes more refined until the object of mindfulness disappears, mindfulness also disappears. When the mind remains in that state appropriately for its nature, it will withdraw along the same path as described in the earlier Satipaṭṭhāna.</p>
+<p>If one asks: "In the initial training of the four Satipaṭṭhāna, the mind gradually becomes refined until reaching <em>ekaggatārammaṇa</em> and <em>ekaggatā citta</em>, but then why must it withdraw and resume walking the original path (i.e., the six sense objects)? Wouldn't that be called decline of the mind?" The answer is: Human beings are born in the sensual realm (<em>kāma-bhava</em>). They use material sense objects (the sense bases) as their dwelling. They are deluded, intoxicated, and immersed in various forms of suffering and distress due to living with sensual defilements, because they have not trained their mindfulness to be stable enough to know and see the mind, to see the defilements and their origin as they truly are, so that the mind separates from defilements.</p>
+<p>When a wise person sees the drawbacks and becomes disenchanted with living amidst those defilements, they then deliberately train in the four Satipaṭṭhāna and achieve results as described. Nevertheless, because our sense bases are themselves material sense objects, and we exist in the sensual realm, receiving sense objects that are of a sensual nature – when the mind withdraws from <em>ekaggatā citta</em> (where the mind is considered pure and devoid of anything), it will then pick up its old tools and use them again until they break apart. Since the mind has been trained and made skillful, it will be endowed with wisdom and cleverness, able to use material sense objects without giving rise to sensual defilements. Such a mind is called non-declining and beyond sensual defilements.</p>
+<p>Regarding the four Satipaṭṭhāna, the Buddha firmly prophesied that anyone who develops them, cultivates them repeatedly until skillful, will attain Arahantship within seven years at most, seven days at least. If not Arahantship, then Anāgāmī. Developing mindfulness is not harmful; it only brings increasing benefits, because mindfulness is essential for everyone.</p>
+<p>There is another method of practicing the four Satipaṭṭhāna, which is contemplating the four characteristics in depth, both their arising and passing away, until one becomes disenchanted and inclines the mind toward non-self (<em>anattā</em>), achieving unified mind (<em>ekaggatārammaṇa</em>). This method is not presented here to avoid confusion for beginners. However, in essence, practicing the four Satipaṭṭhāna by any method aims to make the mind disenchanted with the states of arising, knowing, and contacting, until the mind becomes disenchanted with feeling itself and then enters into unification. This principle is the same as the three marks of existence (<em>tilakkhaṇa</em>): proceeding through <em>dukkha</em> (suffering), <em>anicca</em> (impermanence), and <em>anattā</em> (non-self).</p>
+<p>All of the above regarding the development of insight meditation (<em>vipassanā kammaṭṭhāna</em>) as the four Satipaṭṭhāna is declared by the Buddha to be the one and only path, the direct path, by which beings can cross over the snare of defilements, birth, and existence. Nowadays, many practice using the method of tranquility and insight known as "rising, falling". Even tranquility methods such as reciting "<em>Buddho</em>" or others can also lead to transcendence if one uses wisdom to contemplate. The principle is: after the mind stays solely with the awareness of the recitation "<em>Buddho</em>", indicating that the mind has reached <em>ekaggatārammaṇa</em>, one should quickly use the mind to contemplate the impermanence of all things, both material and mental aggregates, until the mind is sufficiently refined. Then wisdom will arise, realizing non-self. Wisdom itself will arise, and the knowing faculty will make us understand everything by itself.</p>
+<p>All objects of recitation are merely conventional designations (<em>sammuti</em>) created to give the mind something to hold onto. But the purpose or principle behind using these recitations or those objects of awareness is to pave the way toward vision or the knowing faculty, toward realizing impermanence, and then contemplating toward non-self (<em>anattā</em>). The mind of an Arahant no longer clings to any conventional designations.</p>
+<p><em>Evaṃ</em> (Thus) it is.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="87._The_Six_Sense_Bases.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">87</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">87. The Six Sense Bases</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="89._The_Ground_of_Vipassana.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">89</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">89. The Ground of Vipassana</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

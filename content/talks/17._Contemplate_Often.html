@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17. Contemplate Often</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="16._Method_of_Purifying_the_Mind.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(16)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="18._Wandering_in_Seclusion.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(18)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/17.%20Contemplate%20Often.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>17. Contemplate Often</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p><strong>November 8, 1984</strong></p>
+<p>Today, I will teach you to contemplate often. Contemplate death every day. Our lives, since birth, have death as their final end. The Buddha taught us to contemplate this every day; otherwise, we will become negligent. You must contemplate death. This existence has many matters and conditions – those occurring in the present, those that have already occurred, and those that will occur in the future. There are many constituent factors. All of these must be contemplated. The Buddha did not teach us to remain idle, but to see the value and the drawbacks, the benefits of the things we use and consume.</p>
+<p>In our daily lives, which pass away day by day, there are many constituent factors, such as clothing – robes for wearing. If we had no clothing to rely on, we could not go about naked; it would be shameful and embarrassing. Human existence is necessarily like this. The Buddha taught us to contemplate this every day – to use things merely as necessities, not to use them idly. We should reflect on their worth and their benefit.</p>
+<p>In Buddhism, they teach us to reflect and see the benefit: to cover the body, to protect the body from cold, heat, softness, and hardness. When we put on robes, we should contemplate at all times. Contemplate and see that when we wear them, they are ultimately foul, impure, and decaying according to their nature. Contemplate this constantly. Do not be negligent! If we are negligent, we forget, and we do not see the value and benefit of those things. We just use them mindlessly. I have taught about this before: it becomes a debt owed to others. It is a debt because we fail to contemplate. But if we contemplate clearly in our own minds and see the benefit – the true worth of things – then a sense of spiritual urgency and disenchantment will arise. A human being, having been born, must rely on all these various things. We cannot just remain idle. All these things are interdependent. There are many, many matters, complex and entangled.</p>
+<p>Another specific matter is food, the food we eat. <em>Sabbe sattā āhāraṭṭhitikā</em> – all beings subsist on food. Humans have many kinds of food, both sweet and savory. Buffalo and cattle subsist on grass. Without food, we cannot survive. However, food can have drawbacks as well as benefits. The drawback of food is that after eating it, we crave it all the time. Eating raw or delicious food gives rise to desire, called <em>taṇhā</em> – that is simply craving, without considering benefit or drawback, eating out of desire. The Buddha taught us to eat just enough for sustenance (<em>yāpana-matta</em>). <em>Mattā</em> means just enough to bind or sustain the body, to keep it from disintegrating. We eat to remedy and maintain this body. Eating for remedy and maintenance can be seen when we are sick or unwell. Food is not medicine, but we must eat to preserve our health. That is truly eating for health. Let it be just like that. When we eat food in this way, it will be without drawback – just enough for sustenance.</p>
+<p>The food we eat is not easy, unlike robes. With robes, we make them once and they are done. But food – we eat it every day, use it every day, prepare it every day. People who prepare food to offer to monks have a great deal of work: from buying it, to preparing, cooking, and seasoning – many, many tasks. Those of us who just eat passively have no idea. Only those who work in the kitchen truly understand. Cooking food is not easy. I have done it myself, even back when I was a novice. Truly, it is no joke. You have to put in real care and effort. With so many monks and novices, it’s even more demanding. You have to cook until late into the night, until nine or ten o'clock. When it’s late, you have to wake up at three or four in the morning and cook until dawn – there’s no rest. Day after day, the monks eat, and then after we have eaten, we must still wash and clean everything thoroughly. Washing can take so long that sometimes it’s already midday before you return home. Food is very complicated – a huge burden. When we reflect on its value, my goodness, we lose all appetite! It is truly a tremendous burden.</p>
+<p>Therefore, when we eat, we should reflect on the value of food and also on its drawbacks. It is a physical element that sustains life. This life is indeed difficult to maintain. We must rely on help from every direction, must nurture it carefully, and then it can barely continue. Having nurtured it to survive, it is not just for today alone, but for decades. It continues like this until we die – sometimes forty, fifty, sixty, seventy years before we finally pass away. When we reflect and see the value and benefit of this food, we should be attentive in performing our duties and practices for the sake of merit and wholesome deeds. What merit arises from them? What merit arises from us? For the purpose of our store of merit and goodness, what merits are there to share and distribute to them? What merits are there to spread to them? It is not just about eating their food passively. Thinking only of oneself is not acceptable. To make use of it properly, we must reflect and see the value of food: that we eat for the benefit of the body, to sustain its health, not for intoxication, not out of deluded attachment, not to enrich the body perfectly and completely. We eat just enough to keep life going. The food we eat is not something raw or delicious; it is a foul, decaying thing. Foulness begins from the moment we chew it in our mouths and swallow it down. From that point on, it is impure. If you don’t believe me, spit it out and see – is it filthy and disgusting? Yet we must force ourselves to swallow it to nourish the body.</p>
+<p>When it is excreted, it becomes clearly visible as urine and feces. But the necessity is the desire to keep life going, the desire to nurture and maintain it, so that we can practice and train in Buddhism, so that we can preserve the Buddha’s teachings. We practice only to be free from suffering – nothing more distant than that. These are the many matters concerning our physical body – many things like this.</p>
+<p>Beyond that, there is lodging (<em>senāsana</em>). That is a bit easier. Lodging has already been prepared and left for us. Robes for wearing, lodging to rely upon – all are ready. The necessities of clothing and shelter to protect us from dangers are ready; they protect us from insects and creatures. That too is similar: it is not something raw or delicious. We see it as good and then forget, becoming heedless and not thinking of causes and effects. In truth, it merely helps cover the body to prevent shame and to keep flies, leeches, and mosquitoes from bothering us. Once we have comfort and ease, we should hurry and practice diligently, to be worthy of what others have provided for us.</p>
+<p>Medicines are another thing. We take them every day when we are sick or unwell. We must rely on medicine to treat and cure our illnesses, to gradually improve and heal. If we had no medicine to treat ourselves, how could we resist and remedy our own ailments with the medicine of Dhamma? We are still weak, still unable to confront them. Therefore, medicine is another necessity that brings us well-being.</p>
+<p>Our body has these three or four things that we constantly nurture and maintain. Therefore, as long as we survive day by day, we should always contemplate death. We keep death at bay – not letting it die easily. Old people, we don’t let them die easily either. We nurture and maintain them with these four requisites. But it is extremely difficult; what we maintain to keep with us is very hard to sustain. So we gradually nurture and care for it by various means. The nature of us humans, having been born, is like this – suffering like this, troubled like this.</p>
+<p>Each of the four things I have explained – if you contemplate them so that they penetrate your being and your mind, they can all be gathered together. If each thing penetrates to the heart and mind, and the mind gathers down, then you are free from debt. If the mind does not gather down to that point, if it hasn’t reached there, you are still in debt. You must continue striving.</p>
+<p>If you do not contemplate these matters, letting each day pass by idly, it is a waste. Not only is it a waste, but you also lose your lifespan. Moreover, it becomes a source of restlessness – you don’t know what you’re doing. In a single day, twenty-four hours, with nothing as a support, the days just pass, pass away. After a long time, you become restless, unable to stay comfortably. You don’t know where to go. Living as a monk or a noble person, you’re restless. As a layperson, you’re restless. Wherever you go, you’re restless. But laypeople are a bit better off – they have hopes, they hope for what they want. That is somewhat bearable; they can get by. But for us monks, hoping for Dhamma, for the Truth – it does not appear. It does not appear in the heart, does not appear to the eye, to one’s own vision.</p>
+<p>Therefore, those who have entered Buddhism must hurry and make effort, to have a foundation in their hearts, to see clearly. Let it be there all the time. Whenever you practice meditation, let it see the arising and the ceasing that are always present. Then you will be able to endure. Once you see the arising and ceasing, a single day passes in just a moment.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="16._Method_of_Purifying_the_Mind.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">16</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">16. Method of Purifying the Mind</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="18._Wandering_in_Seclusion.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">18</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">18. Wandering in Seclusion</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>82. The Five Aggregates</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="81._The_Practice_of_Kammaṭṭhāna.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(81)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="83._Value_and_Benefits_of_Buddhism.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(83)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/82.%20The%20Five%20Aggregates.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>82. The Five Aggregates</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>July 14, 1982 </p>
+<p>I will give a Dhamma talk for you to listen to. Dhamma is not something far away. We have listened to a great deal already, and may have forgotten it, because Dhamma exists close to us. We tend to forget things that are close to us, thinking that since they are already within us, we can contemplate them anytime.</p>
+<p>The word "Dhamma" here means all things that exist and are present in this world. They exist as they are, they are present as they are — that is called Dhamma.</p>
+<p>To "see Dhamma" means to see things as they truly are by themselves. However they are, understand that they are that way — that is called seeing the nature of Dhamma.</p>
+<p>This very point is important. It is difficult to see because people always want to see and look at new things, constantly seeking novelty, thus forgetting the old. So things never become clear or distinct. You may go searching for Dhamma, search as much as you like, but if you do not see things according to their true nature, you will not see Dhamma at all.</p>
+<p>Understand that whatever exists and is present within us is all Dhamma. For example, we see that birth exists, aging exists, death exists within us. But because we don't want to look, we don't see Dhamma. Not seeing Dhamma means being dissatisfied, lacking faith, and not delighting in what already exists and is present. But if we are satisfied, have faith, and delight in this Dhamma that exists and is present, and then contemplate it, clarity and vividness will arise right within our own minds.</p>
+<p>Therefore, those who contemplate Dhamma constantly contemplate what is within themselves. Please have faith, confidence, satisfaction, and great delight in that Dhamma which exists within yourselves — it will be of the highest benefit to you yourselves.</p>
+<p>What I will explain today is one kind of Dhamma, aside from the many other kinds. This Dhamma is called the Five Aggregates — that is, ourselves, nothing far away. Our entire being is called the Five Aggregates: Form, Feeling, Perception, Mental Formations, Consciousness. Form exists within us. Feeling — pleasure, pain, or neither-pleasure-nor-pain — exists within us. Perception — remembering and recognizing this and that — exists within us. Mental formations — thinking and concocting — exist within us. Consciousness — the act of knowing — exists within us.</p>
+<p>What I will explain today are just these five things. They all exist within us. Bring your attention down into yourselves. These five things are completely and perfectly present within us. But we have not contemplated them. Therefore, I will explain so that you may understand.</p>
+<p><strong>Form:</strong> If we contemplate it as something foul, not beautiful or attractive, that is fully present in us in every way. Sweat flows from the body as something disgusting. We see it as disgusting, so we keep bathing and washing this decaying body. It is decaying even while we are still alive. Dirt flows out. What they call "grime" is a milder form — not actual excrement, but a bit of filth, a faint stench of sweat and mud. All this is within us. We have it all: snot, saliva, earwax, eye discharge — all are forms of excrement. But since it is somewhat crude, we don't like to speak of it. So people call it "eye excrement," "ear excrement." Whatever is excreted from our body is all excrement. Even leftover scraps are called excrement, like wood shavings, sawdust, coconut husk fibers — all are called excrement. The leftover food we eat, after it has nourished the body, flows out through various channels of the body — that is called excrement. This is Dhamma. Contemplate it as Dhamma. No matter how one tries to conceal it, the truth remains that way. Speaking according to reality is Dhamma. This is called contemplating it as foulness.</p>
+<p>Now contemplate it as <strong>elements</strong> (dhātu). They are called the earth element, water element, fire element, wind element — the four elements. This body of ours sitting here as a lump is called a lump of earth. It is not called "woman" or "man." Calling it woman or man is merely a conventional designation. In truth, it is just a mass of elements. This entire lump is nothing but the four elements. This too is one kind of Dhamma called the Dhamma-element.</p>
+<p>Or contemplate it as <strong>impermanent</strong> (aniccaṃ) — not lasting; or as <strong>suffering</strong> (dukkhaṃ) — unable to endure; or as <strong>non-self</strong> (anattā) — not self, not belonging to anyone, empty.</p>
+<p>This very same lump — whether spoken of as the four elements of earth, water, fire, wind, or as foulness and impurity — it is Dhamma. Each aspect is Dhamma. When speaking of the Five Aggregates, they refer to this very self of ours. Where else would you go to find it? Dhamma is already within us. Only our faith and conviction are needed: "Oh! We already have Dhamma. We have all Dhamma within us!" (Once convinced, then contemplate it. Contemplate it as the four elements, as foulness and impurity, as the aggregates.)</p>
+<p><strong>The Aggregate of Form</strong> is a mass of suffering. It arises and is suffering, greatly burdensome. But we do not believe in our own suffering. When we get sick or ill, if it hurts, we take medicine and it goes away. When we are tired from walking, we sit; tired from sitting, we lie down. This is covering up suffering, so we do not see suffering. People do not see suffering, therefore they do not see Dhamma. Seeing suffering is what leads to seeing Dhamma. By constantly changing posture like this, suffering does not arise. Since suffering does not arise, we do not see Dhamma. This could be explained in many ways, endlessly. Even explaining all day would never finish. If you see it clearly with your own mind, you will see that this body has nothing to it. You will see it as merely a certain form moving back and forth.</p>
+<p><strong>The Aggregate of Feeling</strong> — pleasure, pain, or neutral feeling (upekkhā). Contemplating pain is as already discussed: matters of illness, aches, hunger, thirst, cold, heat, softness, hardness — all sorts of things are all suffering. People only want pleasure. They don't want to talk about suffering at all. Even if we don't speak of it, suffering remains that way. Not talking about suffering doesn't make it disappear. When something chaotic, troublesome, or distressing arises, we say, "Oh, this is really suffering!" and then we forget it, without actually contemplating it seriously. Pleasant feeling is extremely rare. We get a tiny bit of pleasure, then return to suffering. Most of the time, we mistake suffering for pleasure — this is called being deluded into seeing suffering as pleasure.</p>
+<p>But as for neutral feeling (upekkhā-vedanā) — where would you find it? It is rarely found in people. It is extremely rare to have neutral feeling. It arises for a moment and then disappears, not lasting long. It is clearly seen in those who enter meditative absorption (samāpatti), where the mind settles down and becomes neutral and equanimous — that is truly neutral feeling. If you cannot attain concentration (samādhi), you will never have neutral feeling. The mind wanders off thinking about this and that, many things, both past and future. If one's thinking is scattered and does not become unified in meditative development (bhāvanā), one will never encounter neutral feeling. This is another aggregate, called the Aggregate of Feeling.</p>
+<p><strong>The Aggregate of Perception</strong> — remembering all kinds of things, including recalling past and future events and storing them in one's mind, then maintaining and nurturing them to grow continually. This is called the Aggregate of Perception.</p>
+<p><strong>The Aggregate of Mental Formations</strong> — thinking and concocting this and that, all sorts of things, making them arise all day and all night without end. This is called the Aggregate of Mental Formations.</p>
+<p><strong>The Aggregate of Consciousness.</strong> This consciousness is the consciousness within the Five Aggregates. There are two kinds of consciousness: consciousness within the Five Aggregates, and rebirth-linking consciousness (paṭisandhi-viññāṇa). Rebirth-linking consciousness is the consciousness that first takes birth as a human being. Consciousness within the Five Aggregates refers to the initial knowing that arises from sense-impression (phassa) and then disappears. For example, when the eye sees a form, that act of knowing is called consciousness. Then perception (saññā) takes over, recognizing it as this or that form, then perception ceases. Then mental formations (saṅkhāra) take over, concocting and thinking further. That initial knowing of the form is called the Aggregate of Consciousness within the Five Aggregates.</p>
+<p>The Aggregate of Consciousness within the Five Aggregates and the Rebirth-linking Consciousness are the same thing, not anything far away. It is the same single mind. But they perform different functions. When it functions as the receiver of sense-impressions at the six sense-bases (āyatana), it is called the Aggregate of Consciousness. Rebirth-linking consciousness is the consciousness that leads to birth. Without this consciousness, there is no birth. It gathers together ignorance (avijjā), craving (taṇhā), clinging (upādāna), and kamma — all are contained within that consciousness. In truth, ignorance is that very mind, craving is that very mind, clinging is that very mind, kamma is that very mind. To say that they come together in one place is just a manner of speaking. In reality, they are not called together. These four phenomena function separately for the being about to be born. One who is about to be born must have these four phenomena complete in order to be born.</p>
+<p>Why are they called <em>aggregates</em> (khandha)? Khandha means "heap" or "group" — a pile. Like the bowls we call "khan" for external use: a rice bowl, a water bowl, a flower bowl, etc. They are bowls that hold things so they don't scatter. This is the same: so that form, feeling, perception, mental formations, and consciousness do not scatter. They are arranged into groups and categories, each separate, not mixing together.</p>
+<p>There are many conventional explanations, all describing the same single thing — the mind. Whether called aggregates, elements, sense-bases, or many other names, they all refer to the same single thing: the mind. When we call it this and that, we listen with delight and forget the original thing — the mind. Everything that arises in this world has the mind as its chief. The mind is the one that sees Dhamma. The mind is greater than all things. Without the mind, nothing in the world would exist. Everything arises from the single mind. For example, building a large house — if there were no mind, who would order it built? This body of ours — if there were no mind, how could it survive? It would have to cease and disappear. The mind is the chief. It survives because of the mind.</p>
+<p>So please contemplate in this way. No need to contemplate anything far away. All Dhamma exists fully within us. Please be firmly convinced in your hearts, in the Dhamma teachings of the Buddha: "Oh! This Dhamma exists right within myself." Whether you go north or south, near or far, Dhamma exists within you completely in every way. You carry Dhamma with you, but you don't look at your own Dhamma. That is why you don't see it.</p>
+<p>But when you come to look here and see Dhamma clearly — "Ah! Dhamma is right here" — then the matter is finished. From then on, you don't need to run around searching. Dhamma is already within you. Therefore, establish unwavering faith and conviction, then contemplate Dhamma. It will be endless. Dhamma exists within us. This is the Dhamma teaching of the Buddha that he taught in every scripture. He expounded only from this single Dhamma.</p>
+<p>(Meditation session)</p>
+<p>(The teacher gives preliminary instruction)</p>
+<p>I have explained a great deal already. This body of ours is composed of the four elements: earth, water, fire, wind. (And it survives because of the four elements, thus enabling all activities and meritorious deeds.) Without these four elements as the structural framework, then the constituent things such as the Five Aggregates, the Six Sense-bases, etc., which drive movement in performing activities — there would be nowhere to attach them. And these four elements themselves would be useless.</p>
+<p>Since we have obtained such a great, valuable, and wondrous thing, we should contemplate it with a mind that is Dhamma — that is, contemplate it to see clearly and vividly with true concentration (samādhi). If the mind is not firmly concentrated on the single object that we possess, then no matter how we contemplate, it will never be clear. It is like a person driving a car who doesn't understand the car. When the car breaks down or has trouble, he doesn't know what to do. If a person understands the car well, wherever it has trouble or breaks down, he can immediately go and fix it there, and the car will reach its destination smoothly. This body of ours, with the mind as the chief driver that moves it about, is composed of aggregates, sense-bases, etc., as its engine. When there is trouble — whether due to changes in the weather and climate, or due to the waves of the storm (i.e., defilements such as greed, anger, delusion) — you must know the point of failure. If the trouble is caused by external factors, you must remedy it with external means, such as when the climate is abnormal causing bodily discomfort, you remedy it with medicine or seeing a doctor, etc. If the trouble is internal, you remedy it with the medicine of Dhamma, using your own skillful means. There is no external doctor at this time, because the Buddha, who was the doctor of the Dhamma medicine, has already passed into final nibbāna.</p>
+<p>Therefore, each person's defilements — each must know that they arise in one's own mind, making the mind defiled and not bright. When we see the danger of the defilements that have arisen, we are willing to relinquish and let them go, to depart from our mind. Then our mind will become at ease and comfortable. Because the human mind is originally bright and clear. If the mind were not originally bright and clear, no matter how anyone tried to cleanse it, it could never become bright and clean. Defilements are something that come newly as visitors. Therefore, we are able to cleanse them away.</p>
+<p>It is like a person sitting alone peacefully with nothing. Then someone comes and insults him. Anger rushes in, covering the mind, making it dark, not knowing right from wrong anymore. So we cleanse away the defilements that have covered the mind, making them flee from the mind. Then our mind becomes bright, clean, and normal as before.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="81._The_Practice_of_Kammaṭṭhāna.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">81</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">81. The Practice of Kammaṭṭhāna</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="83._Value_and_Benefits_of_Buddhism.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">83</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">83. Value and Benefits of Buddhism</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

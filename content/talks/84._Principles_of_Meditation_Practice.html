@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>84. Principles of Meditation Practice</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="83._Value_and_Benefits_of_Buddhism.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(83)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="85._The_Four_Elements.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(85)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/84.%20Principles%20of%20Meditation%20Practice.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>84. Principles of Meditation Practice</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>July 14, 1982</p>
+<p>"Thoughts, recollections, concoctions, fabrications — all of them are the mind (citta). The one who recollects the meditation word is also the mind.</p>
+<p>When that person stops thinking and recollecting, leaving only a neutral feeling, that is called the heart. The mind and the heart differ in this way."</p>
+<p>Listen attentively to the Dhamma sermon. Calm the body, calm the mind so they are synchronized. Use the body to listen, use the heart as the knower. The body — the ear — is the listener, having sense bases, contact, and nerves as the receiving apparatus. The heart is the knower. Only with the mind do contact and sense bases arise, giving rise to knowing within. If there is only contact without the heart, the feeling through the nerves does not exist either. Like a dead person — we don't know where the heart has gone. Listening to a sermon requires both body and heart to listen in order to understand. If you listen without paying attention, you won't comprehend. Even if you pay attention, if calmness is insufficient, you cannot know, because Dhamma requires calmness. Only when the mind is calm can you listen to Dhamma and understand. The mind, distracted and agitated by various emotions, thinking about all sorts of things, turns away from the Dhamma, does not see the Dhamma, does not know the Dhamma. All of Buddhism teaches nothing other than body and heart. Only those with body and heart can listen to the Buddha's Dhamma sermons.</p>
+<p>The heart is greater than everything else. All things in the world converge upon the heart alone. Without the heart, the entire world cannot exist. We listen at the heart, see at the heart, know at the heart. Only then do wisdom and discernment arise. Only then do all things exist. We practice with that very body and heart. Some people practice for a very long time — twenty, thirty years — and still never see the heart. They practice with body and heart, so why don't they ever see body and heart? The difficulty of practice lies right here. Training animals — such as horses, cows, buffaloes — we must catch them first before we can train them. If you don't get hold of them, how can you train them? Just think about it. You wander through forests, through jungles, through towns, through cities, going in every direction. You take that very body and heart along wandering, so why don't you see body and heart? Some people say, "You can practice anywhere, no need to go to the forest or jungle." That's true. Wherever you are, you take that same body and heart and practice. Everyone does. You can practice at home, in the forest, in a monastery, or in a hut — anywhere. If you see the heart, fine. If you don't see the heart, then go ahead — walk around the entire world if you like. You'll die in vain, never once seeing the heart. It is indeed difficult. Speaking of difficulty — speaking of ease, it's very easy. You don't have to go far; it's right here. Under your chin, right in the middle of your chest. It's very close, easy to find. But you don't look for it. Even if you look, you won't see it if you don't recognize it. Once you recognize it, you'll see it in just an instant — then it's easy and comfortable. Those who go into the forests, into the jungles, to caves, to mountains do so to gain experience — they call it going for seclusion, going for tranquility. Forests and jungles are the most conducive environments, better than at home. You don't see people, you see only forests and wilderness. The body becomes calm, the mind becomes solitary. The environment changes from that of home; solitude arises. Whether you don't see that solitude, or you see it but don't see the heart — it's still the same as before. When solitude arises, if you can catch hold of that solitude — then you will see the heart. Who is the one who is solitary? Who is the one in seclusion? Who is the one who is calm? Catch that entity — that will be beneficial to you. If you can't catch that solitude, you'll just become greatly distracted, thinking about home, about people, about all kinds of things. That is a mind without a foundation, without a foothold. If it has a firm foundation, it won't go anywhere. Living in the forest, encountering various events that cause extreme suffering, extreme fear — when fear reaches its peak, one sees Dhamma because there is no one else to rely on; one must rely on oneself. Living with a group, relying on friends, you become comfortable, complacent, and thus don't see your own self. What is the self? The self is the heart. Once you catch that heart, it remains stable. All things arise from the heart — both happiness and suffering arise from the heart. Going to find tranquility and seclusion in any forest is solely for the purpose of finding this one heart.</p>
+<p>The method for catching the heart: they instruct us to use a meditation word — either "Buddho" or mindfulness of breathing — to lure the heart to stay right there. If the heart doesn't stay, it's of no use at all. Recite the meditation word to make the mind stay with that word in order to catch it. Some people, even when practicing "Buddho" or mindfulness of breathing, the mind doesn't stay with "Buddho." They don't know where the mind has gone, and even "Buddho" disappears along with it. This is a lack of mindfulness. Establish mindfulness to control the mind, bringing it back to "Buddho" anew. Do this continually. Do it frequently, and eventually the mind will stay on its own. When mindfulness brings the mind to stay with the meditation word "Buddho, Buddho" alone, then investigate: Who is the one reciting "Buddho"? It is the mind itself that recites "Buddho." What does it arise from? It arises from the mind — the thinker, the reciter, the feeler. So now the mind has come to stay with "Buddho." Don't grasp at "Buddho." Grasp at that feeling instead — the one that thinks and recites "Buddho." Once you catch the mind, the meditation word "Buddho" will disappear entirely. Or if it doesn't disappear, set it aside. Grasp only the knower, or the knowing element.</p>
+<p>We will go to see only the arising and ceasing of form and name. The mind will not unify. When the mind is about to unify, form and name, or arising and ceasing, will not exist. If they still exist, the mind is not unified. The mind dwells at the heart (jai). It arises and ceases, arises and ceases — it stays only at the heart. Why would you go looking for something at the tip of your toe? The mind and the heart are one and the same. As soon as you think "Buddho," it immediately enters into that thought, that feeling of reciting "Buddho" or mindfulness of breathing — it enters right there. The mind seems to have many moments because the mind is extremely fast, so fast that you can't catch it in time. But once you catch it, this mind is slow, not fast at all. Speaking about this is difficult. The mind is something without form, without self — it has only feeling. The feeler exists. It has form and self right there. When that feeling becomes very clear, it actually turns into a self. If you practice meditation, constantly recollecting "Buddho" or mindfulness of breathing, over time the mind will gradually relax, soften, cool down, become tranquil and serene. It will then reach the heart.</p>
+<p>Thoughts, recollections, concoctions, fabrications — all of them are the mind. The one who recollects the meditation word is also the mind. When that person stops thinking and recollecting, leaving only a neutral feeling, that is called the heart. The mind and the heart differ in this way. Some people misunderstand and take the mind to be the heart. Actually, the masters say the same thing: "Whatever is mind is heart; whatever is heart is mind." So why do they use two words? There must be a difference. The difference is just this. Like making ice — it's ordinary water, but when coldness enters and it hardens, they call it ice. It's still the same water. Therefore, catch that mind first. Don't go straight to the heart just yet.</p>
+<p>Now, you will use the mind to investigate body, feelings, mind, and phenomena. Once you have caught the mind, use the mind. Don't let the mind use you — all that thinking, recollecting, concocting, and scattering about is the mind using you. From now on, you use it. It can think, recollect, fabricate if you wish, but keep it within bounds. Or you can choose not to let it think, recollect, or fabricate — just let it be still. For example:</p>
+<p>Contemplate the body — see it as impure and repulsive, as something rotting and decaying. See arising and ceasing within your own body. The phrase "contemplate body in body" means to contemplate your own body, staying within this very body. Contemplate so it sinks down, not going outside this body. This is called "contemplating body in body."</p>
+<p>Contemplate feelings. Having contemplated the body, you have also contemplated feelings, because feelings arise from that very body. Without a body, there are no feelings. Beings that fall into hell — they have no body, but in the sense-sphere realm, they still hold onto a body. It's because they hold onto this body that they fall into hell. Going to heaven, they also hold onto this body. Without a body, there is no pleasure or pain. The mind merely holds that "a body exists," it fabricates and concocts, it clings and grasps, and thus endures suffering. The Buddha wanted to purify this body, to prevent clinging to it, so he taught contemplation of body in body. When the mind contemplates body in body, this body will completely disappear, not appearing at all. Only the mind remains. Contemplating feeling in feeling is the same — contemplate just the feeling: pleasure, pain, or neutral (neither pleasure nor pain) — that itself is feeling.</p>
+<p>Contemplate mind — take that very mind to contemplate. "Contemplating mind in mind" means taking that same mind to contemplate again. In summary, contemplating the body uses the mind to contemplate; contemplating feelings uses the mind to contemplate; contemplating mind uses that mind to contemplate mind again. That mind itself is Dhamma. Thus we have completely and fully contemplated all four foundations of mindfulness. Contemplate continually for a long time, and the mind unifies into the heart — that is, it remains neutral, not thinking, not recollecting, not fabricating, not scattering. There are no perception-based emotions at all. This is called absorption concentration (appanā samādhi). Living together with many people naturally involves complications. If you don't train the mind to reach absorption and rest in tranquility sometimes, you should all strive to practice as described. That is enough explanation.</p>
+<h2>Sitting Meditation</h2>
+<p>(The teacher gives guided instruction)
+Having spoken about the mind finishing everything, I don't know what else to say. Look for the mind as already explained. The method for finding the mind and heart has also been explained. That's all. The method of practicing meditation in Buddhism teaches just this — nothing else far away. The extensive explanations given are merely its subsidiary details. The main point, the essence, comes down to the mind and heart. Please just make an effort to practice. Believe that the mind exists, the heart exists. That confidence is already present in your heart. Then strive to practice. You can see it, you can achieve it. Don't give up.</p>
+<p>Those who are confident that our heart exists right here, that our mind exists right in this body — strive to think and search using various methods as you have studied from different teachers. Then discernment (paṭibhāna) will arise on its own. Discernment differs from method. Methods can be taught and instructed — for example, "Maintain virtue and goodness by keeping the precepts." As for discernment, I don't know how to tell you. It must arise as knowledge and vision on its own. And that knowledge and vision is also clear and distinct, to the point where you exclaim in your heart, "Oh, so this is how it is!"</p>
+<p>But that knowledge, when you try to disseminate it to others, is not the same as the knowledge in your own heart. You can only tell others through analogies and similes. In summary, discernment is a special knowledge that arises individually for each person (paccattaṃ). When such discernment arises in a person, they use that discernment to teach others through various analogies and similes. When listeners hear those analogies and similes, if discernment has not yet arisen in them, they take those methods and pass them on to others. When discernment arises for any particular person, it makes that person free from doubt in the subjects they have studied or practiced. It ends there. But this does not mean ending all types of knowledge — it only means ending or completing the level of knowledge and ability for that particular level. Like people carrying a burden — those with great strength can carry much, those with little strength carry little, according to their own strength. Therefore, continue practicing meditation.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="83._Value_and_Benefits_of_Buddhism.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">83</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">83. Value and Benefits of Buddhism</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="85._The_Four_Elements.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">85</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">85. The Four Elements</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

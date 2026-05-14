@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>76. People only Know How to Tie the Knot</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="75._Advice_on_Living_Together.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(75)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="77._Awakening_to_the_New_Year.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(77)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/76.%20People%20only%20Know%20How%20to%20Tie%20the%20Knot.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <h3>09. People only Know How to Tie the Knot, but not How to Untie it.</h3>
+<p><strong>Phra Nirōdharaṅsī Gambhirapaññāvisiṭṭha</strong><br />
+<strong>Luang Pu Thate Desaraṅsī</strong><br />
+<strong>Wat Hin Mak Peng, Si Chiang Mai District, Nong Khai Province</strong>  </p>
+<h3>Meritorious deeds (Kamma), Craving (Taṇhā), Ignorance (Avijjā)</h3>
+<p>Meritorious deeds are natural phenomena with craving and ignorance as their root cause. They lead people to be born as humans with the five aggregates (khandhas) and six sense-bases (āyatanas) as tools to use. And yet those very things are also the bonds that tie them up. The three planes of existence (bhava) serve as a prison confining them throughout their lives. Therefore, the Buddha said: <em>Kammaṃ khettaṃ</em> — kamma is like a field for planting crops; <em>Viññāṇaṃ bījaṃ</em> — consciousness is like the sprout of a human being about to be born; <em>Taṇhā sineho</em> — craving is the moisture that nourishes that plant so it doesn't dry up. As long as human beings and other creatures in this world still have these three things in their hearts, they will continue to be reborn.</p>
+<p>The Buddha, having contemplated, saw that people in this world only know how to bind themselves but do not know how to release themselves. Therefore, they wander on in the cycle of saṃsāra, being born and dying endlessly for countless lifetimes. Seeing this, he felt great spiritual urgency and compassion, and thus aspired to become a Buddha in order to liberate those beings from all suffering. After he had perfectly fulfilled his perfections (pāramīs), he attained enlightenment as a Buddha. Then he taught and instructed his disciples for 45 years before entering Parinibbāna.</p>
+<p>His teachings are countless and immeasurable. They are all skillful means for undoing bonds. For example, he taught giving (dāna) as a way to abandon stinginess and attachment from the heart, so that the mind becomes free from the notion of "mine." When others receive what we have given without expecting anything in return, and when they consume and use it, we feel happiness and contentment.</p>
+<p><strong>Morality (Sīla)</strong></p>
+<p>Regarding morality, the Buddha taught us to refrain from doing evil to each other through body and speech, such as killing living beings, etc. When we refrain from doing evil, we are no longer bound or worried about that evil. Our mind becomes joyful and delighted in that goodness. When the Buddha taught us to do good deeds — both giving and observing precepts — which bring the result of joyful goodness in this life and the next, in the next life one experiences both physical and mental happiness, with pleasant sense-objects in every way. For example, all food and consumables are divine, self-arising, requiring no search. Celestial nymphs sing and lull you day and night. Whatever you wish for flows forth without lack or want.</p>
+<p><strong>Binding Oneself, Hoping for Water from a Future Well</strong></p>
+<p>People who love to bind themselves, upon hearing about heavenly bliss, instead of being content with the human happiness they are currently cultivating, become infatuated with future happiness and use it to bind their own minds. As the ancients said, "hoping for water from a well ahead." It is pitiful to see human beings born into this world. It seems almost everyone is suffering. Those who are happy are very few. As can be seen whenever one does good deeds, one always wishes: "May I receive happiness in this life and the next." Not sure whether they will receive results in this life, they also wish for the future. Therefore, they are very fond of future heavenly bliss, forgetting the happiness of this life that they are actually creating.</p>
+<p><strong>Mind vs. Heart</strong></p>
+<p>Let us listen to another aspect of the Buddha's words, where he taught to abandon all three planes of existence completely, undoing all bonds without remainder. Before abandoning the three planes, the Buddha taught us to practice concentration (samādhi) to first reach our own mind-heart. Because the mind-heart is the creator of realms and births. As long as we do not know everything about the mind, we must be reborn again. Mind and heart must first be separated from each other to see them clearly.</p>
+<p><strong>Mind</strong> is the forger, the composer that creates defilements (kilesas), including realms and births. When wisdom (paññā) thoroughly knows every aspect of the mind, the mind withdraws from all those defilements and comes to a neutral state, with no thinking, composing, or fabricating of any kind. It is simply neutral and still. That is called <strong>Heart</strong>.</p>
+<p>Mind and Heart — in truth, they are the same thing. But mind is the one that thinks, composes, and creates all sorts of defilements. When wisdom fully understands the mind, the mind becomes still, with no further activity, and is then called heart. Another way, in everyday language, we call it "the neutral one" — that is heart.</p>
+<p>This mind has no fixed abode. It can be in the body or outside the body, depending on where you place it, because it is formless — merely a type of mental phenomenon (nāma-dhamma). If we place it at a post or a wall, we will feel that it is aware there. That is the mind. If someone hits that post with a hammer, making a loud noise, our mind may even startle or flinch because we have placed our mind there. All things, if we speak neutrally, must be pointed to a single point. Everything else is finished, not worth mentioning. For example, when speaking of a person's heart — such as hurt heart, vengeful heart, sorrowful heart, suffering heart, sad heart, slighted heart, glad heart, full heart, satisfied heart, joyful heart, expansive heart, bright heart, etc. — we always point to the middle of the chest or gesture at our chest. This shows that we mean the single, central heart. When we speak of heart, we are done speaking of other things, because the true heart is one; anything else is not heart (it is dhamma).</p>
+<p>Some people have taken this neutral heart to criticize. They say that from a worldly perspective, neutrality doesn't exist; there is only past and future. This is true as they say. But what the author is speaking of here is not worldly talk; it is Dhamma talk. They compare it to a moving train: the kilometer not yet reached is the future, the kilometer passed is the past, the present moment does not exist. The author has heard this problem so often it's familiar. The ancients said that the world and Dhamma argue endlessly without either side winning. When speaking of Dhamma, they bring worldly arguments; when speaking of the world, they bring Dhamma arguments. This is why the world is perpetually chaotic. The Buddha, having conceded defeat to the world, lived in peace. As the saying goes: "Defeat is a Buddha; victory is a Māra."</p>
+<p><strong>A Comparative Marker</strong></p>
+<p>Here, let us talk about the moving train to understand Dhamma a little. The train is <em>moving</em>. The phrase "is moving" — that itself is the middle point. If there were no middle point, what would there be to mark the past and future? If the train were completely still, then past and future would have no basis. Would that not be consistent and not contradict Dhamma? If the mind is still, neutral — what is called heart — then all thinking, composing, even sins, merits, virtues, faults, coarse, subtle, good, bad, conventions, and designations are absent there.</p>
+<p>This person is truly eloquent. He has been gifted with eloquence at birth. Whether speaking Dhamma or worldly matters, he speaks with reason and evidence, truly worth listening to. The author greatly compliments him.</p>
+<p><strong>Practicing Concentration (Samādhi)</strong></p>
+<p>Now let us talk about practicing samādhi to see the mind itself. There are many methods of practicing samādhi, as is well known. But here we will use mindfulness of breathing (ānāpānasati) as the meditation word (parikamma), because ānāpānasati includes several kinds of meditation subjects (kammaṭṭhāna), such as mindfulness of the body (kāyagatāsati), foulness (asubha), analysis of the four elements (catudhātuvavatthāna), and mindfulness of death (maraṇasati), etc. Even the Buddha himself used ānāpānasati to contemplate and attain full enlightenment, because ānāpānasati is the highest of all meditation subjects. If after contemplating ānāpānasati the mind still does not unify into samādhi, it would be difficult to teach anything else.</p>
+<p>Ānāpānasati is excellent. But it is not simply repeating the word mindlessly and expecting it to become good on its own. You must repeat and contemplate simultaneously. Contemplate to see the death, dissolution, and disintegration of this body. If you breathe in but don't breathe out, you die; if you breathe out but don't breathe in, you die. Contemplate this together with the repetition to get results. Repeating just "ānāpānasati, ānāpānasati" alone will not yield results. Even if it does, it takes a very long time. Some teachers teach to count: "One" as you breathe in, knowing you are breathing in; "Two" as you breathe out, knowing you are breathing out. "One" as you breathe in long, knowing it's long; "Two" as you breathe out long, knowing it's long. Practice evenly like this, and gradually the mind will unify into samādhi.</p>
+<p>Some teachers instruct to place the breath at the tip of the nose or the chest and hold it there. From my experience, this rarely yields results. If it does, it tends toward negative effects such as chest tightness, breathlessness, temple pain, headache, etc. Then one becomes discouraged and doesn't want to practice anymore. This is very regrettable — losing another person who was sincerely determined to practice. If the meditator uses the breath as the repetition: "ānāpānasati, ānāpānasati," holds the breath, slowly releases it, holds again, slowly releases, after two or three times, then fix on the source of the breath as it is about to leave. You will grasp your own mind immediately. Then let go of all aspects of the breath and grasp only the mind itself. That is how you practice ānāpānasati.</p>
+<p>Practicing samādhi with any repetition — whether "Buddho, Buddho," "Arahaṃ, Arahaṃ," "Sammā arahaṃ," "Rising, falling," "Ānāpānasati," or "Maraṇaṃ, Maraṇaṃ" — the goal is the same: to unify the mind into samādhi, to make it firmly concentrated as one. Some people use many different repetitions, afraid that using only one won't be powerful enough or suitable for their mind, and they go overboard. Doubt and hesitation from the very beginning are great obstacles to samādhi practice.</p>
+<p>Some people, while repeating, experience a learning sign (uggaha nimitta) that their mind has never experienced before. They become excited and cling to that nimitta. When the mind declines, they regret it and want it again. This desire becomes another obstacle to meditation. After trying repeatedly without success, they become discouraged and give up. Some people, with a tendency to cling to the nimitta, see their repetition constantly regardless of posture — standing, walking, sitting, lying down — and become pleased and satisfied with it. That is fine. Clinging to a nimitta is better than clinging to sensual defilements. One who clings to defilements cannot rely on oneself; they only rely on others endlessly.</p>
+<p><strong>Investigating to Find the Mind</strong></p>
+<p>The practice of samādhi and bhāvanā is essentially an investigation to find one's own mind. Every human being has a mind, which is why they are born. Without a mind, one would not be born as a human. But we do not know our own mind — what defilements it has, how it is defiled. The mind has accumulated emotions (ārammaṇa) over many realms and lifetimes, wrapping the mind tightly so that we cannot see it. Therefore, we must train the mind to have a single object. Only the knowing mind, thinking and composing according to that object, remains (that is heart). Then, when the mind thinks or composes, you will see the mind clearly. Once you see the mind vividly, you can either let it think and compose anything or not let it think and compose at all. The mind becomes something you can control; it doesn't control you. When defilements such as sensual thoughts (kāmavitakka) etc., arise — hatred, delusion, pride, wrong view, all defilements — you know them instantly no matter how they come or arise. Defilements are not in the mind; rather, the mind fabricates them and then receives them to wrap around the heart separately. If the mind itself were defilement, how could the Buddha and his disciples purify it? It is because wise people can separate the mind from defilements that their minds become pure and clean. Like a diamond buried in the earth for tens of thousands or millions of years, still perfectly clear. When dug up and washed, it remains as clear as ever.</p>
+<p>The mind is extremely fast and sensitive, faster than a compass made of physical matter. The slightest disturbance makes it react. The mind, being mental (nāma-dhamma), is a hundred or a thousand times faster than that. To compare it to building a house: you only realize it when the roof is raised and the beam is locked in place.</p>
+<p>Some people who have practiced samādhi in previous lives, upon beginning ānāpānasati, have their mind unify slightly into a nimitta, then it rushes out to grasp and fabricate, making them see stars, planets, or bright light. They think it's dawn and quickly emerge from samādhi, only to be completely dark and see nothing. Some people, when their mind unifies into a nimitta, see their own body lying dead and rotting. They become frightened, regretful, and sob. Some see many things, such as their own mind-heart clear and bright, or a small or large Buddha image, depending on their mental fabrication. All of these are fabrications of the mind, and the mind becomes pleased and clings to them as real and substantial, binding us for a very long time. Escaping from such a nimitta is not easy. You must separate your mind from the nimitta, and only then will you know that you are attached to the nimitta. Or you need a skilled teacher to explain and correct you. But being corrected by others is difficult, as you often won't believe. It's better to correct yourself. You can correct yourself through wisdom and experience. These things arise because we practice samādhi. If we don't practice, they don't arise. When they do arise, they bind us tightly. So we hold to the saying: "If there is binding, there must be unbinding."</p>
+<p><strong>The Buddha, the Unbinder of the World's Bonds</strong></p>
+<p>Worldly people only know how to bind themselves to the world. In this world, only the Buddha is the unbinder of bonds. We are disciples with a teacher (the Buddha). We will follow in his footsteps. We were born as one person, a Buddhist, a disciple with a teacher. The Buddha taught us to give up and let go of everything, even ourselves. Because when the time comes, even if we don't let go, our body will let go anyway. Everything — even perceptions, emotions, thoughts, and fabrications — we fabricate and think up ourselves, then take as our own. Whenever we give them up and let them go, they cease to exist.</p>
+<p>By nature, meritorious kamma arranges for us to be born as humans with four elements, five aggregates, sense-bases — complete and full tools. We use them, they use us, alternating like this throughout our lives. As we train and develop the mind, we see the mind's characteristics: how it gives benefits and drawbacks, how it is useful and useless. While we are alive, we should use it appropriately for the time and place. Don't use it sloppily or foolishly. We have these things; we must use them beneficially. If we cannot use them, we must discard them, regardless of what others say. Everything in this world must be used skillfully to be beneficial. If used unskillfully, it becomes harmful.</p>
+<p>In the end, the Buddha taught all Buddhists to abandon the bonds and fetters that entangle them in this world. Everyone born into this world receives both physical and mental phenomena (rūpa-dhamma, nāma-dhamma) equally; no one has an advantage or disadvantage. And everyone has the right to use these things completely — whether for good or evil, merit or sin, virtue or fault, benefit or non-benefit, including all thoughts, memories, and emotions.</p>
+<p><strong>Old Things Used Repeatedly</strong></p>
+<p>We have used these things for many lifetimes. Even in this present life, we have used them from birth until now. Thoughts, desires, hunger — all old things. Using the aggregates, sense-bases, contact — all old things. Mental anguish, gladness, laughter, delight — all using this same old body and mind. Remembering that this or that person is father, mother, spouse, child, grandchild — "mine, mine" — all using these old things. Circling and revolving without end. Using old things and forgetting them; using them again and forgetting again.</p>
+<p>Eating — eating old things (pardon me, not meaning feces or urine). After eating, everything is excreted, then becomes plants and fruits. Then we mistake the old as new and consume it again.</p>
+<p>All material things — plants, mountains, humans, animals, even human thoughts and emotions — all use old things for consumption and use. If we didn't consume and use these things again, this world would break apart piece by piece. Eventually, the entire world would disappear, along with us humans.</p>
+<p><strong>The Kāma Realm, Rūpa Realm, and Arūpa Realm</strong></p>
+<p>In summary, humans are born into the sensual world (kāmaloka). They acquire sensual possessions, with the elements, aggregates, sense-bases, and contact as tools for thinking and fabricating within the five sensual qualities (kāmaguṇa): forms, sounds, smells, tastes, and tactile objects. They are deluded and bound to these five objects, unable to escape, sinking in these three planes endlessly. In the sensual realm (kāma-bhava), whatever actions are performed, whatever thoughts are fabricated, sensual desire is the root cause. There is desire and delight in those things. When successful, there is desire and delight attached to the result. When unsuccessful, there is great distress and suffering. This is the nature of the sensual plane.</p>
+<p>In conclusion, all worldly people — the elite, the noble, the lowly, the destitute — are all stuck in sensual pleasure. They use the five aggregates and sense-bases within themselves as tools. Having contact (phassa), they experience those objects.</p>
+<p>Regarding the form realm (rūpa-bhava): one must first practice samādhi and attain jhāna before one can speak about it. Whether one knows or not, when speaking of the three planes, it is necessary to continue to the form realm. In the form realm, the meditator who has attained the learning sign (uggaha-nimitta) and counterpart sign (paṭibhāga-nimitta), as they continue to practice, must first abandon the external physical body that we ordinarily see. Then they see an internal form (rūpa) within their own heart. Then they contemplate that internal form, and that form manifests in various ways. For example, they see this body as rotting, reduced to bones, or broken into pieces, or swollen, or deflated, or see it as a celestial being, Indra, or Brahmā, depending on their imagination. Some become frightened and weep, believing it to be real. Their mind becomes fixed on that image, and they let go of sensual objects occasionally. That is good in that they have abandoned coarse objects, but they become attached to a more subtle object (the internal form).</p>
+<p>The formless realm (arūpa-bhava) follows the form realm. One trains the mind further until letting go of the internal form (learning sign and counterpart sign). Only the single, empty mind remains. That mind then holds only one object. No matter which direction it contemplates, there is only emptiness. (In truth, there is a mental form; those who hold that object are holding a form of the mind, but it is not called rūpa.) This is the subtle bondage of refined people. They remain attached for hundreds of millions of years before escaping.</p>
+<p>All that has been explained are the bonds of sentient beings: the sensual world, the form world, and the formless world. By nature, meritorious kamma leads one to be born as a human. As one creates goodness, the mind gradually develops until reaching the form realm and formless realm. When one falls from that, one descends again to the sensual realm. One wanders within these three planes endlessly. This is called: being born, then creating realms and creating births, binding oneself like a silkworm making a cocoon to wrap itself in, preventing any escape.</p>
+<p><strong>Upon Clear Knowing, One Relinquishes Desire and Delight</strong></p>
+<p>The Buddha, supreme in wisdom, contemplated and saw clearly as truth that the entire world is wrapped in ignorance (avijjā) and delusion (moha). The three planes are like a prison for dwelling. Craving (taṇhā) and clinging (upādāna) are the means for traveling around. Sensual objects, form objects, and formless objects are the nourishment. Knowing this, he became disenchanted, relinquishing desire and delight in those three planes through insight knowledge (vipassanā-ñāṇa). He saw those three planes as something to be "sent out" by his own mind ("sending out" here means sending out sensual objects, form objects, and formless objects), flowing only into the future, never reaching the present. Knowing this clearly, he abandoned and let go of the mind that was past and future — which fabricated the three planes — and came to rest as the neutral one: the heart, knowing it as neutral. Thus, realms and births ended.</p>
+<p>All practice in Buddhism — keeping precepts, developing samādhi and vipassanā, etc. — aims only to investigate cause and effect, what should and should not be done, good and evil, the physical and mental phenomena in things, to see and know them according to their true nature.</p>
+<p>But all those things are never truly real because we contemplate by sending outwards. We see things as unreal and constantly changing. This very investigation by sending outwards, contemplating impermanent and changing things, therefore brings endless suffering. Contemplating external things apart from ourselves is not ourselves, and we do not see ourselves. Therefore, we cannot keep ourselves in control. The wise person abandons what is not oneself, what is insubstantial. They let go of the past and future, enter the middle, remain equanimous, and know that they are equanimous. When the heart enters the middle, remains equanimous, and knows that it is equanimous, what remains? The task in Buddhism, from beginning to end, seems to finish here.</p>
+<p>This is in line with the witty saying of the ancient sages of the Northeast (Isan): "These things, when spoken of, are no longer there."</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="75._Advice_on_Living_Together.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">75</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">75. Advice on Living Together</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="77._Awakening_to_the_New_Year.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">77</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">77. Awakening to the New Year</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

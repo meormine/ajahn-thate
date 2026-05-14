@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>77. Awakening to the New Year</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="76._People_only_Know_How_to_Tie_the_Knot.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(76)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="78._Hell_Breaks_Loose.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(78)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/77.%20Awakening%20to%20the%20New%20Year.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>77. Awakening to the New Year</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>January 3, 1984</p>
+<p>Today marks the New Year, so I feel inclined to give a Dhamma talk. Everyone born undergoes change and shifting throughout their entire lives. Our aging is a constant process of decline. But days, months, and years remain as they always have been—they are old things. Yet people go around chasing after their own shadows, getting excited thinking the old year has ended and a new year has arrived. In Bangkok, they even come all the way to Wat Hin Mak Peng to ask for New Year’s blessings—to ask for long life, beauty, happiness, and strength. This is how people are trapped in delusion, deluded by their own shadows.</p>
+<p>They ask for a <em>long life</em>. But how can life be made long? It is constantly running out, like cloth being woven on a loom—the cloth ahead gets shorter and shorter. For some, it is nearly finished. Where would one get more life to add on? Asking monks for blessings—where would monks get more life to give? A monk's life is running out just the same. Everyone is running out together; how can one give to another?</p>
+<p>They ask for <em>beauty</em>—a fair complexion. It is food that gives complexion. Asking for long life and asking for beauty are the same thing—they come from food. You come asking monks for a radiant, pure complexion. If monks were to grant it, where would they get it from? Complexion and beauty come from food.</p>
+<p>They ask for <em>happiness</em>. Where will happiness come from? Asking monks for it, where would it be obtained? There is one thing that can be obtained by asking: food. That’s what happiness can be asked for. Food provides comfort and well-being. If there’s no food, if food doesn’t reach the stomach, then happiness disappears; there is no happiness. But monks still have to ask for food from laypeople to eat—how then could they give happiness to the laypeople? The Buddha taught that true happiness does not exist in this world. There is only suffering, which arises and then ceases. This suffering arises, that suffering ceases, and then new suffering arises again. When one sees things truly in this way, the whole issue is settled. There’s no need to go asking for happiness from anyone.</p>
+<p>Asking for <em>strength</em> is the same. If one gets tasty food, one gains energy and vitality to work and sustain oneself.</p>
+<p>These four blessings—one doesn’t even know who to ask them from. This is chasing after the shadow of the owner—that is, our own selves. The self changes every single day. People mistakenly believe that a new year or a new month will bring them happiness, long life, beauty, happiness, and strength—these four things. What can days, months, or years give? They are getting excited without even knowing it. No one is giving anything; they are just stirring themselves up. They misunderstand, thinking they receive blessings from the year or month. But the year and month have been exactly as they are since time immemorial. We are born and see them existing as they are. The year ends, the month ends—we don’t even know where they go. We assume they end, but actually, they never end. They simply keep revolving that way, constantly. Days revolve into months, months revolve into years—they just keep cycling.</p>
+<p>In truth, days don't call themselves anything—Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday. They don’t name themselves. Months don't call themselves April, May, June, July, and so on. They don’t name or speak. We merely assign conventional names to them. Years don't call themselves the Year of the Rat, Ox, Rabbit, Dragon, etc. They don’t speak. People are the ones who name them and create conventions. Actually, it is our own selves that are running out, not the days, months, or years. Once we see that it is our own selves that are running out, we don’t need to get excited about such things. We don’t need to get excited about a new day or a new year. Those things revolve according to their own nature. A day, a month, a year—these are merely conventions, designations.</p>
+<p>What we should truly be excited about is ourselves: in the course of a day, a month, a year, are we progressing or declining? That is the real point. We should see our own decline and progress. In reality, our bodies never progress; they only decline. They begin declining right from the womb. Aging <em>is</em> decline. If it didn’t age, it wouldn’t be born. Once born, it ages by the day, by the month, by the year, in sequence, until it becomes decrepit and old, and finally reaches death. This is the aging of the body.</p>
+<p>Now, as for the aging of the mind: we merely inhabit this body; it is not truly us. We should observe our own mind, and cultivate our mind to "age" as well.</p>
+<p>What does it mean to make the mind age? It means to mature our mind with virtue. That is what truly belongs to us. Do we, in a given day, think about giving? How many times do we think about giving? Do we think about observing precepts? Do we think about practicing concentration to train the mind to be calm and joyful? It is these qualities of virtue that we should cause to mature within our minds.</p>
+<p>Giving results in a mind that is fulfilled and joyful. That fulfillment and joy <em>are</em> long life, beauty, happiness, and strength right there. When the mind is joyful, the body becomes joyful. Happiness arises, and beauty arises along with it. When we feel fulfilled and joyful from making merit and giving each day, that becomes truly ours.</p>
+<p>Observing precepts: how many precepts do we have within ourselves? The Five Precepts are:
+1.  Intention to refrain from killing.
+2.  Intention to refrain from taking what is not given.
+3.  Intention to refrain from sexual misconduct.
+4.  Intention to refrain from false speech, speaking untruths.
+5.  Intention to refrain from consuming intoxicating drinks and drugs.</p>
+<p>Do we have them all complete within ourselves? If not, we should make them complete. Suppose this year we have one precept. Next year we get another, making two precepts. The following year we get a third, then later a fourth, then a fifth. In five years, we can have the five precepts complete within ourselves. This is true mental progress; it matures. Once the precepts are complete, the mind is fulfilled, joyful, and happy. Happiness and beauty arise, and strength—both physical and mental—appears. It also contributes to long life. So, in the end, we have all four blessings complete.</p>
+<p>A person with the complete Five Precepts can have a long life. For example, in ancient times, the family of Dhammapala all observed the Five Precepts completely. In his family, no one died before reaching the age of one hundred. Dhammapala went to study at the school of the teacher Disapamokkha. There, he saw other children dying, with relatives and parents crying. Dhammapala saw this and laughed. When asked why he laughed, he replied, "In my family, no one dies before reaching one hundred." The teacher wondered if this could be true. So, he devised a plan: he had a goat's bone burned, wrapped it in cloth, and took it to Dhammapala's parents, weeping loudly. Upon arriving at the house, he wept again. Dhammapala's parents asked, "Why are you crying?" The teacher replied, "You entrusted your son to my care, and he has died." Dhammapala's parents also laughed. The teacher asked, "Why are you laughing?" They answered, "Our son is not dead. This bone is not our son's bone. His life hasn't yet reached one hundred years. Our son has not died." The teacher then understood clearly in his heart: "Oh! This family truly is like this."</p>
+<p>See? Observing the Five Precepts completely can indeed lead to a long life. Even if one doesn't reach one hundred, one can live longer than usual. Keeping the precepts leads to a long life because it keeps the mind clear and joyful, free from unwholesome thoughts. When we have the complete Five Precepts, we don't kill, we don't steal from others, etc. Unwholesomeness does not arise within us. The mind becomes clear and joyful, and life is prolonged accordingly.</p>
+<p>Therefore, we should awaken in this way—awaken to our own goodness. Realize: "I have done good. Before, I didn't have the Five Precepts. Now, I do." Awakening to this is better than the conventional New Year's excitement seen in towns and cities. That kind of excitement is the opposite of what I've explained. People get excited, drink alcohol, party everywhere, wasting their money. They jump around, and end up driving recklessly, leading to car crashes, or getting into fights and arguments, resulting in injuries, and sometimes even death. How many people die each year from the excitement of the New Year? That’s not awakening to oneself; it’s being excited by external things. They become forgetful of themselves, indulging and intoxicated. Thus, they don't awaken to their own true being. That's how it is.</p>
+<p>Therefore, awakening to ourselves is something very good. It causes us to be mindful and to do good deeds physically and mentally. For example, if we never had any precepts before, we aim to get one precept this year. Next year, we get another, making two. After four or five years, we have all five precepts complete. Then we will feel secure and at ease.</p>
+<p>Once the precepts are complete, we then awaken to practicing concentration. We train in meditation. If the mind is not yet concentrated, we train it to become concentrated, to become steady, calm, and unified. Since it isn't there yet, we must train. We train to make it happen through practice. This year we achieve this level, next year we go further. We practice concentration to become steady; the following year we aim for greater skill. Sometimes we achieve concentration, sometimes we don't; the mind wanders and is distracted all over the place. That's how it is at first, but it's still good because we are observing the mind—better than never observing it at all. Later, we aim for it to become steady. Even if we achieve concentration just once a year, it's still good—better than doing nothing, never having practiced concentration at all. We don't know how many lives we've been through; we've never practiced concentration even once. To do it just once in this life is considered good. Next year, we practice to do it more often, to become skilled and proficient, to do it step by step, until we become adept. Then, whenever we want to do it, we can. This is what it means to extend our life, beauty, happiness, and strength. This is what we should awaken to—awakening to practice meditation.</p>
+<p>Otherwise, our mind remains ordinary, stuck in its old ways. Consider this: whether a person is old or young, it's easy to see that the mind doesn't know how to age. When we dream, we can see for ourselves whether it ages or not—the mind is still young and youthful. But externally, everyone else can see that the body is old enough. They call us "grandfather," "grandmother," "aunt," "uncle," and so on. The body is old, so they call us these names. Everyone in town sees the old age. But no one sees the mind. We ourselves can see it very easily. When we dream, we are still youthful. We don't understand why it doesn't age. We need to train it to age a little. The body has aged; now train the mind to mature like the body does. If we don't train the mind, it will never age on its own.</p>
+<p>In the worldly sense, everything that is born ages—betel nuts, fruits—they all age according to their time. But humans—the mind never ages; it remains forever young. That's why when people die, the mind remains in its original state. When it is reborn with a small, young body, the mind is still the same old one, with the same greed, anger, and delusion as before. Now, we are laymen, laywomen, monks, or novices. This is a sign of maturing—no longer being ordinary laypeople like before. As laymen or laywomen observing precepts, we don't indulge in heedless pleasures like others. We act with restraint, within the bounds of morality. This means the mind has begun to mature.</p>
+<p>Practice meditation to develop it further, to make it truly mature. Don't just remain perpetually youthful. Make it mature a little. When it matures in the way I've described, then it will be free from suffering. It's like a fruit. When it first appears, it's unripe and raw. Take a mango, for instance. When it's just a tiny fruit, taste it—it's extremely sour. As it ages a bit, it becomes more astringent. Aging further, it develops a little richness, and the astringency fades. Aging further, it gradually becomes sweet. When it's fully ripe, it falls from the tree, ending its state as a fresh fruit. It becomes sweet as it should—that's its maturity, the end of its unripe state.</p>
+<p>For humans, when we grow old, if we don't train and cultivate ourselves, our mind doesn't transform at all. Not only that, it can become worse—it can revert to childishness. Old people don't act their age; they act like children again.</p>
+<p>This discussion concerns the New Year. People designate and call it the New Year. Actually, it's not new; it's the same old thing. Sunrise is old, sunset is old. A day is simply from sunrise to sunset—that's called one day. Then we define thirty days as a month, twelve months as a year. In truth, it's all the same old thing. The sun rises and sets. No matter how many conventions we create, it's all old. What is truly real is that this process gradually consumes our life. Our life span is what is truly running out.</p>
+<p>There is an ancient riddle: "There is a giant with two eyes, one half-closed, one wide open. It has thirty teeth, chewing and consuming all living beings in the world." That's the riddle. "One eye half-closed, one wide open" refers to the new moon and the full moon. "Thirty teeth" means thirty days, one month. "Chewing and consuming all living beings in the world"—everyone is subject to this. This giant consumes everything. Whoever is born, this giant chews them up. It means our life span is ending, being consumed, but we are unaware.</p>
+<p>Well, that's enough for now. <em>Evam.</em></p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="76._People_only_Know_How_to_Tie_the_Knot.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">76</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">76. People only Know How to Tie the Knot</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="78._Hell_Breaks_Loose.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">78</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">78. Hell Breaks Loose</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

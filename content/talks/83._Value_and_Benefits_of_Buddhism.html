@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>83. Value and Benefits of Buddhism</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="82._The_Five_Aggregates.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(82)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="84._Principles_of_Meditation_Practice.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(84)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/83.%20Value%20and%20Benefits%20of%20Buddhism.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>83. The Value and Benefits of Buddhism</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>May 20, 1976</p>
+<p>Listening to a Dhamma talk requires understanding the principle. If you listen incorrectly or without skill, you won't grasp much. Dhamma is peaceful; it is a matter of peace. If something is chaotic, it's not Dhamma—it's worldly matters. Therefore, when someone preaches Dhamma, we must first calm our own body, speech, and mind to receive that peaceful Dhamma. Only then can it harmonize with the Dhamma being taught for peace. Only then can we understand and taste the essence of Dhamma. How do we become peaceful? Normally, our body is restless, moving about; our speech says this and that; our mind is distracted, busy, wandering—none of them is peaceful. Sometimes the body is calm, speech is calm, but the mind is not. Therefore, we must bring calmness to all three simultaneously, and then listen to the Dhamma.</p>
+<p>Today, I will explain the value and benefits of Buddhism. Religion is something good and valuable, but people don't really understand Buddhism, so they see religion as worthless, without benefit, or of little benefit and little value, and so on. People often misunderstand, thinking wrongly contrary to the truth. Buddhism teaches broadly and inclusively—it teaches people of all levels who are born. Even animals that can be trained are taught by the Buddha as well. What does Buddhism teach? Or what do all religions teach? Religions teach us to abandon evil—that is, not to engage in evil conduct—and to cultivate goodness and virtue. Simply put, abandon evil, do good. This is the principle of every religion. Merely refraining from evil deeds of body and speech is difficult to achieve because there is a master—the mind. The mind commands the body and speech to carry out various activities. For this reason, the Buddha taught us to also take care of the mind, to control the mind as well. Only then is it complete and perfect. We cannot simply force the body and speech to abandon evil; we must first instruct or train the mind to control itself, then we can bring body and speech under its power. This is the core principle of Buddhism.</p>
+<p>Now let us consider whether this principle fits with human society. Will it fit in any era? Think about it: In any era, do people want to do evil or good? Speaking truthfully, in every era, everyone likes to do good. No one wants to do evil. So it does fit with the Buddhist principle. Buddhism and socialism harmonize very well in every age. So why can't people abandon evil and do good, even though they see and know that something is evil and not good? They can't do it because they don't apply Buddhist principles. Therefore, they can't abandon evil or do good. And then we cannot blame religion, saying it is worthless or not worthwhile to uphold, practice, or support. Absolutely not. If one does not practice or follow the teachings of that religion, one cannot blame the religion. We must blame the person. But people blame religion instead of blaming the individual who acts. This is another misunderstanding. Most people today misunderstand religion on this point. Another principle of religion is: doing good brings good results, doing evil brings evil results. Nowadays, this principle is greatly misunderstood—misunderstood as wildly as heaven and earth. People often say, "Doing evil and getting good results is everywhere; doing good and getting good results—where is that?" They recite it fluently. People like what is not good because it suits their own minds. In Buddhism, it's said to suit their defilements. They like it because they themselves like to do evil. They can't do good because they cannot control themselves to do good, so they prefer evil. Evil is something fluid, something low. I'm speaking simply in our language, which we call "liquid and flowing." Why must it be liquid and flowing? Because it's liquid, so it flows; flowing, it goes downward. Evil is liquid and flowing; it falls to a low place, so it's hard to resist or block. This is why people don't readily believe Buddhism, which teaches abandoning evil and doing good. Most people understand superficially: "Doing good and getting good results—where is that? Doing evil and getting good results is everywhere." Because someone who robs, steals, is lazy, cheats, or steals from others becomes wealthy. Even in government service, the same applies: those who are honest and straightforward are not favored by their superiors; they have to flatter and ingratiate themselves to get ahead. They don't focus on work but constantly seek money to offer to their bosses. Those bosses like them, keep them fed, keep them to fill their own pockets. People see this everywhere, so they say doing evil brings good results. If someone does good, is straightforward, and works in government, they rarely get close to senior officials; they are often transferred to remote places. People see this all over the country, so they understand that doing evil brings good results everywhere.</p>
+<p>Buddhism does not teach only this; it does not teach only the body. Buddhism teaches both body and mind, both material and mental phenomena. It teaches both as a pair. For example, it teaches diligence in earning a living, working, and abiding by righteous conduct. This shows that it teaches material and mental things together. It does not teach grabbing and snatching, taking everything without considering right or wrong. That is not Buddhism. The Buddha did not teach that. He taught knowing moderation and appropriateness, knowing right from wrong—having a mind that knows. The Buddha taught like this. Therefore, the current understanding that doing evil brings good results everywhere—such as swindlers, robbers, kidnappers, pirates, hijackers—these people become extremely rich. Now suppose we ourselves did such things. What would we think? What would be in our hearts? The Buddha taught about the mind simultaneously. Let's consider according to his teaching. When we think of cheating or robbing others, our mind thinks only of ourselves, only of our own pocket, not of others' suffering. If someone did that to us, how would we feel? Certainly, we would suffer, grieve, and be distressed. So when we do it to others, they suffer and are distressed. The Buddha taught us to have empathy for one another. If we listen and practice accordingly, we won't cheat others. And others, likewise, will live together peacefully and happily. This is how the Buddha taught the mind.</p>
+<p>The human mind is low and fluid; it flows downward. The Buddha taught us to develop the mind, to elevate it. When it is selfish, he taught us to eliminate that and to share happiness with others appropriately, according to one's disposition, or to do as much as one can. That is even better. Now think further about the benefits. If we can do as described, would it be good? Would our world be happy? Certainly, no one would deny it. If we all helped one another, the whole world would be full of close friends and relatives. The Buddha did not teach only us Buddhists. All that has been said is teaching all human beings in the world. Another example of his teaching: when someone is angry with us, we do not respond. We remain silent, say nothing. They might think we are stupid, not good, not smart or capable enough to respond. But we follow the Buddha's teaching because we have heard it. He taught everyone. But that person has no opportunity to hear or learn about the Dhamma the Buddha taught, so they cannot calm their mind. We, who have heard, must practice according to the Buddha's teaching. When we balance it out, between two people—one without Dhamma, one with Dhamma—it becomes half better between the two. If it's two factions or two countries, it becomes half better. So what else is needed? Thinking according to the Buddha's Dhamma should be done this way.</p>
+<p>Thus, developing the mind together with material development is truly for happiness and prosperity. At the same time, Buddhism also prospers alongside. It is complete, perfect, and full development. The value of Buddhism is excellent like this; its benefits are great like this—if one practices correctly, understands correctly, and can practice according to his teaching.</p>
+<p>The Buddha taught many things in many ways. For example, the practice for laypeople—teaching householders from childhood upward: the duties of children, of parents, of husbands and wives in a household; knowing how to give rights and authority to each other, having empathy, knowing each other's kindness, and reciprocating that kindness. He taught beginning from lay life and upward. He did not teach everyone to ordain and go straight to paths, fruits, and Nibbāna. No, he did not teach that. The main principle is that the Buddha taught Dhamma for the world, for us to practice correctly, because that brings happiness and comfort to oneself. Living together, from two people upward, requires correct practice according to Dhamma principles in order to live happily and comfortably according to one's ability. If we consider further, we see it is even better than that. If a person is born only to work for food and survival, without mental development, they are no different from ordinary animals. Even if they advance greatly in material terms, if the mind deteriorates, that material progress is useless; it only brings harm and destruction to one another. So I give this comparison: people compete and struggle for livelihood; having this much is not enough; they are ambitious, wanting more and more; wealth is never enough. Is there happiness from the money they earn? Another group works just enough to eat and live, day by day, not seeking riches—just let them have enough to live. They are loyal and harmonious with one another. Which do you think is happier? In Buddhism, teaching development of the mind together with material things—is that correct, is it good? Even though this era has advanced materially, if the mind also advanced alongside, we would have far greater happiness than now, countless times over. If we truly understood Buddhist principles correctly, we would see the immense, incomparable benefits and values of the religion. What happiness can compare to the happiness born of compassion, kindness, and mutual generosity? Having money and wealth, without these virtues, is not worthwhile; it only brings suffering. This is why I want to extol the value of religion. Religion has these benefits. But as I extol them, if you listeners do not understand as explained, then it's just that—you might not agree.</p>
+<p>As for religion teaching about hell, heaven, and the skies—don't even mention that yet. That is invisible. Better to take teachings that are visible and beneficial in the present. He taught everyone to gradually improve, to develop both body and mind, both material and mental things together. People will then receive greater happiness and comfort. As for those who advance to higher levels, that happens by itself. First, establish this Dhamma foundation firmly. When you see its value for yourselves, you will have faith to keep the five precepts constantly, or the eight precepts for life, or to ordain in Buddhism as a monk or novice. That is another matter. If someone objects, saying that having many monks takes advantage of others—they don't work, they depend on others, they eat and are lazy, not thinking of benefiting the nation—let me ask you to reconsider. Our children and grandchildren, when they grow up, what benefit do they give us? They study until graduation, taking twenty years. We parents have spent so much raising them. What benefit have they given us? Many have squandered everything. After graduating, what have they done for us? And how many have benefited the nation? Think about it. Those who ordain in Buddhism, at the very least, uphold the monastic status. They serve as an example for those who are not ordained or who have not associated with them, to see good practice and morality. They serve as a measure of goodness for laypeople and relatives. Even if monks are bad, they are still tolerable within Buddhism. At the very least, they have the five, eight, or ten precepts. Even if not all 227, some laypeople, from birth to death, have never kept even a single one of the five precepts. When you see small faults of monks and novices, don't judge them all as bad. Generalizing that all monks are the same is incorrect. Buddhism does not refer to the monks; it refers to the practice. Monks are individuals; religion is not in the individual. Religion is the teaching of the Buddha. If an individual practices wrongly, it's the individual's fault, not the religion's. Religion still teaches straightforwardly as before, teaching to abandon evil and do good as before. But people don't practice. If we don't practice the teachings, we cannot say religion is not good. Consider this carefully. Otherwise, no matter how wrong or depraved someone is, it's all blamed on religion—religion is all bad. Sometimes, even people who go to temples, listen to sermons, keep precepts, meditate, practice contemplation—if they get angry once, "Oh! This religion is no good—going to temple until old age and still can't overcome greed and anger." This is wrong to say. Don't say that. That is a matter of the individual. Religion teaches to abandon, but the individual doesn't abandon. What can be done? If you understand this, you'll be at ease.</p>
+<p>So what should we do? I answer: When others don't do it, we do it. Let everyone make an effort—one person or everyone. Try it: They don't do it, we do it. Set an example for them. But it's not like that. Most people, seeing others not doing it, also don't do it, so they become bad along with them. When we are bad, we blame others. Everyone blames each other, causing trouble and chaos. How can that be good? So don't blame religion. Religion teaches well, teaching everyone to develop themselves in body and mind, not only the body. People in the world today teach only physical development, to this extent. Instead of the world receiving cool happiness, it becomes more troubled than before. This shows that development is still incorrect. If development followed Buddhism—developing both body and mind together—how much coolness would the people of the world receive? No one has done it yet. Nevertheless, from this explanation, you can see the benefit of developing both together—there would surely be happiness. Religion teaches to attain peace, not to be troubled and chaotic. When we are peaceful, and others are not yet peaceful, leave them for now. If everyone made peace for themselves, how much cool happiness would they receive? Close your eyes and think about it.</p>
+<p>For those who have come to train in religion and listen to Dhamma today, I want to explain so you understand the main principle laid down: abandon evil, do good; or doing good brings good, doing evil brings evil—not doing evil brings good. The word "good" here, don't misunderstand as external. He means internal. When we do evil, our mind is not at ease—that is called not good. Suppose we steal five or ten baht from our parents. Our parents might not say anything, but how would our mind feel at the moment we took it? Or if we do something wrong, associate with bad friends, or do evil ourselves, how does the mind feel? There is a feeling, a thought of something not good—a defilement in the mind. This is precisely what is meant by "doing good brings good, doing evil brings evil." Doing evil must be done secretly; no one does it openly. This shows it is not good, so it must be done secretly, cannot be done openly. It is like a wound. Suppose there is a festering, stinking wound on the shin. Would anyone uncover it for others to see? We wrap it in cloth because it is dirty, not good, we don't want anyone to see. But when something is good, we don't hide it; we want to show it to our parents, to those we respect, to know and see. Even if we don't show it, our mind is content, smiling, bright in body and mind, can be fully open. That is goodness. Doing good brings good. If we think that only when others praise and flatter us is it called doing good, that understanding is not yet correct, not reaching the core of Buddhism. The core principle of Buddhism must reach the heart of the practitioner. Please understand correctly: doing good brings good, doing evil brings evil, as explained. Don't depend on others. Every person does good, mostly. They do everything thinking it is good, so they do it. What they see as evil, they usually judge as violating their own opinions. To know whether something is good or evil, measure it like this: if it must be hidden, don't consider it good. If it can be done openly, even if not excellent, it's still acceptable. Measure goodness by this.</p>
+<p>Another point: if you do something and wicked people praise it, don't think it is good. When good people praise it, then understand it is good. Who are good people? Good people are those with reason. What is called goodness? The goodness we do does not harm ourselves, does not cause loss of benefit to ourselves or others—it does not affect either oneself or others. That is called good. Even if something is extremely good, if it affects others, that goodness is not usable; it is not good. This is a measure of good and evil. Once you understand and know, then measure yourself, your mind, and then measure the results of your actions: not harming oneself, not causing trouble to oneself and others—that is called good.</p>
+<p>If we understand the principle of religion in this way, we will be more at ease, and we will be willing to uphold religion to continue permanently. If we uphold and preserve it, it will be a good practice that leads others to do good along with us. Don't think that others must do good first before we do. That doesn't work. The correct way: if they don't do it, we must do it before them, to set an example. We become the leader, or the one who knows. If everyone waits for others to do it first, then no one does it at all. That society becomes completely messy, fluid like before. The words "messy and fluid" mean it cannot be restored. The ancients said hell is deep underground and heaven is in the sky—it's like this. The wise policy of the ancients is profound; we cannot fathom it. Evil, not-good things must be hidden, are low, are hell under the ground. Good things are open, the mind is clear, light; when open, they rise up, float up to the sky. We don't understand, so we blame the ancient sages, saying they taught without reason, deceiving us that hell is under the earth and heaven in the sky. Nowadays, science has advanced; people have stepped on the moon and haven't seen any heaven or sky. This is how people's views and Buddhist views are as far apart as sky and earth. If we don't study as explained, we won't understand.</p>
+<p>That's enough for today. </p>
+<p>(Meditation for 30 minutes)</p>
+<p>(The teacher instructs beforehand)</p>
+<p>Why do we have to meditate? Why close our eyes when meditating? Why sit cross-legged? There are many points. The word <em>bhāvanā</em> does not mean only sitting with eyes closed in meditation. It can be done in any posture, any activity. Bhāvanā is not about gaining; it is about letting go—letting go of what is bad, cleansing the bad things stuck in our minds that we are unaware of. If we don't search, we won't know, and we won't know where to throw them away. Therefore, we practice bhāvanā to see the bad things in our minds and then throw them away. That is bhāvanā. Now, we have never seen the mind, so we train to calm the mind, to make it still, then we will see. People are troubled and suffer because the mind is not calm. If it is calm, there is no trouble, no suffering. People are distressed and anxious because they think too much, cling to this, cling to that, grasp this, grasp that. That is not good. We collect the mind, catch the mind itself. The mind has no substance; it is mental. We use mindfulness—the one that remembers—as the rememberer. Wherever we keep mindfulness, the mind stays there. For example, we recollect "Buddho" in the center of our chest, or we recollect "Buddho" with the in-and-out breath. We maintain awareness at the specific point we have set, guarding it to stay in one place. This is training the mind to stay in one place as a preliminary. Making the mind stay is difficult. The mind runs around, chaotic in every way. We become lazy and annoyed, thinking it's too much trouble. Actually, it's not too much; we have never collected it, so we don't see. We let things scatter all over the town, so what can we see? Now, when we pull them together into one place, we see them as many. In truth, they are even more than what we see while sitting in meditation, but we have never trained the mind, so we don't know. This is the benefit of training the mind, or sitting in meditation: training to collect the mind, to see the bad things—the mind is chaotic, the mind wanders, and does not receive happiness. We have been chaotic for a long, long time, and it has never brought any happiness. The Buddha taught to calm the mind, and happiness will arise. Now, let us try to practice restraint and see if we receive the happiness he spoke of. What kind of happiness is it? How great? Let's compare later. For now, just do it genuinely first. Make the mind stay in one point as described. Don't think of many things. Thinking that it should be this way or that way, or thinking that if it is this way, then it will be that way—all those fabrications—then the mind is no longer still. It has become active again. Just focus on a single object. What is mind? What is mindfulness? Mindfulness is what constantly remembers: "right here, right here." Maintain the feeling of "right here." Keep your attention right there. That feeling itself is the mind. Wherever you feel, the mind is there. First, catch mindfulness together with the mind itself. Get to know the mind. In the beginning, it will struggle and wander. If we don't take it seriously, really earnestly, to overcome it, it won't become still. Subdue it at least once, then you become a hero. Bhāvanā is a battle, a struggle. To conquer oneself once—that is truly good, better than conquering others. The Buddha taught this.</p>
+<p>Sit cross-legged, or in any comfortable posture. At first, there will be aches and pains. Then the mind will be restless and wander. This is what we must fight against. The mind is greater than anything else. If we can control the mind to be calm, not chaotic or wandering, then fatigue, tiredness, aches, and pains will disappear without our knowing. If the mind does not cling to or think about anything, we will see the benefit: happiness arises from calmness, clearly and immediately.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="82._The_Five_Aggregates.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">82</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">82. The Five Aggregates</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="84._Principles_of_Meditation_Practice.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">84</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">84. Principles of Meditation Practice</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

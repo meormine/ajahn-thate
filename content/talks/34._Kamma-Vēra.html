@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>34. Kamma-Vēra</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="33._True_Unity_Lies_in_the_Mind.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(33)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="35._Deceptive_Things.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(35)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/34.%20Kamma-V%C4%93ra.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>34. Kamma – Vēra</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p><strong>15 August 1985</strong></p>
+<p>I will explain the matter of kamma for you to listen, so that you can remember it and then speak it to your audiences and to the laypeople far and wide. This matter of kamma — people don't really understand it; they still have many misunderstandings. Since I was ordained, I have heard about this kamma all the time. They call it "Lord of Kamma and Master of Vēra." But I did not dare to give a Dhamma talk on it because I saw that most people hold that view and understand it that way. If I spoke about it, probably no one would listen. But now I can no longer refrain — I must speak.</p>
+<p>Kamma arises from action. Every person must act — both good and evil, everyone does it. Buddhism teaches the truth in accordance with reality. When people are born, they must be taught about kamma; no one can escape kamma. Every person, once born, lives within kamma. Good kamma is called <em>kusala-kamma</em>; evil kamma is called <em>akusala-kamma</em>. Good and evil kamma do not arise by themselves or of their own accord, as people think. It is not like that. Rather, it is our own mind that grasps and attaches itself to that kamma, taking it to heart, and then it becomes stuck in our own heart, entangled within our own heart. No matter what you do, you cannot pry it loose; no matter what you do, you cannot free yourself from it.</p>
+<p>Kamma is the <em>vipāka-khandha</em> — the aggregates of result — with <em>rūpa</em> (form) and <em>nāma</em> (mind) as its basis. When born, one must have rūpa and nāma. The doer of kamma is precisely this rūpa and nāma, but it is not the kamma itself. This rūpa is not the kamma; nāma is the kamma. The mind itself keeps thinking: wanting to harm, wanting to oppress, wanting to be jealous and vengeful toward others. It concocts and fabricates. But in truth, at that moment there is no kamma at all. It fabricates and concocts; it arises right there, and only then does it become vēra and kamma. Then it thinks of doing it, but even then it cannot do it just by thinking. It must manifest through body, speech, and mind — all three together — in order to perform that kamma. Good kamma and evil kamma are the same: they manifest through all three of these channels.</p>
+<p>The real kamma is not that manifestation; it is merely a manifestation — not the kamma itself. It simply appears through body, speech, and mind. Once it has manifested through body, speech, and mind, then one performs kamma. That is when kamma arises. At first there is nothing — just emptiness. But when it is performed, then it arises. It arises within oneself. And when kamma arises in that way — at the moment the mind thinks of harming, of cruelty — then the kamma must be harmful and cruel; the mind must be savage and brutal in the extreme. Only then does it become kamma; only then is it called good kamma or evil kamma.</p>
+<p>Regarding this kamma, most people understand that kamma means only evil actions. But in Buddhism, there is both good kamma and evil kamma. Evil kamma includes both vēra and kamma. Good kamma has no vēra; it is called <em>pāramī</em> (perfection). Pāramī is the building of virtue and goodness; they call it pāramī, not vēra or kamma. Meritorious actions are also called kamma, but they have no vēra. The doing of kamma and vēra is specific to each individual. Everyone sees it in their own heart. When it has been done, one feels it for oneself. No one else feels it — it is truly one's own.</p>
+<p>Now, the saying that one makes merit and dedicates it to "the Lord of Kamma and Master of Vēra" — this is where I am very doubtful. Where is the "Lord of Kamma"? Where is the "Master of Vēra"? I don't know. The Lord of Kamma and Master of Vēra are the ones who receive that kamma. We do it, and that person receives the kamma, causing vēra and kamma between each other, or causing the end of vēra and kamma between each other. That refers to a commander — called a "master" as the commander. Probably they mean that: the commander. And then they make merit and dedicate it to the Lord of Kamma and Master of Vēra — not to the kamma or vēra itself, but to that "master" — the Lord of Kamma and Master of Vēra over there. That is another step. That is what they intend. The term "Lord of Kamma and Master of Vēra" here is used with that intention.</p>
+<p>Now, as far as I have heard and learned, anywhere, from any time in the past, I have never seen a Lord of Kamma and Master of Vēra — perhaps I have not examined thoroughly, or not listened thoroughly to the Dhamma. But based on what I have heard, learned, and studied, there is no such thing. The Buddha taught that whoever does kamma receives the result of that kamma, both good and evil. He did not speak about any Lord of Kamma and Master of Vēra. This is where I am very doubtful. How can you give something to the Lord of Kamma and Master of Vēra? We are not relatives of that Lord and Master; we don't know where they are; we don't know what they are like; we don't even know their name. People just say it casually, call it out casually like that. In reality, there is no self or being. Kamma and vēra have no self or being — how can you give something to them? How can you give something for them to protect and guard? How can they guard? Both sides have no self, no being.</p>
+<p>Therefore, I say there is no Lord of Kamma and Master of Vēra. I understand that there is none. This is precisely what I want to teach so that people understand. Concerning the many people who profess Buddhism but do not understand these matters: when they act with a cruel, savage mind, committing kamma and vēra, then later when their mind becomes good, they see the danger and want that kamma and vēra to disappear; they don't want it to cling to them any longer. So they make merit and dedicate it to the Lord of Kamma and Master of Vēra. But there is no such thing as a Lord of Kamma and Master of Vēra. The truth is that there is none, for the reasons I have just explained.</p>
+<p>Kamma is one thing, vēra another. Kamma is every kind of action, whether meritorious or evil. Now I will speak only about evil — no need to explain merit; merit can be discerned by one's own intuition, understood as the direct opposite of evil. Evil actions, whether small or large, intentional or unintentional — killing living beings, misbehaving in various ways, not directed at any specific person, done in great multitude — that is kamma.</p>
+<p>As for vēra, it is directed specifically at a person. When we do vēra with someone, we bind ourselves in hatred and vengeance toward that person, creating vēra between us. Whether that person retaliates or not, or whether they do take it up and retaliate, it becomes mutual vēra. Take the story of the ogress and the noblewoman's daughter in the Dhammapada — they were bound in vēra against each other endlessly, without end.</p>
+<p>The original story: There was an old woman who had a son who took excellent care of her. Later, she felt compassionate and wanted to find a wife for him to help take care of her. She spoke to her son. The son said, "Don't bother, I can manage alone. If I have a wife, if I like her she'll take care of me; if I don't like her, she won't. It will be a problem. Better not to get one." So the mother let it go. After a long time, she spoke again. Eventually, she went and got one. He took her as his wife. At first that woman took care of things well, but later she became lazy — did as she pleased. They happened to have no children. So the old woman found another woman to give to her son, because the family line had no child — that's called a ruined family, with no one to continue the lineage.</p>
+<p>When she got this second wife, she bore a child. The first wife then thought, "Oh dear! Now that she has a child, she will be greater than me. What to do?" She harbored hatred and vengeance in her heart. She behaved well and properly in every way, but finally she gave poison to the child to kill it, and the child died. The second time, the same thing happened. The third time, the mother herself died. The second wife thought, "It must have been that woman who killed me — no one else." She bound herself in hatred and vengeance, vowing: "In whatever life I am born, may I be like this; may I do this to you." Then she died.</p>
+<p>The second wife died and was reborn as a cat. The first wife died and was reborn as a hen. Whenever the hen laid eggs, the cat would eat them — two times. The third time, the cat ate the hen itself. So they were vengeful again. Vowing: "In the next life, may I be like this; may I do this to you." The hen died and was reborn as a tiger. The cat died and was reborn as a deer. The deer gave birth — two or three times — and the tiger ate the fawns both times. The third time, it ate the mother deer as well. Then the deer again bound itself in hatred and vengeance.</p>
+<p>Finally, the deer died and was reborn as an ogress. The tiger died and was reborn as a nobleman's daughter. When the first and second children were born, the ogress did the same again. The ogress pretended to be a friend of that woman. They knew each other as friends because they looked alike in appearance. When asked, she was told, "She lives in that house." So she went there, picked up the child, kissed and cuddled it until she was satisfied, then immediately chewed and ate it. This happened twice. The third time, it didn't happen. The woman thought, "Oh! I can't stay in this house any longer — the ogress will come and eat our child again." So she went to her husband's family.</p>
+<p>As she was walking along, by chance the ogress had business elsewhere and didn't arrive in time. The woman stopped to bathe along the way — it was hot. She bathed in a stream, handing the child to her husband to hold. She got into the water. When she came out, she took the child and told her husband to bathe. As soon as she saw the ogress, she ran. "She's coming, she's coming!" The ogress ran after her. The woman ran as fast as she could until she reached the Jetavana monastery of the Buddha, who was giving a Dhamma talk. When she arrived, the Buddha taught her, speaking about the matter of kamma and vēra that had been entangled and bound together endlessly, without end. "You have great merit to have met the Tathāgata." He then taught them to reconcile, to be humble, to agree to be friends and companions. At that moment, they were freed from kamma and vēra.</p>
+<p>Vēra has no end; kamma also has no end. For example, the Buddha himself, over many eons, had vēra with Devadatta — they were bound against each other endlessly. The Buddha tried to do good in every way, but Devadatta would not relent or abandon it; he kept doing vēra all the time, until he was born as Canda-kumāra in the last of the ten great births. This is how kamma and vēra are. It is extremely difficult to escape from kamma and vēra. We do not escape from kamma and vēra; we are born because of kamma and vēra. Thus it is said:</p>
+<ul>
+<li><em>Kammayoni</em> — Kamma is the womb from which we are born.</li>
+<li><em>Kammabandhu</em> — It clings to us all the time.</li>
+<li><em>Kammapaṭisaraṇā</em> — We depend on kamma right now.</li>
+</ul>
+<p>How could everything ever be finished? It can only finish when this physical body, this <em>saṅkhāra</em>, ends. The Buddha and all the arahants practiced diligently to the utmost; when this physical body breaks apart and dies, kamma cannot catch up. This kamma is called <em>vipāka-khandha</em>. This vipāka must keep up all the time, but the mind cannot keep up. The Buddha's mind was utterly pure; the minds of the arahants were utterly pure. Then kamma cannot catch up. Kamma cannot catch up because the mind is liberated, because the mind is free from concern and entanglement — the mind that is unified.</p>
+<p>As I have often said: the unified mind, knowing and aware continuously at all times, not thinking about the past or future, not thinking about any turmoil or anything at all — pure, alone. That mind dwelling alone has nothing to contend with; whatever it encounters, it knows and understands. That is called the pure mind. That is what can be liberated from kamma and vēra.</p>
+<p>Everyone, please remember this. Explain it like this for others to hear, for the benefit of the world, for the benefit of other people, and for the benefit of Buddhism. If they understand, it will be beneficial to them as well as to Buddhism — just as I have explained.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="33._True_Unity_Lies_in_the_Mind.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">33</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">33. True Unity Lies in the Mind</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="35._Deceptive_Things.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">35</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">35. Deceptive Things</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

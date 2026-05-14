@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>93. The Cause for Religion to Arise</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="92._Dhamma_Dwells_with_the_World.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(92)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="94._How_to_Find_the_Mind.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(94)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/93.%20The%20Cause%20for%20Religion%20to%20Arise.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>93. The Cause for Religion to Arise</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>August 7, 1975</p>
+<p>Today I will give a discourse on "The Activity That Causes Religion to Arise." In Buddhism, there are three principles that should be understood:</p>
+<ol>
+<li>The origin or source of Buddhism.</li>
+<li>The method by which religion arises within ourselves.</li>
+<li>How to maintain that arisen Buddhism so that it remains stable and permanent.</li>
+</ol>
+<p>Previously, I spoke about "The true root and origin of Buddhism." Now, I have not yet spoken about "the activity that causes religion to arise" and "once it has arisen, how can it be preserved?"</p>
+<p><strong>1. The origin or source of Buddhism</strong></p>
+<p>First, I must speak about the preliminary matters so that the content connects smoothly. The foundation or origin of Buddhism arises from the mind of the Buddha—the mind that is peaceful and unified. The state of a peaceful mind is the state of a unified mind, what is called <em>ekaggatācitta</em> (unified mind) or <em>ekaggatārammaṇa</em> (unified object).</p>
+<p><em>Ekaggatārammaṇa</em> still has an object. The mind adheres to some object, such as contemplating the body, contemplating a skeleton, or contemplating the breath. Or you recollect and mentally recite "Buddho, Buddho" until the mind lets go of all other external objects, leaving only a single recitation—just "Buddho, Buddho." There is awareness solely of "Buddho." Mindfulness controls the mind fixed on "Buddho." Eventually, "Buddho," mindfulness, and the mind merge into one. That is true <em>ekaggatārammaṇa</em>.</p>
+<p>If you still have to use mindfulness to restrain the mind to stay with "Buddho"—even though you have abandoned external objects, leaving only mindfulness controlling the mind fixed on "Buddho"—that is not yet <em>ekaggatārammaṇa</em> because there are still three factors: (1) mindfulness, (2) mind, (3) being with the object. It is still a triad.</p>
+<p>True <em>ekaggatārammaṇa</em>—being in a single object—means there is only mind and object. Mindfulness merges into that mind itself. Where the mind is, there the object is; where the object is, there the mind is. You are aware solely of that one object. When you recollect "Buddho," you know only "Buddho." That is called <em>ekaggatārammaṇa</em>. At this point, the mind has not yet reached oneness.</p>
+<p>Next, when it lets go of "Buddho," the former object vanishes completely. It no longer considers that object, has no awareness of it. It lets go and it disappears. Then it dwells in its own "oneness"—a state knowable only to itself. There is only a single awareness of itself, no other feeling. That is <em>ekaggatācitta</em>.</p>
+<p>This <em>ekaggatācitta</em> is the foundation and source of the Buddha's Dhamma. But at that moment, Dhamma has not yet arisen. It hasn't arisen yet. If <em>ekaggatācitta</em> remains with that power for a long time, then you will grasp the nature of <em>ekaggatācitta</em>: "Ah, this 'heart' (mind) is this very thing." Now we are not talking about <em>citta</em> (consciousness) but about <em>jai</em> (heart/mind).</p>
+<p>"Jai" is neutral. It does not think forward or backward. There is no initial or sustained application of thought (<em>vitakka-vicāra</em>). It does not think or wander into anything at all. Even objects are absent. It remains still, with only its own simple awareness. No clinging. But it knows only itself.</p>
+<p>Right here, when its power is fully potent, knowledge will arise from that state. At that moment it does not yet know. When it retreats out (when you become aware—that is already retreating), it will send out. Whatever knowledge arises arises from that point. Whether knowing right or wrong, knowing pain or illness, knowing good or evil, knowing happiness or suffering—it all arises from that.</p>
+<p>How does it know? For example, when we feel tiredness or dizziness arise, we see it clearly. While in <em>ekaggatācitta</em>, that unified mind, none of these phenomena exist. The tiredness comes out from this very state. It emerges from that oneness—the oneness that has nothing—and goes out to perceive tiredness. "Ah! This is a manifestation of the mind that sends out to cling elsewhere." It becomes clearly evident.</p>
+<p>Now we can speak correctly and understand clearly: The mind that wanders and clings, grasps, deludes, infatuates, or misapprehends various things—we see clearly that it is this that makes the mind defiled. It is because of this.</p>
+<p>When it abides as "oneness," it is radiant and undefiled. Only the single heart remains; it is not defiled. It becomes defiled and not radiant because of these arising manifestations.</p>
+<p>As a simile: it is like metal. If you polish it until it is brilliantly clean, free from dust—or if that metal might even develop rust—you see clearly that the metal and the dust or rust are separate things, yet they depend on each other.</p>
+<p>The heart, the neutral essence, and its manifestations are separate things, yet they depend on each other. "Depend on each other" means there must be two before they can depend. When you see this clearly for yourself, then all the various things that concoct, fabricate, think, imagine, and apply thought—everything—becomes clearly evident. You see the cause of clinging, of grasping, of delusion. If there is no grasping, there is nothing. You see everywhere by yourself.</p>
+<p>The Buddha's teachings arise from that—from His unified mind. That is the source from which all things emerge from oneness. As I have compared before: 2,3,4,5,6... all emerge from that 1. 2 means 1 twice; 3 means 1 three times, that's all.</p>
+<p>Or to say it another way: the state that has nothing is void. It is empty of all things. There is only its own solitary awareness.</p>
+<p>Emptiness is like the circle of zero. When learning numbers, one must first write the circle of zero. Having written zero, that's called the zero place. Then one proceeds to write 1,2,3,4... called the tens place, hundreds place, thousands place, and so on. This means that without zero, you cannot count tens, hundreds, etc.</p>
+<p>The Buddha's teachings: if you do not reach oneness, then two and three do not exist. Or if you do not reach oneness—do not reach the pure radiant heart or the empty void heart—then you will not understand the heart or the defilements. Because the Buddha understood the many defilements, He was able to define them correctly. All those definitions are manifestations of defilements. Without that heart, the eyes, ears, nose, tongue, body cannot function. There must first be "oneness" (the neutral heart) before it can function through the eyes, ears, nose, tongue, body. The ancients often said, "fifteen hundred defilements, one hundred eight cravings."</p>
+<p>One hundred eight cravings, broadly speaking, refer to the yearning and desire in the six sense-bases: eyes, ears, nose, tongue, body, mind. The mind sends out through these six sense-bases—through ears, eyes, etc.—giving rise to liking and disliking, happiness and suffering as pairs. Now happiness and suffering, liking and disliking, both in the past and future, both coarse and subtle, both near and far—multiply them. Six multiplied by liking/disliking gives twelve, then coarse and subtle, near and far—multiplying and combining gives 108. All of that emerges from that neutral "heart." Without that heart, eyes, ears, nose, tongue, body are useless.</p>
+<p>I compare it this way: our eyes are like eyeglasses. If you remove the glasses from our eyes, the glasses are useless; they just sit there. Our heart is the same. If it were absent, eyes, ears, nose, tongue, body are useless. Even the whole human body is the same. Without a heart, it is useless, like a log of wood or a lump of earth. When we pay respect to the Buddha, to a monk, or to anyone, the hands cannot do it on their own. Without the heart, it cannot be done.</p>
+<p>Doing good: the heart tells the hands to do good, to know how to bow in respect. That heart—emerging from the "neutral essence"—teaches the hands to bow.</p>
+<p>Doing evil: that same heart, emerging from the neutral essence, teaches the hands to stab someone, to kill, to hit, to punch. The hands themselves have no desire or feeling; they don't even take responsibility. Try making a fist and punching a post hard—the hand doesn't feel anything. Even if it hurts, it doesn't feel the pain. Punch until the hand breaks—it still doesn't feel. It is the mind that tells it to punch. The mind is the one that hurts, grasping the fist as self, and then it hurts—great pain arises. The fist itself feels nothing. Told to do anything, it can do it all. Therefore, if there were no heart alone, those things would be utterly useless.</p>
+<p>Thus, all wholesome Dhamma arises from this heart; unwholesome also arises from this heart. To purify it, you cleanse this heart so that it is free from merit, demerit, wholesome, unwholesome—i.e., no objects at all, leaving only the "oneness," the neutral essence. Reaching the principle of neutrality, you see the "heart" clearly: "Ah! The original thing is the heart, what is called <em>bhavaṅgacitta</em>—the original mind, the substratum of mind. It is very close."</p>
+<p>Now I will speak a little about <em>carimakacitta</em> (the final mind?) or original mind. It is said: <em>Cittaṃ pabhassaraṃ</em> — the mind is radiant, the mind is pure. The original mind is radiant.</p>
+<p>Some teachers speak about <em>carimakacitta</em> or <em>bhavaṅgacitta</em> (original mind, substratum of mind) as the radiant mind, the same as when we are asleep. They call that the radiant mind. But some explain differently. Sleeping mind is not the radiant mind. How can a sleeping mind be radiant? It thinks turbidly, chaotically. Some people dream endlessly. That is not a pure, radiant mind.</p>
+<p>True pure mind is the mind explained earlier: the mind that has let go of all objects, leaving only the oneness with its own solitary awareness. It is brilliantly radiant alone. That is called the radiant mind.</p>
+<p>What I have spoken about is the "origin of Dhamma"—the origin of the Buddha's teachings arises like this. Whoever it may be, even a Buddhist disciple, if they practice and reach that point, the Buddha's Dhamma that He taught arises there as well. He taught it beforehand. In truth, Dhamma arises in the same way for everyone. And it accords with the Buddha's teaching because He taught the truth, which He knew first.</p>
+<p>Know the "origin of Buddhism" like this, then you will know where Buddhism originates. Otherwise, you won't know at all. People go and say it originated in India—Prince Siddhattha attained enlightenment in India, the Buddha appeared there, Buddhism originated there.</p>
+<p>Buddhism originates right here—in the pure, radiant, immaculate mind of the Buddha. When we practice like the Buddha until our minds are pure, Buddhism also arises in that pure radiant mind, not in India. It arises in our own mind. If we understand this, we know the origin of Buddhism. That's knowing the origin first.</p>
+<p><strong>2. How does religion arise within ourselves?</strong></p>
+<p>Religion arose in the Buddha's mind. It arose in the minds of the monastic disciples. The Buddha and the monastic disciples made their minds pure, radiant, and immaculate, and then religion gradually arose there. Now we follow their example.</p>
+<p>How did they practice? They focused on the in-breath and out-breath, or they focused on mindfulness of death, or on suffering, until the mind reached <em>ekaggatārammaṇa</em> as described. Then they released from <em>ekaggatārammaṇa</em>, abandoned the object, leaving only <em>ekaggatācitta</em>.</p>
+<p>We must practice to achieve this. That is how we make religion arise. If we do not reach that point, religion has not yet arisen. If we can do a little, provisionally—suppose we can compose the mind so it does not wander, leaving only <em>ekaggatārammaṇa</em>—that is called religion coming close.</p>
+<p>When we reach <em>ekaggatārammaṇa</em>, we will know. Even if we don't know more subtly, we can still grasp the principle. Reaching that, we can penetrate and understand the Buddha's teaching. We come to know: "Oh, our mind, when it has a single object and does not wander—we know that the non-wandering mind is free from suffering, agitation. All distress disappears. Yearning and struggling disappear."</p>
+<p>When the mind remains still for a while and then goes out again, we will see: "Ah, the wandering, agitated thing is not happiness; it is a matter of defilement, a cause of turmoil, distress, suffering." We know.</p>
+<p>Before, we didn't know because we had never reached <em>ekaggatārammaṇa</em>. We had only many objects—a <em>mahārammaṇa</em> (multiplicity of objects), not <em>ekaggatārammaṇa</em>—so we couldn't grasp anything. Knowing this much is already knowing some of the Buddha's teaching. It is called seeing or glimpsing the path. Even if we haven't reached the Buddha or His teaching, we have seen the path, we have glimpsed the way to go.</p>
+<p>One who can do this much will be diligent and persistent in meditation practice. Their meditation will progress. They will have confidence in that peace, coolness, and happiness, and it will lead to further progress. Thus, seeing the path a little—this much is called religion having arisen. We have made the Buddha's teaching arise in us. Doing this, we are following the Buddha's instruction. He taught us to do this. We follow in His footsteps, meaning we have planted or made the Buddha's teaching appear and arise in our own mind.</p>
+<p>The methods for making religion arise—the activities that cause religion to arise—are many. At the coarsest level, we guard our body, speech, and mind—i.e., we keep precepts. We strive diligently without discouragement to abandon evil and do good. All these are actions that walk the path toward the essential Dhamma. They are methods to build the Buddha's teaching within ourselves.</p>
+<p>Now, once it has arisen, sometimes it is stable, sometimes not. For example, when you plant a tree in a garden, if it is a sapling, it might die—exposed to sun it dies, not watered it dies. When it grows large and mature, it becomes easy. Or it may grow and then give fruit. When the time comes, the fruit tree produces fruit for us to eat.</p>
+<p>The sapling is like when we guard our mind, building the Buddha's teaching—that is, confidence, seeing that this is happiness. But sometimes we don't like it. We see it as happiness but still don't like it. We see it as good but it's not yet truly good. Or we still regret old things, past things that we were infatuated with—we still want to wander as before. This is called still being a sapling, not yet established. We then strive to think, contemplate, and investigate what we still like or regret—seeing it as unreal, not good. Compare constantly between the peaceful mind and the non-peaceful mind. See the difference in happiness, in seclusion and peace. Appreciate the value of peace until the mind merges into it, until the mind is stable and firm at all times. This is called the tree gradually growing, maturing.</p>
+<p>That tree can now stand on its own. No need to water it—no need to guard it carefully. It happens by itself. Whether standing, walking, sitting, lying down, or doing any work, the mind is by itself. It has stability and confidence. We trust that peaceful happiness. Once we trust it, we can bring about peace whenever we want. This is the tree having matured.</p>
+<p>We practice like this continuously. Eventually, we will be cool at heart: "Ah, the nature of the mind is like this, the manifestations of the mind are like that." We train until we let go, until we are not distressed or suffer from the wandering manifestations because we know and understand them according to their true nature. We see all their conditions, and then ease arises—that happiness.</p>
+<p>This is the method for making Buddhism arise in the mind in this way. As for making it more detailed and extensive, there are many ways. This is just the main principle and essence. Religion has arisen—arisen in one's own mind. For anyone in whom it has not yet arisen, set it aside for now. Please understand this principle first—the method for causing it to arise.</p>
+<p><strong>3. Once religion has arisen, how can we preserve it?</strong></p>
+<p>If we don't know how to preserve it, it won't last. Having obtained a raw, good thing and then discarding it—not knowing how to keep it—it can scatter and disappear. Whether good or bad, if we know how to preserve it, we know good as good, bad as bad. Whatever degree we have trained and developed, whatever results we have, we should be content with that. That is called generating faith (<em>saddhā</em>).</p>
+<p>Faith is important. Faith is the basket for storing the Buddha's teaching. "Basket" here does not mean the Tipiṭaka. Generally, the Tipiṭaka is called a basket, but that is a literal basket. The real "basket" is abstract—that is, confidence, contentment with what we have attained, seen, and possess. Even if it is not much, having this much is enough. We generate satisfaction and fullness of heart. But over time, we often become dissatisfied. Humans are like that. Having something for a long time, it gradually fades and becomes bland. We become dissatisfied. Whatever it is—material possessions, tools, even our own body—we get bored. Living long, we can want to be bored, want to die.</p>
+<p>The same applies to the Dhamma we have attained. After having it for a long time, we start getting bored. That boredom means we have no preservation—no method to preserve it.</p>
+<p>Consider this: when someone gets a car, a vehicle, or any tool, over time the paint fades, it becomes old. They must repaint it to make it look beautiful again, and the mind becomes fresh and cheerful. Clothing we wear, after a long time becomes old; we become lazy to keep or use it. If we have a method to wash, dye, or scent it to make it fragrant again, or add color—whatever color—to please the eye and heart, then we will like it again.</p>
+<p>Dhamma is the same. If we start to get bored—that is, our faith becomes weak or diminished—we should strive to generate faith again by reviewing and reflecting. Reflect back and forth, forward and backward. For example, reflect: "Before, I never had this peace and happiness. Now I have it. This is not something easily obtained. It is rare and extremely difficult. This is not common; it is not easily found. Therefore, having attained it, it is excellent and good." That makes us content, generates faith, confidence in that truth—the truth we have attained. It makes us happy, joyful, and gives us peace.</p>
+<p>This kind of thing is not easy to do; it is very difficult, extremely difficult. When we reflect and see the truth—that it is not easily obtained—people like things that are hard to get. We see our Dhamma as hard to obtain. We become content and joyful, and faith arises. That is how Buddhism becomes established.</p>
+<p>The method to maintain Buddhism firmly is to be content, devoted, and pleased with what we have. This is the way to preserve Buddhism so that it continues firmly.</p>
+<p><strong>Summary:</strong> Today I have explained three principles.</p>
+<p><strong>First principle:</strong> I spoke about the root origin of Buddhism—that is, peace. When we know that this is the origin of Buddhism, the Dhamma teachings of the Buddha that He attained and taught us—Dhamma arose first in His mind.</p>
+<p><strong>Second principle:</strong> Now, what should we do so that Buddhism arises within ourselves, not elsewhere, but right within us? We must practice peace like the Buddha—that is, through training in meditation, until the mind reaches <em>ekaggatārammaṇa</em> and <em>ekaggatācitta</em>, and knowledge arises there, seeing clearly and truly there. This is called building the Buddha's teaching to arise within ourselves—a method for Dhamma to arise within us.</p>
+<p>When Dhamma arises in our mind as <em>ekaggatārammaṇa</em> and <em>ekaggatācitta</em>, then that Dhamma is not difficult or rare. We don't need to seek it elsewhere. Dhamma is already complete at every moment.</p>
+<p><strong>Third principle:</strong> Having done that, we preserve the Dhamma that has arisen by generating contentment, devotion, joy, and confidence in the Dhamma we possess—that it is excellent, superior, and hard to obtain.</p>
+<p>If it should decline or we become dissatisfied, we must use various skillful means to generate contentment—seeing it as extremely rare and difficult to obtain, as something of great value. Before, we never could do it; now we can. This is called the best thing. It is a way to console the mind or to generate faith and devotion in our mind.</p>
+<p>This is a matter of one's own skillful means—one's own ability to preserve one's wealth, money, or possessions so they last stably and permanently, through one's own wisdom and ingenuity. The explanation given today can be summarized only this much. Therefore, I ask all Buddhists not to merely hold onto religion passively. Know the root and origin of Buddhism. Know the method to make Buddhism arise. Buddhism teaches us to practice, to act—not just to venerate and worship it passively. If we only venerate and worship, it may slip away. But if we make it arise within ourselves, it can never slip away. It will be firmly established in our own mind.</p>
+<p>Since we have been born, we should strive to preserve our mind, preserve Dhamma in our mind so that it remains stable and permanent. This will benefit ourselves both in this life and future lives.</p>
+<p>Thus I have explained.</p>
+<p><em>Evam.</em></p>
+<p><strong>Meditation</strong></p>
+<p>(The Venerable Teacher instructs beforehand)</p>
+<p>We will make the Buddha's Dhamma teachings arise within ourselves. The Dhamma in the scriptures that the Buddha taught consists of words taught according to texts. They have been inscribed as letters, as texts in the scriptures, in cabinets. So when we need them, we have to open and read various texts to gain knowledge and understand the meaning. That is the scripture in the Tipiṭaka cabinet.</p>
+<p>Now, we will build the Buddha's teaching to arise within ourselves. No need to read or open those texts. We open and read right here—at our own mind. Read from the beginning. The mind thinks anger, hate, love, likes, dislikes, unwholesome thoughts—that's reading our own mind. Start with the coarse level.</p>
+<p>Now, when the mind has let go of all objects—no anger, no greed, no delusion, no infatuation, no love, no hate, nothing at all—remaining as oneness. But sometimes it is not yet truly peaceful; there is still wandering. It wanders here and there to various things—things it shouldn't think, it thinks; things it shouldn't send out, it sends. It keeps sending out without ever finishing. It keeps thinking—both new and old, back and forth—busy all alone. This is the Dhamma the Buddha taught. He called it "the wandering mind," the mind that goes after objects, the mind that concocts and fabricates. He taught about it. When we see this, we can read our own mind. We must read this first.</p>
+<p>Reading alone is not yet knowing the content and meaning of that Dhamma. Only when we practice peace and stability do we see the danger and disadvantage of non-peace, see the disadvantage of all fabrications, see that they cause chaos, turmoil, distress, lack of peace and ease. When we see the disadvantage, we let go, abandon the non-peace, until the mind becomes <em>ekaggatārammaṇa</em> (as described)—firmly fixed on a single object.</p>
+<p>When we contemplate the mind fixed on a single "Buddho," experiencing happiness, that is enough. Having this level of peace, coolness, and happiness, we can be confident in that matter. This is reading the Dhamma—not only knowing the meaning but also tasting the flavor of Dhamma.</p>
+<p>If we can do this, we have built the Buddha's teaching to arise within ourselves. Our own body becomes a Tipiṭaka cabinet—a walking Tipiṭaka cabinet that goes everywhere with us.</p>
+<p>When we can do that, the whole world becomes Dhamma. Forms, sounds, smells, tastes, tactile objects—even the sense-bases are all within us, all become Dhamma. This is what is called "<em>āloko</em>"—the absence of the world. As the Buddha taught in the Dhammacakkappavattana Sutta: <em>āloko udapādi</em>—light has arisen. That light (wisdom) shines brightly, knowing and seeing everything, with nothing to cover or obstruct. It is called no world. Or to say it another way: there is no world; it is all Dhamma. That is also acceptable. The Buddha's teaching has many nuances. Only when we reach that Dhamma can we read the Buddha's teaching. This is building the Dhamma in our own cabinet—our entire being.</p>
+<p>When we have a Tipiṭaka cabinet, we can read at any time—standing, walking, sitting, lying down—reading the Tipiṭaka constantly. Therefore, let us all build the Tipiṭaka within ourselves: that is, see the disadvantage of the mind that thinks, wanders, and is chaotic; let go and abandon the things we used to chase after. Those things we have been involved with for a long time, believed for a long time. Now we will no longer be involved, no longer believe them. Let them go completely.</p>
+<p>Now, begin to practice.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="92._Dhamma_Dwells_with_the_World.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">92</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">92. Dhamma Dwells with the World</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="94._How_to_Find_the_Mind.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">94</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">94. How to Find the Mind</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

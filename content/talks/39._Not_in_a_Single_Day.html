@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>39. Not in a Single Day</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="38._Explanation_of_the_Pavārāna_Day.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(38)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="40._Customs_of_the_Dhutanga_Monks.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(40)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/39.%20Not%20in%20a%20Single%20Day.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>39. Reaching the "Heart" (or Not in a Single Day)</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p><strong>October 28, 1985</strong></p>
+<p>In Buddhism, there is the Pavarana (invitation to admonish) ceremony once a year. In truth, the Buddha taught that Pavarana should be done mutually — that is, if one has done something wrong, been negligent toward fellow monks, whether in public or in private, by body, speech, or mind, then out of kindness and compassion, one should admonish one another. This mutual admonition is a form of Pavarana, replacing the Uposatha ceremony as a major Sangha transaction. As for reciting the Pātimokkha, those training rules chanted in Pāli — people don't know the language. So this Pavarana seems more concise and is very beneficial.</p>
+<p>Pavarana is held once a year. But Buddhist lay followers, in accordance with the monks, gather on that day to make merit, give alms, go to the temple, observe the Uposatha precepts, listen to Dhamma talks. Actually, this is primarily the monks' affair, but the laypeople follow along — which is good as well. There are many customs: the end of the Rains Retreat, the beginning of the Rains Retreat, Māgha Pūjā, Visākha Pūjā, Āsāḷha Pūjā — these occur at intervals, four or five times a year.</p>
+<p>That Buddhists intentionally come together to make merit, give donations, listen to Dhamma talks — that is good. The truth is, the establishment of various occasions — beginning of Rains, end of Rains, Māgha Pūjā, Visākha Pūjā, etc. — gives people a reason to contemplate their own lifespan. That's the good point here. One's lifespan is constantly changing, passing away day by day. From the start of Rains to the end of Rains is three months — that much of our life has gone. Then we reflect on our existence, how it keeps changing. Then onward to the third lunar month, Māgha Pūjā — another three months. Then to the sixth lunar month, Āsāḷha Pūjā — changing, changing. In one year, we get to know that we have deliberately contemplated our own body. In one year, we practice mindfulness of death four or five times.</p>
+<p>Then we examine ourselves: how has our body changed? Are we aging every day or getting younger? There's no getting younger — only changing, growing older each moment. That change is not just transformation; our health deteriorates in every way. Young people don't yet realize their own change — they are just heedless and enjoy themselves. But old people are aware all the time. People over sixty are aware: how has their condition changed? They know fully. These things are causes and conditions for us to think of death. That which we call change — four or five times a year, though it changes every single day — prompts us to hasten in making merit and wholesome deeds.</p>
+<p>Heedless people, even when admonished four or five times a year, don't reflect on anything. But those with mindfulness and self-awareness naturally contemplate themselves and will hasten to make merit and wholesome deeds. As for those who are not heedless, they don't make an issue of time. Setting time is not a problem for them; they just keep hastening to do good deeds continuously, like diligent workers who focus on their work without thinking about months or years — they just keep working. Only lazy people, idle people, want evening to come quickly, want months and years to end easily without doing anything. Heedlessness behaves like this.</p>
+<p>Those who are not heedless do not think about these things at all. They think about wholesome deeds: "What have I done today? How much goodness exists within me? Has it increased, stayed the same, or decreased from before?" — contemplating like this continuously. This benefits themselves, not the passage of time; it specifically benefits oneself.</p>
+<p>Therefore, it is said that those with ingenuity and wisdom, those who are not heedless, should not think about these things at all. Let the end of Rains be, let the beginning of Rains be — no problem. Do wholesome deeds continuously, all the time. No need to think about days and nights, no need to think about years and months — just focus on wholesome deeds. That alone is your own benefit, and it is supremely beneficial. This is called "hastening to do and accumulate wholesome deeds so that they arise within oneself." Yet it's still not enough — the wholesome deeds we do are still insufficient. There is still so much more we must do.</p>
+<p>Just try contemplating our own mind. When we sit in meditation, everything becomes chaotic and turbulent. Things we never thought of, never knew, never saw, all come crowding into the mind. Some people can't bear it and quickly get up — "It's too much defilement, meditating makes defilements increase." Actually, it's not a lot — just a little. But when we sit to calm down, it becomes vividly clear. Even small things become apparent, and we see them as many.</p>
+<p>In truth, there is even more — what we don't see is even more. When we sit and see them appearing and crowding in, it seems like a lot. That means it's close — close to seeing reality. However much there is, it appears. We know clearly, see truly: "Defilements are only this much — not so much after all, just this much." So we say. Defilements appear within us so we can see them clearly and then cleanse and correct them.</p>
+<p>When we set our mind to contemplate specifically that matter, without sending it outward, we will see clearly immediately — and overcome it right away. We might say, "Is that all? Let more come. Let more arise — however much there is, let it arise again." Then it stops immediately. Defilements don't arise again. This is how much defilements are — they are many for those who don't reflect, for the heedless, we say they are many. But for those not heedless, they become less.</p>
+<p>Therefore, the Buddha taught meditation (bhāvanā) as the only way to abandon defilements. Giving alms and making merit are external — another external part. As for miserliness, the tight-fistedness within one's mind — it can appear so that we relinquish and remove it. Because miserliness and tight-fistedness defile the mind. Giving, making merit, donating — the mind becomes clear. That is exactly where defilement ends — not elsewhere. Defilement ends right at the point where the mind is clear and joyful.</p>
+<p>Similarly with observing precepts. When we don't observe precepts, we are absorbed in making a living, absorbed in mingling with everything. The mind is defiled, not clear, so we don't even know where our own heart is. But when we observe precepts, the mind becomes joyful and clear. Not only the mind becomes clear — the body also becomes clear. Those who keep precepts have a clear mind — clear in both body and mind, clearly seen in the heart. Whoever keeps precepts smiles brightly, clear in both body and mind. It becomes vividly apparent. Those defilements disappear.</p>
+<p>Now, when we practice meditation (bhāvanā) as described, if various things crowd in, we see clearly: "Oh! This is defilement. Is that all? Let it arise again. However much there is, let it arise again." Then it stops right there. Defilements don't arise again.</p>
+<p>Courage, boldness, determination to practice, to contemplate, to train one's mind — these bring benefit, making the mind clear, clean, and pure in stages. Therefore, meditation is the very best way to abandon defilements, right at the heart alone.</p>
+<p>Let me explain about the "heart" (jai) again. "Citta" is the thing that is defiled and unclear. "Heart" is the thing that is clear. The Buddha said that citta is originally clear and pure all the time: <em>cittaṃ pabhassaraṃ</em> — citta is always clear. <em>Āgantukehi kilesehi</em> — defilements are visitors, so it is said.</p>
+<p>Now, speaking about citta and heart: "Citta" is the accumulator of defilements, all the chaos — it is the thinker, the rememberer, the fabricator, the composer of everything. That is called "citta." If we withdraw that — okay, don't think now, don't send thoughts out, don't fabricate, don't compose — then what remains is just the "heart." The heart is clear and pure. We need to train right there. The heart is neutral, equanimous, standing in the middle of everything. That is the "heart."</p>
+<p>That which is neutral is called "heart". The heart of a person — point to the middle of the chest — that's the heart. The center of the hand is called the "heart of the hand." The center of the foot, the "heart of the foot," the "heart of wood," the "heart of a field" — whatever is the center is called "heart" in all cases. It has no sin, no merit, no sending out or in, no feeling of anything — yet it is aware of itself, but does not think or conceptualize. That entity is called the "heart." If you reach the heart, you must reach it frequently, then you will know the heart. But if you do not reach the heart and only have the chaotic citta — only that citta, never peaceful, never concentrated — then reach the heart frequently, and thereby you will attain concentration.</p>
+<p>It is like water mixed with various colors. When you mix red dye, it becomes red — they call it "red water." Black dye — "black water." Green or any color — they call it accordingly. They call it red water, black water. Some people don't call it water but call it red, black, etc. But in truth, the water remains constant. If someone distills the water out from the dye, it becomes clear as before. The color is one thing, the water is another.</p>
+<p>Our mind/heart is the same. What defilements accumulate is all "citta." They accumulate — what are called <em>āgantuka</em> defilements arise and accumulate on our "heart." Then we don't know the heart. We only know the color — only know the "citta." But if we distill it out, it will be clear and pure as originally. The nature of pure water must be like that. The nature of mind/heart is likewise.</p>
+<p>Therefore, meditation (bhāvanā) has only one path — to make the mind clear, clean, and pure. But once it is clear and pure, we must also know how to maintain it. If we don't do it frequently, we cannot maintain it — without proficiency, it will all degenerate. When it degenerates, we grope around and see nothing. The true heart is completely forgotten. We get only the citta. That is why we must do it frequently.</p>
+<p>In a single day, we must make ourselves know: how much has faded away? How much peace has there been? Have we reached the "heart" or not in this day? Contemplate yourself like this continuously. That is how one can gradually become a good person. That's enough for now.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="38._Explanation_of_the_Pavārāna_Day.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">38</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">38. Explanation of the Pavārāna Day</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="40._Customs_of_the_Dhutanga_Monks.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">40</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">40. Customs of the Dhutanga Monks</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>94. How to Find the Mind</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="93._The_Cause_for_Religion_to_Arise.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(93)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="95._Basics_of_Meditation_Practice.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(95)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/94.%20How%20to%20Find%20the%20Mind.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>94. How to Find the Mind</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>August 8, 1981</p>
+<p>Today I will explain how to find the mind. The mind is the most important thing. Everyone born as a human being has a mind. But if we do not <em>see</em> the mind — we are born because of mind, we exist because of mind, and we will die because of mind. What is the true mind? This mind has no form or self. You cannot see it by looking. Feeling, perception, and thinking — that <em>is</em> the mind itself. Therefore, you cannot see it with your eyes open. If you close your eyes, though, you <em>will</em> see it.</p>
+<p>If we do not see the mind itself, the mind will drag us to wander and wallow in everything. All defilements arise from the mind alone. What is spoken of as <em>cetasikas</em> (mental factors) — the countless defilements, the hundreds and thousands of them — all originate from this single mind. Those who know many things speak according to the texts, but they don't see the true mind. Defilements and craving are discussed in terms of the five aggregates, the six sense bases, and so on. The five aggregates are form, feeling, perception, mental formations, and consciousness. These reduce to two things: form and name (mentality). Form can be seen, but name — the mind — cannot be seen.</p>
+<p>How then can we see the mind? If not, the mind will keep us spinning around, traveling north and south, in every direction. If we cannot control the mind, cannot guard it, it will cause us to suffer, to burn with distress, sorrow, grief, and longing. Without the mind, our body would be just like a log or a piece of firewood — no matter who chops it, burns it, or does anything to it, there is no feeling at all. The appearance of seeing an image through the eye is called "mind," but people who do not see the true mind think that the eye seeing an image is the mind seeing. That is not the mind; it is the eye seeing. When light strikes, seeing occurs. The ear hearing a sound is the same: the sound enters the ear and strikes, and hearing occurs. The nose smelling, tongue tasting, body touching — none of that is the true mind. It is merely contact. After contact, it passes away. So where is the mind? Try looking for it right within this body of yours. Search through everything. See where the true mind is. When you cannot find the mind — the one who is searching doesn't see it. Who is the one searching? There is still another layer. Who is the seeker? You see the object you are looking for, but you don't see the seeker. For instance, you see a form — that form is seen, but who is the one seeing? You must find <em>that</em> one in order to see.</p>
+<p>The mind must be one. If it is not one, it is not the mind. When the mind becomes one, it turns into the heart. The mind itself becomes the heart. That which is still, neutral, not thinking, not forming — that neutral feeling itself becomes the heart. The mind becomes the heart. The scriptures say: "Whatever mind, that is heart; whatever heart, that is mind." Sometimes they call it mind, sometimes heart. For example, <em>Manopubbaṅgamā dhammā</em> — "All phenomena have mind as their forerunner." <em>Mano</em> means heart. That which first thinks and inclines — that is not discursive thought; that initial inclination is the heart. <em>Manoseṭṭhā manomayā</em> — "Mind is chief, mind-made." They speak of <em>mano</em> as heart. Now they speak of mind: <em>Pabhassaramidaṃ cittaṃ</em> — "This mind is radiant." And yet it is defiled by adventitious defilements. The mind is always radiant and pure. It is defiled by defilements that come from outside. If the original mind were defiled, who could purify it? No one. Therefore they say, <em>Pabhassaramidaṃ cittaṃ</em> — the mind is always radiant. How do we know the mind is radiant? When mind and heart merge together. When they merge, it becomes the heart. Radiance means the mind not thinking, not forming, not concocting. Only then do you see the mind — and that is called heart. If you are still thinking, forming, concocting, it is defiled. If the mind is truly radiant, it must be pure, free from thought, perception, fabrication, and construction — that is called heart.</p>
+<p>So we strive to scrub away defilements right there — those adventitious defilements — not allowing them to arise in that place. Then we will know and see things. "Clear and pure" — it can see, can't it? How could it not see? Clear, pure water can see your own reflection. Diamonds, gems, and jewels, when cut and polished, become clear and pure because their substance was originally clear. If it were iron, it would not be radiant because by nature iron is not clear and pure. The human mind is originally clear and pure. Therefore, when we scrub away all defilements, it sees that clarity and purity — and that is called <em>Pabhassaramidaṃ cittaṃ</em> (this mind is radiant). At that point we no longer call it mind; we call it heart. We call that naturally clear, pure state "heart." When we practice effort in meditation, making the heart neutral, still, and at ease — that attains the heart. That ease is the heart. That neutrality is the heart. No past, no future, no merit, no demerit. That neutral state has nothing at all. Thinking, perceiving, fabricating, concocting — those emerge from the heart and are called "mind." The mind is the thinker, the perceiver, the fabricator. The mind commands everything in the world. The heart is peaceful and stable.</p>
+<p>Therefore, the Buddha's teaching leads to the heart — that is, it leads to the ultimate, which is purity itself. The ultimate is the end of suffering. If you reach the heart, there is no suffering, no fever, no fabrication, no thought, no perception. That's the end of it all. If you fabricate, you will go on endlessly, deluded without end. That is why it is said that human beings have never seen their own heart since time immemorial. You are born because of heart; when you die, it is because the heart fabricates and thinks of all kinds of things. Most people talk about the heart all the time. Buddhism also speaks of the heart: a meritorious heart, a wholesome heart, a sinful heart, a cruel heart, a malicious heart — every kind of heart. They speak of goodness and beauty as a meritorious heart, a wholesome heart, a clear and pure heart. They speak of only one heart.</p>
+<p>The heart must be one, not many. That multiplicity is the mind. The Buddha's teaching is to reach the one — this heart itself. Then you will see all things. If you don't see the one, you won't see any of them. It's like counting from one as the beginning. Count one first. One two times is two. One three times is three. Four, five, up to nine, ten times — that gives four, five, up to nine, ten. All come from that single one. Whether you count to ten or a hundred, actually you're counting from that single one. Human beings forget the one and go counting two, three, four, five. If you count the one, that's the end of the matter. Therefore, practicing meditation to control the mind and reach the heart, unifying into one — that is what the Buddha taught. He taught only the heart. Most people think that meditation is not the duty of laypeople, only of monks. And even some monks say it's not their business, only the business of monks who practice <em>kammaṭṭhāna</em>. Actually, every human being has a heart. Whoever can reach their heart is practicing <em>kammaṭṭhāna</em>, is practicing meditation (<em>bhāvanā</em>), is practicing concentration (<em>samādhi</em>). The only exception is if we don't do it.</p>
+<p>This explanation of the heart — to search for the heart, to investigate and reach the heart — I will conclude here.</p>
+<p>(Luang Pu then instructs on sitting meditation.)</p>
+<p>Merit (<em>puñña</em>) is of several kinds. Making merit is one thing, giving alms (<em>dāna</em>) is another, performing wholesome actions (<em>kusala</em>) is another. Giving alms means giving things — that is called <em>dāna</em>. The objects we give are called <em>dāna</em>. It doesn't matter what kind of thing. Humans or animals — you can give to anyone. Rice, goods, anything can be given. That is giving alms. Whether faith arises or not, just give. For example, contributing to a collection — without thinking of merit or wholesomeness, just giving to get rid of annoyance — that is called <em>dāna</em>. Making merit (<em>puñña</em>) involves faith and confidence. You set the intention that by making merit you will gain merit and blessings, be reborn in heaven, and obtain happiness in human wealth, celestial wealth, or Nibbāna's wealth. Making merit seeks a reward — that is called <em>puñña</em>. Performing wholesome actions (<em>kusala</em>) means the mind intending to do what is good and proper, thinking of goodness and virtue. That is <em>kāmāvacara kusala</em> (wholesomeness of the sense sphere). If you contemplate <em>kammaṭṭhāna</em> and your own physical body, that is <em>rūpāvacara kusala</em> (wholesomeness of the form sphere). The mind contemplating the four formless <em>jhānas</em> is <em>arūpāvacara kusala</em> (wholesomeness of the formless sphere).</p>
+<p><em>Lokuttara kusala</em> (supramundane wholesomeness) refers to performing wholesome actions free from all desire and concern, done only to adorn one's own heart, without any aspiration whatsoever. Those who have reached the highest path, fruit, and Nibbāna have no merit or demerit at all, but they act to adorn themselves while still alive. Therefore, after giving alms and making merit, we also perform wholesome actions by sitting in meditation. This is the highest in stages. Hence, we should all set our minds to meditate firmly, to bring the mind down to one, letting go of everything, every single thing at this moment. Do not think of what has passed. Do not bring the future to consider. Take the present, right now, and make it firm and fully settled. Let it settle down in whatever way it can.</p>
+<p>Initially, use a meditation word (<em>parikamma</em>) like <em>Buddho</em>, or mindfulness of breathing (<em>ānāpānasati</em>), or "rising, falling", or <em>sammā arahaṃ</em> — whatever. Take that meditation word as your object. When the mind settles down into unity, it will let go of the meditation word on its own. It lets go by itself. Even if it doesn't let go, you must let go. Then fix on that state of stillness and stability as one. That is seeing your own heart — which is the most important thing of all. Because seeing your own heart is excellent and noble. It is what we must use to know our own affairs. If you don't see your own affairs, don't see your own heart, you won't know anything — whether you are doing good or evil.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="93._The_Cause_for_Religion_to_Arise.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">93</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">93. The Cause for Religion to Arise</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="95._Basics_of_Meditation_Practice.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">95</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">95. Basics of Meditation Practice</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

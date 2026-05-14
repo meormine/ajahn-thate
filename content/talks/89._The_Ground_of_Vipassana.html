@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>89. The Ground of Vipassana</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="88._Satipaṭṭhāna_Bhāvanā.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(88)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex justify-center items-center" title="Return to Dhamma Talks">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="90._Emotions_of_the_Mind.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(90)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/89.%20The%20Ground%20of%20Vipassana.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>89. The Ground of Vipassana</strong></p>
+<p>By Luang Pu Thate Desaraṅsī</p>
+<p>All the Dhamma that the Buddha taught must be gathered together; only then is it correct. If it is not gathered together but remains scattered, it is still not correct. Today I will give a sermon about the <em>khandhas</em>. The khandhas are also a kind of collection. The khandhas consist of <em>rūpa</em> (form) and <em>nāma</em> (mind). They must exist together. If there is only rūpa without nāma, nothing can be done. If there is only nāma without rūpa, nothing can be done either.</p>
+<p>Let us speak first about rūpa, because rūpa is easy to see – that is, our own body as it appears now. Religion is embedded within that very rūpa. What is called the <em>rūpakkhandha</em> (aggregate of form) refers to all forms whatsoever, whether small or large, coarse or subtle. They are all collectively called "rūpa." This rūpa is the cause for our clinging. The mind is the one that clings. From birth onward, the mind constantly clings firmly to rūpa.</p>
+<p>Therefore the Buddha taught us to contemplate rūpa. The words <em>pañcakkhandhā</em>, <em>rūpakkhandha</em>, <em>vedanākkhandha</em>, <em>saṅkhārakkhandha</em> – these are called the <strong>ground of vipassanā</strong> (insight meditation). If there were no such ground as this, vipassanā would not arise. Vipassanā must arise from these five grounds.</p>
+<p>For vipassanā to arise, it must arise from rūpa – that is, seeing rūpa as it really is. In truth, rūpa is already real, but we do not see it as it really is. Therefore the Buddha taught us to contemplate and see rūpa according to reality with our own mind.</p>
+<p>How is rūpa real? All forms whatsoever – coarse, subtle, etc. – remain as they are, then decay, disintegrate, and cease. Even if we had not been born, they would remain as they are and then disintegrate and cease. After we die and cease, other people’s forms and other forms continue to arise in this world all the time. That is called "rūpa." Whatever anyone calls that rūpa, let them call it; but the thing itself is rūpa according to reality. It simply exists like that.</p>
+<p>For example, we call it "a person." That is the rūpa of a person. If we don't call it "the rūpa of a person," whatever we call it – Mr. Black, Mr. Red, Mr. White, Mr. Short, Mr. Tall – the rūpa does not call itself. It is people who do the naming. In truth it is just one rūpa. Therefore, rūpa is real according to its own reality. No matter what anyone calls it, it remains the same. Whatever its shape and characteristics, those are its shape and characteristics. A human has one shape, an animal has another shape, all things are according to their own rūpa. It is we who impose names on various rūpa.</p>
+<p>Once we have imposed names, we then cling to that rūpa. It becomes attached to the mind. Then wherever we go, that attachment remains with the mind. For example, the rūpa of a person – we call it this or that name. Even if someone else calls it – not us – we still go and cling to it. We cling to the words and names that others use. If they say it wrongly, we are displeased. We cling to that extent. If they say it correctly, we praise, honor, respect, and extol it – and then we become glad. It’s not the rūpa that is glad; <em>we</em> are glad – the mind is glad. This is not seeing things as they really are. It has to be like that.</p>
+<p>Now, if someone criticizes and faults that rūpa, we become sad. They are speaking about the rūpa, not about the mind. But our mind clings to the rūpa and becomes angry. If what they say is unpleasant to the ear, we become angry. If it is pleasant to the ear, we become glad and praise them. This is called not seeing rūpa as it really is. Therefore it is called <em>puthujjana</em> – a person thick with defilements.</p>
+<p>As for the Buddha or the noble disciples (ariya-sāvaka), they see rūpa as it really is. Whatever names people call rūpa, they are just conventions. When others praise, they don’t know where the praise is directed – they are praising that rūpa, but the rūpa is not affected. When others criticize, they criticize that rūpa, but the rūpa is not disturbed. That rūpa does not know anything about those matters. The mind of the noble one is separate. Therefore they are not angry; they pay no heed. Because they know the nature of rūpa, they understand that it is like this. Seeing truly with the mind like this is called <em>vipassanā</em>. That is why it is said: the ground of vipassanā is rūpa.</p>
+<p><em>Anuloma-vipassanā</em> (insight in conformity) – that is, thinking and conceptualizing – is not genuine vipassanā. Genuine vipassanā is something else, something separate. When the mind becomes tranquil and reaches true knowledge and true seeing, then the mind is in its natural state. The rūpa seen is also in its natural state. All things seen at that moment are seen according to their own reality, clearly and truly, with one’s own mind. Then one attains enlightenment – enlightenment in a single moment of consciousness. That is what is taught. One doesn’t need many things. In just that one moment of consciousness, clear and vivid knowledge arises, and all doubt about everything disappears. That is vipassanā. It is not fabricated, not thought up or concocted. When the mind reaches that point, it arises by itself, happens by itself. But it depends on the preliminary work – the practice, with samādhi as the foundation. When vipassanā is about to arise, it arises spontaneously, by itself.</p>
+<p>After vipassanā has arisen, once one emerges from that state, one must contemplate again to see according to reality, exactly as it happened. Rūpa is just rūpa. Even if one does not go into fine detail, if the mind does not enter deeply enough to reach full vipassanā, still one should contemplate in conformity (anuloma) with what one has known and seen, that it is truly like that. Having seen that, one is released from clinging and attachment. One becomes at ease, free, completely unburdened, not heavy. Isn’t that what we want – freedom, release, non-clinging, non-attachment?</p>
+<p>Some people, when the mind becomes free and open, don’t know what to do. They don’t understand because they have never experienced it before. The mind has become that way, but the owner himself doesn’t realize it, so he becomes confused. There are people like that. Nevertheless, if that happens, don’t be confused; don’t be deluded or bewildered. Understand that you still exist. If you understand according to reality, wisdom will arise, and knowledge and clarity will arise again. The confusion is because we don’t know, we have never experienced it before, so we become completely confused – afraid of going crazy, becoming insane, and so on. But when we bring mindfulness to bear, when we use mindfulness to know that the state is like that, the mind becomes steady, and knowledge arises again.</p>
+<p>This is the nature of rūpa: it arises, then remains like that, exists like that, then decays and ceases. It arises and ceases, arises and ceases, constantly.</p>
+<p>Now, <em>nāma</em> (mind) – this refers to <em>vedanā</em> (feeling), <em>saññā</em> (perception), <em>saṅkhāra</em> (mental formations), and <em>viññāṇa</em> (consciousness). It is exactly the same as rūpa, completely similar. So I will give a sermon on the khandhas – that is, to make us know about the khandhas, which are our own selves. We do not know our own selves, therefore there is no Dhamma. When we know and understand our own selves, that is called knowing Dhamma. Then we live with Dhamma. Whether standing, walking, sitting, lying down, or going anywhere, we contemplate Dhamma as our abiding. That is called Dhamma. Dhamma is not somewhere else. No matter where anyone searches for it, if they do not bring it back into the khandhas, they will not reach Dhamma; they will not understand the rūpakkhandha, vedanākkhandha, saññākkhandha, saṅkhārakkhandha, viññāṇakkhandha. Even if they see other things, those things are not their own self; they are external. That is not seeing Dhamma; it is seeing external things. But when one sees internally, knows clearly and sees truly, that is called vipassanā. Let this explanation suffice for today. Now sit in meditation.</p>
+<p>(Luang Pu Thate gives a preparatory instruction.)</p>
+<p>It is better for us to practice Dhamma... Having listened, do it immediately, so it does not fade away. If you do not do it at once, leaving it aside for a long time, you will forget. In the Buddha’s time, when he gave a sermon to the monks or to laymen and laywomen, they listened and then practiced accordingly. They did not listen and then leave it to do later. No, they did not do that. They listened and practiced right away – that is, they fixed their minds at that very moment while listening to the sermon.</p>
+<p>Having listened, they firmly established their mind, completely absorbed in that one place. Then they knew clearly and saw truly according to the Dhamma discourse, and thus many of them attained the paths, fruits, and Nibbāna. As for us, when we listen or read books, or read various texts, after listening or reading we store it away, and soon it is forgotten.</p>
+<p>In those times, they completely let go of <em>paññatti</em> (concepts) and <em>sammuti</em> (conventions). Paññatti means assigning names and labels. Sammuti and paññatti are similar. They did not hold onto those conventions; they held onto the truth. For example, "person" – what is a person? Or "human being" – what is a human being? They did not take the ordinary human as we understand – standing, walking, sitting, lying down, moving about – that is what we call a person. That is our understanding. That is what people generally respect and honor. Therefore, when others say "good" or "bad," "wrong" or "right," we experience pleasure and displeasure with regard to the things we cling to.</p>
+<p>But the noble ones do not cling like that. What is a human being? Where is the real, true human being? They go deep into the essence. The real human being does not name itself; it is we humans who name it. If people did not name or label it, what would it be? It would simply be as it is, neutral. They contemplate and go deep into the real thing; they reach the core. The mind must be like that. When one reaches it, there is nothing; there are no conventions or concepts either. In ancient times, there was no study or learning in the way we think. The Buddha gave a sermon to the monks or to laymen and laywomen. They listened and practiced right away; their minds became firmly established.</p>
+<p>What we call <em>dhātu</em> (elements), <em>khandha</em> (aggregates), <em>āyatana</em> (sense bases) – these are all later conceptual designations. In truth, one who practices and trains does not cling to these concepts. They hold to the truth, to the real state as it is. As I have said, listen: when the mind emerges from that state of reality, there are conventions and concepts everywhere. People in this world must have conventions and concepts all around; without them, we could not communicate. But Dhamma is not conventions or concepts; it is truth. Nevertheless, we have to relate it to conventions and concepts in order to speak to one another and be understood.</p>
+<p>Therefore, it is said: make the mind attain samādhi, make it unified, make it reach Dhamma. Dhamma is all things in general. The word <em>Dhamma</em> means "that which upholds," "that which exists according to reality." When one reaches reality, that is Dhamma; there are no conventions or concepts. Contemplate until you reach that very Dhamma.</p>
+<p>Our mind is not Dhamma. It thinks, wanders, fabricates. It gives rise to perceptions and moods, all chaotic. That is not Dhamma. Since it is not Dhamma, we let it go; we don't need to cling to such things. Then everything becomes empty. When everything is empty, some people might wonder: "Where do I go?" When you let go, you reach the heart, and then you are at ease.</p>
+<p>The word "at ease" is also a convention, another concept. Actually, when you reach the heart itself, you don't know whether it is at ease or not at ease. It is a certain state, so they coined the term "at ease" for that state. The word "at ease" is a convention, coined to correspond to that feeling. "At ease" is that kind of state. It is not that you know first and then practice. Most people think: know first, study and understand first, then practice. "If you don't study, how can you practice?" But in truth, it is a different matter. Practice first; after you obtain the result, then concepts arise.</p>
+<p><em>Pariyatti</em> (study), <em>paṭipatti</em> (practice), <em>paṭivedha</em> (penetration) – these are the three. They are taught in that order, so people understand that pariyatti means one must study and learn first, then practice. Practice according to what one has learned, then paṭivedha arises. I tell you that paṭivedha must arise first. If paṭivedha does not arise, how can you formulate concepts? You must practice until paṭivedha – clear knowledge – arises first; then you can formulate concepts correctly. The Buddha formulated the Dhamma and Vinaya. Both Dhamma and Vinaya – if He had not first attained enlightenment to the paths, fruits, and Nibbāna, He could not have formulated them correctly. He had to know first, then formulate correctly. After He formulated them, others practiced accordingly. If we speak according to truth, it must be that way.</p>
+<p>Paṭivedha comes first, then pariyatti arises. If you know pariyatti but remain idle, that won’t do. You must practice daily, and only then can you live rightly. Everything, all things, require practice. In daily life, everyone practices. They practice according to the paṭivedha they have known.</p>
+<p>All right, now set your mind to continue practicing.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="88._Satipaṭṭhāna_Bhāvanā.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">88</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">88. Satipaṭṭhāna Bhāvanā</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_talks.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Talks">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Talks</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="90._Emotions_of_the_Mind.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">90</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">90. Emotions of the Mind</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>
