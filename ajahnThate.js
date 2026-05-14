@@ -1821,73 +1821,73 @@ As she was walking along, by chance the ogress had business elsewhere and didn't
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>1: The Ultimate of Giving is Faith</h3>
+<div class="quote-entry"><h3>The Ultimate of Giving is Faith</h3>
 
 <p>The act of giving has faith, confident trust, as its ultimate. If there is no confident trust, no matter how much merit-making or giving you do, it's pointless. But when you have confident trust in genuine purity of heart, trust that there are results of merit and results of wrongdoing – that doing evil yields evil, doing good yields good – that settles it. That is its end. Search as you may, whether it's giving food, giving requisites, giving all kinds of material objects, it all comes down to this: faith, confident trust, is the ultimate of giving. Upon reflection, I see nothing beyond this. Let anyone reflect however they wish – the matter of giving ends right here, at faith alone.</p>
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>2: The Ultimate of Precepts is Intention (Cetanā)</h3>
+<div class="quote-entry"><h3>The Ultimate of Precepts is Intention (Cetanā)</h3>
 
 <p>Observing precepts – the five precepts, eight precepts, ten precepts, 227 precepts, and even more beyond that – there are tens of thousands, hundreds of thousands laid out in the Great Section (Mahākhandhaka). But when condensed, they all come down to intention (cetanā), the single act of restraint. The Buddha taught the same way. A certain monk wanted to disrobe because the Vinaya seemed overwhelming: "Since I ordained, oh my! It's too much, I cannot manage it. The Vinaya is too many rules – I will disrobe." "Come here, don't disrobe just yet. Come here first," the Buddha said to that monk. "If there are that many, then take just one rule. Don't bother keeping so many. Keep the intention to abstain – that's enough." That is <i>virati</i> – abstinence, restraint. <i>Veramaṇī</i> means abstaining. <i>Sikkhāpadaṃ samādiyāmi</i> – "I undertake the training rule." <i>Veramaṇī</i> – abstaining from killing living beings, from stealing, from sexual misconduct, from false speech, from intoxicating drinks and fermentations, from eating after noon, from watching dancing, singing, music, instrumental performances, from lying on high or luxurious seats and bedding – every single thing. All of it has the intention to abstain. If it is a precept, it has this single intention of abstinence.</p>
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>3: Intention Determines Offense, Not Mere Action</h3>
+<div class="quote-entry"><h3>Intention Determines Offense, Not Mere Action</h3>
 
 <p>If we accidentally forget or are heedless – say we kill an animal or take something without intending to steal, but out of forgetfulness we pick up someone else's belonging – others may blame us, accuse us, threaten to kill or beat us, that's their affair. If we had no intention, there is no offense (āpatti). The punishment is a matter of worldly law or the law of the land. When there is no intention, if people examine the matter properly they might not press charges. But even if they do not press charges – whether their judgment is based on evidence, or on coercion, or on jealousy and mutual harm – they may still wrongly convict us. But our precepts remain pure. This is why it is said: the intention to abstain is the ultimate of the precepts.</p>
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>4: The Ultimate of Concentration is One-Pointedness and Absorption</h3>
+<div class="quote-entry"><h3>The Ultimate of Concentration is One-Pointedness and Absorption</h3>
 
 <p>As for concentration (samādhi): the ultimate of concentration is the mind becoming one-pointed (ekaggatā). No matter what you contemplate, no matter what preliminary word you use – contemplating <i>yub-ngor</i>, <i>phong-ngor</i> (rising-falling), or <i>sammā arahaṃ</i>, or <i>buddho</i>, or mindfulness of breathing – if the mind does not become one, it is not the ultimate of concentration. The mind has initial application (vitakka), sustained application (vicāra), rapture (pīti), pleasure (sukha), and one-pointedness (ekaggatā) – it comes down to that one-pointedness. All eight jhānas come down to that same one-pointedness. Concentration also comes down to that same one-pointedness. They speak of jhāna: absorption (appanā) jhāna is the ultimate of jhāna. Concentration also has absorption concentration as its ultimate. Why do they say that? Because both absorption jhāna and absorption concentration – though two – come down to the same absorption. That is the ultimate of concentration.</p>
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>5: Distinguishing Jhāna from Concentration</h3>
+<div class="quote-entry"><h3>Distinguishing Jhāna from Concentration</h3>
 
 <p>Jhāna: when one reaches one-pointed object and one-pointed mind, there is no contemplation of various matters at all times. Happiness and peace are the foundation. One does not wish to think or contemplate. Concentration: there is awareness. When one reaches concentration, one is still aware. Even upon reaching absorption, one is still aware – not completely unconscious. That is concentration. In this absorption state, both concentration and jhāna have no contemplation whatsoever. Everything is silent and peaceful. At that moment, they say this is the ultimate of Brahmā, the ultimate of the Brahmā world. No defilements appear there; one becomes Brahmā there – meaning one is not self-aware. And no defilements arise. There is no vitakka, vicāra, pīti, sukha, or anything at all. No scattering or confusion externally. One dwells solely internally. At that moment, if one has ever entered it, one will understand when it is spoken of.</p>
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>6: The Internal Turmoil Even in Jhāna</h3>
+<div class="quote-entry"><h3>The Internal Turmoil Even in Jhāna</h3>
 
 <p>Upon entering that state, there is something that remains unsettled internally – not by thinking of external objects, but by its own internal turmoil. We are not involved, but the mind is involved by itself. One sees clearly: this is not the end of defilements. Seeing that, when one emerges, the turmoil returns as before. It walks out externally. That which was inside, when it comes out, the old turmoil returns. It is the same as what was inside – external and internal are the same. But the difference is that the external sends out to various things, while the internal does not send out; it remains just within that jhāna. Thus one knows clearly: defilements are not ended.</p>
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>7: Concentration as Stillness with Awareness</h3>
+<div class="quote-entry"><h3>Concentration as Stillness with Awareness</h3>
 
 <p>As for concentration: when one enters, there is no such turmoil, no such confusion. It remains still, with awareness. Besides the one who knows, one sees oneself. There is peace and happiness. When one emerges, that mind must be controlled, with mindfulness (sati) controlling it at all times, not becoming heedless or forgetful in various places. The mind enters concentration in this way. Then one must withdraw from that concentration – that is, to contemplate externally: forms, sounds, smells, tastes, tactile objects, etc. Seeing everything clearly as it really is, one becomes disenchanted, dispassionate, and must re-enter concentration again. Sometimes one re-enters jhāna – going into a state of stillness alone, unaware of externals, internally concocting and fabricating alone – that is jhāna. Concentration turns into jhāna.</p>
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>8: The Need to Train Both Jhāna and Concentration</h3>
+<div class="quote-entry"><h3>The Need to Train Both Jhāna and Concentration</h3>
 
 <p>Now, when one emerges from that jhāna and contemplates, seeing the drawbacks and dangers, becoming disenchanted with all things, seeing the drawbacks of everything, then one returns to concentration. Entering concentration, still and fixed up to absorption, but with awareness. Concentration and jhāna keep alternating like this. One cannot avoid having both; everyone must have both and must practice continuously. Train to have both. If you train only one – being jhāna without awareness, or concentration without awareness – it's not enough. But when you understand both, no matter which it becomes, just maintain awareness and knowing. That is the method of training in concentration.</p>
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>9: Abandoning Defilements Requires Repeated Absorption</h3>
+<div class="quote-entry"><h3>Abandoning Defilements Requires Repeated Absorption</h3>
 
 <p>As for the abandoning of defilements, they speak of personality view (sakkāya-diṭṭhi), doubt (vicikicchā), and attachment to rites and rituals (sīlabbata-parāmāsa) as the progression of abandoning defilements. Sakkāya-diṭṭhi is the holding of a sense of self – holding that "I am," "he is" – unable to let go; it is not the same as clinging (upādāna). Vicikicchā is doubt – doubting all manner of things. Sīlabbata-parāmāsa – when in doubt, one keeps groping and fumbling. So the abandoning of sakkāya-diṭṭhi, vicikicchā, and sīlabbata-parāmāsa is about the work of abandoning. But if one has not seen the nature of one's own mind, even if one reaches absorption, one cannot abandon these things. Even the first levels of absorption cannot abandon them. Only when one repeatedly attains absorption and becomes skilled in seeing one's own mind, then gradually abandons and removes them – seeing once is not enough to abandon them. I speak of jhāna and concentration as being different in this way.</p>
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>10: The Ultimate of Wisdom is the Three Characteristics</h3>
+<div class="quote-entry"><h3>The Ultimate of Wisdom is the Three Characteristics</h3>
 
 <p>Now, wisdom (paññā): what is its ultimate? No matter what you contemplate, including the entire world, after emerging from absorption concentration and remaining in access concentration, you contemplate and lay everything open, seeing everything clearly. Where can it go? It comes down to aniccaṁ, dukkhaṁ, anattā – the Three Characteristics. Having come down to the Three Characteristics, where else can it go? It remains stable. Whether or not one enters concentration or jhāna, it is stable, not coming or going. Everywhere it goes, it is anicca, dukkha, anattā. All things in the world are like that. So where else can it go? That's the end. That is wisdom. That point – the Three Characteristics – is the ultimate of wisdom.</p>
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>11: The Entirety of Buddhism and the Path to the Heart</h3>
+<div class="quote-entry"><h3>The Entirety of Buddhism and the Path to the Heart</h3>
 
 <p>To summarize: The ultimate of wisdom is the Three Characteristics. The ultimate of concentration is absorption (appanā). The ultimate of jhāna is absorption. The ultimate of precepts is intention (cetanā). The ultimate of giving is faith (saddhā). That's all. That is the entirety of Buddhism – nothing more than this. So I reflect again: the mind that scatters and agitates over everything – even if it is within wisdom – it's still a matter of agitation. When you let go of that agitation, abandon that mind at that moment, let go of everything, then you enter the heart (citta as "heart" – the pure knowing). It remains still and neutral, knowing stillness. What more could there be? Nothing. That's the end. That is our practice.</p>
 </div>
                                              <hr>
 
-<div class="quote-entry"><h3>12: Contemplating the Ordinary Mind to Reach the Heart</h3>
+<div class="quote-entry"><h3>Contemplating the Ordinary Mind to Reach the Heart</h3>
 
 <p>Therefore, contemplate so that you can maintain this at all times – both the "ordinary mind" and the "heart". Contemplate the ordinary mind to bring it into the heart. Let go, and it becomes the heart. Go out, it becomes the ordinary mind. Converge, it becomes the heart. If you can do this constantly, you will not be deluded. If it is only the ordinary mind, you will be deluded by the world, without end. But if you see the ordinary mind and contemplate it, it converges into the Three Characteristics and reaches the heart. That is the principle. The principle of contemplation is "to become" – that's all. The mind-heart is firm. Contemplate to reach the heart. Maintain the heart at all times. The "ordinary mind" is the result that flows out from the "heart". Contemplate all things, and they converge into the Three Characteristics – that's all. If there is no heart, if you don't reach the heart, even contemplating the Three Characteristics cannot be done. Everything becomes worldly, completely scattered and confused. That's enough.</p>
 </div>
