@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01. Relationship between the World and Dhamma</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex justify-center items-center" title="Return to Dhamma Books">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="02._On_Birth_and_Death.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(02)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+<div class="mb-10 w-full flex justify-center items-center rounded-lg bg-stone-50 dark:bg-stone-800/30 p-4 border border-stone-100 dark:border-stone-800">
+    <div class="w-full max-w-[500px] overflow-hidden">
+        <iframe src="https://archive.org/embed/Ajahn-Thate-Dhammatalks/98.%20Relationship%20between%20the%20World%20and%20Dhamma.mp3" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+    </div>
+</div>
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <h3>01. Relationship between the World and Dhamma</h3>
+<p><strong>Phra Nirōdharaṅsī Gambhirapaññāvisiṭṭha</strong><br />
+<strong>Luang Pu Thate Desaraṅsī</strong><br />
+<strong>Wat Hin Mak Peng, Si Chiang Mai District, Nong Khai Province</strong>  </p>
+<p>When you pick up this book and look at the cover, you will immediately guess what the author will talk about in this opening essay. Upon turning past the preface, you will immediately understand: "Ah, he's talking about how the world is connected with Dhamma." No one can deny that a human being born cannot take the material objects existing in the world to form the structure of their own identity – that is impossible. (These four elements are precisely Dhamma.) Even all the animals and plants living on this earth cannot escape taking the world's material objects to compose themselves, only then can they be born and grow.</p>
+<p>Therefore, this world is the foundation that supports all things – whether beings or things that must arise, both those possessed of consciousness and those without. Once they appear or are born into form (what are called <em>sankhāra</em>), they must continue to depend on this world. At the same time, they must dig, scrape, and nibble at the very scurf and surface of this world to nourish themselves, thus being able to survive for a period of time.</p>
+<p>If the body, or the worldly materials that they have taken to use, become distorted and decay, unable to bear the burden any longer, then it must break apart, disintegrate, and change back into its original state (that is, the four elements). Beings who still have debts and entanglements with this world (that is, merit and demerit), when they die, must return to repay their debts to this world again (that is, take the world's material objects to compose themselves again, and then consume the world's material objects once more).</p>
+<p>In summary, the material objects of this world are common property, not belonging to any particular person. No one can claim exclusive ownership. Even if you claim it, you cannot possess it alone. Whoever is born first uses it first and consumes it during the time it persists. When it disintegrates, they leave it behind in the world as before. Those born later must take what they left behind to compose their existence and continue consuming it.</p>
+<p>Furthermore, the things consumed for nourishment while one exists, when excreted, are discharged back onto the earth's surface, becoming fertilizer to nourish vegetables, grasses, and various fruits. Those born later must rely on those previous people's leftovers to consume and nourish themselves, enabling them to continue existing. Thus we take turns using and consuming the world's material objects in this way endlessly, without end. No one knows who was born first or last, nor who truly consumed whose things.</p>
+<p>Therefore, the Buddha said that this world is round. But He did not mean round like a coconut. It is round because it has no beginning and no end. No one knows who was born before whom, who died before whom, who ate whose things, who ate before whom. In the end, we eat, we excrete, then we eat again. We die, break apart, abandon it, and later people take it to be born again. This matches reality: the world is round.</p>
+<p>The Buddha said that humans and animals, as well as all the trees and grasses existing in this world, could be the flesh and bones of a mother, father, child, grandchild, great-grandchild, or even ourselves. All of these arise from the four elements, which are common material objects of this world. Everyone who is born must borrow them to use, just like the government banknotes we use every day. Each bill may have been used many times already – who knows? We don't care.</p>
+<p>He taught us to have compassion and mercy for one another, not to be too selfish. Other people and other animals are part of ourselves. Or else, they could be the mind of a father, mother, teacher, child, grandchild, or relative of ours who is still inhabiting that lump of matter. The four elements, which are this world, are thus considered to be greatly beneficial to the people of this world who still have kamma that will cause them to be reborn.</p>
+<p>When we come to study the Buddha's teachings, we will see that the Buddha's teachings teach us to know and understand the world-element (that is, our own human body). Therefore, the world and Dhamma are always connected eternally as long as our minds are not yet free from or above the world. Even for those whose minds are free from the world, as long as they are still alive, they must experience the fruits of their actions (that is, remain connected to the world) according to their condition.</p>
+<p>The world and Dhamma both walk toward the same goal, which is happiness. But their ways of walking differ, each going its own direction. Therefore, the results are not the same. The world only takes, always wanting. It concocts, accumulates, hoards more and more, until it becomes selfishness, which causes trouble and suffering for others. And it never has time to be full or satisfied. Even if one lives to be a hundred years old and dies, fullness and satisfaction never end. After death, one still owes a debt to the world (that is, deficiency remains). Thus it brings suffering both to oneself and to others.</p>
+<p>The Buddha saw the worthlessness of human life and the harm in it, so He taught that everything existing in this world, including even our own selves, is merely for temporary use. Therefore, when something arises, learn to be content and satisfied with it, then use it and let it go for the benefit appropriate to its status and function.</p>
+<p>In this world, there is no such thing as pure Dhamma; there is only the world mixed with Dhamma.</p>
+<p>Whoever is born is indebted to the world. If those born into this world took the world's material objects to use and consume until they were completely gone, without leaving anything behind, like digging up oil and burning it all away, then this world would become empty. How then could we be born as we see every day?</p>
+<p>We are born as human beings, whether female or male, beautiful or ugly – do not be delighted or distressed. That is not ours; it is the common property of the world as described. Let it be complete and usable, that is enough. Like the government banknotes mentioned: whether old or new, slightly torn, their value remains the same. Only if torn beyond use, you can return them to the government and they will exchange them for you (that is, death).</p>
+<p>Moreover, our own body that we are born with has even better rights than government banknotes. We don't have to go seeking it; it is born already waiting to serve us. Arms, legs, ears, eyes, nose, tongue, body – who went to fetch them from anywhere? We are born with them complete and they work excellently. No one can replace these with anything else, and they last exceptionally long. Some of these tools last nearly a hundred years. What more could you want? Therefore, it is said that those who are born are greatly indebted to the world.</p>
+<p>If a person remembers the aforementioned debt of gratitude to the world and wishes to repay it, then they are considered a good person. Repayment is nothing special – just to contemplate and see in what ways we are indebted to the world, then try to repay those debts according to our own abilities, that is enough. To repay them completely is certainly impossible, because the world's kindness is vast and manifold.</p>
+<p>Before repaying the debt of gratitude to the world, first look at ourselves: what have we borrowed from the world to use, and how must we use it to be free of debt? Examine it point by point, stage by stage, so that we can repay correctly and completely. Contemplate as follows:</p>
+<p>Take just the eyes first. The eyes are a material object of the world that we are using. Our father and mother are the ones who brought them into being, crafted them, and gave them to us to use. How much benefit and value have we derived from them? The author need not describe it; everyone can close their eyes and contemplate for themselves. If we had no eyes or had to use artificial eyes, what difficulties would arise? These physical eyes, given to us by our parents – what compensation do they ask from us? Upon contemplation, you will see: nothing. They only help to nurture and improve them further.</p>
+<p>As can be seen when our eyes are sore, our parents become distressed and troubled, running to find medicine or a doctor no matter the cost, as long as their child's eyes heal. When our eyes become clouded or short-sighted, they quickly find medicine or glasses for us to wear. When our eyes are already clear and bright, they find rouge or eyeshadow to apply to make them more beautiful.</p>
+<p>The behavior of parents toward their children as described above only increases the debt of the debtor, while the creditor does not even think of their own kindness. They invest in doing housework and chores to set an example, but the child pays no attention. They buy books for study, but the child doesn't read. They send the child to school, but the child plays truant to hang out with bad friends. They strive and invest until the child grows up to be a young man or woman, a fine adult. Some debtors then begin to cheat the creditor. They try to train the child to use the invested capital wisely, fearing it might be squandered. The more they train, the more they advise, instead of thinking of the creditor's kindness and good intentions, the debtor sees the creditor as old-fashioned, out of date, inferior to themselves.</p>
+<p>Just look at students these days. Most adopt Western social customs. Over time, some of them end up following along.</p>
+<p>In truth, Asians are peoples who were civilized long before. They had customs, traditions, culture, and morality that were good, refined, and well-established for a very long time. Westerners only recently emerged from a wild state a few thousand years ago. When they just changed from a wild condition to being new villagers, Asians saw it as something novel and fancy, so they adopted their ways, resulting in a big mess. As for what the Westerners think – they just came from the wild, like us training a monkey to wear pants and a shirt to perform in a play. In truth, it is people who train monkeys to perform. But when the monkey learns a little and not perfectly, people come to like it, saying the monkey performs better than humans.</p>
+<p>When we realize that our own body is of immense value – whether we are human, have a spouse and children, are a millionaire, or a lord or master respected by people in the village, city, or even the whole world; even if we are a monk or a member of the Sangha worshipped by people across the land – it all comes from the world's material objects, with our parents as the producers. Therefore, we should not take these valuable things that we have obtained as our own and use them in improper ways.</p>
+<p>Initially, when we first obtain them, not knowing how to use them, we should study, ask questions, and listen to the advice of those who gave them to us. We should assume that they have used them before and certainly understand and are more skilled than us. We should not disobey or be stubborn, insisting on our own opinions at this stage. No matter whether it is good or bad, we are still under their protection.</p>
+<p>A grateful person who recognizes the kindness of others who have benefited them – whether by giving them birth as a human being, imparting knowledge and skills to establish a livelihood, or even just giving words of advice in times of trouble that soothe suffering with pleasant speech – when they wish to repay because they are indebted to that person, the first step is nothing elaborate. Just show respect, obey, and speak with honest and sincere words. Believe and listen to what they teach with compassion and kindness. That alone is a great repayment of that debt of gratitude. Once you can conduct yourself in this way, other matters can be dealt with later. Sometimes, for some people, by conducting yourself thus, you may become completely free of debt.</p>
+<p>Everything described so far is a matter of the world. And when humans are born, everyone is indebted in this way. Even though it is a worldly matter, when a person contemplates and sees the world's kindness in accordance with reality, that becomes Dhamma.</p>
+<p>Dhamma is truth. Those who practice according to Dhamma – that is, practice according to truth – attain peace and happiness. Those born into this world who recognize the world's kindness do not behave in ways that clutter the world with evil.</p>
+<p>A person who clutters the world – if a rice field, it would be a fallow field, of no benefit to humanity. But a human who clutters the world is worse than a fallow field. Humans have mouths and stomachs. When they are lazy, their stomachs become empty. An empty-stomached person is a thorn in the world: petty thieves, small-time crooks, swindlers, grabbing anything, no matter whose, as long as they fill that empty stomach.</p>
+<p>In summary, if a person is bad in just one way, everything they do is bad. Born into a good family with a respectable lineage and Dhamma in the family – it doesn't matter. Enter a good, well-organized institution with good teaching – it doesn't matter. Work in a good workplace with high salary – it doesn't matter. If they themselves behave badly, they are worthless. Even if they ordain in Buddhism, they go and destroy the goodness there.</p>
+<p>Especially in the religion, the author wants to offer the view of some people here: When some people were already bad from the beginning, when they come to ordain in Buddhism, their inherent bad nature still sticks with them. It's not that ordaining makes it all fall away like scrubbing off dirt. There are the rules of Dhamma and Vinaya, and teachers constantly teach, but they refuse to accept and follow. What can be done?</p>
+<p>Those who see such bad people then say Buddhism is not good, blaming Buddhism as if it were the final institution for reforming bad people – because when all else fails, they are sent to ordain in Buddhism. As for good people, those who consider themselves good, why don't they ordain as an example to lead them? The author understands that those who think this way have not yet studied Buddhism deeply enough to reach the core of truth. In truth, Buddhism is an excellent teaching. Those who come and follow it properly have become noble ones freed from suffering – countless numbers. But these are bad people. Wherever they go, whatever they do, it's never good.</p>
+<p>When those born into the world recognize their own worth and repay the kindness of the world and their parents who produced them – even if not much, just initially showing respect, speaking with honest and sincere words, believing and listening to the teachings given with compassion and kindness, as explained above – then this world will have peace. That is, they will be free of debts to one another, no longer needing to demand repayment of kindness. Then the world becomes Dhamma.</p>
+<p><em>Sankhāra</em> inevitably break apart and cease, but Dhamma remains as it always was.</p>
+<p>Dhamma is interwoven with the world. Enough has been said about worldly matters. I hope all readers will have understood, or perhaps may understand even more than has been presented here. Since everyone has been born into this world and has gained experience, some more, some less, knowledge in worldly matters may not be the same.</p>
+<p>What has been written is merely one individual's perspective. Readers or those with more experience may gain more knowledge and understanding of worldly matters – that is each person's right, and those born must freely exercise it. The author has written only to point out that the world and Dhamma are intermingled, and then to indicate: this is the world, that is Dhamma.</p>
+<p>Now, readers should not misunderstand that the author is trying to separate the world from Dhamma. Not at all. The author is not a god who created the world and Dhamma. It is only a conventional designation in language – this is called the world, that is called Dhamma – to facilitate understanding of the explanations in this book, solely for the benefit of Dhamma practice.</p>
+<p>Now we will speak about Dhamma as a matter of practice, which is the purpose of this book.</p>
+<p>As for Dhamma, it is nothing far away. In truth, it is simply truth, the real thing, the ordinary. As we commonly say: "Human beings, once born, must inevitably age, become ill, and die – that is Dhamma." "Humans and animals, once born, must mate and reproduce – that is Dhamma." "Those ordained as monks or novices must eventually disrobe – that is Dhamma." "When there is night, there must be day – that is Dhamma." "When there is heat, there must be cold – that is Dhamma." And so on. If that is the case, why separate things into world and Dhamma? There is a reason that the wise have distinguished them for different results, as follows:</p>
+<p>The world is like raw ores of various elements, such as iron ore, tin ore, etc. Those ores serve as the foundation, preserving the iron and tin for aeons. The longer it is – hundreds of millions of years – the more the quality of the iron and tin increases, without any deterioration whatsoever.</p>
+<p>This world is the same. No matter how many hundreds of millions, billions, or hundreds of billions of years it has existed, true Dhamma – that is, real things and truth – remains established in that very world. If no one is wise enough to discover and extract that true Dhamma for use, they just use the world temporarily.</p>
+<p>For example, a person who is born must take the four elements (earth, water, fire, wind), which are material objects of the world as mentioned, and compound them into a physical body, male or female, according to the technique of the master craftsman (that is, ignorance, craving, and grasping). Then they use it, saying "That's my child, that's my grandchild, that's my father, that's my mother, that's my husband, that's my wife," and so on, all sorts of things. They enjoy and delight in the tune. If someone comes and says "That's not true" (telling it as it is), they don't like it at all. If someone supports them (egging them on in delusion), saying "That's your child, your grandchild, your parents, your husband's child," they are very pleased – sometimes even giving gifts.</p>
+<p>But when that lump of worldly material manifests Dhamma in another aspect – for instance, becoming deformed, distorted, broken, chipped, or disintegrating according to its own nature – those who hold the world as the world, as "mine, mine, mine," do not see it as Dhamma, as natural, as something that must happen that way. They become extremely distressed and anguished.</p>
+<p>If one sees the truth as it really is – that the physical body, both our own and that of others, is born by borrowing the world's material objects to compose a temporary form, and when the time comes it must be returned to its original place, just like borrowing someone else's things – when the owner comes to ask for them back, can you refuse? When you understand the truth in this way, the whole matter is finished.</p>
+<p>This is why the wise saw the benefit and value of separating the world and Dhamma, using them correctly according to their functions, so that they provide benefits to the user as intended.</p>
+<p>The more the body ages and decays, the more Dhamma grows.</p>
+<p>Use the world's material objects wisely.</p>
+<p>As already stated, we are born indebted to the world because we come into this world and take its material objects to form ourselves into a being, and we also continue to depend on this world. When we realize that we are indebted to the world and strive to repay that debt, that constitutes one aspect of Dhamma.</p>
+<p>The true Dhamma that the Buddha taught is nothing else. In truth, He taught us to see and clearly understand the nature of existence and the way things are in this world. Then we will be free from doubt and worry, released from entanglement with the world, and without suffering. Only those who do not understand and know the world in accordance with reality suffer.</p>
+<p>The suffering we call "human suffering" is precisely the suffering of misunderstanding and misknowing the world, then grasping the world as oneself, as one's own. Those who grasp the four elements – earth, water, fire, wind – that have been compounded into a person, stealing them as if they were their own – these elements are common property, no one has sole ownership. When we die, we abandon them in the world as before. Those born later take them to compose another person, as described. Anyone who deludedly grasps them as private property is said to have stolen common property for personal use, and will be punished with great suffering, like someone who steals public goods from the state.</p>
+<p><em>Adinna</em> and <em>upādāna</em> are both forms of stealing. <em>Adinnādāna</em> means taking something that the owner has not given permission for. <em>Upādāna</em> means grasping – that is, clinging to something that is common property. Both are types of theft. The difference is that <em>adinnādāna</em> is stealing personal property, while <em>upādāna</em> is stealing common property.</p>
+<p>Speaking in terms of breaking precepts, <em>adinnādāna</em> destroys the precept in the Eightfold Path as well as in the Noble Path. As for <em>upādāna</em>, it destroys only the precept in the Noble Path, because in the Noble Path, morality, concentration, and wisdom come together in one place, one point – that is, the Noble Path that is being walked. It is in a state of mental cultivation, without any physical or verbal action. For example:</p>
+<p><em>Sammāvācā</em> (Right Speech) refers to the mental directedness toward meditation subjects, methods for generating concentration and insight specifically. It does not involve speaking any words aloud. <em>Sammākammanto</em> (Right Action) refers to the mind's work functioning in concentration and insight as well, not to any physical or verbal action, because body and speech are already fully calm. <em>Sammā-ājīvo</em> (Right Livelihood) refers to the state of living while body, speech, and mind are calm, proceeding along the path, using concepts to investigate the Dhamma. It does not refer to the struggling and striving to find a living as ordinary people commonly understand.</p>
+<p>The morality in the Eightfold Path and general morality can be practiced by ordinary people, good ordinary people, and noble ones alike, through effort to maintain and develop it, because it relates to external body and speech and is a tool for eliminating coarse defilements. If one wants to use morality to eliminate subtle defilements, then one must use the morality of the Noble Path as described above.</p>
+<p>One might call the Five Precepts, Eight Precepts, the Ten Precepts of novices, the 227 Precepts of monks, as well as the morality of the Eightfold Path, <em>lokiya</em> (mundane) morality. And it can also make the world prosper and grow, producing peace. As for the morality of the Noble Path, it is <em>lokuttara</em> (supramundane) morality. Therefore, <em>adinnādāna</em> and <em>upādāna</em> can prevent the arising of path and fruit, because the morality of <em>adinnā</em> is impure.</p>
+<p>There is a story: A certain elder monk went alone to practice meditation in the forest during flowering season. One evening, the scent of flowers carried by the wind reached his nose, delighting his mind, and he wished to smell it. So he walked to the flower tree and inhaled the fragrance to satisfy his desire. At that moment, a deva admonished him: "Why, Venerable Sir, are you stealing someone else's property?" The elder replied, "I am not stealing anything. I am simply smelling flowers." The deva insisted: "You inhaled the flower's fragrance without restraint at the sense-door."</p>
+<p>Thus, one who is progressing on the Noble Path, if not restrained at the six sense-doors, falls into attachment to forms, sounds, smells, tastes, tactile objects, and mental objects, rendering the morality of the Noble Path impure, which truly becomes an obstacle to the development of the Path.</p>
+<p>Food that contacts the body, when eaten, can satisfy. But mental food (the volitional food of intention) is never full or satisfied.</p>
+<p>When the eye sees a beautiful form that pleases and delights it, then takes that image and stores it in the mind, creating satisfaction, love, and delight in that image – that is a form of stealing, because the owner of that form did not know and did not consent for us to take and cling to it. Even with ugly, unlovable forms that we dislike, if we develop hatred, disgust, and turn away from them, that is also a form of cheating. If the owner of that form knew, it would be even worse.</p>
+<p>Sounds heard through the ear – whether pleasant, pleasing sounds, or insulting, hurtful, demeaning, disagreeable sounds – if we take and store them, clinging to them in the mind and experiencing them as mental objects, that is also another form of stealing. Because sounds have no substance; they are just air that has already passed away. But we cheat by molding them into something serious, even though the sound itself has long since disappeared. Even if we record it on tape – when we play the tape, the sound appears, but the sound still has no self or substance. If you look at the tape, you see only the tape. Cheating by stealing sound is extremely worthless, far worse than other forms of theft and fraud, because after stealing and cheating, you get nothing tangible in hand – only delight or distress, all alone. Those who cheat by stealing sound and clinging to it in their own mind are pitiable. Pleasant, lovable sounds – no one sees, hears, or shares the enjoyment. Sorrowful, distressing sounds – no one can help carry or relieve them. They suffer entirely alone.</p>
+<p>Smells that enter the nose – both good and bad, arising from external objects – cause the mind to like or dislike. If it likes, it steals and stores it in the mind. If it dislikes, it also steals and stores it in the mind. In truth, the nose is even more pitiable than the mind, because smells come with the wind, and the breath has only one channel: the nose. Bad smells, good smells, unpleasant smells – the nose must bear them all. No one else can bear them in its place. You cannot shut out bad smells and receive only good ones, or you would suffocate and die. But the mind takes on all the burden. Instead of letting go of bad, unpleasant smells, it takes them on even more heavily than good smells, even to the point of hatred and anger. If that smell came from a person, a quarrel would surely ensue. This is all due to the fault of our cheating by taking the smell unjustly.</p>
+<p>Taste refers to tastes arising from contact with the tongue – spicy, salty, sweet, sour, delicious, or not delicious – and then the mind snatches them to be its own private property, not allowing the tongue to have ownership. This is considered cheating, taking another's ownership for oneself, and thus constitutes <em>adinnādāna</em>, a breach of the morality of the Noble Path. Even if the tongue does not taste anything at a particular time, the mind will force the tongue to have tastes anyway.</p>
+<p>The mind is thus an excellent con artist and cheater. It sneaks in to steal, cheat, and swindle in every corner, whether the object is large or small, has form or not. It goes straight for it. Whoever associates with it is ruined every time. Opium, cannabis, alcohol, intoxicants, even a tiny bit of heroin – it steals until it gets it. This mind could be called the great robber of the world.</p>
+<p>Tactile contact refers to contact with the body. Since the body is a physical object, it must be contacted by external objects. Contact involves both pleasant and unpleasant things – again, that is stealing. Because things contact each other according to their own nature, but our mind steals that contact to possess it alone, without our body knowing or consenting. It is like wind blowing a tree, waves striking the shore. Our mind is afraid and annoyed, but the tree, even if it breaks to pieces, feels nothing; nor does the shore get annoyed.</p>
+<p>Pure Dhamma cannot remain in the world for long. The thieving eye likes petty theft, always watching, lurking, spying, good at finding faults, looking for crevices to steal things that others have hidden away or left unguarded – it steals. The thieving ear is a hardened criminal, always lurking in damp places, waiting to steal cool sounds; when hit by heat, it jumps and snatches.</p>
+<p>These <em>upādāna</em> thugs, even if the law does not reach them and authorities do not pursue and arrest them, their punishment is hundreds or thousands of times heavier than worldly punishment, because they will be punished by the god of love, imprisoned in the realm of desire for eons.</p>
+<p>Those who do not understand the reason for death suffer when death comes because they grieve over death. But the one who dies is actually comfortable, because they do not have to die again.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Books">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Books</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="02._On_Birth_and_Death.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">02</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">02. On Birth and Death</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

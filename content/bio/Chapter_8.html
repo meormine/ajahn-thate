@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="Chapter_7.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(7)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../autobiography.html" class="group flex justify-center items-center" title="Return to Autobiography">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="Chapter_9.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(9)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>Autobiography 08</strong></p>
+<p><strong>Phra Nirōdharaṅsī Gambhirapaññāvisiṭṭha</strong><br />
+<strong>Luang Pu Thate Desaraṅsī</strong><br />
+<strong>Wat Hin Mak Peng, Si Chiang Mai District, Nong Khai Province</strong>  </p>
+<hr />
+<h3>33. Rains Retreat 55: Going Abroad to Teach Dhamma (1976–1977)</h3>
+<p>Our journey abroad this time received support and assistance from many parties, all with the same aim: to spread moral training overseas. Besides that, I also wanted to visit and encourage our friends — both Thai monks and foreign monks — who had gone to teach and spread Buddhism in those countries.</p>
+<p>There is something amusing: I was aware that I was old and nearly ready to die, yet I still took the trouble to go abroad with others. What's more, I didn't even know their language. In truth, this journey abroad did not accord with my own ideals regarding travel, which consist of three conditions:</p>
+<ol>
+<li>Whatever region or locality you go to, you must know their language.</li>
+<li>You must understand their customs and traditions.</li>
+<li>You must know the occupations of that region and locality.</li>
+</ol>
+<p>Only then can you associate with them and speak correctly about their affairs. But here, not knowing their language alone made the other two conditions almost unnecessary to mention. Nevertheless, I received great assistance from many knowledgeable people who helped as language interpreters and gave me knowledge and understanding, making the language barrier almost meaningless.</p>
+<p>I knew well that I am old, having entered advanced old age. I don't want to go anywhere. I've traveled enough. Finding a place to die like Wat Hin Mak Peng is already very good. Then suddenly a <em>mae chee</em> (a Singaporean woman who had faith in Buddhism, ordained as a nun, and was staying the Rains Retreat at Wat Hin Mak Peng) came to invite me to Singapore – Australia – Indonesia. She thought that because I am old and staying at the monastery with no time to rest — receiving guests all day, most of whom come to ask for amulets and lottery numbers — going there might give me some rest.</p>
+<p>I reflected and saw that going abroad without knowing the language would be difficult. And when people see a stranger, they will flock to see him — how would that be rest? Moreover, I am a public monk. Old as I am, going anywhere requires careful consideration. If I encountered danger, fell ill, or died, it might cause trouble for others — especially the monk who invited me. They might say that having invited me, they couldn't help take care of me.</p>
+<p>Nevertheless, she did not give up trying to invite me. Moreover, her brother, who is the head of the Buddhist community in Perth, Australia, also wrote to invite me to benefit the Buddhists there. After consideration, I found three reasons that made accepting the invitation worthwhile:</p>
+<p><strong>First:</strong> Indonesia has a population of over 130 million, of which about 10 million still practice Buddhism, surrounded by other religions — Hindu, Islam, Christian — without any Buddhist monks as leaders. I had heard others tell about this and felt great compassion for the Indonesian people. I also learned that they like to practice meditation. (Every religion that believes in God must sit in meditation to calm the mind, taking their God as the object.) This pleased me greatly.</p>
+<p><strong>Second:</strong> Many monks who ordained at Wat Bowonniwet with Somdet Phra Ñāṇasaṅworn (now Somdet Phra Ñāṇasaṅworn, the Supreme Patriarch) and came from Indonesia and Australia. Before this Rains Retreat, Donald Riches, an Englishman, had taken cassette tapes of my Dhamma talks and photos to spread in Australia. When they learned that our group would be traveling to Australia, they prepared to receive us. Some were so delighted they couldn't sleep. In Australia, there is a Thai monk named Boonrit who ordained long ago and went to spread Buddhism there. He has done much for the propagation of Buddhism in Australia. Many people have trained with him and then come to ordain in Thailand.</p>
+<p><strong>Third:</strong> I constantly thought that in the future, Buddhism will spread internationally, perhaps in the manner of Christian missionaries. If Thai monks go to spread it, they often spread only the external shell of Buddhism. But if people of their own nationality ordain and are trained to reach the true essence of Buddhism, then they themselves will spread that essence. That will truly transmit the essence. Last Rains Retreat (1976), there was Phra Sudhammo, an Indonesian who ordained with Somdet Phra Ñāṇasaṅworn at Wat Bowonniwet, and came to stay the Rains Retreat at Wat Hin Mak Peng. He is now waiting to receive our group in Indonesia — an important monk who will take the essence of Buddhism to spread abroad.</p>
+<p>Having considered these three reasons, I decided for myself: for as long as I have left, I will sacrifice myself to benefit the religion as much as I am able. Having made that decision, I saw the value of my life more clearly, which made me resolutely sacrifice my personal happiness for the religion.</p>
+<p>In truth, many people and groups from Bangkok had invited me to India to pay homage to sacred sites, offering every convenience, but I still refused. I had pictured going to India many times to generate inspiration, but my heart remained neutral.</p>
+<p>Reflecting on the reasons: India is where Buddhism arose. Since I was not born in the Buddha's time or when Buddhism was flourishing, and sacred sites still remain, I should go to pay homage to generate spiritual urgency or faith. But my heart remained stubbornly neutral as always. Perhaps I may have been a monk in the era when Hindus suppressed Buddhism, destroying monks and sacred objects. I might have been one of those monks suppressed by Hindus in India back then, so I have an aversion to Hindus in India and don't want to go again in this life.</p>
+<p>Whoever has faith and the opportunity to go and pay homage to the four sacred sites gains great merit, as the Buddha said to Ānanda: "These four sacred sites will be a field of merit for good people after my parinibbāna." My perfections are limited; not having gone, I rejoice in their merit and hereby acknowledge my debt of gratitude to India, where Buddhism arose, on this occasion.</p>
+<p>Before departing abroad this time, we stayed at the monastery garden of Air Vice Marshal Phayom Yensuchai at Don Mueang. At night, more and more people came to listen to Dhamma talks and train in meditation each night. I felt that the people of Bangkok these days seem to have better self-awareness than before — that they were born in a "city of devas" only by convention, while they themselves are still humans struggling to make a living like ordinary people everywhere. So they want to become true devas, because they have heard that devas born in heaven have no opportunity to make merit like humans in this world. When the fruit of the merit they made in this human world is exhausted, they return to be born again in this human world — and may even be reborn in the lower realms. This is unlike noble persons in training, such as stream-enterers, who after death will never be reborn in the lower realms.</p>
+<p>I am an old monk born in an undereducated region. Sometimes when invited to teach morality to well-educated people, I initially felt somewhat shy. But this accords with the Buddhist principle of not regarding class or caste, but taking good knowledge and good conduct as the standard. Because knowledgeable people who do evil cause more trouble to the nation than unknowledgeable people.</p>
+<p>Unknowledgeable people who do no evil are better than very knowledgeable people who use their knowledge for evil. People with little knowledge who strive to do only good bring prosperity to the nation. Unknowledgeable people who do no evil are better than very knowledgeable people who use their knowledge for evil. People with little knowledge who strive to do only good bring prosperity to the community and the nation.</p>
+<p>Having reflected on these reasons, I could teach with confidence, because teaching morality to well-educated people is easy to understand. The Buddha's moral teaching teaches us to know natural phenomena, thus it best accords with modern science. Good students seek only substantive knowledge that can be applied for the benefit of human life, regardless of the person's status or position. Nowadays, there are cases where students with high knowledge teach their teachers — unlike some bad students who, seeing their teachers make a small mistake or having a differing opinion, consider the teacher a hired boat and gang up to peck and drive them away, thinking they gain face and honor. This is a corrupt form of development that leads only to decline.</p>
+<h4>33.1 Arriving in Singapore, the First Country</h4>
+<p>Our group — comprising Phra Stephen, Phra Chaichan, Dr. Chawadee, and Mae Chee Chuan — departed from Bangkok on 7 November 1976 and arrived in Singapore the same day. The faithful group received us and took us to see the city. Singapore is a small island in the middle of the sea, only 30 km x 25 km in area, with a dense population — over 3 million including surrounding islets. Because the area is small, they build high-rise flats of ten to twenty stories to save space.</p>
+<p>People seeing the high flats think that all Singaporeans are rich. In truth, it is like other countries in the world — ordinary houses with zinc roofs, even thatched roofs like ours, also exist.</p>
+<p>As long as human beings still have defilements, having everything equal is impossible. Every government tries to achieve that, but not a single country has succeeded. Even communist countries, which loudly proclaim that their citizens are well-off, have equal rights, and lack nothing — why then do those citizens struggle and flee for their lives from the "City of Aryans"? That is because human defilements are too old.</p>
+<p>The Buddha taught again and again to have empathy for others, to have goodwill toward one another. Everyone wishes for that, but when it comes to themselves, defilements cover and envelop them, making them forget everything.</p>
+<p>I used to wonder why tiny Singapore separated from Malaysia as an independent nation instead of uniting with Malaysia to become a large, solid country. Having seen the reality, the separation into an independent nation is appropriate, because culture, customs, religion, and the character of Singaporeans may differ from Malaysia.</p>
+<p>Moreover, Singapore is a small island with dense population, perhaps having better income than Malaysia, and the people may be easier to govern. Nevertheless, Singapore still relies on raw materials such as timber from Malaysia. Water is an essential factor for human life. Singapore has little land, insufficient for agriculture — even drinking and household water must be piped from Malaysia. Therefore, even though Malaysia and Singapore are separate countries, their other relations remain strong. Only if they cut this water supply would they truly be separate.</p>
+<p>Regarding traffic: the roads are wide and sufficient for vehicles, not congested, and drivers help maintain traffic order without selfishness. At intersections, no traffic police are needed — only red and green lights function automatically. The roads are kept very clean. Few pedestrians walk around. Shop fronts have glass panels to keep out dust. Besides the high flats, houses are planted in orderly, beautiful rows. Along roads and between houses, shady trees make for pleasant sightseeing.</p>
+<p>Wherever houses are spaced apart — in the city or suburbs — they have made small or large public parks with seating under trees for people to rest. Along seashores without trees, they have planted trees and made parking lots, orderly and clean almost everywhere. Whether roadside houses, walls, or public parks, they like to plant various flowers, very beautiful. Their soil is good, and the weather and rain are frequent, so their flowers are lush all year round.</p>
+<p>Singapore is a small island with dense population — do not think there is no forest. Even in the city there is virgin forest. Because they have little forest, they love and preserve it as described. Singapore is an island in the middle of the sea, above sea level. So even though the water is good and rain is frequent, water does not stagnate, making cleaning easier than in our Bangkok. The citizens also help maintain law and order well. Nevertheless, do not forget: humans are born in filth and always associate with filth both outside and inside. Clean and bathe, and soon it is dirty again. Finally, when dead, it rots and becomes filthy again.</p>
+<p>Given that, how can anywhere people live be clean? Only if everyone living together understands this truth but still helps maintain cleanliness according to their duty. As we maintain inner cleanliness, so should we maintain outer cleanliness. For any country to be prosperous and complete, it must have four factors:</p>
+<ol>
+<li>A geographical location suitable for people to live in.</li>
+<li>Leaders who establish just laws and regulations, not causing trouble for the people nor being too lax.</li>
+<li>Citizens who help maintain law and order, respecting the nation's laws.</li>
+<li>Leaders who abide in justice.</li>
+</ol>
+<p>With these four factors, a country will be prosperous. Lacking any one, even if prosperous, it will not be complete.</p>
+<p>Bangkok cannot possibly be made as clean and complete as Singapore, because the location is not suitable — it is below sea level. Whoever claims they can make Bangkok this or that clean — don't bother; it's just newspaper talk. Better to help maintain cleanliness according to one's own duty. Don't be heedless and selfish. Seeing a small fault, criticize; a little more, attack each other rudely, lacking good manners like uneducated people.</p>
+<p>Our group stayed in Singapore for ten nights. We taught morality and meditation to Singaporeans every night, no more than three hours per night. Each night 20–30 people came for training. Teaching morality is simply pointing out the true danger of the world. Whoever sees the danger of the world is said to see Dhamma, because the world and Dhamma are interdependent. When we taught Dhamma, worldly problems flowed in from all sides. All problems are similar to those everywhere in the world. In summary, they fall into three categories:</p>
+<ol>
+<li>Family and livelihood problems.</li>
+<li>Problems of finding a mental refuge.</li>
+<li>Problems of wanting to be freed from suffering.</li>
+</ol>
+<p>The first category is not unusual. Where there is a world, there are worldly problems as a matter of course. If you tie the knot yourself, you must untie it yourself — who else can untie it except to tell you how? A fish caught on a hook because of the hunter's bait. Seeing the bait, the hungry fish snaps at it. When the hook catches its mouth, it gets no food, only pain. Hunger causes this suffering. I advised: "Endure it. When you are deluded by bait and the hook is in your mouth, struggling only multiplies the pain. Accept impermanence and feel spiritual urgency: this suffering is due to your own delusion. Stay still and let the hunter take you off to make tom yum for his evening meal — that would be good luck for him."</p>
+<p>The second: When people still have hope, they struggle to the utmost without end, according to an untrained mind. Like a newly caught wild animal — no matter how much it struggles, if the rope doesn't break, it will tire, know its own strength, and submit. Humans are the same. When they don't get what they thought would bring happiness, the mind becomes calm. Then they see the true refuge: that seeking happiness with external objects is not true happiness, only false, superficial happiness. True happiness is a still, non-struggling mind. Whoever catches this true happiness — even if engaged in any posture or any work — will have a happy mind always. But for those who haven't reached or seen this, it's like playing a flute for a buffalo.</p>
+<p>The third: I taught them to review the first two until they see that apart from the happiness born of calm, everything else is merely provisional and false. Then I taught them to practice continuously, investigating until skilled. When skilled, they can live in any state as they wish. Having achieved this, whoever wants to live in happiness can; whoever wants to live with suffering can — with complete freedom.</p>
+<p>From our teaching and from hearing the views of Singaporeans, I consider them fortunate to have righteous views, seeing the suffering of birth in this world, seeing that human life has no substance, it is only illusion. Moreover, I never imagined that Singaporeans would have such knowledge and understanding of the Buddha's Dhamma. Previously, most Singaporeans followed Hinduism, Christianity, or Mahayana. But after training and studying the correct principles of Buddhism, those beliefs — I don't know where they disappeared — leaving only the essence of truth. It is admirable that they have expressed confidence, courage, and cheerfulness in their understanding of the essential truth. It is amazing that some automatically keep the five precepts, practice meditation with stability, and develop knowledge of various matters, both their own and others'.</p>
+<h4>33.2 Going to Australia</h4>
+<p>From Singapore, we flew to Australia on 17 November and first stopped at Perth, then to Melbourne, Sydney, Canberra — every major city where interested Buddhists or Buddhist associations invited us to teach morality. Thai, Lao, Burmese, Sri Lankan, Westerners — all welcomed us excellently. Our group thanks them very much on this occasion.</p>
+<p><strong>Conversation with a Hindu leader:</strong> While in Perth, a swami came to visit. "Swami" means a Hindu monk, dressed in cloth similar to Tibetan monks. He himself said he was a Hindu lama. Hinduism has many sects, with many gods. No matter how many gods they believe in, as long as they believe those gods are all emanations from the same God (the Creator God who has no form). This swami had been ordained for 45 years and was 76 years old. He was sitting waiting for us in the reception room. When he saw me, he raised his hands in respect with delight — very endearing. I raised my hands in return. We exchanged greetings to mutual satisfaction. When appropriate, I asked about his sect — what path they follow and what emphasis.</p>
+<p>He said he was a Swami Lama, head teacher of Hinduism. His family practiced Hinduism, and he himself was strict in it, ordaining young and continuing until now. He had also visited Mahayana monks in Tibet.</p>
+<p>There was another swami, but this one was not ordained like the previous — a layperson like an ordinary person. He was 81 years old, but very endearing in appearance, with bright skin and a constant smile. He looked about 61. He had come to sit waiting for us in the reception room. When he saw me, he raised his hands in respect before I did, like the previous swami. He said that upon seeing me, he felt great <em>mettā</em> (in our language, deep respect and love). After greeting and expressing mutual delight, I asked about his sect as I had the previous swami. Before asking, I apologized, but he said not to apologize — we have equal Dhamma.</p>
+<p>He said he follows no religion at all. "Because in this world, there is only one God." The founders of all religions are merely emanations from the same God (Brahma). If one does good correctly, one reaches the same original God. He said he had studied yoga with six different teachers in India. His teachers taught many methods — such as physical yogi postures, fasting, breath control, etc. (These practices existed before the Buddha and apparently remain today.) He is knowledgeable and capable in Hinduism and has renounced everything (no family), so Hindus have honored him as a swami.</p>
+<p>The two of us conversed with Phra Stephen as interpreter to mutual satisfaction. Before leaving, he asked to bow at my feet for good luck. (Thus I became a god!) I felt very embarrassed, because he is a good person, old, with admirable virtue. I said there's no need to bow — having equal Dhamma is already auspicious. Before leaving, he turned and bowed again and again, showing sincere respect.</p>
+<p>Both swamis — one ordained, one not — follow the same method for reaching God, as they are both Hindu. I asked both to explain their method for reaching God. Both explained the same:</p>
+<p>The first said: Recite "Om" slowly 2–3 times, recollecting God in your heart, bringing your mind to recollect God. Then God will appear as various images in the heart. God will teach you right and wrong, to do good and abandon evil. Sometimes no image appears, only a voice. (In Buddhist practice, this is called <em>rūpa jhāna</em>. "Whoever sees Dhamma sees me... Dhamma is the teacher that constantly instructs those who practice well not to fall into error.") Then that God disappears, leaving only emptiness. You have reached the eternal God. (This is <em>arūpa jhāna</em>, which Āḷāra Kālāma and Uddaka Rāmaputta practiced. Prince Siddhattha studied it and saw that it still involved clinging, not the way to liberation. Abandoning both good and evil, then one is liberated. So he left to practice asceticism.)</p>
+<p>The second swami, though not ordained, explained the same, but he didn't mention the recitation — perhaps protecting his sect's secret. But being the same sect, he probably recites similarly. He only said that when reaching God, God will show various images or a voice to teach. He didn't mention that after images and voice disappear, only emptiness remains, reaching the eternal God.</p>
+<p>What should be of substance? Are students of religion entertained? What do they think? I offer my view as follows. If right or wrong, please forgive me, as I have not studied other religions' texts besides Buddhism.</p>
+<p>They teach to have firm confidence that God exists but is invisible. That God they believe in — when you have confidence, direct your mind to God or place your mind in God, then God will appear to you there. Even Mahayana Buddhism is similar. For Theravada, the Buddha was a real person — Prince Siddhattha of the Sakya king — who renounced, ordained, practiced, cleansed his mind until pure, and became the Buddha through his virtues. But we are not to take only Siddhattha's body as the Buddha. When one has faith and devotion in the Buddha's qualities and directs those qualities to the heart, or directs one's mind to those qualities, when the mind is firmly established in those qualities (one-pointedness), various images or sounds may appear.</p>
+<p>The formless God sect considers that reaching God, God teaches. Buddhism considers that as a meditation vision. If a voice teaches, that is Dhamma as teacher. If an image appears, that is a vision. Dhamma has no form; the seer and hearer still have form, so Dhamma shows images suitable for the seer and hearer.</p>
+<p>In summary, every religion and sect teaches its followers to abandon evil and do good, to direct the mind to the virtues of God in their hearts, or to place their minds in God, so that they may reach God — all religions the same. Followers of each religion, not understanding this true principle, often consider others who practice differently as wrong, only themselves right. Then they advertise and attack each other to make their side prominent so more people will join. This is not the teaching of a good, virtuous founder. It becomes the focus of criticism by good wise people. Regarding meditation visions and reaching God — this should be a proof for practitioners.</p>
+<p><strong>Advice given to Maha Samai</strong></p>
+<p>During our travels in Australia, besides teaching morality to those interested in Buddhism, we also exchanged views with friends — especially Maha Samai, whom Mahamakut Buddhist University had sent to reside at Wat Buddhārangsī in Sydney. This Maha Samai was originally from Champasak, Laos. He came to Wat Sra Pathum as a child, ordained as a novice, then as a monk, passed Pali grade 5, graduated from university at Wat Bowonniwet in 1959, then taught secular education at Wat Phothisomphon, Udon Thani for one year. Then he volunteered to spread Buddhism in Australia, where he has been for two years, the second generation after Chao Khun Pariyatti. He was the first monk to stay at this temple. He now has 13 Rains Retreats.</p>
+<p>He is a gentle, polite monk, very respectable and inspiring. He is known as a representative of Thai monks spreading Buddhism in Australia. Before, Australia had no Theravada monks — Christianity was predominant. The first Theravada temple and monks appeared only recently. People nowadays worldwide have good education, especially in science, which emphasizes investigation and facts.</p>
+<p>Christianity teaches faith and forbids criticizing one's own teachings, which conflicts with modern science. The Pope once punished someone for calculating that the earth is round, yet later popes and the whole world use that person's principles today.</p>
+<p>Buddhism allows full freedom to investigate anything — even its own teachings — because Buddhist teachings are far above science, proving facts not only in material things but also in abstract phenomena. Having proven the facts, they are used not for harm but for peace, benefiting oneself and others.</p>
+<p>Some have used it to the point that the world cannot cling to them, transcending the world — such as the Buddha and arahants. It is a pity that modern people, despite high education, mostly think that completing a degree is enough. Some may never consider that the textbooks for the curriculum originated from a brain beyond the textbooks. Knowledge from textbooks is not knowledge arising from one's own brain. It is experience that stimulates knowledge from the brain — that alone is truly one's own knowledge.</p>
+<p>In Buddhism, this is called <em>paccattaṃ</em> — seeing or knowing clearly for oneself, through the power of a mind trained to calmness, giving rise to this kind of knowledge, enabling one to change from one's original condition and reach the true state according to the principles of Buddhism.</p>
+<p>Therefore, to realize the truth of Buddhist teachings, one must have both study and practice together — not just one or the other. To be a propagator of Buddhism in an era of well-educated, knowledgeable people, one must train oneself in both. Otherwise, propagation will not be as effective as it should be.</p>
+<p>Furthermore, I advised him to propagate fully — that is, besides keeping the Pātimokkha precepts completely, when our group is still small and unable to manage education, we should maintain other practices such as the <em>dhutaṅga</em> practices, going on alms round, etc. This will also reduce kitchen expenses.</p>
+<p>Propagation of Buddhism must have study together with practice. Only then will Buddhism have firm roots and last long. Our group, including Maha Samai, agreed and promised to follow this view.</p>
+<p>I gave Maha Samai this advice: The obstacles on the road of spreading Buddhism abroad are three major ones:</p>
+<ol>
+<li>Monks taking advantage of laypeople, not earning a living but merely begging from laypeople.</li>
+<li>Theravada monks being narrow-minded, not helping people in suffering and difficulty, unlike other religions and sects.</li>
+<li>Theravada monks forbidding killing animals while themselves eating meat.</li>
+</ol>
+<p>Anyone going abroad to spread Buddhism will certainly encounter these obstacles. So I advised Maha Samai to prepare tools to handle these obstacles. If he does not forget when such obstacles arise, he should be able to use them immediately.</p>
+<p>Moreover, an even greater danger for monks going abroad to spread Buddhism is the customs and traditions of that country, which they are not yet accustomed to. These may become obstacles and grate on the ears and eyes when encountered, causing discouragement and weariness. Or they may cause one to forget oneself and indulge in those customs.</p>
+<p><strong>Reflections from Australia</strong></p>
+<p>It is known from history that Australia was originally a wild land. The people were not yet civilized. The civilized tribes hunted the uncivilized like hunters hunting animals. The English hated convicts and thugs, so they shipped them to this island to get what they deserved — maybe eventually being hunted like animals.</p>
+<p>Those convicts must have realized themselves — as people without refuge must rely on themselves — so they diligently worked in agriculture with great effort until they established themselves. Just then, the world developed machinery and engines, requiring large amounts of raw materials for factories. Australia had abundant water and soil. When the population had an outlet for their agricultural products, they did it on a large scale, income increased progressively, and it became the prosperous country seen today.</p>
+<p>The English, who once looked down on Australia, now seem somewhat embarrassed before Australia. Australia still has abundant natural resources and vast land, but only 13 million people. Resources enable a country to prosper long-term. Australia is one of the world's richest countries in resources — nearly all metals are present. Some countries have exhausted surface and water resources and are now digging or diving for underground resources, nearly depleted. Some countries dig things up to show off their wealth. But Australia does not show off, because surface and water resources are still abundant — the people cannot even exhaust them for consumption.</p>
+<p>In the future, if the world-ending fire does not arise, Australia may become a major world leader. Although currently the world labels it a "developed country," that does not mean that being developed, Australia does nothing else but sit and eat in comfort. In truth, they strive to preserve what they have developed and seek further development.</p>
+<p>Look at Thailand's "City of Devas" — entering the city, not a single deva is seen, only gangsters, hippies, and thugs filling the streets. People who have never developed and don't know the meaning of "development" think that once something is done, it never needs to be done again. That is wrong.</p>
+<p>Children who grow up to become teenagers are pleased. When they reach old age, they realize that being young was just old age not yet having arrived. For a city, making roads orderly and beautiful is merely taking materials from elsewhere that have been exhausted and assembling them there — showing that we have gathered things from here to improve there, making it orderly.</p>
+<p>People grow and live because of food, but at the expense of the flesh of other animals and many plants. People travel aiming only to reach their destination, forgetting that they have left their starting point farther and farther behind.</p>
+<p>People should not look only forward — since their eyes are in front — but use wisdom to look backward as well, then they will see reality, become less intoxicated, and reach the core of the Buddha's teaching.</p>
+<h4>33.3 Visiting Indonesia</h4>
+<p>From Australia, we returned to rest in Singapore, then continued to Indonesia on 24 December 1976. Almost all our friends in Indonesia — Chao Khun Suvīrañāṇa, Phra Khru Dhammadhara Sombat, Phra Sudhammo, Phra Aggapālo, and Phra Khemiyo — came to wait to receive us at Jakarta airport, together with the local Buddhist association.</p>
+<p>Besides Jakarta, we had the opportunity to visit other cities — Bandung, Yogyakarta, Mendut, Semarang, Surabaya, and Bali. We visited Buddhist associations and Buddhist temples that the missionary monks had led in building, such as Wat Majjhimasāsanavongsa next to Mendut Stupa, or Wat Dhammadīpārāma in Batu, Malang, Surabaya.</p>
+<p>We saw each with delight. Every evening, Buddhists — men, women, young, old — gathered to chant without fail. After that, the monk would give a Dhamma talk and lead them in meditation regularly.</p>
+<p>My view: Coming into Indonesia and seeing sacred sites with a mixture of religions, I could not help feeling spiritual urgency, while recalling Thailand. We cannot deny that our monuments and sacred sites are of immense value.</p>
+<p>Look at the Indonesians: Buddhist monks and scriptures disappeared from Indonesia — no one knows when. No one knows. Hinduism even more — no monks at all, only sacred objects and scriptures. Yet, clinging to religious objects and sacred sites, there remain over 10 million Indonesians who practice Buddhism out of a population of 113 million.</p>
+<p>Why can't people just live separately? Why must they envy and destroy each other in ways that are not their duty? Why are humans so blinded by defilements and craving, having no compassion for other people and other countries? Losing national independence means losing all freedom and sovereignty. Indonesia lost its independence to Muslims — no one knows when. There is no historical record, because all history books were burned. They only know later when the Dutch ruled for over 300 years. Even then, the Dutch took all books and scriptures related to Indonesian history. The Indonesians were no different from someone catching a chicken, plucking its feathers, and letting it go.</p>
+<p>Moreover, the sacred sites built with faith (according to history, took 90 years) — looking at the stones, they seem not even finished. Even if people a million years from now wanted to build with money, they could never finish. Pure stone, with no mind to hate anyone, still could not escape the hands of demons to destroy. What did the destroyers gain? Except that later generations, hundreds or thousands of years later, seeing this — not even being citizens of that country, not seeing the destroyers' faces or knowing their names — all curse them never to be reborn to see this world again.</p>
+<p>This world is truly wearisome. When I recall Thailand, our Buddhist sacred sites are even more valuable than Indonesia's. No matter how large and wondrous Indonesia's sacred sites are, they are not as beautiful as the temples and halls of Thailand.</p>
+<p>There is no other place in the world with sacred sites more inspiring than Thailand. I am 100% certain that if Thai people study and understand the true meaning of Buddhism and practice correctly, no religion or politics in the world can destroy Buddhism in Thailand. None.</p>
+<p>While we were traveling in Indonesia, Chao Khun Sūvīrañāṇa and Phra Khru Dhammadhara Sombat and Phra Sudhammo were our hosts and guides throughout. Chao Khun Vidhūradharmābhorn was away in Bangkok, not yet returned. Seeing the traces and deep faith of the Indonesian people in Chao Khun Vidhūra, I gained great faith and saw his ability. Even small children, when his name is mentioned, know him. He is a monk who has sacrificed and endured, willing to give his life to honor the religion. He is a major force for Somdet Phra Ñāṇasaṅworn and the Thai Saṅgha in spreading Buddhism in Indonesia.</p>
+<p>Several centuries have passed since Thai monks went abroad to spread Buddhism. After Chao Khun Upāli in the Ayutthaya period led 15 Thai monks to Sri Lanka, this seems to be the next serious effort, with pleasing results. But it is a pity that monks like Chao Khun Vidhūra are few. If there were more, it would greatly benefit Buddhism and the international community who greatly need it now.</p>
+<p>When a giver has what is needed, shouldn't they give to those who want it? Or have we hundreds of thousands of Thai monks become so poor that we have nothing to distribute? Indonesians are now actively and earnestly reviving Buddhism, as seen when some groups tried to prevent Chao Khun Vidhūra from returning to Indonesia. The Buddhists there resisted strongly, even in remote rural areas. Even without a monk as leader, they lead themselves, with heads they appoint called <em>paṇḍita</em>, encouraging groups to become Buddhists, naming them Buddhist associations.</p>
+<p>Moreover, every Indonesian firmly believes that in 1977, Buddhism in Indonesia will be revived once more. There is a story: Indonesia was once prosperous with Buddhism, having its own sovereignty for a very long time. For some reason, the ruler of Mojokerto, the center of the Majapahit dynasty, converted to Islam and declared that the people should also convert. Only one prince was stubborn, willing to sacrifice his life rather than convert to Islam. He fled into the forest. Before fleeing, he declared firmly: "In 500 years, I will return to revive Buddhism in Indonesia." Counting from then to 1977, it is exactly 500 years.</p>
+<p>Therefore, Indonesians firmly believe in that prince's prophecy that Buddhism will flourish in 1977. I want to pray to the compassionate Lord to extend compassion toward Indonesia, as an offering to Buddhism and in response to the great kindness of the Sammāsambuddha.</p>
+<h4>33.4 Feelings about Going Abroad</h4>
+<p>After traveling to various cities — Singapore three times, Australia, and Indonesia — we returned to Bangkok on 24 January 1977, a total of over two months. Although a short time, the benefits exceeded expectations. In Singapore and Australia, there are quite a number of people seriously interested in Dhamma study. In Indonesia, even more are interested in Buddhism. When we went to teach further, they became even more enthusiastic. Seeing them, I felt compassion. Although there are few teachers, most of their practice is proceeding. We have written about the Dhamma training in the book <em>Questions and Answers: Dhamma Abroad</em>. Details of the journey are in <em>A Life History of Going Abroad</em>. Interested readers may find them.</p>
+<p>Durian has thick skin and sharp thorns to protect its flesh. Those who want to eat should carefully turn it and tear along the seam between the lobes — then you will taste its delicious flavor as hoped.</p>
+<p>Everything in this world — what is entirely good and right? Only wise, intelligent people who know how to train themselves to be good and right.</p>
+<p>Humans of all ages, nationalities, languages — even all animals — surely not a single one would deny that they want happiness for themselves and hate suffering.</p>
+<p>Therefore, by these two reasons, all humans and animals struggle to find a way to escape the suffering they hate and attain the happiness they want. This struggle sometimes manifests as various forms of development simultaneously. But even if this development is based on reason, if you examine closely, it progresses on one side while declining on the other. Suffering is a great quality for development (it creates cleverness for survival), but at the same time, it brings much suffering and trouble to this world.</p>
+<p>Before, I had never been abroad. At most, in the morning I would row a boat across the Mekong to eat in Vientiane, Laos, then return to the temple. This time, old and nearly in the coffin, I happened to go abroad with others. Having gone, I saw nothing exciting — only the reality of human and animal existence everywhere, which is the same as in our country and in Laos, differing only slightly in local tastes. The main point is the same: hating suffering and struggling to escape it.</p>
+<p>So, since humans and other beings do not want suffering, having been born within these two things, we should consider our own life path in three aspects, which everyone must follow correctly and righteously. If we do not understand the life path and do not follow it correctly, the result will not only fail to bring happiness to ourselves and others but will also multiply suffering for ourselves and others.</p>
+<p>Everyone — the powerful, the clever, the rich, the poor — all say the same thing when speaking of good morality: "Society leads us."</p>
+<p>If we know society is bad, aren't we each part of that society? Why then doesn't each person help think of a solution or resist that society and adopt a good, beneficial society instead? Then society would improve. For family, society, and livelihood to proceed smoothly and happily, they must follow the principles of <em>gihī paṭipadā</em> (lay practice) laid down by the Buddha. Without this, they are worthless, bringing only suffering.</p>
+<p>Morality that leads the world to happiness — whatever country, whether developing materially or in administration, whatever system or doctrine — if lacking morality, complete mental happiness is hard to find. Dhamma — each person not doing evil, each person being afraid of what is not good — that is the true progress of family, society, livelihood, and ultimately the nation.</p>
+<p>For this journey, Air Marshal Chu Sutthichot, Managing Director of Thai Airways International, helped arrange all travel matters — passports, visas, plane tickets — and even accompanied us to Singapore (and later to Indonesia). When he could not go all the way, he still contacted branches in Singapore, Sydney, Jakarta, and Bali, as well as flight crew, who welcomed and assisted us excellently. Especially in Jakarta, Mr. Sutthiphon Kannasut, the manager, and his wife (Tik) also helped with accommodation and ground travel to various cities.</p>
+<p>Thus I record the kindness and virtue of Air Marshal Chu and his wife Suphap Sutthichot, and thank all Thai Airways staff who assisted our group on this occasion. About two months after returning, Singaporeans invited me again to look at land for building a meditation monastery. I saw about ten places, but none were suitable. Not getting land is good as well — if a monastery were built, it would be a worry, because building creates a burden requiring constant care.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="Chapter_7.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">7</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">Chapter 7</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../autobiography.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Autobiography">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Autobiography</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="Chapter_9.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">9</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">Chapter 9</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

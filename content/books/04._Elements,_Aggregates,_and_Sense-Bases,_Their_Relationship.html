@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04. Elements, Aggregates, and Sense-Bases, their Relationship</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="03._Three_Armies_of_Dhamma.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(03)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex justify-center items-center" title="Return to Dhamma Books">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="05._Illuminating_the_Path_of_Tranquility_and_Insight.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(05)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <h3>04. Elements, Aggregates, and Sense-Bases: their Relationship</h3>
+<p><strong>Phra Nirōdharaṅsī Gambhirapaññāvisiṭṭha</strong><br />
+<strong>Luang Pu Thate Desaraṅsī</strong><br />
+<strong>Wat Hin Mak Peng, Si Chiang Mai District, Nong Khai Province</strong>  </p>
+<h2>Foreword</h2>
+<p>The disciples and followers, noting that previously printed copies of this book were insufficient for distribution, initiated the idea of publishing it as a commemorative offering on the occasion of the author's 90th birthday celebration on April 26, 1992. They consulted with the author on which book would be most suitable. The author considered that the work he had written which would be most beneficial to readers is <em>Elements, Aggregates, and Sense-Bases: Their Relationship</em>. This work is worthy of being thoroughly understood by practitioners of Dhamma and meditation, as it encompasses both tranquility (samatha) and insight (vipassanā). Therefore, it is fitting that practitioners should understand it to advance their practice. Consequently, the author selected this Dhamma book for printing and distribution at this event.</p>
+<p>The author extends his profound appreciation to all the disciples and followers whose faith and wholesome intention have led to the printing of this book as a gift of Dhamma.</p>
+<p>Phra Rājnirodharaṅsī
+April 1, 1992</p>
+<h3>Dhamma Talk</h3>
+<p>The Dhamma talk that follows will take as its topics the three categories of Dhamma: the Four Elements, the Five Aggregates, and the Six Sense-Bases. They will be explained in sequence. These three categories are essential for anyone who desires Dhamma, whether worldly or supramundane. One must investigate and contemplate according to these three categories in order to attain one's goal. Furthermore, these three categories are already fully present within each of us. When we come to know and understand them, we will understand other phenomena outside ourselves, which are of the same nature. If we become deluded and misunderstand these three categories within ourselves, we will also be deluded and misunderstand external phenomena.</p>
+<p><strong>Elements, Aggregates, and Sense-Bases: Their Relationship</strong></p>
+<p>Human beings, when they are born, possess these three things as their primary property, before any other possessions. They are specifically interrelated. Whether good or evil, raw or mature, whether constituting the world or the Dhamma, these three things must exist as the foundation. They serve as a measure, a sign indicating what is what. One who holds to notions of "self" and "other," of pleasure and pain, does so within the framework of these three things and becomes lost in them. One who will know and see clearly, realizing truth, does so by knowing and seeing clearly these three things. These three things serve as an excellent measure for comparing the world and the Dhamma. One who does not see these three things falls and sinks into them. Or one who sees them but not clearly cannot let go and may grasp them as belonging to oneself. In short, one who sees the self as the world will draw those three things or their related aspects into the world as well. For one who sees the self as Dhamma, all things are merely Dhamma; there is no self, no substance, nothing at all. For example, the four elements are merely elemental Dhamma, the five aggregates are merely Dhamma aggregates, and the six sense-bases are included within these two.</p>
+<p>Therefore, what follows will explain the three things mentioned above for the benefit of those who desire Dhamma. They can then contemplate them as a path leading to the illumination of life. These three things are: the Four Elements, the Five Aggregates, and the Six Sense-Bases.</p>
+<p>If one asks: Are there only these elements, aggregates, and sense-bases? Why present only four elements, five aggregates, and six sense-bases? The answer is: There are many elements, such as the six elements or the eighteen sense-bases. All things in the world are called elements, as in the term "world-element" (<em>loka-dhātu</em>). Even Nibbāna is called the Nibbāna-element.</p>
+<p>Likewise, there are many aggregates. "Aggregate" means a group, a collection, a category. The Buddha described the planes of beings still afflicted by defilements, cycling in this world, as having to be born in a realm with five aggregates: humans and those below humans, down to the hells; with four aggregates: the formless devas; and with one aggregate: the form Brahmās. In truth, this world together with the deva and Brahmā worlds are called the aggregate-world (<em>khandha-loka</em>). As for the Dhamma teachings the Buddha expounded as categories, they too are called aggregates, as in the 84,000 Dhamma-aggregates (<em>dhamma-khandha</em>).</p>
+<p>As for sense-bases, they are derived from the four elements and five aggregates, but their function is broader than this brief exposition. This brevity is because the intention is to present only the fundamental elements, aggregates, and sense-bases.</p>
+<p><strong>The Four Elements</strong></p>
+<p>The four elements are the primary material basis of all things. Even the liberating Dhammas that lead to liberation through tranquility and insight cannot avoid these four elements. However, the four elements are purely physical elements, unconnected to mental phenomena or defilements. They are categorized according to their characteristics.</p>
+<p>For example, anything in this body with a solid, hard characteristic is called the earth element. There are eighteen kinds: head hair, body hair, nails, teeth, skin, flesh, tendons, bones, bone marrow, spleen, heart, liver, membranes, kidneys, lungs, large intestines, small intestines, fresh food, and digested food. (If one includes the skull and brain, there would be twenty, but these are not added because they correspond to bones and bone marrow, leaving eighteen.)</p>
+<p>The water element: anything with a flowing, liquid characteristic is called the water element. There are twelve kinds: bile, phlegm, pus, blood, sweat, liquid fat, tears, grease, saliva, mucus, synovial fluid, and urine.</p>
+<p>The fire element: anything with a heating characteristic is called the fire element. There are four kinds: the fire that warms the body, the fire that ages the body, the fire that digests food, and the fire that causes fever.</p>
+<p>The wind element: anything that moves back and forth within the body is called the wind element. There are six kinds: the wind that moves upward, causing dizziness, yawning, and nausea; the wind that moves downward, causing the release of gas; the wind in the abdomen, causing pain and bloating; the wind in the intestines, causing rumbling, nausea, and vomiting; the wind that moves throughout the body, making it light and supple, distributing blood and the essence of consumed food throughout the entire body; and the wind that is breathed in and out, sustaining life. (One could also include the space element, such as the empty spaces in the mouth and nostrils, but since space element is a type of wind, it is included within the wind element.)</p>
+<p>Suppose we consider it this way:</p>
+<p>All the human beings we see, if we speak truthfully, are nothing but mere lumps of elements gathered together. We humans assign conventional designations according to our own preferences, calling them people, animals, this or that. But that lump does not feel anything about its designation. Whatever its nature, it remains that way.</p>
+<p>Don't designate it as woman, man, young, old, beautiful, or ugly. That lump of elements does not feel anything at all. Its function, when assembled into a lump, is to exist for a while, then gradually change according to its nature. Ultimately, it disintegrates and separates, returning to its original state. It is the human mind that, through ignorance, designates it as a person, a woman, a man, beautiful or ugly. If it's beautiful, one likes it, loves it, desires it as one's own. If it's ugly, one hates it, looks down on it, despises it, dislikes it, and doesn't want it. The mind designates these things itself and then becomes deluded and attached to its own designations, increasing the defilements already accumulated, making them even denser. The defilements born of this delusion, if present in anyone's character or in any world, will cause varying degrees of turmoil and suffering, according to their power.</p>
+<p><strong>Purely Elements</strong></p>
+<p>In truth, the four elements are purely elements. They do not create kamma or cause anyone to develop defilements of attachment. Whether a lump of elements is white, black, beautiful, or ugly, it exists throughout the world. Why is it that human beings, born for just a few decades, become so intensely deluded that they throw society into chaos, not knowing what is what, blinder than the darkest night? For this reason, our Buddha, who wished for the world's peace, analyzed the conventional designations to which beings were attached like monkeys stuck to a trap, reducing them to mere elements, as analyzed above. Or it can be said that he prescribed them according to their original nature, so that those who were deluded and attached to conventions might gradually emerge from them and see reality. This prescription is not a self or a substance; it is a conditional phenomenon. The names given are merely conventional signs, used temporarily. If one contemplates and sees this physical lump as mere elements, one will not be deluded into grasping it as a self. The reason for the gross defilements, the killing and dying every day, is solely this deluded grasping of the elemental lump as self.</p>
+<p>Those who desire to understand this Dhamma can experiment and verify it for themselves as follows: Calm your mind, make it peaceful. Do not think of anything, do not designate anything at all. Do not even think of yourself as "self" or as a person. Then focus your attention on your body, while maintaining mindfulness, constantly aware: "At this moment, I am focusing on an object, but it has no name." When you can do this, try focusing on something else, another person, or even better, focus on a large crowd. At that moment, you might have strange feelings arise in your mind, which can be quite amusing. At the very least, if you have heavy, tangled issues within you, they may not entirely disappear, but they will lighten, and you will feel a remarkable sense of relief.</p>
+<p>If you try this and don't get the results described, it means your mind hasn't been calmed enough to allow Dhamma to arise. So, please try again until you achieve the results mentioned. Then you will gain confidence in the Buddha's teaching, seeing that it truly leads practitioners to peace.</p>
+<p>Furthermore, the Buddha's teaching is a teaching for peace. Those who cannot yet calm their minds will not see results from contemplating this peaceful teaching, nor will it stick in their hearts.</p>
+<p><strong>The Original Nature of the Elements</strong></p>
+<p>Therefore, I take this opportunity to warn you: To attain Dhamma, to see Dhamma, to know Dhamma, to gain Dhamma, to contemplate the Dhamma within the Buddha's teachings—whether those already presented, those being presented, or those to be presented—please focus on calming the mind, focusing exclusively on that Dhamma, and then contemplate it. Only then will you truly know and understand that Dhamma.</p>
+<p>Regarding the four elements, they are conditioned phenomena, truly existing according to nature. But we humans have not yet made our minds reach their original state (i.e., calmness), so we do not see the original nature of the elements. When one contemplates the four elements and sees them as they truly are, one will see that the elements are merely elements. Whatever their nature, they remain that way. The elements do not agitate or cause anyone to develop defilements of desire, hope, greed, anger, or delusion. The human mind is also an element, called the mind-element (<em>mano-dhātu</em>). If one contemplates all things as merely elements—seeing the internal elements (this physical lump), the external elements (outside our body), and the mind-element (the mind) as they truly are—then peace and happiness will arise for all beings everywhere, fulfilling the Buddha's aspiration in every way.</p>
+<p><strong>The Five Aggregates</strong></p>
+<p>Having explained the four elements appropriately, we will now explain the five aggregates, which are related to them. The four elements are purely physical elements, unrelated to the mind. If we had only the four elements and no mind, we would be worthless and useless—in short, a dead person. The aggregates are the categories of Dhamma within us. They are divided into five categories:</p>
+<ol>
+<li>The aggregate of form (<em>rūpa-khandha</em>): this consists of the four elements as described.</li>
+<li>The other four aggregates are called mental aggregates (<em>nāma-khandha</em>):
+    a) The aggregate of feeling (<em>vedanā-khandha</em>)
+    b) The aggregate of perception (<em>saññā-khandha</em>)
+    c) The aggregate of mental formations (<em>saṅkhāra-khandha</em>)
+    d) The aggregate of consciousness (<em>viññāṇa-khandha</em>)</li>
+</ol>
+<p>When the six internal sense-bases (starting with the eye) meet with the six external sense-bases (starting with forms), feelings arise: pleasure, pain, joy, grief, or neutrality. This is called the aggregate of feeling.</p>
+<p>When the six internal sense-bases meet with the six external sense-bases, feelings arise as described, and then one remembers and recognizes that object, even for a very long time, whether past, future, or present. This is called the aggregate of perception.</p>
+<p>A type of mind that arises from the meeting of those two sense-bases, or arises spontaneously, then thinks, wanders, and concocts all sorts of things endlessly. This is called the aggregate of mental formations. It refers specifically to the formation-mind (<em>saṅkhāra-citta</em>). However, if it is an investigation into a matter until one sees it clearly, thoroughly, with no doubts, by means of right wisdom, this is called "investigation of Dhamma" (<em>dhamma-vicaya</em>), not the aggregate of mental formations.</p>
+<p><strong>There Are Many Types of Consciousness</strong></p>
+<p>The consciousness in Dependent Origination (<em>paṭiccasamuppāda</em>) is the consciousness that brings the five aggregates into conception. That consciousness must possess all five aggregates within itself to be reborn in the five-aggregate plane. If it has four, it will be reborn in the four-aggregate plane, which has only mind and no form. Actually, form here is also called mental form (<em>rūpa-citta</em>), but it is a subtle form, transcending the form aggregate described earlier. If it has one, only the consciousness itself, it will be reborn as a "single-apparitional" being (<em>ek'opapātika</em>), called a "gourd Brahmā," which has only mental form.</p>
+<p>The consciousness that functions in the sense-bases is the initial feeling when the two sense-bases meet, but it does not yet recognize or experience that object. Recognizing the object is the function of perception. Experiencing the object is the function of feeling. This type of consciousness can also be called the consciousness-element (<em>viññāṇa-dhātu</em>).</p>
+<p>The consciousness within the five aggregates is purely mental designation (<em>nāma-paññatti</em>) and has not yet performed any function, similar to the other aggregates.</p>
+<p><strong>The Five Aggregates Are Not Defilements</strong></p>
+<p>The five aggregates are like the elements: they are not defilements, nor do they cause anyone to develop defilements. The Buddha categorized them as physical and mental phenomena, as aggregates, merely to indicate: "This is form, this is mind." Defilements arise because beings become deluded by conventions and then grasp the aggregates as self, or self as the aggregates.</p>
+<p>To explain simply: misunderstanding and deluded grasping of the five aggregates as belonging to oneself, or seeing oneself as the five aggregates, or seeing the five aggregates as separate from the person, or the person as separate from the five aggregates—it is such views that cause grasping, leading to defilements and suffering.</p>
+<p>When these aggregates go as desired, one is pleased, delighted, becomes heedless, intoxicated, and careless, leading to the performance of various evil deeds. If the aggregates do not go as desired, one is displeased, suffers grief, and does not see the true nature of those aggregates, which are simply proceeding according to their causes and conditions.</p>
+<p><strong>Dhamma Arises from Causes</strong></p>
+<p>The Dhamma that Venerable Assaji taught to Sāriputta when the latter was still a wanderer in another sect, upon their first meeting, was: "The Dhamma taught by the ascetic Gotama is that 'All things arise from causes; when the cause ceases, that thing ceases.'"</p>
+<p>The form aggregate arises from ignorance, craving, attachment, and kamma. One who possesses wisdom contemplates and sees clearly for themselves: "These things are the cause of form." When clear knowing (<em>vijjā</em>) arises in this way, ignorance ceases. The things that existed, such as form, become mere results (<em>vipāka</em>), and there is no further becoming.</p>
+<p>Defilements and suffering arise from delusion regarding the aggregates and grasping them as self, as described. Therefore, the Buddha said:</p>
+<p><em>Bhārā have pañcakkhandhā</em>
+The five aggregates are indeed a heavy burden.
+<em>Bhārā hāro ca puggalo</em>
+The individual person is the carrier of the burden.
+<em>Bhārādānaṃ dukkhaṃ loke</em>
+Taking up the burden is suffering in the world.
+<em>Bhāranikkhepanaṃ sukhaṃ</em>
+Laying down the burden is bliss.
+<em>Nikkhipitvā garu bhāraṃ</em>
+Having laid down the heavy burden,
+<em>Aññaṃ bhāraṃ anādiya</em>
+Taking up no other burden,
+<em>Samūlaṃ taṇhaṃ abbuyha</em>
+Having uprooted craving with its root,
+<em>Nicchāto parinibbuto ti.</em>
+He is free from craving and has attained final Nibbāna.</p>
+<p><strong>The Five Aggregates Are Suffering</strong></p>
+<p>This teaching clearly shows that the five aggregates are naturally suffering. When anyone misunderstands and thinks they are happiness, then deludedly grasps them, that person will experience great suffering. It is like seeing the heat of a red-hot iron ball as something beautiful, then being deluded and delighting in it, embracing it with love. The heat of that iron ball will not lessen or show any mercy. Whatever heat it has, it will burn that person to ashes, as always. This accords with the Buddha's words: "All conditioned phenomena are truly suffering" (<em>saṅkhārā paramā dukkhā</em>).</p>
+<p><strong>Seeing the Cause of Suffering</strong></p>
+<p>If one asks, "Why is there suffering?" the answer must be: suffering is due to hunger, to discontent. Hunger and discontent, whether physical or mental, are suffering. When satisfaction and contentment arise in the mind, peace immediately arises, and one will see the arising and ceasing of the aggregates as they truly are, as in these analogies:</p>
+<p><strong>The Form Aggregate</strong>: "Like a bubble arising from waves or ripples, forming a lump or bubble for a moment, then bursting and returning to water." The physical body is the same. It transforms, appearing as a human, man, woman, or various animals, arising from the four elements, existing for a period we humans think is long. But some beings with longer lifespans would see it as a mere moment, then it disintegrates and returns to the four elements.</p>
+<p><strong>Feeling</strong>: "Like waves hitting the shore. The waves seem like a self, rolling and crashing onto the shore with a noise, then dissolving and returning to water." Feeling arises from contact, then there is a sensation, like the sound of the waves—sometimes pleasant, sometimes painful, sometimes neutral—then it disappears. Soon another contact arises, and so on, endlessly.</p>
+<p><strong>Perception</strong>: "Like a mirage. A mirage arises from the vapor of heat. When one looks at it from afar, it appears as shimmering shapes, as groups and clusters. When one approaches it, that vision disappears." Similarly, the perception-memory arising from contact at the six sense-bases appears and disappears, popping up here and there, through the eye, the ear, etc., endlessly, never belonging to oneself.</p>
+<p><strong>Mental Formations</strong>: "Like a banana tree. The nature of a banana tree is that it has no heartwood." The physical body of a human being also has no substance. From the moment it arises, it is in a state of constant change. Even if it lasts for a very long time, its condition changes from moment to moment. Ultimately, it ends in disintegration. Even the mental formation mind, which thinks and concocts so seriously, disappears in an instant.</p>
+<p><strong>Consciousness</strong>: "Like an illusion. The nature of an illusion is to deceive others, to cause misunderstanding, to make them unable to keep up with what's happening." Consciousness has the characteristic of deception, making it impossible for others to keep up. As soon as the eye sees a form, a feeling arises. Before one can follow that feeling, another feeling arises in the ear. Before one can follow that, another arises elsewhere, and so on. It constantly deceives others, making it impossible to keep up.</p>
+<p>One who contemplates and sees the aggregates through these analogies, clearly and with right wisdom for themselves, will not be deluded into grasping the aggregates as self or not-self. Instead, they will use the aggregates as the object of their insight knowledge. Skillfully using wisdom without grasping at things as belonging to self is classified as the wisdom of the Noble Path. One who grasps at what does not exist is considered foolish.</p>
+<p><strong>The Battlefield</strong></p>
+<p>The Buddha's teaching is a strategy for fighting against the enemy of defilements and evil, which have been embedded in each individual for a long time. Therefore, the five aggregates, which are each of us, are the battlefield.</p>
+<p>But his strategy is different: losing is grasping, winning is letting go, allowing things to follow their natural course. This is not like the winning and losing of one who still has defilements.</p>
+<p>In truth, victory in any contest, external or internal, in this world or any other, if it is truly pure victory, both opponents must be completely free. If there is still any thought of fighting again, or any grasping for power or control, that victory is not pure or righteous. Eventually, there will be another defeat. Alternatively, it will create enmity and kamma between them.</p>
+<p>The Buddha saw suffering—the enemy, starting with birth—within these aggregates themselves. Using right wisdom as his strategy, he conquered the enemy within these aggregates. Yet the enemy did not die or disappear anywhere. The enemy—the aggregates—remain normal, as before. The weapon of wisdom he used was a miraculous weapon that defeated the enemy without causing any pain or even a wound as small as a sesame seed.</p>
+<p>There is a story to support this analogy, as found in the Dhammacakkappavattana Sutta.</p>
+<p>If one asks, "Where does the enemy that was defeated by the Buddha go to regroup?" The answer is: once defeated by him, they become his servants. Only those who cannot defeat them remain their slaves. Therefore, the aggregates that no one has yet conquered still rule over the three worlds.</p>
+<p><strong>The Sense-Bases</strong></p>
+<p>"Ayatana" means source or medium. Source or medium for what? It means the medium of connection between two sense-bases, leading to the arising of an object. It is like a water spring: a stream of water emerges from underground and flows continuously, connecting with the water outside.</p>
+<p>When the eye, for example, contacts a form, a connection is made, linking through the nervous system to the mind. The mind then takes it as an object. If it is good, the mind likes it, enjoys it, delights in it, rejoices. If it is bad, the mind dislikes it, feels constricted, suffers, grieves. This continues as long as the eye is not closed. The other sense-bases, such as the ear, follow the same principle, as described earlier. Therefore, I will not repeat that explanation here. Instead, I will explain the strategy for fighting the enemy (objects or defilements) that invade through the six doors, connecting with the five aggregates, which have been compared to a "battlefield."</p>
+<p>Previously, I only discussed the battlefield, not the strategy. Therefore, I will now present the strategy that will take place on that battlefield. Who will lose, who will win? May readers follow the tactics of the opponents.</p>
+<p><strong>The Six Sense-Bases</strong></p>
+<p>The six sense-bases are:
+1.  The eye, which sees physical forms.
+2.  The ear, which hears sounds.
+3.  The nose, which smells all kinds of odors.
+4.  The tongue, which experiences all tastes.
+5.  The body, which experiences cold, heat, softness, hardness, etc., through touch.
+6.  The mind, which feels, thinks, and perceives objects.</p>
+<p>These six sense-bases each perform their specific functions without mixing. For example, the eye's function is solely to see forms. No matter what kind of form, coarse or fine, even a loathsome, disgusting form, the eye is tasked with seeing it. The ear cannot see it. Thus, they are said to be sovereign in their respective functions.</p>
+<p>Therefore, when speaking of the six internal sense-bases, we must also mention their counterparts to see the benefit of the six sense-bases. The internal sense-bases are those within us. Their counterparts, such as form as the counterpart of the eye, are called the external sense-bases. There are also six external sense-bases. A sense-base without its counterpart—for example, having only the eye without any form to see—is useless. Similarly, having only a form without an eye to see it is useless. When a form is seen, both benefits and drawbacks arise, just as the responsible person in that function must accept both good and bad. It is precisely the meeting of internal and external sense-bases that produces both benefit and harm.</p>
+<p>Therefore, the object arising from these two sense-bases is simultaneously like a friend and an enemy. But a friend is fine; we always welcome them. But the enemy—the eye hates it—so it constantly sets up a fortress to fight it.</p>
+<p>When anyone possesses these six sense-bases completely, without deficiency or derangement, they can be considered fortunate. They are internal wealth of immense value, difficult to exchange or trade in any market. No matter how much external wealth one has, no matter how good or valuable, if one lacks these internal treasures, it is of little use.</p>
+<p>Furthermore, these six internal treasures, once possessed, can be used endlessly until death. They are like wish-fulfilling gems that can grant any desire without investment, or with only a small investment but yielding abundant results. They are like possessing six heavenly treasures, a source of pride. Anyone born into this world without these six treasures, or without them complete, is truly unfortunate in this world. These six treasures belong specifically to those born in the sensual world (<em>kāma-loka</em>) who possess the five aggregates.</p>
+<p><strong>The Five Strands of Sensual Pleasure</strong></p>
+<p>The five objects arising from the eye, ear, nose, tongue, and body—namely, forms, sounds, odors, tastes, and tactile objects—are conventionally called the "five strands of sensual pleasure" (<em>kāma-guṇa</em>). Those who experience these five objects become pleased, delighted, and attached. They sink deep into the mind, seeing them as entirely good. Although they may occasionally see some drawback, it is difficult to use that drawback to negate their goodness. Therefore, the term "strands of sensual pleasure" is fitting.</p>
+<p>A foolish ordinary person, upon experiencing these five objects, becomes intoxicated, like a fly that is attracted to honey, trapped by both taste and smell. It would regret flying away, and ultimately ends up stuck, sinking, or floating in it. The five strands of sensual pleasure are a trap for the foolish ordinary person, dug by each individual's own willing consent.</p>
+<p><strong>The Sensual World</strong></p>
+<p>A world complete with the four elements, five aggregates, and six sense-bases is called the "sensual world" (<em>kāma-loka</em>). Everyone who is still accumulating perfections must wander and be reborn in this sensual world. Because the sensual world is perfect in every way, it causes foolish ordinary people to become deluded, thinking that birth has brought them sufficient happiness. Even the Buddha and the noble ones, before their enlightenment, had to be reborn in this sensual world as the result of their past kamma.</p>
+<p>Furthermore, this sensual world is considered the best battlefield for those who will become noble ones. The path, the method, tranquility, absorption, concentration, attainment, and insight—the way to become a noble one—must borrow this place, the sensual world, as a place to cultivate and develop to completeness. In short, to escape the sensual world, one must be born or study and investigate in this sensual world, clearly seeing both its benefit and its drawback with one's own skillful wisdom. Only then can one truly know the world and legitimately escape it. The same applies to the form world (<em>rūpa-loka</em>) and the formless world (<em>arūpa-loka</em>).</p>
+<p>Therefore, when those beings, through the power of the perfections they have accumulated for a long time, are born into this sensual world, instead of becoming deluded and intoxicated by sensual pleasures like ordinary people, they see the opposite. The six sense-bases, which are meant to provide pleasure for ordinary people, are seen by those with the perfections worthy of enlightenment in the opposite way: they see them as sources of objects that bring suffering.</p>
+<p>For example, when the eye sees a beautiful form, one likes it and desires it. This desire is suffering. The effort to acquire it is suffering. Having acquired it, one suffers because one must manage it. When that form inevitably decays and disappears, one suffers because one's mind resists this natural process. As long as there is such seeing, there is suffering. When one recalls the form that has disappeared, one suffers again. The other sense-bases follow the same pattern.</p>
+<p>The Buddha personally experienced this. He saw the drawback, renounced everything, went forth, and cultivated the mind (i.e., fought against objects) until he attained enlightenment. He then used his own experience and the strategy that had worked for him to teach his followers. The Buddha's teachings, from the graduated discourse starting with generosity and morality, are all strategic principles. They are step-by-step strategies. What do they fight against? They fight against stinginess and selfishness. Sometimes the mind wants to be generous, but another part of the mind worries about the future, fears scarcity, or fears that giving will reduce one's wealth. Morality fights against regret for the worldly pleasures one has experienced, as well as selfishness. When one fights these two armies and defeats them, one sees those defilements as insignificant, not terrifying. Then one sees the great happiness in that victory, becoming courageous, joyful, and content. This is called "the talk on the reward" (<em>ānisaṃsa-kathā</em>).</p>
+<p>The Buddha also taught that victory at this stage is not yet definitive. It is a victory over external enemies, who can still change. The mind still delights in and clings to the happiness of the five strands of sensual pleasure—forms, sounds, odors, tastes, and tactile objects—which are the rewards of generosity and morality. The five strands of sensual pleasure are happiness mixed with suffering, deceiving the foolish into clinging to them, like a hungry fish swallowing bait on a hook.</p>
+<p>Then the Buddha taught to fight against the delusion of clinging to sensual happiness. Don't focus only on the hunger for the bait, because the result will be death later. This is called "the talk on the drawbacks of sensual pleasures" (<em>kāmādīnava-kathā</em>). When one contemplates and sees the drawbacks of the five strands of sensual pleasure as addictive drugs, one becomes disenchanted, releases them, and the mind becomes free from dependence, independent and happy. This is called "the talk on renunciation" (<em>nekkhamma-kathā</em>).</p>
+<p>However, the strategy concerning the sense-bases, which will be explained next, is a detailed strategy. It requires a real life-or-death struggle and can elevate one to insight knowledge.</p>
+<p><strong>Is It Not Marvelous?</strong></p>
+<p>Dear readers, is it not marvelous? The Buddha arose in the sensual world, lived in the sensual plane, surrounded by the five strands of sensual pleasure, tempted by sensual defilements just like ordinary people. Yet he saw the drawbacks of sensual pleasures, sought a way to save himself, and became the foremost of independent beings, without any teacher, knowing clearly for himself. Therefore, Venerable Ānanda praised him, saying, "It is marvelous! The Buddha has attained enlightenment in the very midst of opportunity." This means that the Buddha arose in the sensual world but was not deluded and attached to it. Though surrounded by the five strands of sensual pleasure, he was not deceived by them. Though living in the sensual plane, he did not sink into it. He knew and understood, seeing clearly both the benefit and the drawback, along with the means to escape it, through his own sharp mind and wisdom.</p>
+<p>The six sense-bases, although they are sources of merit for those who still desire the sensual world, for those who see its drawbacks, the results of that merit become a fetter binding the mind that seeks liberation from sensuality. It is like wealth, which is desired only by those who want it. For one who does not want it, even if others call him crazy, he will renounce it for renunciation.</p>
+<p>Therefore, the six sense-bases, starting with the eye, are not only sources of coarse defilements. Wholesome results arising from the six sense-bases also become defilements for those who see the drawbacks of the sensual world. For example, one who goes forth has already seen the drawbacks of sensuality according to the conventional designation "renunciation." In summary, all defilements arise at these six doors.</p>
+<p><strong>The Sense-Bases Are Hot Because of Fire</strong></p>
+<p>In the Fire Sermon (<em>Ādittapariyāya Sutta</em>), which the Buddha taught to the three Kassapa brothers and their followers, who worshipped fire hoping for sensual pleasure, he said: "The six sense-bases, starting with the eye, are burning. They are burning with the fire of lust, hatred, and delusion."</p>
+<p>Some readers might wonder: If the sense-bases are burning, how can human beings live? Why doesn't the fire of defilements burn them to death? This seems to imply that the sense-bases have no benefit. If one thinks this way, it is understandable. A fish born in fresh water cannot live in salt water. Some creatures born in hot water can live. Worms born in filthy, stinking places can live happily, seeing nothing strange. Fire is not only harmful; it has many benefits. Benefit and harm are merely tunes, depending on each individual's perspective.</p>
+<p>The six sense-bases, starting with the eye, are considered by the religion as one's past kamma if they are not complete. A disabled person is not allowed to ordain, and this is true to the Vinaya. This world is a pleasant, enjoyable, and entertaining place precisely because of these six sense-bases. If any one of them is missing, the happiness of this world is incomplete. This clearly shows the importance and benefit of each of the six sense-bases for the existence of a being.</p>
+<p>Some famous teachers have even compared the six sense-bases to the six heavens, which is quite appropriate. They say that the six sense-bases are the source of all wholesome actions in the sensual plane. Possessing the six sense-bases is like possessing heavenly treasures.</p>
+<p>Therefore, when the Buddha said in the Fire Sermon that the sense-bases are burning, he meant that when the sense-bases contact their objects, consciousness arises dependent on those two, and this is burning. He then explained what it is burning with: it is burning because there is already fuel within the eye that sees the form. That fuel consists of three things: lust, which stains the mind; hatred, which is anger and resentment; and delusion, which is ignorance and misunderstanding of the reasons for things. These three cause the burning. The other sense-bases are the same. If these three fuels are present, then when the ear hears a sound, the nose smells an odor, the tongue tastes a flavor, the body touches a tactile object, or the mind thinks about various objects, all are burning.</p>
+<p>In truth, these six sense-bases are not fire or hot at all. They are simply sense-bases. If all six sense-bases were fire, then our entire bodies would be fuel for the fire, burning away constantly, or we would be in hell forever. The statement that they are hot is because they contain the three fuels of fire, as described, or because those fuels exist in the six external sense-bases (starting with forms). It is like two dry sticks rubbed together. Each already has fuel within it. When rubbed together, fire arises. If they are not rubbed together, even with fuel inside, fire cannot arise.</p>
+<p><strong>Be Mindful and Restrain</strong></p>
+<p>Therefore, the Buddha taught restraint when seeing forms, etc. Don't let contact be forceful. This means maintaining constant mindfulness, knowing that the eye has fuel within it, and the form has fuel within it. Then be mindful of the mind: lust arises in the mind, hatred arises in the mind, delusion arises in the mind. All three of these are burning. One who knows about heat and has personally experienced it, when a knowledgeable and wise person explains its drawbacks, will understand well and gain increased wisdom. If one does not know about heat and its drawbacks, or has never personally experienced it, the wise don't know how to make him understand.</p>
+<p>The teacher compared the heat of the three fires as follows: <strong>Lust</strong> has heat like hot water. Normally, water is cool. One who is burned by heat thinks of water, bathing, or drinking to relieve the heat and agitation. But when the water becomes hot, it's hard for a person to know. As long as one has not personally experienced the heat of the water, one does not know its drawbacks. Desire and delight in the five strands of sensual pleasure are pleasing and desirable to one who is still hungry, just as one who is hot feels hungry and thirsty. When one drinks water, the heat or thirst is quenched, but then other thirsts arise. Alternatively, it's like being bitten by a snake, and a good medicine quickly cures the poison, but then one is bitten again, and so on. But one who is free from hunger has no thirst. Even the fire of lust cannot stain or moisten their mind. Therefore, they have no hunger or desire. How could their sense-bases cause the fire of lust to arise?</p>
+<p><strong>Hatred</strong> has heat like a forest fire. When a forest fire burns itself, it spreads to burn everything around it, leaving nothing. Even dry or fresh things, clean or filthy, it burns indiscriminately. The fire of hatred is the same. When it ignites in anyone's mind, it burns their own body and mind, causing agitation and distress, then burns others, causing them distress as well. Good people, rich, poor, virtuous, or not, even one's own parents, the fire of hatred burns indiscriminately. Whether it's a forest fire or a house fire, when it spreads, anyone who sees it is afraid. Geckos, centipedes, grasshoppers, insects, when they see it, run for their lives. Humans are called wise, with high minds, but they cannot refrain from burning their own bodies and minds with the fire of hatred. What does that designation mean? Where is it? Or are they just fake, empty humans?</p>
+<p><strong>Delusion</strong> has heat like a fire burning husks. Everyone knows that a husk fire has ash covering it on top, but underneath it is as hot as any other fire. Occasionally, if someone stirs the ash, it will flare up and show sparks. Then it slowly subsides, still smoldering inside as before. The delusion-temperament is similar. When an object arises in the mind, even if it's extremely hot, it doesn't often show externally. But this is not due to true understanding of that object and letting go. The heat is there, but one doesn't know how to resolve it. There's just heat and stagnation, no matter what position one is in. It causes dizziness and confusion, or as they say, "darkness in all eight directions," seeing no light at all. This is hard to describe. Only those who have personally experienced it can know more clearly than anyone else's description.</p>
+<p>This describes the characteristic of the fire of delusion. But the true characteristic of delusion is explained elsewhere as: not knowing the Four Noble Truths, not knowing Dependent Origination, not knowing the past, not knowing the future, not knowing the present, or not knowing any of the above, and not knowing how to end all defilements and suffering. This is called delusion.</p>
+<p>In truth, delusion is not not knowing everything. Specifically, delusion knows that it's hot, and it knows the cause of the heat, but it doesn't let go of that cause. This is called knowing but not letting go. Knowing, it creates even more conceit, increasing defilements.</p>
+<p>In truth, delusion exists in ordinary people in general, and even noble trainees still have some delusion left. The difference is only in the amount. One with much delusion has much heat and suffering. One with little delusion has little heat and suffering.</p>
+<p><strong>Mindfulness, Restraint, and Guarding the Sense-Bases</strong></p>
+<p>The sense-bases are sources of both good and bad objects. The mind is the receiver. If it's good, the mind likes it and becomes attached. If it's bad, the mind dislikes it and grieves. This is the nature of ordinary people. One who sees the drawback of objects, that they bring suffering, establishes mindfulness, restrains, and guards those sense-bases, holding to the ideal that:</p>
+<p>"Objects entering through the six sense-bases are the greatest destroyers of the mind's peace. Therefore, establish mindfulness, restrain, and guard the sense-bases. For the happiness that is independent and secure, this is the only path for those who practice accordingly to reach independent happiness."</p>
+<p>There is no other hope. This accords with the Buddha's words when he taught five monks who were each restraining their five doors, seeing the power and benefit that what they were doing was correct and brought the desired happiness. The essence is:</p>
+<p>"A monk who is restrained in each door accomplishes his purpose. A monk who is restrained in all doors is freed from suffering."</p>
+<p>Because the three fires, the enemies, are always attached to oneself, it is difficult not to be burned. One who can protect against the fire attached to oneself without being burned is considered a supremely marvelous person. We, especially those who have gone forth, or those who see the drawbacks of sensual pleasures, designated as "renunciation," should follow the strategy to be explained next. See for yourselves if following it yields real benefits. Uphold the ideal mentioned above as your foundation. Those who have gone forth and those who have not, if they still don't see the drawbacks of the five strands of sensual pleasure, don't know with whom they are fighting or for what purpose. Because the three fires arise right at the six sense-bases within each of us.</p>
+<p>One who has never calmed their mind cannot know how happiness arises from calmness. This is very regrettable. They only see the mind's enjoyment, its heedless, boisterous pleasure following its preferred objects, as the greatest happiness. It's like a fish who knows nothing of the joy in the wild forest that a turtle, its friend, sees and tells it about.</p>
+<p>When that's the case, there will be no desire to restrain and guard the six sense-bases. One who has trained and cultivated the mind to attain independent, peaceful happiness sees the danger in objects arising from the sense-bases as terrifying enemies.</p>
+<p>From the highest heavens down to the lowest hells are the planes of sensual beings floating in the five strands of sensual pleasure. Humans are born through the power of wholesome sensual kamma, so they must be constantly involved with the smells, the sensual objects. The six sense-bases function to receive these heavy objects constantly.</p>
+<p>Even if one sees the drawback—that they are chaotic and bring suffering—one must still receive their results as time passes, because one has fallen into the realm of kamma. Only one who sees the drawback will think to fight and conquer them, then follow the path the Buddha laid down: "Establish mindfulness and be careful not to be deluded and follow the current of the six objects, because these six doors must be used constantly."</p>
+<p>When the eye sees a form, it is a result of wholesome sensual kamma. The form seen is an object in the sensual plane, also a result of wholesome sensual kamma. The mind that knows and sees the object is also a result of wholesome sensual kamma. Therefore, the object arising from the contact of these two must also be sensual, involving liking and disliking, delight and aversion, depending on the three fires: lust (attraction), hatred (displeasure, anger, resentment), and delusion (intoxication, misunderstanding, attachment to the object). They then burn one's own body and mind, causing fever and suffering. The ear and sound, nose and odor, tongue and taste, body and touch, mind and mental objects—all five of these are similar. Sometimes all six doors are used simultaneously, sometimes two, three, four, or five, depending on the situation, for 24 hours a day. If that person lives to be 50, 60, 70, or more, try to imagine how much fever and suffering they experience.</p>
+<p><strong>The Mind Door</strong></p>
+<p>Some may wonder: "When we sleep, we don't use these sense-bases." Let me clarify right here: the mind door is used. The mind has its own complete sense-bases, called the "internal sense-base." It works all the time. While the body rests and sleeps, the mind does not sleep. This is what we call dreaming. In a dream, the five aggregates and six sense-bases are complete. When we don't dream, it's because the mental phenomena of perception are not cooperating.</p>
+<p>In truth, this mind never rests or sleeps. The mind can only rest from its work when it has properly cultivated meditation and attained absorption (i.e., the life-continuum mind). To be precise, even the life-continuum mind is not "completely resting." One must attain the cessation of perception and feeling, where all feeling and thought cease, even breathing is not present. The life-continuum mind merely stops working with objects or external sense-bases. The internal mind sense-base, which arises and ceases right there, does not stop. It still works as usual, but it is a subtle, private work. To compare, it's like stopping other work, such as receiving guests, and going into a room to write.</p>
+<p>Therefore, those who do not restrain and guard the sense-bases must experience great suffering because they have many objects, both good and bad. One who contemplates and sees the drawback must restrain and guard the sense-bases to prevent the mind from being deluded by various objects.</p>
+<p><strong>Methods</strong></p>
+<p>Therefore, this work requires both mindfulness and skillful, sharp, profound wisdom, as well as courage and patience to conquer objects. For example, when the eye sees a form, everyone naturally wants to see beautiful forms to create enjoyment and please the eye and mind. This is what sensual beings generally desire. But one who sees the drawback sees that enjoyment as a foolish, pointless delusion. Even the mind's running out from its oneness is seen as a great danger. This accords with the phrase "one who sees danger even in a small fault" (<em>bhayadassī</em>).</p>
+<p>Because the body and mind are results of wholesome sensual kamma and have fallen into the midst of the sensual plane, as mentioned, the mind easily falls into sensual objects. One who sees the drawback must use opposite methods, seeing reality: forms are merely the four elements and five aggregates, or seeing them as unattractive, impermanent, suffering, empty, without essence, etc. When contemplating repeatedly, the mind withdraws from its former wrong view and sees clearly with right wisdom that the perception of a person, human, man, woman, beautiful or ugly, loveable or hateful, is actually a delusion, not reality. One who contemplates and sees this is called awakened from sleep or delusion, truly becoming "renunciation."</p>
+<p><strong>The Enemy Surrounds Us, and the Gut Turns into a Worm</strong></p>
+<p>Dear readers, the enemy surrounds us from all six directions, intending to conquer and seize our freedom. If we do not use the powers of faith, energy, mindfulness, concentration, and wisdom, and sacrifice our lives for survival, we will surely become slaves of the enemy. Even after defeating this enemy, do not be complacent about the internal enemy. The gut can turn into a worm; trusted individuals can betray more easily than others. Having won by seeing reality, do not be heedless, thinking you will not be deluded again. This hope will not be fulfilled forever, because the mind is fickle and easily changes. Furthermore, the mind we are dealing with has been deluded by objects for a very long time. It is easy for the mind to revert to its original state of delusion, like water flowing downhill.</p>
+<p>Dear readers, objects entering through the six doors are like enemies of the mind, seeking to steal the peace of one who already has it. The one who wants to fight and win is mindfulness, using sharp wisdom as a weapon in this battlefield, which is only a cubit wide, a fathom long, a handspan high. The mind is the one that gets deluded; the mind must resolve its own delusion. Therefore, the mind must heavily resist delusion. Revolutionizing the mind's delusion to produce wisdom and see reality is not an easy task. It requires heroic effort, being a brave warrior, following the example of our Great Teacher. Even after we conquer delusion, the six sense-bases, the channels through which the mind becomes deluded, will still be sense-bases, living together with the victor. The gut can turn into a worm. Trusted individuals can betray more easily than others. The idea that "one who has won will not lose again" will not be fulfilled forever. The mind is fickle, and it has been deluded and misunderstood for a very long time before we revolutionize it to see reality clearly. Therefore, the victor should not be complacent in any way.</p>
+<p><strong>Develop Mastery</strong></p>
+<p>See objects entering the six doors as a constant threat to the peace of the mind. In practice, the Buddha taught the development of five masteries:</p>
+<ol>
+<li>Mastery in contemplating objects: whatever objects, near or far, coarse or fine, contemplate them all to see them clearly.</li>
+<li>Mastery in entering the mind: attain absorption and concentration in any posture, any place, at any moment.</li>
+<li>Mastery in sustaining the mind: when the mind has attained absorption and concentration, keep it at any level, in any state, for as long as desired.</li>
+<li>Mastery in surveying the mind's states: both one's own and others'.</li>
+<li>Mastery in emerging from the mind: when the mind has attained absorption and concentration, when it's time to emerge, know the characteristics of that mind state, not just popping out.</li>
+</ol>
+<p><strong>Cultivate and Develop Abundantly</strong></p>
+<p>One who masters these five will never lose their absorption and concentration. Therefore, the Buddha emphatically said: "Bhāvitā bahulīkatā abhiññāya sambodhāya nibbānāya saṃvattati" — "Developed and cultivated abundantly, it leads to direct knowledge, to enlightenment, to Nibbāna." He meant that whether one is developing or has developed any meditation, absorption, concentration, or insight, do not be heedless. Continuously cultivate it, because things that tempt and delude us surround us constantly.</p>
+<p>If anyone sees that our entire being, along with our environment, has fallen under the power of the five strands of sensual pleasure and thinks that no matter what they do, they cannot overcome it or escape, that person has already surrendered without even entering the battlefield.</p>
+<p>If anyone sees that guarding the six sense-bases is very troublesome and difficult, that person is fighting the enemy, with victory left to the future.</p>
+<p>If anyone sees that they truly know and understand the six sense-bases, that they have conquered the six objects, that person is near the end of losing to the enemy. Destruction is creeping closer every second.</p>
+<p><strong>Neutral Dhamma</strong></p>
+<p>The four elements are purely physical elements, not connected to the mind.</p>
+<p>The five aggregates and six sense-bases are composite elements, but they are not defilements; they are merely conventional Dhamma.</p>
+<p>One who mistakenly thinks these three categories of Dhamma are the self, belong to the self, and then grasps them as attachments, creates defilements.</p>
+<p>One who speaks of the three worlds must speak within the bounds of these three categories.</p>
+<p>One who develops tranquility, insight, and meditation and wishes to transcend the three worlds starts the first step at these three categories.</p>
+<p>Therefore, these three categories are both mundane and supramundane.</p>
+<p>One who brings up these three categories, seeing that humans, animals, and all beings in this world, starting with ourselves, are seen as "self," "belonging to self," as humans, men, women, this or that, is called one who sees the world as "self."</p>
+<p>One who contemplates and sees the world, including oneself, as merely elements, aggregates, and sense-bases, with nothing else at all, that the conventional designations of "this is that" are merely empty conventions according to one's own preference, and that reality does not correspond to them—it has only the designations of elements, aggregates, and sense-bases. For example, a man named "White" is conventionally designated. Upon examining the real person, there is no "man" in reality, only physical elements, which can be further analyzed into elements, aggregates, and sense-bases. The word "man" merely indicates a gender or characteristic different from "woman." The word "white" indicates a characteristic of the earth element. Other people and things outside ourselves follow the same principle. One who contemplates and sees this is called one who contemplates the three worlds as they truly are.</p>
+<p>One who contemplates and sees this, then becomes deluded, attached, and delights in that view, is called one stuck in the three worlds.</p>
+<p>When one sees this clearly with right insight knowledge, the mind lets go, seeing conditioned phenomena as they truly are: "All things arise, exist for a moment, and then disintegrate. This is their nature." This is called one who clearly knows the three worlds. The elements, aggregates, and sense-bases are neutral Dhamma.</p>
+<p>One who falls into the sensual world draws those three categories into self, becoming deluded and delighting in them, creating the sensual world.</p>
+<p>One who contemplates those three categories, seeing them clearly with insight wisdom, but cannot yet let go of that knowledge and view, is called one still stuck in the form world.</p>
+<p>One who contemplates and sees that, then sees that delighting in that knowledge and view is coarse, lets go of the perception of liking, disliking, or neutrality, and dwells with nothing at all, is called one stuck in the formless world.</p>
+<p>It is called "world" because one is attached to the state of having or not having, or to self or not-self.</p>
+<p><strong>As Much Water, That Much Lotus</strong></p>
+<p>The wise one who contemplates and sees the three worlds, knowing them as they truly are, does not grasp the three worlds as self or not-self. Instead, they use those three worlds as a measure for their wisdom and knowledge, saying: "That is the three worlds, this is the wisdom that knows and sees them as they are." True knowledge knows and then lets go, not becoming deluded and grasping that knowledge as self or not-self in this or that way.</p>
+<p>When they examine their mind, it is clear and pure, equal to that knowledge and peace, not more or less. It is knowledge free from all concocting. Even memories of the past or future are not used there. When compared to the clear knowledge right there, it corresponds to reality in every way, but it is clearer and more flavorful. When examining the elements, aggregates, and sense-bases, they are real according to conventions, with their own nature, remaining as they always are.</p>
+<p>Therefore, the mind is not outside, not inside, not thinking, not grasping. Whatever the nature of things, they remain as they always are.</p>
+<p>As long as the elements, aggregates, and sense-bases are functioning—i.e., not yet separated—each performing its function according to its nature, this is called "revolving of elements" (<em>dhātu-parivatti</em>).</p>
+<p>The existence of the aggregates is called "aggregate-result" (<em>khandha-vipāka</em>).</p>
+<p>The existence of the sense-bases is called "equanimity regarding the six" (<em>chaḷaṅgupekkhā</em>).</p>
+<p>When these three categories separate, the knower, the restrained one, the contemplator, the one who sees reality, each finishes their function. Conventions cease.</p>
+<p>The ancient proverb says: "As much water, that much lotus." Actually, the lotus sits on the water. The lotus stem is the measure of the water's depth. At the same time, the water measures the stem. Similarly, physical phenomena, mental phenomena, mind, defilements, and Nibbāna are all measures of each other.</p>
+<p>Dhamma is very subtle. It is difficult for even the wise to explain it completely, hitting the true core. The best one can do is to have good intentions for others and try to explain the meaning of Dhamma so that listeners can understand according to their own abilities and wisdom. The Fully Enlightened Buddha and his disciples are not on equal footing, but each was able to fulfill their own function according to their own aspirations.</p>
+<p>The author confesses that all this exposition of Dhamma likely does not reach the full depth of the Dhamma. However, through faith in those interested in Dhamma, it has been written and offered for contemplation, in the hope that it will be of some benefit. If there are any errors or omissions in any passage, I ask the wise to kindly advise and admonish the author. I would be extremely grateful for your kindness.</p>
+<h2>Preface</h2>
+<p>On the occasion of the celebration and the burial of boundary stones for the Uposatha hall at Wat Phra Ngam Sri Mongkol, which Phrakhru Silakhanthasangworn (On Si) had been urging relatives and devotees to build for over ten years, costing over a million baht, and which has now been successfully completed with great pride. Building a Uposatha hall is a large and detailed task, requiring time, patience, and courage to overcome various obstacles. Phrakhru Silakhanthasangworn possessed these virtues fully, enabling him to complete this hall, which some monks, even myself, could not have done. Furthermore, all the permanent structures currently existing at Wat Phra Ngam Sri Mongkol were completed by his efforts. (While building this Uposatha hall, he also urged the group of relatives and devotees to help restore the old, dilapidated Uposatha hall at Wat Phrachao Ong Tue.)</p>
+<p>Therefore, he is highly respected and revered by many Buddhists. For this celebration and burial of boundary stones, the temple committee did not produce any amulets or lucky charms as souvenirs for donors. They only accepted donations from those with faith who wished to contribute to the construction. They also printed a history of the temple and of Phrakhru Silakhanthasangworn as a gift of Dhamma. I considered that a book should contain some Dhamma content. At the same time, I was writing the Dhamma exposition on the relationship of elements, aggregates, and sense-bases. So, I took the opportunity to write quickly to have it printed at the end of this book.</p>
+<p>If readers do not consider this book as just something to spit out, I hope it will not be pointless and will provide some benefit to those interested in practicing Dhamma appropriately. Especially for those practicing meditation, if they take the trouble to investigate and contemplate according to the text, they might gain some new knowledge, rather than just sitting with closed eyes, focusing on peace, and then nodding off. If one does not investigate according to Dhamma principles to create some light, one will not be able to maintain one's mental state.</p>
+<p>I warn you right here: investigation and contemplation should not stray from the Buddha's teachings. If one investigates according to one's own preferences, not only will the sheath not break, but the sword will surely break. Knowing the limit is praised by the wise as good.</p>
+<p><em>Therasangsee</em></p>
+<p><strong>Offering to the Sangha</strong></p>
+<p>I and my group had the opportunity, which we consider extremely excellent, to see the original manuscript of this book, written by the hand of the Venerable Luang Pu Thate Desaraṅsī. I feel it is a great blessing for the eyes of the beholder, for it is exquisitely beautiful, profound in meaning and Dhamma, in style, in language, and in calligraphy, in every chapter, every section, from beginning to middle to end of the Dhamma in this book. For the Venerable Luang Pu has expounded it in an excellent manner, profound, teaching the mind, prodding the heart, immeasurable in his humility.</p>
+<p>The Venerable Luang Pu has given complete freedom to every reader who feels they know better than he. He said, "... please kindly advise and admonish the author. I would be extremely grateful for your kindness." Such a humble, gentle, beautiful, and deeply moving statement.</p>
+<p>But I feel that the Venerable Luang Pu has concealed an immensely valuable teaching: that no one should be arrogant, conceited about their honor, fame, or great power, to the point of being unable to listen to advice or admonition from anyone.</p>
+<p>I take this opportunity on the occasion of the celebration of the Venerable Luang Pu's 90th birthday to publish the book <em>Elements, Aggregates, and Sense-Bases: Their Relationship</em>, written by his own hand, to spread Dhamma and as a great blessing for the eyes of all disciples and readers. Therefore, I respectfully asked his permission to print and offer it as an "Offering to the Sangha" to the Venerable Luang Pu. He kindly granted permission, an act of unparalleled kindness towards his disciples.</p>
+<p>Any errors, omissions, or improprieties arising from the production of this book due to my ignorance and lack of mindfulness and wisdom, I prostrate at his feet and ask the Venerable Luang Pu to kindly forgive me and the group of disciples.</p>
+<p>And with the great merit that the Venerable Luang Pu Thate Desaraṅsī has performed in every way, now, may the Sangha, humans, non-humans, devas, and all beings please rejoice in the merit that the Venerable Luang Pu has made clear in this book.</p>
+<p>The Group of Disciples
+Nakhon Pathom - Samut Songkhram</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="03._Three_Armies_of_Dhamma.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">03</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">03. Three Armies of Dhamma</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Books">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Books</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="05._Illuminating_the_Path_of_Tranquility_and_Insight.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">05</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">05. Illuminating the Path of Tranquility and Insight</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

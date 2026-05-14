@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11. Samādhi by Practicing Buddho</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="10._Skillful_Means_for_Deliverance.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(10)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex justify-center items-center" title="Return to Dhamma Books">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="12._Steps_Along_the_Path.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(12)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <h3>11. Samādhi by Practicing Recollection of "Buddho"</h3>
+<p><strong>Phra Nirōdharaṅsī Gambhirapaññāvisiṭṭha</strong><br />
+<strong>Luang Pu Thate Desaraṅsī</strong><br />
+<strong>Wat Hin Mak Peng, Si Chiang Mai District, Nong Khai Province</strong>  </p>
+<h2>Preface</h2>
+<p>In this book, the author wishes to appeal and extend an invitation to all those who teach meditation (kammaṭṭhāna) within Buddhism: please teach in a unified way, consistent with the same principles. Do not teach in various different ways, for that will lead to the decline of Buddhism. Have compassion for those of good will towards Buddhism who sincerely come to practice, only to become discouraged when they see such discrepancies.</p>
+<p>Moreover, outsiders to Buddhism will perceive that Buddhism teaches many different paths and methods, that it is not unified. Have you all not seen many Buddhist texts and scriptures?</p>
+<p>Buddhism teaches the realization of the one mind, the one heart. All defilements (kilesa) arise from the mind. The mind is what grasps defilements and holds them. Therefore the mind becomes defiled. When the mind sees the danger of defilements and is able to relinquish and extract them from the mind, then the mind becomes bright and pure.</p>
+<p>Is this not the principle of Buddhism? Is this not what the Buddha taught?</p>
+<p>Even to attain the noble paths (ariyabhūmi), one must realize the one mind, called <em>magga-samangī</em> – the mind that brings together virtue (sīla), concentration (samādhi), and wisdom (paññā) into one unified state. Only then can one attain the noble paths.</p>
+<p>Wisdom investigates the causes of each defilement until one clearly and thoroughly knows for oneself. Sitting in that very place, one becomes completely free from that evil, and then the mind becomes firmly established in samādhi, no longer wavering or shifting.</p>
+<p>Free from those faults – that very mind. The wisdom that knows and sees the danger in those defilements – that very mind. Then it converges and settles firmly into one place – that very mind. It must relinquish and extract in various places, yet it occurs only in that one place, in that single moment of mind. The mind of a Noble One at each stage attains <em>magga-samangī</em>, unifying virtue, concentration, and wisdom into one, as described.</p>
+<p>Then that mind does not revert to its former state. When emerging, it will function in accordance with <em>kāmāvacara</em> knowledge (sense-sphere consciousness), seeing and knowing according to the nature of the sense-sphere in all respects, but with wisdom (ñāṇa) as the instrument of true knowing, not deluded by those objects like an ordinary worldling (puthujjana).</p>
+<p>Let us all come together to practice correctly according to the Buddha's own words. Do not take popular approval as your standard. Take correctness as your principle. In the Buddha's time, the six teachers, led by Sañjaya the wanderer, had many followers. Nowadays, Sai Baba, as we see, teaches the accumulation of defilements, yet people still revere him greatly.</p>
+<p>Therefore, I invite all who practice kammaṭṭhāna to examine yourselves:</p>
+<p>"In which direction am I practicing? Have I followed the Buddha's teaching correctly? If not, quickly correct it before it is too late."</p>
+<p>We uphold Buddhism in order to honor and nurture it, to make the religion prosper. Practicing kammaṭṭhāna is the direct path to the paths, fruits, and Nibbāna. Especially we monks who propagate Buddhism should be extremely careful and vigilant.</p>
+<p>The author has no ability to explain further in greater depth. If anyone has the ability to explain more clearly than this, please do so. The author rejoices in that wholeheartedly. Everyone surely wishes for Buddhism to remain stable and continue forever.</p>
+<p>Phra Nirōdharaṅsī</p>
+<p><strong>Training in Samādhi by Practicing Recollection of "Buddho"</strong></p>
+<p>Delivered at Wat Hin Mak Peng, Chiang Mai District, Nong Khai Province<br />
+August 12, 1985</p>
+<p>When you first go to study meditation (kammaṭṭhāna) in any group or with any teacher who is skilled in that particular meditation, you should establish faith in that teacher, trusting that this teacher is truly expert in that meditation. Also have faith that the meditation he teaches is certainly the correct path. Moreover, you should respect the place where you go to practice meditation. Then proceed to learn that meditation.</p>
+<p>The ancient masters had a preliminary ceremony to establish faith before learning meditation, namely:</p>
+<ul>
+<li>Paying homage to the teacher with five pairs of beeswax candles and five pairs of white flowers, called the <em>five khandhas</em>.</li>
+<li>Or eight pairs of beeswax candles and eight pairs of white flowers, called the <em>eight khandhas</em>.</li>
+<li>Or pairs of beeswax candles each weighing one baht, with an equal number of white flowers.</li>
+</ul>
+<p>Then recite the invitation for all 40 meditation subjects to enter your being at this moment. Then proceed to learn that meditation. The ancient rituals were intricate and good. There are many more rituals, but the author will not mention them all here; he will describe simple, practical rituals later.</p>
+<p>Having thus cultivated faith and confidence in your mind, approach a teacher skilled in that meditation. If he is skilled in the practice of reciting <em>Sammā Arahang</em>, he will teach you to recite "Sammā Arahang, Sammā Arahang," visualizing a clear crystal sphere two finger-widths above your navel. Place your mind there and recite continuously, not letting the mind stray away from the crystal sphere. In other words, take the crystal sphere as the resting place of the mind.</p>
+<p>If you approach a teacher skilled in meditating on the rising and falling of the abdomen, he'll have you meditate on rising and falling, and focus your mind on the different motions of the body. For instance, when you raise your foot, you think raising. When you place your foot, you think placing, and so on; or else he'll have you focus continually on being preoccupied with the phenomenon of arising and passing away in every motion or position of the body.</p>
+<p>If you approach a teacher skilled in psychic powers, he will teach you a mantra: <em>Nama pata, nama pata</em>, taking the mind as one object. The mind will lead you to see devas, hells, Indra, Brahmās, and many other things, to the point of becoming absorbed in those objects.</p>
+<p>If you approach a teacher skilled in mindfulness of breathing (ānāpānasati), he will teach you to focus on the in-breath and out-breath, establishing the mind firmly on the breath alone as your object.</p>
+<p>If you approach a teacher skilled in the practice of "Buddho," he will teach you to recite "Buddho, Buddho, Buddho" and then establish your mind firmly in that recitation. When you are fully skilled, he will teach you to discern "Buddho" and "the one who recites Buddho." When you see them as separate, then take hold of "the one who recites Buddho." "Buddho" will disappear, leaving only "the one who recites Buddho."</p>
+<p>Hold to that "one who recites Buddho" as your foundation.</p>
+<p>People nowadays, or in any era, no matter how much knowledge or ability they have, it cannot be denied that they tend to get excited about things they have not yet tested for truth, then fall for them out of delusion because they want to know and see reality. Especially those who have embraced Buddhism, and since Buddhism demonstrates cause and effect that is entirely true, why then fall for the countless advertisements everywhere? Perhaps it is because people today are impatient; they have not yet completed the causes but want quick results – what they call "the atomic age."</p>
+<p>Buddhism teaches the realization of the mind, which is abstract (nāma-dhamma), while the body is physical (rūpa-dhamma). The physical must be under the control of the abstract. When you begin training in samādhi, training the mind to be peaceful and not agitated, at that moment you cause no trouble to anyone. Train until you become skilled and accomplished; then that person becomes calm and serene. If many people train this way, this world will have only peace and happiness everywhere. As for the physical body, we can train it to be calm only when the mind controls it. When the mind is unmindful, the body follows its own nature. Therefore, let us train the mind by reciting "Buddho" – try it.</p>
+<p><strong>Preliminary Duties Before Practicing Samādhi</strong></p>
+<p>Before practicing samādhi, before doing kammaṭṭhāna recitation of "Buddho," you should perform the preliminary duties: establish faith and confidence to the fullest extent, as described above. Then pay homage three times and recite:</p>
+<p><em>Arahaṃ sammāsambuddho bhagavā</em><br />
+The Blessed One is an Arahant, perfectly and rightly enlightened.</p>
+<p><em>Buddhaṃ bhagavantaṃ abhivādemi</em><br />
+I bow down to the Blessed Buddha.<br />
+(Prostrate once)</p>
+<p><em>Svākkhāto bhagavatā dhammo</em><br />
+The Dhamma is well-expounded by the Blessed One.</p>
+<p><em>Dhammaṃ namassāmi</em><br />
+I pay homage to the Dhamma.<br />
+(Prostrate once)</p>
+<p><em>Suppaṭipanno bhagavato sāvakasaṅgho</em><br />
+The Saṅgha of the Blessed One's disciples has practiced well.</p>
+<p><em>Saṅghaṃ namāmi</em><br />
+I bow down to the Saṅgha.<br />
+(Prostrate once)</p>
+<p><em>Namo tassa bhagavato arahato sammāsambuddhassa</em><br />
+(Recite three times)</p>
+<p>Recollect the virtues of the Buddha, the supreme teacher of the world, free from all suffering and defilements, dwelling in bliss and peace at all times.<br />
+(Prostrate three times)</p>
+<p>Note: The preliminary duties shown here are just examples. If someone wishes to prostrate more, they may do so – no objection. But one should prostrate before every sitting meditation, unless the place is not suitable.</p>
+<p><strong>The Sitting Posture for Samādhi</strong></p>
+<p>Sit in samādhi as follows: Place the right leg over the left leg, right hand over left hand. Sit upright. Then bring the recitation "Buddho, Buddho" to mind, establishing it at the center of the chest – that is, the "heart". Do not let the mind wander back and forth. Establish mindfulness, collect the mind, make it steady, one-pointed (ekaggatā), firm. Then the mind will attain samādhi.</p>
+<p>When you attain samādhi, sometimes you may not even know it – you become silent and still, not knowing how long you have been sitting. It may be several hours before you emerge. Therefore, when sitting in samādhi, do not set a time limit; let it happen naturally.</p>
+<p>The mind that truly attains samādhi is the mind that is one-pointed (ekaggatācitta). If it does not reach one-pointedness, it is not yet samādhi, because the true heart is one. If there are many, it has not yet reached the heart – it is just the mind.</p>
+<p><strong>"Mind" and "Heart"</strong></p>
+<p>Before training in samādhi, first understand "mind" and "heart". Here, understand first that "mind" and "heart" are not the same.</p>
+<ul>
+<li><strong>Mind</strong> is that which thinks, conceives, fabricates, perceives objects, and all things.</li>
+<li><strong>Heart</strong> is that which rests quietly, simply knowing that it is resting quietly, with no further thinking, conceiving, or fabricating.</li>
+</ul>
+<p>It is like a river and its waves. When the waves subside, only the clear, bright river remains.</p>
+<p>All knowledge and all defilements arise because the mind thinks, conceives, fabricates, and seeks them out. These things can be clearly seen with one's own heart only when the mind becomes still and reaches the heart.</p>
+<p>Water is naturally clear and pure. If someone mixes various colors into it, the water changes according to those colors. But when the water is distilled out from those colors, it becomes clear and pure as before. "Mind" and "heart" are analogous to this explanation.</p>
+<p>In truth, the Buddha taught that the mind and the heart are one and the same. Without the heart, the mind does not exist. The mind is an activity; the heart has no activity. The training of samādhi meditation, no matter which teacher or method, if it is correct, must reach the heart.</p>
+<p>When you reach the heart, see your own heart, then you will see all your defilements, because the mind has accumulated defilements right there. Now, what we do with them is up to us.</p>
+<p>A doctor who wants to cure a disease completely must first find the cause of that disease, then prescribe the right medicine for it.</p>
+<p>As we recite "Buddho, Buddho" for a long time, the mind gradually releases its agitation and gathers together with "Buddho." The mind becomes firmly established as one with "Buddho," until you see that whatever "Buddho" is, the mind is that, at all times – whether standing, walking, sitting, lying down, in any posture – you see the clear, bright mind with that "Buddho."</p>
+<p><strong>Sustain the Mind, Do Not Be Hasty</strong></p>
+<p>When you reach that level, sustain that mind in that object for as long as possible. Do not be eager to see this or that, or to become this or that.</p>
+<p>Desire is a severe obstacle to the concentrated mind.</p>
+<p>When desire arises, samādhi immediately deteriorates. Samādhi deteriorates because the foundation of samādhi – "Buddho" – is not stable. Then you cannot grasp any foundation; great distress arises; you long for the former state of samādhi and peace you once experienced; the mind becomes even more agitated.</p>
+<p>Train in samādhi like a farmer farming rice. He is not hasty. He sows seedlings, plows, harrows, transplants in due order, not skipping steps. Then he waits for the rice plants to mature. Even then, he sees neither grains nor panicles, but he has confidence that one day there will be grains and panicles for sure. When the plants mature and bear panicles, then he is certain of the result. He does not pull the plants to force them to bear panicles according to his wish. One who does that will surely get no result.</p>
+<p>Training in samādhi meditation is the same. You cannot be hasty and skip steps. You must establish your mind in faith and confidence, certain that this recitation is what will truly bring your mind to samādhi. Then do not doubt: "Is this recitation suitable for my temperament? That person did it and got such-and-such results. I do it and my mind doesn't become steady – this won't work."</p>
+<p>If the mind becomes steady and firm in the recitation you are practicing, that is sufficient. Because the purpose of practice is to make the mind steady. Everything else depends on each individual's accumulated merit (pāramī).</p>
+<p>In the Buddha's time, there was a monk practicing near a pond. He saw a heron swoop down to catch fish for food. He took that as his recitation and practiced until he became an Arahant. "Heron catching fish" is not found in any meditation subject, but he used it and succeeded. That is an example.</p>
+<p><strong>The Mind Established in the Recitation</strong></p>
+<p>The mind that is deliberately trained to stay within the bounds of the recitation "Buddho, Buddho" – with mindfulness as its controller – will eventually abandon its own fierce, troublesome nature. And we must train and cultivate because we desire the peace and tranquility of the mind. By nature, the mind tends to wander and seek agitation, as described. Mostly, it wanders into these thoughts: as soon as you start reciting "Buddho" and placing the mind on "Buddho," it won't stay there. It runs off to the work you are about to do or are doing, fabricating all sorts of things – worrying that the work might not turn out well, that it might fail, that work you've taken from others or for yourself might lose profit or cause you to lose face if you don't do it as promised, etc.</p>
+<p>This is one kind of disturbance for beginners, preventing samādhi. You pull the mind back to "Buddho, Buddho," telling yourself: "That is not the path to peace. The true path to peace is to bring the mind to rest on 'Buddho' alone, and recite 'Buddho, Buddho' continuously."</p>
+<p>Soon it wanders again. This time to family matters: children, wife, husband – how are they? Are they healthy? Are they eating good food? If far apart, you think about their living situation, where they stay, how they eat. The one who left thinks about those at home; those at home think about the one far away – fearing danger, fearing others might oppress them, fearing loneliness, etc. Endless thoughts, most of them exaggerated.</p>
+<p>Or if you are still single, young, you fabricate thoughts of fun and enjoyment with friends, places you used to go for amusement. Some even exclaim out loud, laughing loudly. This defilement is even more severe than the others.</p>
+<p>When you recite "Buddho, Buddho," the defilements see that they are losing ground, that you are about to escape, so they fabricate ever more things to bind you. From childhood to adulthood you never trained in samādhi meditation; you just let the mind follow defilements. Now you start training, reciting "Buddho, Buddho" to bring the mind together at "Buddho." So the mind struggles, like a fish thrown out of water onto dry land – it naturally struggles to find water. Again, you pull the "mind" towards "Buddho."</p>
+<p><strong>"Buddho" is Cool</strong></p>
+<p>"Buddho" is cool. It is the path to peace. This is the only way to transcend suffering in this world.</p>
+<p>You pull the mind back into "Buddho, Buddho." This time it calms down a bit. You feel the mind staying. You vaguely see the mind staying – happy, at ease, unlike the restless, suffering mind. You carefully maintain mindfulness to sustain that state. Ah! It wanders again. This time it seizes on benefits as an excuse: "If I don't do this or seek that, I'll miss a precious opportunity." Then it focuses solely on that thing instead of the recitation "Buddho." "Buddho" disappears – you don't even know where. By the time you realize "Buddho" is gone, it's too late. So this mind is restless, struggling – hard to maintain, like a monkey that can never be happy.</p>
+<p>Sometimes, after sitting meditation for a long time, you fear the blood might not circulate, that nerves might die, causing numbness, eventually paralysis. If you meditate far from home or in the forest, you become even more afraid – tigers might eat you, snakes might bite you, ghosts might haunt you, making all sorts of gestures. Fear of death creeps in many ways. It's all self-deception. In truth, it's not as you imagine. From birth until now, you've never seen a tiger eat anyone. You've never seen a ghost – not even once. You don't even know what a ghost looks like, yet you fabricate it to fool yourself.</p>
+<p>These obstacles to meditation that I have given as examples are just examples. In truth, there are many times more. Those who meditate will know for themselves.</p>
+<p>If we hold to "Buddho, Buddho" in our heart, with mindfulness controlling the mind to stay with "Buddho" alone, no dangers will afflict us.</p>
+<p>Have real faith in "Buddho." I guarantee there will be no danger. Except for past kamma that has already been done – that is beyond control; even the Buddha could not prevent it.</p>
+<p><strong>Have Faith in "Buddho"</strong></p>
+<p>For beginners, faith is still weak. Whatever recitation you use, you will certainly be disturbed by these defilements, because these defilements are the foundation of the world and the foundation of the mind. When we practice to make the mind one, the defilements see that we are about to escape them. They will surround us, not letting us escape this world.</p>
+<p>If you see the danger of these defilements as truly severe, then make your mind courageous, cultivate firm and stable faith. Think: "I have been deluded by defilements for many births and many lifetimes. This time I will trust the Buddha's teaching. I will take 'Buddho' as my refuge."</p>
+<p>Then establish mindfulness firmly, make your mind steady in "Buddho" to the fullest extent. Be willing to sacrifice your life to honor "Buddho." Do not let the mind escape from "Buddho." When you make such a resolution, the mind will plunge into the object and attain samādhi.</p>
+<p>When first attaining samādhi, you will have this experience: you will not know at all what samādhi or one-pointed mind is like. You simply establish mindfulness firmly on one object. Through the power of the mind being established on one object, that causes the mind to attain samādhi. You do not think, "The state of samādhi should be like this or that, I want it to be like this or that." It happens automatically by itself; no one can force it.</p>
+<p>At that moment, you feel as if you are in another world (the mental world). There is happiness, peace, seclusion, incomparable to anything in this world.</p>
+<p>When the mind emerges from samādhi, you will feel regret for that state and remember it clearly. All talk about samādhi nowadays comes from minds that have emerged from that state. While the mind is absorbed, you are completely unaware of anyone speaking or doing anything.</p>
+<p>We must train the mind to attain samādhi frequently to become skilled. But do not cling to the old state; do not wish for it to be like before. It will not be like that, and it will cause great trouble. Just keep reciting "Buddho, Buddho," letting the mind stay with that recitation. Whatever happens, let it happen.</p>
+<p>When the mind is newly in samādhi, each time it enters it may not be the same as before. That's fine. Let it be whatever it is, as long as it becomes samādhi. It becomes many different states, thus giving broad knowledge and many skillful means.</p>
+<p>What I have explained briefly is just an example. May those who practice this not take it to heart, for it will become a perception (saññā) and hinder practice. Just remember it as a reference point when your practice has progressed.</p>
+<p><strong>Training the Mind, Seeing the Heart</strong></p>
+<p>All meditators, whether reciting "Buddho," "sinking, swelling," "Sammā Arahang," or anything else – when the mind is about to unify into samādhi, you do not think "my mind is unifying" or "it is unifying now" or anything at all. It unifies automatically by itself. Even the recitation – you don't know when it stops. There remains only a state of peace and happiness, which is not this world, not any other world, not anything at all. There is no one, nothing whatsoever – just its own nature (called the mental world).</p>
+<p>In that place, there are no words like "this world" or anything else. Conventional designations of this world do not appear there. Therefore, no problems arise there at all. Just train the mind to be in samādhi, then compare with the mind not in samādhi – how are they different? When the mind attains samādhi and then emerges to contemplate worldly and Dhamma matters, how does it differ from a mind that has not attained samādhi?</p>
+<p><strong>"Mind" and "Heart"</strong> – here we will discuss the matter of mind and heart once more for understanding. Since we are talking about training the mind (samādhi), if you do not understand mind and heart, you will not know where or how to train.</p>
+<p>Born as a human or animal, everyone has both mind and heart. But these two have different functions.</p>
+<ul>
+<li><strong>Mind</strong> thinks, wanders, and fabricates all sorts of things, countless and endless, according to where defilements lead it.</li>
+<li><strong>Heart</strong> is the knower that remains still, not thinking or fabricating anything at all, neutral regarding all things. That neutral knower is the heart.</li>
+</ul>
+<p>The heart has no self; it is abstract, merely the neutral knower. We can place it anywhere; it is not inside or outside the body. What is called the <em>hadaya vatthu</em> (physical heart) is not the true heart; it is just a pump that sends blood throughout the body, sustaining life. If the heart does not pump blood throughout the body, life cannot continue.</p>
+<p>The word "heart" as commonly used in everyday speech – e.g., "I am sad-hearted," "I am glad-hearted," "I am hot-hearted" (worried), "I am heavy-hearted," "I am startled-hearted," "I am slighted-hearted" – all of these refer to "heart." But Abhidhamma calls them all "mind": wholesome mind, unwholesome mind, indeterminate mind, sense-sphere mind, fine-material-sphere mind, immaterial-sphere mind, supramundane mind, etc.</p>
+<p>But what the true mind and true heart are like, we do not know.</p>
+<p><strong>Mind</strong> is the thinker, the conceiver, the fabricator. It uses the six sense bases (āyatana) as tools. When the eye sees a form, ear hears a sound, nose smells an odor, tongue tastes a flavor, body feels temperature or texture, mind thinks of various objects according to one's defilements – both good and bad. What is good, you like; what is bad, you dislike. All of this is mind – that is, the defilements themselves. Apart from these six sense bases, the mind cannot use anything else. The teachings further distinguish six faculties, six elements, six contacts, etc., but they all come within these six sense bases. These are the characteristics of the mind for one who does not know stillness.</p>
+<p>One who trains the mind – i.e., practices samādhi – must restrain the mind that struggles through the six sense bases as described, making it stop still in the single recitation "Buddho," not wandering back and forth, stopping still and knowing that it is still. That is the heart. The true heart does not use any sense bases at all, hence it is called "heart."</p>
+<p>As people say, "heart" means the center of everything. For example, the "heart of the hand" means the center of the palm. The "heart of the foot" means the center of the sole. Everything – when speaking of "heart," you point to the center. Even the "heart of a person" points to the center of the chest. In truth, it is not located here or there as explained, but it is the center of all things.</p>
+<p>To understand more clearly, try this: hold your breath for a moment. In that place, there is nothing at all except the neutral knower. That is the "heart" – the "knower." But grasping the "heart" this way does not last long; it lasts only as long as you hold your breath. However, it is an experiment to see what the true "heart" is like.</p>
+<p>Holding the breath also alleviates painful feelings to some extent. Those with severe pain may regularly hold their breath as a remedy; it relieves pain quite well.</p>
+<p>When you understand that mind and heart have different functions and characteristics, training the mind becomes easier. In truth, mind and heart are the same. The Buddha said, "Whatever the mind, that is the heart." In training samādhi, we need only train the mind. When the mind is trained, the heart will appear right there.</p>
+<p><strong>Beware of Decline</strong></p>
+<p>When we train the mind to the fullest by bringing in mindfulness to control it, keeping it solely on "Buddho" as one, it will no longer wander here and there. It will converge into one, and the recitation will disappear without your knowing. There will be cool, calm peace, incomparable. Those who have never experienced it cannot describe it, because this kind of peace – no one in this world has experienced it before. Even if they have experienced it, it was not the same. Therefore, it cannot be described, but you can explain it to yourself. To explain to others, you must use analogies and comparisons. This kind of thing is <em>paccattaṃ</em> – personal, individual knowledge.</p>
+<p>Going further: if that person has accumulated perfections (pāramī) from previous lives, various wonders may arise – such as knowledge and visions: seeing devas, ghosts, hungry ghosts, demons, seeing the past and future of oneself and others, what they have been and will become – without any intention to see them. But when the mind is in samādhi, it may see these things on its own, remarkably.</p>
+<p>Meditators are very fond of such things. When they see or know something, they boast to others. When others practice but do not see or have the same experiences, they become discouraged, thinking they have little merit or no supporting conditions, and their faith in practice wanes.</p>
+<p>As for those who do see this and that, when they decline from that state because they became absorbed in external phenomena instead of holding the heart as the foundation, they cannot grasp anything. Then they long for the old states they experienced and saw, and the mind becomes even more agitated. Those who like to talk just bring up their past knowledge and visions and talk grandly. Listeners love this, but practitioners are tired of it because practitioners like to hear only what is true and present.</p>
+<p>The Buddha taught that the decline and prosperity of his religion depend on practitioners. Decline comes when practitioners gain a little knowledge and then go to tell others, not explaining the essence of samādhi meditation but only talking about external things, gaining no substance. This unknowingly causes the religion to decline.</p>
+<p>Those who make Buddhism prosper speak only what is true and beneficial, do not speak idly, speak with reason and evidence, practice meditation this way, recite this way, make the mind converge, calm and subdue defilements and agitation this way.</p>
+<p><strong>Must Hold the Recitation "Buddho" as the Foundation</strong></p>
+<p>Those who recite "Buddho, Buddho" – keep your mind cool, do not be hasty. Have confidence in the recitation "Buddho." Let mindfulness control your mind to stay with your own "Buddho." Confidence is the cause for the mind to become steady, not wavering, letting go of all doubt and hesitation. The mind will converge into the recitation "Buddho, Buddho," with mindfulness accompanying "Buddho" at all times. Whether standing, walking, sitting, lying down, or doing any work, you will have mindfulness knowing only "Buddho." For meditators whose mindfulness is still weak and whose skillful means are few, you must hold the recitation "Buddho" as your foundation. Otherwise, you will not be able to practice, or you may practice but not grasp the foundation.</p>
+<p>Develop samādhi until it is strong and the mind is determined. If you are strong and determined: "I will do this. If I do not get 'Buddho,' if I do not see 'Buddho' in my heart, or if the mind does not become still with 'Buddho' alone, I will not get up from this place, even if life ends." Then the mind will converge into one without your knowing. The recitation "Buddho" or whatever you are attached to or doubting will disappear in an instant. Even this body, which you have clung to for so long, will not appear there. Only the heart remains – the knower, cool and calm, at peace alone.</p>
+<p>Meditators who attain this are very pleased. The next time they meditate, they want it to be like that again, so it does not become like that. That desire is the cause; therefore it does not become like that.</p>
+<p>Samādhi is extremely subtle. You cannot force it to be one way or another, nor can you prevent it from being samādhi.</p>
+<p>If you get impatient, it becomes even worse. Keep your mind cool. Whether it becomes samādhi or not, you have been practicing recitation of "Buddho" – just continue reciting, as if you had never done it before. Keep your mind neutral, place it evenly, then breathe gently. Bring mindfulness to determine the mind, letting it stay with "Buddho" alone. When it is time for it to become samādhi, it will become by itself. You cannot decorate it into being. If you could decorate it into being, everyone in the world would have become Arahants already.</p>
+<p>Knowing but not doing correctly; doing correctly but wanting it to be like that again, and it doesn't happen – all of these are obstacles to meditation.</p>
+<p>Those who practice recitation of "Buddho" must become thoroughly skilled and fluent. When good or bad objects impinge, you must be able to enter samādhi immediately. As soon as you think of the recitation "Buddho," the mind should converge at once. Then the mind will be stable and self-reliant.</p>
+<p>When you train to be skilled and fluent like this for a long time, defilements – the clinging and attachment to all things – will gradually disappear by themselves. You do not need to go and cleanse each defilement, thinking "this defilement must be cleansed by this Dhamma, with that method." Whatever skillful means you use to abandon defilements, be content with that. That is enough.</p>
+<p>Defilements gradually disappearing by the method described is better than trying to abandon defilements by fabrication: entering the first, second, third, fourth jhānas by abandoning applied thought, sustained thought, rapture, happiness, with one-pointedness and equanimity as objects; or attaining the first path by abandoning personality view, doubt, and clinging to rites and rituals – looking only at those defilements, thinking "I have achieved that mind, I have abandoned that defilement, I have this many defilements left; achieving that mind will end my defilements."</p>
+<p>But you do not look at the mind – the one that gives rise to defilements – the desire to know, to see, to become – that is the defilement itself stuck to the mind. When you stop that contemplation, the mind returns to its original state, gaining nothing.</p>
+<p>Not only do you gain nothing, but when someone challenges your views, contradicting your opinions, you will argue fiercely, like pouring oil on a fire.</p>
+<p>Therefore, hold firmly to the recitation "Buddho." Even if you gain nothing, you still have the recitation as a foundation. Those objects will gradually diminish, or may even be suppressed and disappear. That is better than having no foundation to hold.</p>
+<p>In truth, all meditators must hold firmly to their own recitation to be called "having a foundation for meditation." When meditation declines, you can use it as a foundation.</p>
+<p>The Buddha taught: those who strive to abandon defilements should make themselves like ancient warriors. In ancient times, they built strong city walls, complete with moats, gates, and battlements to protect against invading enemies. A clever warrior, when fighting the enemy, if he sees he cannot win, retreats to the capital, protects the capital so the enemy cannot destroy it, and meanwhile accumulates troops, weapons, and provisions (i.e., makes samādhi strong and courageous), then goes out to fight the enemy again (i.e., all defilements).</p>
+<p>Samādhi is extremely important as strength. Without samādhi, where will insight (vipassanā) get its strength? Insight wisdom is not something you can fabricate at will. It arises from samādhi that has been trained to be skilled, stable, and good.</p>
+<p>Even for those who are <em>sukkhavipassaka</em> (dry insight workers), if they have no tranquility (samatha), where will they get insight? It's just that their samatha is not fluent. That much is acceptable.</p>
+<p><strong>Samādhi Stable, Then Contemplate and See</strong></p>
+<p>All practitioners, when you have made samādhi stable and firm, to the point where you can enter and emerge at will, remain for long periods, and contemplate this body as foul (asubha) or as elements (dhātu), contemplate all people in this world as skeletons, or contemplate the whole world as empty, as internal space, completely void, etc.</p>
+<p>When the mind is fully in samādhi, whether standing, walking, sitting, or lying down, it remains in samādhi all the time. Then you see your own defilements, which arise from your own mind, clearly: greed, hatred, delusion – they arise from this and that, persist with such and such characteristics, and you find skillful means to abandon them.</p>
+<p>Like a pond that has been murky for hundreds of years, now becoming clear and pure, you see all the things at the bottom of the pond that you never imagined were there. This is called vipassanā – knowledge and vision according to reality. As it truly is, you see it truly, not distorted or mistaken from its reality.</p>
+<p>Samatha (tranquility) can also abandon defilements, but like clearing grass – cutting the tops off without digging out the roots. The roots will sprout again when rain falls. That is, seeing the danger in objects that arise from the six sense bases, but upon seeing the danger, quickly entering peace without thoroughly contemplating those objects like samādhi. In summary, they prefer only peace, not wanting to contemplate at length. Like a rabbit that uses its hole as protection from danger. When it sees an enemy, it runs into its hole, escaping danger for a while, that's all.</p>
+<p>For those who want to uproot the defilements within themselves: when defilements arise from the six sense bases, such as eye seeing form, ear hearing sound, etc., contact arises, leading to pleasure or displeasure, happiness or sadness, then you grasp it as your object, becoming clouded in mind, causing distress, struggle, inability to eat or sleep, even to the point of committing suicide or killing others. When you see this clearly, first make samādhi stable as your foundation, then set your mind to contemplate that particular object alone. For example:</p>
+<p>When the eye sees a pleasant (iṭṭhārammaṇa) form, and delight and satisfaction arise, contemplate only that delight and satisfaction: Does it arise from the eye or from the form?</p>
+<p>When you contemplate the form, you see that form is just a physical phenomenon. Whether it is good or bad, it does not invite you to delight or dislike, nor to love or hate. It is just form, arising and passing away. It passes away according to its own nature.</p>
+<p>When you contemplate the eye that sees the form: the eye that wanders to see the form – upon contact, light reflects back to the optic nerve, giving rise to various forms. The eye does not invite you to delight or dislike, to love or hate. The eye's function is to see; after seeing the form, it passes away.</p>
+<p>For pleasant objects, unpleasant objects, or other sense bases, contemplate in the same way.</p>
+<p>Because the six sense bases are the original cause.</p>
+<p>When you contemplate this way, you will see clearly that all things in this world – defilements arise because of these six sense bases as the original cause. If we contemplate and do not become deluded by these six sense bases, defilements will not arise in us. On the contrary, wisdom arises precisely because of these six sense bases.</p>
+<p>These six sense bases are the medium for good and evil. Going to a good or bad destination is because of these six sense bases as the original cause.</p>
+<p>The world is wide because the mind lacks samādhi, letting itself go with the objects of the sense bases. The world is narrow because the mind has trained in samādhi, bringing it under control, contemplating the objects of the six sense bases internally. That is, when the mind is in samādhi, the sense bases – e.g., eye seeing form, ear hearing sound – do not appear at all. Only abstract forms, abstract sounds appear within that samādhi. External sense bases are not known at all.</p>
+<p>When you have made samādhi fully firm and see that this "mental world" is the cause of sense-base contact, perception, objects, and all defilements, then the mind will withdraw from everything, leaving only the "heart" – the "knower" alone.</p>
+<p><strong>"Mind" and "Heart" have different characteristics.</strong></p>
+<ul>
+<li><strong>Mind</strong> is the thinker, conceiver, fabricator, along with perceptions and objects, and grasping various things to hold in the mind. When the mind sees the suffering and danger of holding all defilements in itself, it relinquishes and extracts itself from all objects and defilements. That mind becomes the heart. Thus, mind and heart have different characteristics.</li>
+<li><strong>Heart</strong> is the neutral one, equanimous, not thinking anything at all, only knowing itself as equanimous. The heart is naturally truly neutral – neutral without past or future, without merit or demerit, not good nor bad. That is called "heart." All things – when speaking of "heart," it always means the center. Even the heart of a person, which is abstract, points to the center of the chest. But the true heart – we don't know where it is. Try placing your awareness in any part of the body – you will feel it there. Or place that awareness outside the body – on a post or on the wall of a house – you will feel it there.</li>
+</ul>
+<p>Thus, we can conclude: the true heart is the neutral knowing itself. Wherever there is neutral knowing, there the heart is.</p>
+<p>What people call "heart" (the physical organ) is not the true heart. It is the <em>hadaya vatthu</em>, the pump that sends blood to nourish the body so it can survive. Without that pump, the body cannot survive; it must die. The brain is similar: whether thinking good or bad, the brain is a tool of the mind. The brain's nervous system is physical (rūpa-dhamma). When the conditions for physical phenomena are lacking, physical phenomena cannot persist; they must cease.</p>
+<p>But "mind," which is abstract (nāma-dhamma), in Buddhism is said to remain and can be reborn. Nāma-dhamma ceases only when wisdom knows the cause and effect of that nāma-dhamma and then uproots its cause.</p>
+<p>Leaving only the heart, without fabrication.</p>
+<p>All the branches of knowledge in this world are taught endlessly. The more you learn and teach, the broader they become. Only Buddhism teaches how to reach the ultimate end. Buddhism teaches initially to know the body: that it is composed of various things (the 32 parts), and what its functions are. At the same time, it teaches to see it as "foul" (asubha), as truly unattractive. It teaches to know this world (i.e., the human being) as composed entirely of "suffering" (dukkha). Ultimately, it must break apart and cease according to its nature.</p>
+<p>Therefore, since we have been born with this lump (the body), even though it is unattractive, full of foulness and all kinds of suffering, we still rely on it for a while. Do good deeds, repay your debt to the world before you die and leave this world.</p>
+<p>The Buddha taught that a person (i.e., this world) breaks apart and disintegrates as a natural thing, but "mind" – the owner of that world – if it still has defilements, must be reborn. Therefore, the Buddha taught the training of samādhi, which specifically concerns the mind. When you practice samādhi, if there is sense-base contact, the knowing remains only within – the "mind" alone. The seer and hearer are not connected with the eye and ear. Sense-base contact is known only by the "mind" alone (this is called "making the world narrow").</p>
+<p>The sense bases are the best measure of your own mind. When sense-base contact impinges on our mind, do we waver? If we waver a lot, it shows we have little mindfulness, little Dhamma as our dwelling. If we waver little or not at all, it shows we have much mindfulness, much Dhamma as our dwelling, and we can protect ourselves.</p>
+<p>Compare with Devadatta and the Bodhisatta: they created enmity and kamma for each other throughout. Without Devadatta, the Bodhisatta could not have fulfilled his perfections. When his perfections were full, he attained enlightenment as the Buddha. Before enlightenment, he conquered Māra with his mighty army. After enlightenment, the three daughters of the Māra King tested him again. So the world applauded that the Buddha had completely and utterly conquered defilements in this world.</p>
+<p>As long as internal sense bases remain, mental contact remains as an object. Therefore, the wise, seeing the danger of all these things, choose to withdraw from them, leaving only the neutral "heart" – not thinking, not conceiving, not fabricating. Then where could this world come from? The Buddha taught to reach the ultimate end of the world in this way.</p>
+<p><strong>Sitting in Samādhi Meditation</strong></p>
+<p>(Teacher leads the instruction)</p>
+<p>Let us come together to collect the mind. This mind – we have long let it roam and seek things it likes. And it has obtained those things, but it is never satisfied, forever hungry. When will it ever know enough? The people around us – we have seen them many times. When they die, they take nothing with them. Even this body – we all abandon it and fill the earth.</p>
+<p>But the mind that remains still, not seeking anything, established on "Buddho" alone – we have never experienced that. Let us all practice reciting "Buddho, Buddho" so that the mind stops still, alone. Try it. Perhaps the mind that stays with "Buddho" alone will gain more, and something more extraordinary than before.</p>
+<p>Everything comes from one. Everything is one thing. For example, counting starts with one. One twice is two, one three times is three, and so on. All plants and trees come from one (their root). People are the same. When first born, you arise from a single moment of rebirth-linking consciousness (paṭisandhi-mind). When born, you have sense bases, five khandhas, many tools. The mind fabricates many things, many minds – countless minds, not knowing how many minds there are, all chaotic. The original mind is not seen.</p>
+<p>Therefore, the Buddha taught to search for the mind – i.e., practice reciting "Buddho," bring the mind together in one "Buddho" – then you will see the mind. To search for the mind, we must practice reciting "Buddho," making the mind unify into one, then we will see our own mind. When we search and see the mind, and see that this is the source of the mind, the source of all things in this world – the many minds come out from this one mind.</p>
+<p>When the mind is still with "Buddho" alone, all defilements do not exist. Then use mindfulness to sustain that mind, keeping it still with "Buddho" alone. Do not let it wander in any of the four postures. Train until you are skilled and fluent, so that you can make it stay, or you can make it investigate Dhamma, or after investigating Dhamma, make it return to stillness in the heart. When you understand, you no longer need to recite "Buddho."</p>
+<p>"Mind" and "heart" are different. Mind is the thinker, the wanderer, the fabricator. Heart is the knower, still, not thinking – called heart, as described above.</p>
+<p>If you do not want defilements to disturb you, do not think. Make the heart neutral, equanimous, and still. Then all defilements will no longer disturb you.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="10._Skillful_Means_for_Deliverance.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">10</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">10. Skillful Means for Deliverance</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Books">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Books</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="12._Steps_Along_the_Path.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">12</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">12. Steps Along the Path</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 7</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="Chapter_6.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(6)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../autobiography.html" class="group flex justify-center items-center" title="Return to Autobiography">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="Chapter_8.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(8)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>Autobiography 07</strong></p>
+<p><strong>Phra Nirōdharaṅsī Gambhirapaññāvisiṭṭha</strong><br />
+<strong>Luang Pu Thate Desaraṅsī</strong><br />
+<strong>Wat Hin Mak Peng, Si Chiang Mai District, Nong Khai Province</strong>  </p>
+<hr />
+<h3>23. Sixteenth Rains Retreat: Staying at Ban Pong, Mae Taeng District (1937)</h3>
+<p>Ban Pong was a place where Ajahn Mun had previously stayed the Rains Retreat. Chao Khun Upāli Guṇūpamācārya (Chan Sirichantho) had also stayed at this village. The laypeople there were considered intelligent and understood Dhamma reasonably well. This year, five of us stayed the retreat together: Ajahn Buntham (1), Phra Kheuang (1), Phra Mueang Loei (name forgotten), Ajahn Chob (1), and myself. I was the head, and I chose various methods to teach and train the group so that they could gain firm, stable principles of practice as a refuge for themselves.</p>
+<p>Among the group, Ajahn Chob was more strict in the dhutaṅga practices than the others — a rare spiritual friend to find, as in this Rains Retreat. I taught nearly every night. While I was teaching, the group would pay homage and listen peacefully. After I finished, I gave them the opportunity to ask questions and express their views.</p>
+<p>In the group, besides Ajahn Chob, Phra Kheuang was skilled in <em>paracittavijjā</em> (knowledge of others' minds). Whatever emotion or doubt someone had inside, or whatever offense they had committed against the Dhamma and Vinaya, these two would know and see it.</p>
+<p>The one in the group more pitiable than the others was Ajahn Buntham (from Surin). He had many Rains Retreats but still didn't know how to meditate. The other two would know everything about him — things that shouldn't even be possible. When they pointed it out, he would admit it openly, even to the point of bowing down to monks with fewer retreats. He felt both humiliated and ashamed before the group. He had never met Ajahn Mun, but he had been a disciple of Ajahn Singh. He very much wanted to hear Ajahn Mun teach, thinking he had enough knowledge that upon hearing Ajahn Mun's Dhamma he would immediately see and know the Dhamma. I often warned him: "Be careful — when you see and hear his teaching, you might become heedless."</p>
+<p>After the Rains Retreat, Ajahn Mun came back to see us. As soon as Ajahn Buntham heard Ajahn Mun's Dhamma talk, his views turned completely upside down — he was displeased with the teacher's methods, regrettably. Later, for some reason, he left the group to wander in seclusion alone. But unfortunately, he contracted cerebral malaria. Ajahn Hian found him and brought him down. He passed away at Chiang Mai Hospital, with no relatives or disciples to care for him.</p>
+<p>As for Phra Kheuang and myself, after training with Ajahn Mun for a suitable time, we took leave to wander in seclusion along the Mae Taeng River. We went to stay near a forested mountain. When we arrived, I had Phra Kheuang stay with the requisites at an abandoned temple at the foot of the mountain while I went up to find a dwelling. There was a woman there teasing and flirting with some young men. Phra Kheuang saw this and strong lust arose in him. I came back down from my search, saw his condition, and tried to train him and give him various methods to suppress that emotion, but it didn't work. I had understood this matter well from the beginning when he first came to stay with me. Before coming to me, while he was with Ajahn Mun in Mae Suai District, he had a vision: a straight road appeared from where he was, pointing directly toward me. He walked along that road smoothly until he reached my dwelling. The head of the road ended exactly at the foot of my <em>kuṭi</em> stairs. He climbed the stairs — very high — to see me, then paid homage. I gave him a set of robes, but he didn't accept. This exactly matched his vision. After that, I lost interest in him.</p>
+<p>In the morning, while we were eating, she showed anger at me over a small matter. In the evening, she came to see me and admitted her fault, telling me that the previous evening a woman had been flirting with young men in her presence, which had caused lust to arise, and then she couldn't meditate all night. She then asked to separate from us and wander alone. About three months later, I met her again. I invited her to start meditating anew: "If you practice seriously, it's not impossible. Let's begin again." But she refused. Later I learned that she had disrobed — a pity. She was a determined person, doing everything wholeheartedly, with strong pride. Even when Ajahn Mun taught, she wouldn't yield. She had once been a big-time rogue. When she ordained, she fled from home without any destination. Her original home was Ban Nam Kam, That Phanom District.</p>
+<p>The six higher knowledges (<em>abhiññā</em>), such as <em>paracittavijjā</em> — knowing the minds of others — are not common. They do not arise for every practitioner. Some practice until their minds are extremely refined and pure, yet no <em>abhiññā</em> arises at all. Others, as soon as their minds become concentrated even momentarily or to a slight degree of access, they arise. As for Phra Kheuang, he could train his mind to be calm very well — he could keep his mind calm all day and night. As he walked normally, it would appear in his mind as if he were walking in the air or underground, because his mind did not withdraw from concentration. But he had no wisdom to investigate the three characteristics. This is called <em>lokiya-abhiññā</em> (mundane higher knowledge), arising from mundane <em>jhāna</em>. Even Devadatta, who could fly into the palace to consult with Prince Ajātasattu, still fell.</p>
+<h3>24. Seventeenth Rains Retreat: Staying at Ban Nong Du, Pak Bong District (now Pa Sang District), Lamphun Province (1938)</h3>
+<p>Ban Nong Du was a Mon village. The monks at the temple seemed quite strict in Vinaya. The abbot, according to the villagers, was quite powerful. When villagers went to any event, he would bless sesame oil for them to drink or apply, making them invulnerable to blades. When people from other areas saw Ban Nong Du people coming to an event, they would watch them closely. The villagers, having a good teacher, became bold and feared no one. Once, a group from a nearby village armed themselves and surrounded the village, intending to kill everyone in revenge. The men fled into the forest, saving themselves.</p>
+<p>This powerful abbot was 80 years old. A wandering meditation monk came to stay and trained him until he gained insight into the Buddha's teaching wonderfully. He became faithful, abandoned his pride, and asked to be that monk's disciple. Later, with the support of the villagers, the entire temple converted to the Dhammayuttika order.</p>
+<p>Somdet Phra Mahāvīraṅga (Phim), when he was Phra Ñāṇadiloka and acting as administrator at Wat Chedi Luang in Chiang Mai, asked me to become the first abbot of Wat Nong Du. Phra Palat Thong Suk was the deputy abbot. This Rains Retreat, Phra Maha Khan gave his first Dhamma talk and also taught Dhamma studies. That retreat, I trained the people to have faith and come to observe the Uposatha precepts in unprecedented numbers. Some families locked their houses and came to sleep at the temple to observe the precepts — the whole family. Among the Mon, young girls never observed the Uposatha precepts, unlike the young men, who after disrobing from monkhood would go to the temple and observe the precepts without fail — commendable. The people of this village, although their livelihood was not very smooth, had great faith. Besides that, I taught them to establish themselves in the Triple Gem, abandoning wrong view and spirit worship. Many agreed and accepted.</p>
+<p>I had to return to the Northeast, so my work there ended. Many Mon abandoned their spirits and took refuge in the Triple Gem instead. After the Rains Retreat, the state of being rich or poor was no obstacle to spending the Noble Treasure for those with faith and wisdom. Therefore the Noble Treasure is more valuable than all worldly wealth.</p>
+<h3>25. Rains Retreats 18–26: Staying at Wat Arafiyawāsī, Tha Bo, Nong Khai Province (1939–1946)</h3>
+<p>Before returning, I went to pay respects and take leave of Ajahn Mun, who was staying the Rains Retreat at Wat Chedi Luang, Chiang Mai, also at the request of Somdet Phra Mahāvīraṅga. I invited him to return to the Northeast once more. Before the Rains Retreat, I had already invited him once, and he had mentioned that Chao Khun Thammachedi had also written to invite him. In truth, I had broached the subject and sensed that he might return, so I had suggested to Chao Khun Thammachedi that he write an invitation. When I asked again, "Teacher, will you return?" he said: "Consider the time." Then I said: "I ask permission to return now. I have been seeking seclusion here for a considerable time. Whatever good or bad, I can now test myself."</p>
+<p>I then wrote another letter to Chao Khun Thammachedi. For this return journey, a young boy was sent as my companion. Ajahn On Si remained to stay with Ajahn Mun. When I returned to Tha Bo, Nong Khai Province, I intended to train the group to be strict in practice. I did this for about 3–4 years, achieving about 20–30% results. At the same time, I led the group in regular chanting after evening homage. After chanting, we practiced chanting both Pāli verses and prose, and also chanted the Pātimokkha after the regular chanting. I produced many skilled chanters. Having seen the benefit clearly, I have continued this practice until today.</p>
+<p>Furthermore, after I had been back at Wat Arafiyawāsī for two Rains Retreats (1941–1942), I led relatives and laypeople to establish a center to the west of Ban Klang Yai. It became a permanent center where monks and novices have stayed every Rains Retreat without fail until today. Its current name is Wat Nirōdharaṅsī.</p>
+<p>During this period, Chao Khun Thammachedi was very interested in meditation and in Ajahn Mun himself. In truth, Chao Khun Thammachedi, when he was a novice before going to study in Bangkok, had been a disciple of Ajahn Sao and Ajahn Mun, but he had not been interested in practice. Later — perhaps at the time of the sīmā ceremony at Wat Phothisomphon — he became closely associated with both teachers. Now he was very interested, often asking me about the practices and characters of both teachers. Sometimes he even had me preach the Dhamma I had heard from them. When I presented the Dhamma of those teachers, he listened with respect, calm and silent, in a highly admirable way.</p>
+<p>Later, Chao Khun Thammachedi sent Ajahn Un Dhammadharo to invite Ajahn Mun from Chiang Mai, but it didn't work. He went and told Ajahn Mun about <em>je</em> (vegetarianism), causing a schism in the group. Ajahn Mun said: "Arahants don't quarrel over food or excrement. Why should we quarrel over such things?"</p>
+<p>When Chao Khun Thammachedi went to Bangkok on ecclesiastical business, after finishing he went on to Chiang Mai and invited him in person. Ajahn Mun said: "Ah — this is it. An invitation with a 'large letter' (meaning inviting in person)."</p>
+<p>I had the opportunity to stay at Wat Arafiyawāsī in Tha Bo for a long time — the first time for 9 years, unprecedented in my monastic life. Before, I had not been interested in construction, considering it a distraction and not the duty of a contemplative. A monk should only engage in monastic duties. But when I came to this temple, I saw that the lodgings were all inheritances from previous teachers. Then I thought about certain Vinaya rules that allow repairing and restoring lodgings. I felt ashamed: I was just sleeping and eating off the old things, guarding the original property of my teachers.</p>
+<p>After that, I began leading laypeople in construction until the present. But even so, wherever I have been, I have never solicited funds for construction. I am too ashamed. If there is money, we build; if not, we don't. And I never become attached to the work. If the work is unfinished and funds run out, I can abandon it without any regret. Here, I led laypeople to build two new <em>kuṭis</em> and one assembly hall, plus several small ones. Since I started wandering on tudong, I had never stayed in one place for three Rains Retreats until Tha Bo. Perhaps because I stayed so long, my neuralgia flared up. But I gritted my teeth and endured, hoping to benefit the group who wanted to study Dhamma practice.</p>
+<p>In 1946, my brother Ket came to stay the Rains Retreat with me. He passed away in the middle of that retreat from appendicitis. He had been ordained for 14 Rains Retreats, aged 48. Since his ordination, we had never stayed a Rains Retreat together. This year we were together — perhaps some divine sign. When he came to stay, I did not teach or preach to the laypeople; I just let him meditate and practice peacefully.</p>
+<p>That Rains Retreat, I had severe neuralgia. While preaching to the laypeople from the Dhamma seat, I didn't even know what I was saying, yet I could speak. When I finished, I asked the listeners: "What did I say? Did you understand?" They replied: "We understood well — no different from usual." One day, I had a dream vision: my brother Ket and I were walking on tudong together in the forest. We came to a stream and walked along it. The water was only waist-deep, but as we walked, our robes didn't get wet. I saw that the water was clear and pure, and I wanted to scoop it up to rinse my mouth. So I scooped it with my hand, put it in my mouth, and spat it out. Oh! The teeth in my mouth fell out with the water. I woke up thinking it was real, but when I felt my mouth, I knew it was a dream. I don't usually believe dreams are real. Dreams happen because we don't guard the mind — it wanders and we fall asleep, then we dream according to our moods. If we maintain mindfulness well, we won't dream at all. Even if we dream, we know we are dreaming, but we can't get up because the body hasn't moved; once the body moves, we can get up. The mind is not asleep. Dreaming means the mind is not asleep — it's wandering.</p>
+<p>Since I didn't believe in dreams, this time a vision appeared to my inner eye (the mind) before the full moon of the 10th lunar month, when people traditionally make merit called <em>Buat Salakapat</em> (Slakapat rice-offering ceremony). I had been sick for 4–5 days already, as described. This time it was severe — I couldn't get up. When I got up, I vomited. Lying with my eyes closed, if I opened them and saw the sky with clouds moving across the sun, my eyes would hurt and I would vomit.</p>
+<p>That day happened to be the Uposatha day. I couldn't preach, so they invited my brother Ket to preach. He preached for an hour and a half. The laypeople were astonished, never imagining he could preach so well. The next morning, my neuralgia disappeared. That day, around 11 a.m., they invited me to a meeting. Someone came to tell me that my brother Ket had a stomachache, so I returned. When I arrived, I just looked at him — I didn't know what to do, because we had no medicine.</p>
+<p>He had had this illness for over ten years. Sometimes he would take whatever medicine was available and recover. Sometimes without medicine, it would heal on its own. Once, he was sick at Ban Na Sida (our home village) for 5 days and nights, unable to sleep or eat. When he was about to recover, he inserted his finger into his anus and something came out — small lumps — and then he recovered.</p>
+<p>In those days, modern medicine was not yet widespread. When you had a stomachache, you took medicine for stomachache. No one knew what appendicitis was. If the pain was from food poisoning, indigestion, or wind, it would go away. If it was appendicitis, it wouldn't. Countless people died from appendicitis. My brother Ket's stomach pain this time was truly appendicitis, and there was no medicine. The pain was unbearable — he writhed, but I never heard him cry out. Finally, he said one sentence: "I can't endure this." He thought walking meditation might be more comfortable, so we supported him to walk. After about 4–5 steps, he collapsed. The monks and novices who were helping him saw this and laid him back down. I was very tired from watching over him for so long, so I asked permission from the others to rest. Just then, a novice came and called: "Venerable Ket is very weak — he's unconscious." I hurried over. He lay still, saying nothing. I gave him mindfulness, staying close and asking: "Can you hear me?" He said: "Yes." At around 8 p.m., he passed away.</p>
+<p>My brother Ket was extremely patient, both normally and when ill. He had not one illness but several: appendicitis, gallstones, and malaria. Especially the appendicitis — when it flared up, it would take several days to subside, but he never bothered anyone. When it was bad, he would just lie still alone. If he could eat, he ate; if not, he lay still. Normally he ate little anyway, and simply — he could live on rice and salt for over ten days. Every teacher praised him for his great patience. We performed his cremation, and after the Rains Retreat in 1947, my mother also passed away. That year, an ulcerous disease spread throughout the town. My mother got it on her leg. Everyone else recovered, but she didn't. No matter what good medicine we used, she didn't heal. The flesh rotted away until only bone remained, but she felt no pain.</p>
+<p>I was staying the Rains Retreat at Tha Bo District, Nong Khai Province. My mother was ill at Ban Na Sida, Tambon Klang Yai. My disbelief in dreams as being true disappeared instantly when I dreamt that my teeth fell out of my mouth. The next morning I predicted that I would have to travel that day. After returning from alms round, I saw someone waiting for me, saying my mother was seriously ill. Anyone who says dreams are nonsense and doesn't believe them — up to them. But I believe 100%. If you dream your teeth fall out of your mouth, either your father, mother, or a sibling will become seriously ill or die. If not, then someone very close to you.</p>
+<p>I nursed my mother with the Dhamma medicine and external medicine to the best of my ability, but her body was old and decrepit — she was 82. No matter what medicine we gave, it didn't help. She couldn't eat. She only declined, like an old leaf withering. But her mind — I cared for her, keeping her in great peace until the very end. When she had almost no breath left, I stopped giving her mindfulness.</p>
+<p>I fulfilled the duty of a superior son to the utmost. Normally, she regarded me as one of her teachers. When she needed anything, she would consult me. When I gave my opinion, she accepted it. When ill, I gave her mindfulness. Sometimes she didn't even need medicine — she would recover through faith and confidence in my teachings. At death, it was the same. Perhaps because of her confidence in my teaching, she felt no pain in her leg wound.</p>
+<h3>26. Rains Retreats 27–28: Staying at Khao Noi, Tha Chalaeb, Chanthaburi Province (1948–1949)</h3>
+<p>Before going to this mountain, I had already seen a vision of it while still at Wat Arafiyawāsī in Tha Bo, but I didn't believe it would be like that. Moreover, this mountain didn't seem secluded at all — it was a small mountain in the middle of a field, with villages all around its base. But it was very strange: whoever came to meditate there — monk, novice, or lay villager — would achieve amazing results, each according to their own ability.</p>
+<p>The strangest thing: there was an old man over 70 who lived on the mountain. He was a drunkard, drinking all day. People offered to hire him to serve the resident monk for 50 baht a month, but he refused. When I came to stay, he became faithful without any payment. He meditated and had wonderful visions. He quit alcohol and came to observe the Uposatha precepts. Everyone in the village respected him. When he entered anyone's house or shop, they would give him food for free. Seeing the benefit, he continued to serve the monks.</p>
+<p>Even stranger: a mute person from Tha Chalaeb also lived there. I taught him sign language to observe the precepts and meditate, to his great amazement. He then taught others in sign language about the danger of drinking alcohol. Meditating at home, he could see my form at the monastery. I heard that this man is still alive, and he has built his own monastery, inviting monks to stay and practicing himself.</p>
+<p>As for myself, I felt very strange: I discovered Dhamma I had never thought of and knew Dhamma I had never known. I understood methods and practices thoroughly, to the point that I could establish a practice path with confidence. I then wrote my first book, <em>A Guide to Tranquility and Insight</em> (Somatha Vipassanā).</p>
+<p>I practiced there for two Rains Retreats, exactly as I had determined. After the second retreat, I heard that Ajahn Mun was ill. So I left Khao Noi, recollecting its great qualities. I went to visit Ajahn Mun until his passing, then performed his cremation. After that, I did not return to Khao Noi, even though people had offered to support me very well if I returned. I only sent monks there, uncertain of myself.</p>
+<h4>26.1 The Worry of an Overthinker</h4>
+<p>After Ajahn Mun's cremation, I reflected on the group. Before, our group was not large and not widely known. Moreover, senior monks who were our refuge, such as Chao Khun Upāli Guṇūpamācārya (Chan Sirichantho), were still alive. If any ecclesiastical matter arose, he would take it on. After he passed away, Somdet Phra Mahāvīraṅga (Uan Tisso) took over. When he passed away, Ajahn Mun Phurithatto was well-known and respected by many senior monks. Now Ajahn Mun had also passed away. Only we remained.</p>
+<p>Among us, there were only a few that senior monks knew and who would seriously take on responsibility for the group. From now on, Ajahn Mun's disciples would become more and more well-known (but I was foolish — I didn't realize that those still alive would become senior monks with great ability themselves. This worry may have been misguided). Anyway, I decided to go to Bangkok. If I had the opportunity, I could meet with senior monks and hear their opinions and methods regarding our group.</p>
+<p>I set out and stayed at Wat Ban Jik in Udon Thani. When I stayed together with Ajahn On Ñāṇasiri at Wat Thipphayarat in Udon Thani, Ajahn On understood that I was fleeing the group to save myself. I explained all the facts to him, and he understood my meaning. That Rains Retreat, I learned that Ajahn On himself went to stay at Tham Khao Yoi in Phetchaburi Province. I don't know if he understood what I had said.</p>
+<p>When I went to Bangkok, I had the opportunity to pay respects to several senior monks and came to understand their views on our group reasonably well. This gave me confidence in myself and the group. But I still wanted to see the practices and methods of famous centers — in Ratchaburi and Phetchaburi, for example. So I traveled to request to stay and study at those centers, all the way to Songkhla Province.</p>
+<p>At that time, Phra Khun Siri Tedhōdom (Amphan), a former district chief who had previously stayed with me, had gone to spread Dhamma practice in Phuket and Phang Nga. Later, Phra Maha Pin Chālito (Phra Khru Wirot Dhammācārya), a native of Nakhon Pathom who was not of our group, went to help publicize it, causing such excitement and fanfare that it exceeded bounds. This caused splits and factions. Maha Pin could not control the situation, and the group had no leader. When he heard that I was staying in Songkhla, he came to ask our group to help resolve the situation.</p>
+<h4>26.2 First Visit to Phuket Island and a Serious Adventure</h4>
+<p>In those days, most people imagined Phuket Island as a remote land abundant with resources, full of millionaires.</p>
+<p>Moreover, the people on the island — apart from businesspeople — might not have seen much of the outside world. In truth, this was about 30% accurate, because transportation was not convenient. Mostly, people crossed to Phuket by boat. I remember the first time I crossed to Phuket, I went by plane, flying from Songkhla to Phuket. On our flight, there were two monks and one layperson. On the return flight from Phuket to Songkhla, there was only one passenger.</p>
+<p>Furthermore, there were only a few Northeastern workers. People in that region were afraid of Northeasterners as if they were giants or tigers, because they had heard rumors that Northeasterners were dark-hearted and cruel, that they killed and ate children. After we had been there for one year, Northeastern workers flocked there in groups, walking in long lines along the roads. Townspeople stared at them. Those on the outskirts or in the countryside would run into their houses when they saw them — if in the forest, they would flee into the forest. I didn't see this myself — people told me.</p>
+<p>Regarding wealth and poverty, Thai people in all regions are probably not more than 5% different. The most pitiful thing about Phuket people was that the poor wanted to make themselves equal to the rich — that was a problem. When I first went to Phuket, besides not being excited, I encountered a danger of a different kind. With about ten days left before the Rains Retreat, a group of people together with a group of monks conspired to prevent us from staying. They used various methods: they set fire to our lodgings, put poison in our food, threw bricks, forbade people from offering alms. Sometimes when we went on alms round, they would try to run into us. We were guests in their territory, so we went to their leader and asked to stay just one Rains Retreat, since it was almost the retreat. He refused, even calling us wandering monks. No matter how I explained and gave reasons, he insisted we could not stay. Finally, he said: "The senior authorities won't allow it" (meaning senior authorities in Bangkok). So I said directly: "If you have senior authorities, I have senior authorities too." Later I learned that this was a serious challenge: they said, "If the Dhammayuttika monks can stay the Rains Retreat in Phuket–Phang Nga, I'll wear pants!" That sounded frightening.</p>
+<h3>27. Rains Retreat 29: Staying at Khok Kloi, Phang Nga Province (1950)</h3>
+<p>In the end, the laypeople who respected us arranged lodgings for us to stay the Rains Retreat. That year, about 15 monks and novices followed me, plus those already there — 18 total. We split into three places: one in Takua Thung, one in Thai Mueang, and one here at Khok Kloi, where I stayed.</p>
+<p>This Rains Retreat, besides the waves on the surface constantly affecting us, there were also underwater waves — that is, from fellow Dhammayuttika monks. They made a fuss, saying we had no Dhamma and Vinaya to follow, that we deviated from the texts, that we didn't hold Uposatha and Saṅgha acts in the <em>bot</em>. "If anyone wants to become an arahant, go see Ajahn Thate!" (Perhaps this was to mock disciples who had fled to us, because after the Rains Retreat in the South, it was hard to find monks to stay and guard the temples.)</p>
+<p>If that was truly their view, for a newly ordained monk with no education it wouldn't be strange. But for a monk with many retreats and reasonable education, it was pitiful — they had only study, not practice. As for me, I had practiced continuously since my first Rains Retreat. The matter of not allowing us to stay was not yet settled. I heard that it had gone up to the religious committee as a complaint that we were wandering monks causing division and unrest. An order came to record our travel documents for investigation. But the provincial education officer didn't dare come himself; he sent the district education officer to request the records. When I asked for the written order, there was none, so I refused. I then explained the ecclesiastical administrative procedures to him thoroughly.</p>
+<p>After he left, I don't know what they did. Later I learned that the Ecclesiastical Governor of the Region had sent a long letter of admonition to the Provincial Ecclesiastical Governor and the Provincial Governor.</p>
+<p>What I have related is just a small part of my first year's experience in Phang Nga Province. If I told everything, the reader might get bored with trivial matters. People born into this world — whatever they do, good or bad, leading to decline or progress — all must face obstacles. Achieving one's goal depends on thoroughness, patience, and finding reasons to solve problems. Without that, success is impossible. And obstacles actually give strength to accomplish things more quickly. Especially the Dhammayuttika order — wherever they are, whatever they do, there are always obstacles. Yet they mostly succeed.</p>
+<p>I would like to illustrate with the fable of the fox and the lamb: "Hey, why are you muddying my water?" "Sir, I am not muddying your water — I am walking downstream." "Well, even if you didn't muddy my water, your father did me great wrong." Then he pounced and ate the lamb. <em>Evaṁ</em> (thus it is).</p>
+<p>After the Rains Retreat, I began building one abbot's <em>kuṭi</em>, a wooden house, but it wasn't yet finished.</p>
+<h3>28. Rains Retreats 30–42: Staying at Phuket (1951–1963)</h3>
+<p>On Chinese New Year's Day of that dry season, Khun Ying Luwun, wife of Luang Anuphat Phuketkan, a mine owner of Chao Fa, invited me to Phuket. Together with Phra Maha Pin and four other monks and novices, we went. We waited for the right time and searched for a place to establish a center until we succeeded. I returned to Khok Kloi where we had stayed the Rains Retreat, leaving Maha Pin to supervise the construction until it was finished. Then I went to stay the Rains Retreat. That year, we stayed together — four monks and one novice — at the foot of To Sae Hill, next to the Provincial Hall.</p>
+<p>Initially, we built small huts of thatch, enough to replace our umbrella-tents and mosquito nets, except for the abbot's <em>kuṭi</em>, which was slightly larger. We built on a thick stand of <em>kha</em> grass, on the slope of To Sae Hill behind the Phuket Courthouse. Khun Ying Khae had negotiated to buy 4 rai from the owner, Mr. Bowon, a mineral trader, for 1,000 baht. The land had originally been a coconut plantation of an old millionaire, abandoned for a long time. Mr. Bowon had bought it to mine for minerals, but finding none, he sold it to Khun Ying Khae. But she had bought too little, so we bought an additional 4 rai for 4,000 baht.</p>
+<p>This place was originally a dense thicket of <em>kha</em> grass, with various wild animals — tigers, black panthers, deer, barking deer, wild boar, and monkeys. We built small <em>kuṭis</em> and a small area just big enough to sweep around. We made paths to visit each other. At night, when we opened our <em>kuṭis</em> to go to each other, tigers would jump into the forest with a crash. Sometimes in the evening, sitting and drinking tea, we would hear a tearing sound from the forest as if we could almost see the animal. Even in broad daylight, they would snatch dogs and cats. Fortunately, these tigers were not aggressive. Tigers stayed as tigers, people stayed as people. The people of Phuket didn't even know the sound of a tiger. I had traveled in forests extensively — I knew all about tigers.</p>
+<p>We stayed on Phuket Island for 15 years, never returning to stay a Rains Retreat in Phang Nga again. But Phang Nga, as well as Krabi — these three provinces were all under our care, like one monastery. We had the same rules, practices, and regulations. Whatever monk or novice, in whatever center, if they needed anything essential, we would share and help according to what we had. If there was work at any center, we would all work together harmoniously. If any offerings arose, we would offer them together to support that center. Offerings given to individuals were put into a common fund. Even as the preceptor, offerings given to me personally I offered to the common fund — and still got criticized! But we were not distressed, having no money in our pockets. The laypeople took excellent care of us. Even for train fares, they arranged everything. There is no other place like this. Since my ordination, I have never had such convenience. Therefore, I thank the people of Phuket–Phang Nga who supported us.</p>
+<p>During this period on Phuket, I tried to do only good, both for myself and for the community. I contacted every local ecclesiastical head, and they gave us excellent cooperation. Whenever any business arose, we often consulted together and understood each other well. Each Rains Retreat, we took our group to offer homage to all the senior monks — every year without fail — unlike in Phang Nga. Even in Phang Nga, some people sent word to me: "They don't dislike your group — they only dislike Maha Pin." It seems that Maha Pin spoke too boldly, forgetting himself. When people flattered him, he became proud. Such a person cannot be relied upon. As the Northeastern saying goes: "Whoever relies on such a person will have no spoon to ladle their curry."</p>
+<p>As for the laypeople, we tried to train them in Buddhist customs, setting an example, teaching them to observe the Uposatha precepts not only during the Rains Retreat but also outside it. We supported those monks who taught, helping them become more stable. Moreover, we trained in meditation every night, enabling them to achieve results according to their faith.</p>
+<p>Furthermore, our friends from the Northeast, being of the same group, gradually followed us down. Young men from the locality also gained faith and ordained. Many Dhammayuttika monks in the South who were inclined toward practice came to train with us. We expanded centers to Krabi Province as well. In these three provinces, we had 11 centers where we stayed the Rains Retreat. In one year, the total number of monks and novices averaged over 100 — double the number of monks and novices in Mueang Phuket District when we first arrived.</p>
+<p>As our group grew, I arranged for Naktham (Dhamma studies) to be taught at each center. At exam time, we gathered together to take the exams. The first year, we sent them to take the exam at Wat Mahathat in Nakhon Si Thammarat Province. The following year, we requested permission to hold the exam at Wat Charoen Somnakit in Phuket itself. Students from all three levels came — no fewer than 60 each year — and they scored well. Mahamakut Buddhist University raised the status to second level.</p>
+<p>Seeing the value of having both study and practice together in Buddhism, I have continued that approach until today. We struggled with various obstacles for 15 years to carry out religious activities for our own benefit and for the community, to honor the wishes of the Phuket–Phang Nga laypeople, who were very kind to us. At least they saw the true face of the Dhammayuttika order and of Ajahn Mun's disciples. It is said that the Dhammayuttika order had tried to establish itself in Phuket several times before, without success. Not to mention Ajahn Mun's name — even his disciples had never ventured into Phuket. Our group's establishment of centers and building of permanent monasteries was unprecedented for both the Dhammayuttika order and Phuket Island. And I am proud that we repaid our debt to the Phuket–Phang Nga people, who never demanded repayment.</p>
+<h4>28.1 My Worry Becomes Reality</h4>
+<p>My worry about administering the group, mentioned earlier in section 26.1, became reality. That is, before going to the South, I had contacted senior monks in Bangkok to make them aware of us. Then I went to the South and made the acquaintance of every ecclesiastical head, until I went to stay on Phuket Island. Indeed, Phuket had long been famous. Anyone who went there would become very wealthy. People gossiped that I had become immensely rich. In truth, it was not so.</p>
+<p>I stayed on Phuket for 15 years and had nothing. Every single coin and every offering was put into the common fund and spent on construction. We had only a few buildings. Since returning to the Northeast less than 10 years ago, we have countless buildings — the <em>bot</em> is finished, the two-story assembly hall is complete.</p>
+<p>I do not say this to disparage the people of Phuket–Phang Nga, but to refute the notion that I became rich. The people of Phuket–Phang Nga treated us excellently, as described — no place treated us better. But they are not accustomed to building monasteries. That is good, because lavish buildings cause worry — going anywhere, you are concerned. When I fled from Phuket, I had nothing to worry about. I only pitied the laypeople who had served us. After I fled, I gave over 100,000 baht to Phra Khru Sathit Bunyārak (Bun), who used it to build a <em>bot</em>. It took 4–5 years to complete — also unprecedented.</p>
+<p>For monks in Phuket–Phang Nga to build a <em>bot</em> on a hillside that had to be leveled first, and to complete it in only 4–5 years — unheard of. Moreover, our group's coming to Phuket caused senior monks in Bangkok and the general public to take more interest in our group. But as for me personally — nothing, neutral. The various obstacles mentioned were normal; I had encountered countless before.</p>
+<p>At that time, Wat Mahathat Yuwaratrangsarit in Bangkok was establishing a Burmese-style meditation method — "rising–falling" — and publicizing it widely. They did not go to the forest but stayed in houses and temples. Many people reached stages. Some even became stiff and numb. At the same time, Wat Ratchapradit, Wat Bowonniwet, and other temples had established groups of Ajahn Mun's disciples who had been practicing for over 50 years but never publicized.</p>
+<p>When one side publicizes and the other doesn't, the latter naturally becomes known as well — but without the noise. That is to say:</p>
+<p>In 1951, the Ecclesiastical Governor of the Region (Dhammayuttika) invited Ajahn Singh Kanthayāgamo to teach meditation to Buddhists in Phetchaburi.</p>
+<p>On 5 December 1952, I received an ecclesiastical title.</p>
+<p>Worldly conditions (<em>lokadhamma</em>) overpower everyone, whether we take them as masters of our hearts or not. Using worldly conditions beneficially is also good. Before, when friends and others saw me, they saw me as just a forest monk — and I liked being a forest monk. But after I received a position and title, they gave the title Phra Khru Ñāṇavisit to Ajahn Singh, and also requested one for me. But mine fell through because I still had no permanent monastery according to the Saṅgha Act.</p>
+<p>On 30 May 1953, I was appointed a preceptor (<em>upajjhāya</em>), and at the same time appointed as the District Ecclesiastical Head of Phuket–Phang Nga–Krabi (Dhammayuttika).</p>
+<p>On 5 December 1955, I received the royal ecclesiastical title of Phra Khru Nirōdharaṅsī.</p>
+<p>On 16 June 1956, I was made acting Provincial Ecclesiastical Head (Dhammayuttika) for Phuket–Phang Nga–Krabi, as well as Director of Dhamma Studies for those three provinces.</p>
+<p>On 5 December 1957, I received the royal ecclesiastical title of <em>Phra Rāchanikhun</em> (Royal Monk) of the ordinary class, in the Vipassanā division, as <strong>Phra Nirōdharaṅsī Gambhīra Paññācārya</strong>, together with Ajahn Singh Kanthayāgamo (Phra Ñāṇavisit Samiddhi Virācārya) and Ajahn Lee Dhammadharo (Phra Sutthidhamma Rangasī Gambhīra Medhācārya).</p>
+<p>On 20 August 1964, I was appointed Provincial Ecclesiastical Head for those three provinces.</p>
+<p>On 28 November 1965, I requested to resign from both ecclesiastical positions, retaining the title as honorary.</p>
+<p>This may be considered unprecedented: a Vipassanā monk receiving the title of Royal Monk — second only to Chao Khun Vipassanā Kosol Thera of Wat Phasicharoen. Before, there were only names, no actual holders, as can be seen from the titles of senior monks with suffixes like "Forest Dwelling." After that, many meditation masters in Ajahn Mun's lineage received titles.</p>
+<p>Regarding titles for meditation monks, I did not want them to have them, because they are not suitable — especially for Ajahn Mun's disciples. I had written private letters of objection to senior monks, and also objected in person, citing what is suitable and unsuitable. It's like hanging diamond jewelry around a monkey's neck — what would it feel? But that is my personal view. It's not certain — some monkeys, when adorned with diamonds, might think they are human. In the end, they pleaded for the sake of ecclesiastical administration, and I agreed.</p>
+<p>I was born into this vast world and have the right to live freely. But everyone, regardless of status, when seen now, people call out my name and greet me everywhere. Whatever business I need to do, it's convenient. Therefore, a title increases both burden and honor. I do not think it suitable for a monk who desires peace in the forest.</p>
+<p>The first 2–3 years on Phuket were fine — my health was acceptable. But in later years, the climate did not agree with me. It is the nature of my wandering sickness: wherever I stay, my health is normal for no more than three years; after that, it changes. And I never intended to stay on Phuket forever. I had told this to my friends and laypeople from the first year I arrived. Yet I stayed for 15 years solely because of the requests of senior monks and laypeople.</p>
+<p>In 1964, I asked to take leave of the Phuket–Phang Nga–Krabi people, with great compassion for their tear-streaked faces. All the centers where we had invested our physical and mental energy, using the materials and funds of the Southern people to build permanent objects — I left them all as inheritance to the Southern people, along with my honorable positions. I ask that all the Southern people who supported us experience happiness, prosperity, honor, gain, long life, complexion, and happiness — may they be complete in every way. May the monasteries and centers long endure and prosper for the benefit of all.</p>
+<h3>29. Rains Retreat 43: Staying at Tham Kham, Phanna Nikhom District, Sakon Nakhon Province (1964)</h3>
+<p>When I left Phuket and laid down that burden, I intended to seek seclusion and peace according to my original nature. Traveling to visit Ajahn Fan Ācāro in Phanna Nikhom District, I saw Wat Tham Kham and liked it. I asked to stay the Rains Retreat there for one year. Although the monastery area is not very large and the mountain is not very high, the climate is very good.</p>
+<p>Ajahn Fan is diligent. After each Rains Retreat, he leads laypeople to build a path up the mountain every year, almost to the peak. The laypeople are delighted. If Ajahn Fan calls for work, no matter how busy they are with personal affairs, they drop everything. Those who go up, even though they are exhausted and out of breath, after resting for 5–6 minutes at the temple, the climate restores their energy, worth the effort.</p>
+<p>Some people say: "You don't need to look for any place or climate — it's all in yourself. If you make yourself secluded, that's enough." That is not true. The four favorable conditions (<em>sappāya</em>) are truly a power for practice. If you don't make yourself like a wild pig, then changing places means changing atmosphere and mood. A wild pig and a domestic pig are very different. Even their food and behavior show the opposite.</p>
+<p>This Rains Retreat, I practiced fully, because the laypeople and the monks staying with me were all disciples of Ajahn Fan, already well-trained. I had no responsibility to train them further. Having the opportunity to practice continuously without interruption, knowledge and methods specific to myself arose wonderfully. I didn't need to sit with closed eyes to meditate — whether sitting anywhere, at any time, it was meditation automatically. Investigating myself, others, and the scenery gave rise to Dhamma understanding. Past objects — whether pleasant or unpleasant — old perceptions would bring them up for review, all leading to spiritual urgency.</p>
+<p>After the Rains Retreat, Ajahn Khao led his group of disciples up to visit. He also liked it. He even asked me to go stay at Tham Klong Phlae instead, and he would come stay here. But I had laid down my burdens and did not want complications. Not long after, I was invited to a funeral merit ceremony in Udon Thani. I took the opportunity to visit Tham Klong Phlae for the first time, but I didn't like the climate (the original place is behind the cave). After the ceremony, I left Udon Thani and came to stay at Wat Pa Phra Sathit, Si Chiang Mai District, with Ajahn Bua Phā Paññābhāso. Then I took a boat to stay in seclusion at Hin Mak Peng with Phra Khamphan.</p>
+<h3>30. Rains Retreats 44–51: Staying at Hin Mak Peng (1965–1972)</h3>
+<p>Hin Mak Peng is widely known in this region for its extreme cold, as the saying goes: "If you don't have a blanket, don't go to sleep at Hin Mak Peng." In this area, Hin Mak Peng is colder than anywhere else in winter. It has fierce ghosts and is home to many wild animals — tigers, bears, ghosts, etc.</p>
+<p>About 40 years ago, when people came by boat to this area, they would become completely silent, not even wanting to look up at the bank. It was a place of seclusion because of people's fear — few dared to enter. Meditation monks would come to stay in seclusion to test their willingness to sacrifice. Any meditation monk who could stay here gained confidence in themselves as courageous and self-reliant, and their peers accepted them as truly brave.</p>
+<p>It is also well known to police: when people became dense, wild animals gradually disappeared. Later, it became a crossing point for smuggling goods and stealing cattle. When cattle were stolen or there was news of smuggling, officials or owners would come to lie in wait here. The nearby villages of Khok Suak and Phra Bat and Huai Hat also gained a bad reputation.</p>
+<p>Moreover, when old historians get together, they often talk about Hin Mak Peng, saying that the kings of the three cities would develop Hin Mak Peng because of the three stones lined up along the Mekong (in truth, they are one continuous reef, but from a distance appear as three). The northern stone belongs to Luang Prabang, the middle to Bangkok, the southern to Vientiane. I found this amusing. Who would come to develop it for what purpose? It was thick, dense forest, home to wild animals — even after 40 years.</p>
+<p>At the end of 1964, I came to this place for the first time. I still saw and heard barking deer and partridges calling. Large monkeys still dared to climb branches to give me a last sight. Such climate and scenery seem rare. When I saw it, I liked it, and I intended to stay the Rains Retreat with Phra Khamphan.</p>
+<p>In my heart, I thought I would stop all construction and all responsibilities. But others might see this as misguided. In truth, I felt that I had done enough construction, administration, and receiving guests. It was time to stop and hurry to practice, preparing for death. My age was such — I didn't know when death would come. So I said to Phra Khamphan: "I have come to rest with you. Let construction and everything else be your responsibility. If you want to study and train in practice, I will gladly advise you." He accepted and was glad, but said: "I have no ability to find funds for construction. If there are funds, I can take on the responsibility." I told him: "Maybe there will be — I'm not sure. But I won't seek them. If people give, we take; if not, so be it."</p>
+<p>After the Rains Retreat, Mrs. Tim (an auto parts shop owner in Vientiane), Father Lee and Mother Pao (from Ban Khok Suak), Mr. Prasop, Khun Nitisan, and relatives (from Udon Thani) had faith and came to build wooden <em>kuṭis</em> to offer, each costing about 5,000 baht (all <em>kuṭis</em> in the monastery are built in traditional Thai style). Mrs. Nuay built a <em>kuṭi</em> dedicated to Mrs. Bua Thaew Malaikrong, costing 10,000 baht.</p>
+<p>In 1966, laypeople from Bangkok came by boat to visit. Seeing the place and the monks' living conditions, they were pleased and faithful. They raised funds to restore and build a two-story Thai-style wooden assembly hall. The lower floor has a veranda on three sides, cement floor level with the interior. The upper floor is 17 meters long and 11 meters wide. The lower floor is 19.50 meters long and 16 meters wide. It was completed on 20 July 1967, costing about 80,000 baht (84,763 baht). Most of the labor was done by the monks and novices themselves. Phra Khamphan fell ill with eye trouble and fled for treatment, never returning. That same year, again from Bangkok laypeople's funds, we built two more <em>kuṭis</em>. Mr. Sakchai and relatives from Phang Khon Market, Phang Khon District, Sakon Nakhon Province, built one <em>kuṭi</em> costing about 7,000 baht. We also built four toilet rooms with monastery funds.</p>
+<p>In 1968, we built a reinforced concrete rainwater tank behind the assembly hall, 11 meters long, 3 meters wide, 1.80 meters high, costing 15,000 baht.</p>
+<p>In 1969, we built a two-story <em>kuṭi</em> on the Mekong riverbank with funds from Khun Ying Sap Srīmukti (Bangkok) — 15,000 baht — plus monastery funds. Total cost about 70,000 baht. Then we built a brick wall enclosing the basement, about 2,000 baht from monastery funds.</p>
+<p>Also, Kimkai (Mr. Thanēt Iatsakun) from Nong Khai built a wooden <em>kuṭi</em> costing about 20,000 baht.</p>
+<p>That year, we re-roofed the large Buddha hall with funds from Mae Lian Srīsūnthorn (Sakon Nakhon) and Mr. Kim Seng (Vientiane), about 3,000 baht. We also built a pavilion at Ban Chi, costing about 20,000 baht from monastery funds.</p>
+<p>In 1970, Mr. Wisit Wongsuwan of Wong Thong Rice Mill built a wooden <em>kuṭi</em> costing 20,000 baht. That year, a strong storm broke a tree that fell on the western veranda of the assembly hall, causing 20,000 baht in damage, for which the government kindly provided assistance.</p>
+<p>That same year, we built two reinforced concrete rainwater tanks: one at Ban Chi, 3m x 6m x 2m; one at Kimkai's <em>kuṭi</em>, 5m x 4m x 1.20m. Both tanks cost 20,000 baht from monastery funds. We also built a brick wall in front of the assembly hall, costing 5,336 baht.</p>
+<p>After the Rains Retreat that year, 30 student monks and ecclesiastical administrators from Nakhon Ratchasima came to train in meditation here for 5 days. In 1971, the monastery built another wooden <em>kuṭi</em> with monastery funds, about 20,000 baht. We built four more toilet rooms at Ban Chi, two for guests, and one guest house — all with monastery funds. We built a reinforced concrete rainwater tank in front of the <em>bot</em>, 10.40m x 5m x 2m, costing about 30,000 baht from monastery funds.</p>
+<p>Around 5 July, before the Rains Retreat, I fell ill. At first it was a combination of flu and bronchitis, which I already had. A doctor from the tobacco plantation at Ban Mom treated me, but my condition did not improve. Dr. Tavinsri Somrakraisornkit, Assistant Director of Nong Khai Hospital, together with Khun Thawon, the Provincial Treasurer, brought a car to take me to Nong Khai Hospital. The doctors treated me for five days, but I did not improve. An X-ray showed water in the pleural cavity and a small abnormality in the lungs.</p>
+<p>Khun To Khowintha telegraphed Professor Dr. Udom Posakrisana. When Dr. Udom heard, he had me invited to Bangkok, and he waited to receive me at Siriraj Hospital. Since there was no specialist in this disease in Nong Khai and the equipment was inadequate, it was necessary to go to Bangkok.</p>
+<p>Kimgai, together with Dr. Somsak, Director of Nong Khai Hospital, took me by plane to Siriraj Hospital. I became a patient of Dr. Udom Posakrisana, with Dr. Theera Limsila as my attending physician. All the doctors treated me excellently. They drained a large amount of fluid from my chest cavity.</p>
+<p>In the first week, my condition improved progressively. But in the second week, I began to react to the medication, and other symptoms intervened. Perhaps because I have never been comfortable in buildings — I don't know. After lying in the hospital for a long time, my condition deteriorated — my breath became weak, my voice faint, almost inaudible. The doctors drained more fluid from my chest. My body felt slightly lighter, but the weakness did not improve. So I asked the doctors for permission to leave the hospital. They asked me to stay longer, but I could not stay. I left the hospital on 15 August 1971.</p>
+<p>At this point, I saw the danger and felt great disenchantment with the body. Because of this body, I had become ill, causing suffering to myself and others. The tiny amount of food I ate each day — what use was it? I thought and decided: "Today, don't eat." I told Khun Kanthat Ratphayong, who regularly offered my meal: "Don't bring food today — I won't eat." Khun Kanthat cried and told Dr. Chawadee Rattaphong. Dr. Chawadee then invited Dr. Rote Suwansutthi to come, as Dr. Udom was on official business in another province.</p>
+<p>I told the doctors about my illness and the fact that I am not comfortable in buildings. Dr. Rote then allowed me to leave and arranged a car to take me to Khun Kanthat's house for three nights. Before leaving the hospital, Dr. Banyat Parichayānand came to examine me and gave advice on treatment. Dr. Rote and Dr. Chawadee followed me, treating me and offering medicine daily. My condition gradually improved.</p>
+<p>I considered myself and saw that I would not die yet — although to others it may have appeared otherwise. Some fortune-tellers even predicted that I would die within five days. When Professor Dr. Uay Ketusingh visited me, I asked his opinion: "I want to return to the monastery. What do you think, doctor?" Dr. Uay answered: "The sooner you return, the better." I was surprised and glad to be able to return to the monastery. I thought: if I die, I would rather die at my own monastery — more suitable for a monk.</p>
+<p>That day, Kimgai chartered a special plane to send me. Monks and laypeople came to see me off, filling the plane. We reached Nong Khai airport around noon. The Mekong was flooding over its banks, so we had to borrow a boat from the Royal Thai Navy at Ban Kong Nang to take us to Wat Hin Mak Peng. We arrived around 5 p.m. Dr. Chawadee followed, continuing to treat me at the monastery, staying about 5–6 days to monitor my fever and give medicine. Seeing that my condition had improved and was safe, she returned to Bangkok.</p>
+<p>This illness, from entering Nong Khai Hospital to Siriraj Hospital — monks, novices, and laypeople, both those I knew and those I didn't — all showed great concern and kindness toward me. As seen when I was at Nong Khai Hospital, monks, novices, and laypeople came to visit me in crowds every day. Especially at Siriraj Hospital, so many came that the doctors forbade visits. Some came to visit, couldn't see me, and just bowed outside. It was very strange: I hardly knew people in Bangkok. Why, when I was ill, did so many come to see me? Some, upon seeing me — even though they had never seen my face before — would cry, tears streaming, before even bowing.</p>
+<p>Therefore, I record the compassionate hearts of all those people toward me in my memory for all time. Those most pitiable and most thanked are those who came to visit and those who helped care for me at Wat Hin Mak Peng. Some returned after going back. At that time, travel back and forth was very difficult, requiring long-tail boats as transport, as it was the flood season and roads were cut. Sometimes they had to sit in the boat for 3–4 hours. Very pitiful.</p>
+<p>When I arrived at the monastery, my general condition gradually improved. People who respected me came to visit. This Rains Retreat, I allowed myself to break the retreat because I returned too late.</p>
+<p>This illness was very beneficial to my meditation. As soon as I reached Nong Khai Hospital, my condition only worsened. So I prepared for death immediately, sacrificing every way. I told myself: "Your body and illness — entrust them to the doctors. You prepare to die. Collect your mind, establish strong mindfulness, and cleanse your mind to be pure." After that, my mind was calm and comfortable, free from all disturbance. When the doctors asked about my symptoms, I just said: "Comfortable."</p>
+<p>Kimgai came to take me by plane to Bangkok. I agreed. Even at Siriraj Hospital, when doctors asked about my symptoms, I said: "My symptoms are comfortable as usual" — though outsiders saw the opposite.</p>
+<p>When I stayed in the hospital for many days, I became annoyed. Day and night seemed endlessly long. I then recollected my earlier decision to sacrifice death: "I already agreed to die, didn't I? Why then get involved in such matters? Those things are just the functions of time and conditions. Death has nothing to do with them. Each has its own function until the end."</p>
+<p>At that point, my feeling of having sacrificed everything became peaceful in the present Dhamma, to the point that I had no sense of day or night — only the bright radiance of the mind, peaceful alone.</p>
+<p>Later, examining my body and mind, I saw that I would not break up yet. If I stayed here, my sense bases still function, necessarily contacting external objects. When contacted, I would have to use concentration and wisdom to fight. "Enough — I will go back and fight at my own battlefield (the monastery)." So I returned, as described.</p>
+<p>In 1972, we began construction of the <em>bot</em> (ordination hall). Details will be given in a separate chapter. While building the <em>bot</em>, we also built another pavilion at Ban Chi — a two-story wooden building with concrete posts, small corrugated tile roof, 4m wide, 9m long. The lower floor has a veranda around, 4m on each side, with cement floor level with the interior. Cost about 70,000 baht from monastery funds.</p>
+<h3>31. Rains Retreats 52–53: Arranging Lodgings at Wang Nam Mok (1973–1974)</h3>
+<p>We helped move the old school buildings from Ban Khok Suak and Ban Phra Bat to a new site, building a four-classroom wooden building with concrete posts, costing 80,000 baht, but it is not yet finished due to lack of funds.</p>
+<p>In 1974, we began connecting the new building to the old one, making it continuous, and partitioned a room for the head teacher. Below, we built a reinforced concrete rainwater tank 7m long, 6m wide, 2m high.</p>
+<p>While moving the school, we also arranged lodgings at Pa Wang Nam Mok, about 6 km west of Wat Hin Mak Peng, as a secluded place for those wishing to practice meditation. That place still has forest, mountains, caves, and streams — good seclusion — to preserve the natural forest condition.</p>
+<h3>32. Rains Retreat 54: Building Wat Lumbini (1975)</h3>
+<p>A layperson donated land in Lumbini subdistrict, about 3 rai. Others bought more, totaling about 11–12 rai. This became another secluded place.</p>
+<p>Wat Lumbini is no less than Wang Nam Mok, as its boundaries touch rivers on all four sides. It was built for those who want seclusion, since Wat Hin Mak Peng is sometimes not peaceful.</p>
+<p>Since 1974, I have noticed that people from the Central Region have become increasingly interested in associating with monasteries in the Northeast. Our monastery has also received more Bangkok people.</p>
+<p>In 1975, Somdet Phra Ñāṇasaṅworn supported foreign monks who had ordained at Wat Bowonniwet to go study Dhamma at various monasteries in Thailand and sent several to stay the Rains Retreat here. They were all interested and practiced diligently.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="Chapter_6.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">6</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">Chapter 6</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../autobiography.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Autobiography">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Autobiography</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="Chapter_8.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">8</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">Chapter 8</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

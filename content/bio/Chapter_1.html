@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../autobiography.html" class="group flex justify-center items-center" title="Return to Autobiography">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="Chapter_2.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(2)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <p><strong>Autobiography 01</strong></p>
+<p><strong>Phra Nirōdharaṅsī Gambhirapaññāvisiṭṭha</strong><br />
+<strong>Luang Pu Thate Desaraṅsī</strong><br />
+<strong>Wat Hin Mak Peng, Si Chiang Mai District, Nong Khai Province</strong>  </p>
+<hr />
+<p>Most biographies are written by other people, or when the person themselves is no longer alive, having passed away. When written, they often elaborate on that person's good deeds according to the conventions of biographical writing, as you might hear in a eulogy at a funeral. Sometimes, even though we may have known that the person did evil things, it is nevertheless considered the etiquette of respectable people and the custom of biography writing to do so.</p>
+<p>The etiquette of a good person is summarised in four principles:</p>
+<ol>
+<li>The faults of others are many. If asked, do not speak of them, or speak little.</li>
+<li>The virtues of others are few. If asked, speak of them at length.</li>
+<li>One's own faults are few. If asked, speak of them fully.</li>
+<li>One's own virtues, even if many, if not asked, do not speak of them. If asked, speak of them little.</li>
+</ol>
+<p>I am a person who values truth. Therefore, I do not wish anyone to write my biography after I die. It is better that I know my own story and write it myself. After death, others will write according to their own preferences. If they dislike me, they will write according to their aversion. Sometimes, disliking someone for trivial reasons, they might describe my faults at great length, exceeding the truth. Conversely, if they love and favour me, they might write praising and flattering me to an extraordinary degree, also beyond the truth.</p>
+<p>In truth, this autobiography was first written for myself, to read as a celebration of my life under the yellow robe. I never intended to have it printed and distributed, because I felt greatly ashamed of myself. An autobiography is essentially self-promotion. Even when people requested me to write it and offered to pay for printing themselves, I still did not agree to do it. When the group of lay supporters who revere me planned to hold a merit-making ceremony for my 72nd birthday [Note: 6 cycles = 72 years] on 26 April 1974, they asked me again to write my biography for printing and distribution at this event. I reflected and saw that whether I write my biography now or not, one day after I die, they will surely end up writing it anyway.</p>
+<p>Therefore, the autobiography that was already nearing completion has been hurriedly finished in time for this event. I have entrusted it to Air Chief Marshal Harin Hongsakul, the president of this event, who already had the faithful intention and offered to arrange printing as requested. If my biography contains any mention of good qualities that might be seen as self-serving, contrary to the etiquette of good people mentioned above, I ask the reader's forgiveness. Because if I did not write according to the truth, I would not know what else to use to produce a biography.</p>
+<p>Desaraṅsī<br />
+Wat Hin Mak Peng<br />
+31 March 1974</p>
+<p>Originally named Thate Ruangraeng [Note: "Ruangraeng" means strength/energy]. Born on Saturday, 26 April 1902, around 9:00 a.m., in the Year of the Tiger, at Ban Na Sida, Tambon Klang Yai, Amphoe Ban Phue, Udon Thani Province. Father's name: Usah. Mother's name: Khrang. Occupation: rice farming. Both were orphans of their fathers, having migrated from different places: the father migrated from Amphoe Dan Sai, Loei Province; the mother migrated from Muang Fang (now a sub-district) of Amphoe Lap Lae, Uttaradit Province. They came to marry at Ban Na Sida, established themselves and made a living up to the present. They had ten children together, namely:</p>
+<p>Mr. Khamdi Ruangraeng (deceased)<br />
+Mrs. Arn Prapohn (deceased)<br />
+Master Kaen Ruangraeng (died young)<br />
+Miss Khrai Ruangraeng (died young)<br />
+Mrs. Naen Chiang Thong (deceased)<br />
+Mr. Plian Ruangraeng (deceased)<br />
+Mrs. Nuan Klakheng (deceased)<br />
+Phra Ket Kantiko (Ruangraeng) (passed away)<br />
+Phra Rājnirodharaṅsī (Thate Desaraṅsī)<br />
+Mrs. Thup Diman (deceased)</p>
+<p>At the age of nine, I entered the temple to study Thai letters and local script (Dhamma script and Khom script) together with many other children, monks and novices, right at Wat Ban Na Sida. My eldest brother, who was then a monk, was the teacher. He taught using elementary textbooks: <em>Prathom K Ka</em>, <em>Mullabot</em>, <em>Banpakij</em>. I studied for three years but was not proficient because I preferred playing to studying.</p>
+<p>In those days, government primary schools had not yet expanded to all areas. This brother of mine, after ordaining, liked to travel seeking various experiences, and he had a good memory. When he obtained Thai textbooks, he brought them to teach us. Many monks, novices, and children came to study, so much so that some passersby asked if it was a school. We did not study only Thai letters; we also chanted and studied Dhamma and Khom script alongside. I studied for three years, then left the temple because my brother disrobed. Most of my fellow students also left the temple, as there was no one to continue teaching.</p>
+<p>Even after leaving the temple, my life remained closely associated with the monks and novices there. After my brother disrobed, the resident abbot position was vacant; only visiting monks stayed from time to time. I became the intermediary between the monks and the villagers. It was my daily routine: in the morning, presenting the meal tray; in the evening, drawing water, filtering water, collecting flowers to offer to the monks for their veneration of the Buddha. Whether many or few monks came, whether there was enough food or not, I had to run and inform the villagers.</p>
+<p>I performed these duties as a regular practice for six full years. My parents supported me wholeheartedly. Seeing me serving the monks, their affection for me only increased. Whenever they saw me being slow, they would always remind me. It wasn't only my parents who saw that I served the monks well; even the villagers seemed to love and pity me especially. You could see it in the fact that whenever there was any business concerning the monks or the temple, they would always call for me. Around this time, I became very interested in matters of merit and demerit. Whenever I had doubts or questions, I would ask my father. He, in turn, became increasingly interested in me. In the evenings, during free time, he often taught me about worldly principles and Dhamma.</p>
+<p>I still remember his teachings clearly. He taught: "Having been born as a son, do not die in the same <em>reo</em> (reo means cemetery)." That is, having been born a boy, you must strive to acquire knowledge and skills outside your native place. Even if you die, do not die in your birthplace. I greatly appreciated this principle of his, as I already had a natural inclination for it. When I asked him, "Between one who is ordained and one who is not, who gains more merit from doing good deeds?" He answered: "One who is ordained, doing good the size of a thumb, gains merit the size of two fists," and he held up his clenched fists. "One who is not ordained, doing good the size of two fists, gains merit the size of a thumb." Hearing just that, I was already willing, even without yet knowing his explanation, because I had a natural liking for the monastic life.</p>
+<p>I still remember: when I first entered a temple as a youngster, I went with my brother to a certain temple. I saw a novice of fine deportment. I felt a feeling of faith mingled with special affection for that novice. Wherever he walked, stood, or did any business, my eyes would follow him every moment. The more I gazed, the more endearing and inspiring he became. After returning home, that image remained in my eyes. In my heart, I thought only one thing: "When, oh when, will I be able to ordain like that?" This thought stayed with me all the time.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../autobiography.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Autobiography">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Autobiography</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="Chapter_2.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">2</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">Chapter 2</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

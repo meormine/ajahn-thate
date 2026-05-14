@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08. How Can Buddhism Decline</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="07._Good_Things_Exist_in_Buddhism.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(07)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex justify-center items-center" title="Return to Dhamma Books">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="09._People_only_Know_How_to_Tie_the_Knot,_but_not_How_to_Untie_it.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(09)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <h3>08. How Can Buddhism Decline?</h3>
+<p><strong>Phra Nirōdharaṅsī Gambhirapaññāvisiṭṭha</strong><br />
+<strong>Luang Pu Thate Desaraṅsī</strong><br />
+<strong>Wat Hin Mak Peng, Si Chiang Mai District, Nong Khai Province</strong>  </p>
+<h2>Preface</h2>
+<p>Regarding this book, the author is well aware that I am not a writer. My knowledge and language skills are also not good. After writing and then re-reading each sentence, I feel that I use repetitive, fragmented, and broken phrasing. The content also lacks coherence. However, I wrote it because in this era, the world and our country are in a state of chaos and confusion. People are awakening, demanding rights and freedoms, wanting to demonstrate their abilities and knowledge acquired from their studies to be of benefit as they see possible. Simultaneously, they also desire fame. Buddhist followers who do not yet understand the true essence of Buddhism and have not practiced to reach the goal are therefore worried and anxious that disaster might befall the institution of Buddhism.</p>
+<p>Many people have come to discuss this matter with me. So I thought I should write about this topic (the content of which is already in this book) so that Buddhist followers may understand the true essence of Buddhism, then awaken, lose their fear, and diligently practice according to the Buddha's teachings, finally reaching the core of Buddhism.</p>
+<p>Although the language, style, and everything else I have written may be imperfect, they were written with pure intention, so that fellow Buddhists who do not yet understand the true essence of Buddhism may understand. Those who already understand can use it to compare with their own practice. If anything is lacking, excessive, or inadvertently affects the practice of Buddhists who are already established in Buddhism, I ask for their forgiveness on this occasion.</p>
+<p>Desaraṅsī</p>
+<h3>The Origin and Source of Buddhism</h3>
+<p>The true origin and source of Buddhism is nothing far away—it is the heart (mind) of Prince Siddhattha, which he had trained to attain perfect stillness, oneness, clarity, and purity. Because during the six years he strove, practicing various methods he had studied, his mind had not yet attained stillness, so he had not yet awakened as a Buddha. Only when he applied effort internally, within the mind, until his mind attained stillness in the first, second, third, and fourth jhana in sequence, did he then attain awakening as a Buddha.</p>
+<p>After that, he took the knowledge arising from his omniscient wisdom and spread it to all humankind and living beings for their benefit, according to their capacities and the merit and perfections they could receive. Because all humans born into this world wish to live together in peace, not wanting to harm one another. But the power of their defilements covers and envelops their hearts in darkness, so they cannot see the correct way to sustain their lives. They all stumble into the jungle, groping about to make a living like blind people feeling their way.</p>
+<p>The Buddha had been accumulating perfections for countless aeons precisely to save those deluded beings from all suffering. After awakening, he brought that true knowledge to spread among humanity according to their capacities, so that those who practiced accordingly would receive benefits appropriate to their status. For example, he taught laypeople who could not ordain, as found in the Singāla Sutta (instructions for laypeople in the Novice's Manual):</p>
+<p>"When living as a layperson with a family, one should conduct oneself righteously to bring about the happiness one desires. When a husband takes a wife as his partner, he should honor her as a true beloved wife, not look down upon or despise her, not be unfaithful, and give her authority. Women like to adorn themselves; this should be allowed. If a husband behaves thus, what woman in the world would not love and care for her husband? Any who would not is truly a Kali among women. For a wife whose husband practices righteously as described, she should reciprocate by managing her duties well, kindly treating her husband's friends and relatives, not being unfaithful, informing her husband before taking any action, protecting the wealth he earns, spending appropriately, and being diligent and not lazy in all tasks."</p>
+<p>From this example, one can see that the Buddha's teachings do not teach everyone to ordain, as some people misunderstand. Rather, he taught people in various stations of life to conduct themselves according to the Dhamma, using Dhamma as their abiding principle, which brings happiness. The Dhamma principles regarding how husband and wife should treat each other, as exemplified above—if truly followed, no one would deny that it brings happiness to the family. Looking further into the layperson's practice, one sees that the Buddha's intention was purely to help those with families gain happiness by following his teachings.</p>
+<p>Thus, his omniscient wisdom is greatly beneficial to all humanity on earth. It can discern the capacities, occupations, and accumulated merit of people universally, and then present the Dhamma he realized to teach them appropriately, in perfect suitability to their conditions, to support their way of life, including their minds and behavior—preventing those of low standing from falling further, and allowing those who can progress to do so steadily.</p>
+<p>When people practice according to his teachings and clearly see the benefits for themselves, they develop courageous faith to practice even more diligently. The Buddha's teachings that they believe and have confidence in—including generosity for the benefit and happiness of others—they will certainly follow.</p>
+<p>Once they have tasted the happiness of Dhamma through correct practice, they will see those things as minor and not at all difficult.</p>
+<p>The happiness we all desire is bodily happiness and mental happiness. Bodily happiness can be sought according to one's ability—having a stable career, good health, etc.—but it is not certain. Some may have all that yet still suffer mentally due to children, spouse, debts, or other matters, or be agitated by various ambitions. Thus bodily happiness is not as stable and lasting as mental happiness. Mental happiness, apart from seeking it through the Buddha's Dhamma teachings, cannot be found elsewhere.</p>
+<p>For example, one establishes oneself in Dhamma, believing the Buddha's teaching that doing good leads to good results and happiness. After doing good, even if others do not praise or reward you, you yourself see and appreciate your own goodness and find happiness alone. Doing evil leads to evil results and suffering. After doing evil, even if others do not see or punish you, you yourself know that evil and continually suffer from it internally.</p>
+<p>When one has firm and unwavering faith like this, engaging only in wholesome deeds with peace and tranquility, even if one's livelihood is difficult or one's health is poor, one remains content and happy with one's own goodness forever. Perhaps those sufferings may not even appear to the mind. And at the end of one's life, one will receive a happiness that no one else can see or share, because within a human being, only the mind is master. Every organ—if the mind does not command, what can they do? The body is like a puppet; if the mind does not pull the strings, how can it move or act? Feelings of good and bad, coarse and subtle, ignorance and wisdom—all depend on the mind. The body's nerves and cells are merely constituents that serve the mind. If there were no mind at all, those things would be worthless and useless.</p>
+<p>The Buddha's teachings we are studying arise from the mind—specifically from his tranquil, unified, clear, and pure heart alone. What we study as vast and numerous are merely manifestations of that unified mind. Everything must have oneness first before duality and multiplicity can follow. All the Dhamma the Buddha realized arose from his unified mind first. His knowledge that this is good (kusala), this is bad (akusala), and the subsequent classifications, all originate from the mind that is one, beyond good and bad. The further it extends through the six sense bases, the more numerous it becomes—countless, whether wholesome, unwholesome, or indeterminate—all arising from each individual's mind.</p>
+<p>The Buddha's Dhamma teachings come from the mind. Only by seeing one's own mind can one understand the essence of his teachings, because Dhamma arises from the mind, and everyone he taught also has a mind. As the Buddha said: "All phenomena are mind-made, mind precedes them, they are accomplished by the mind," etc. The Dhamma he taught, when heard and understood according to its meaning by those with minds, is then practiced according to one's ability. The result—peace and happiness—arises in human society and among all other beings universally.</p>
+<p><strong>How Can Buddhism Arise Within One's Own Body and Mind?</strong></p>
+<p>As explained, Buddhism arose from the Buddha's mind, which he cultivated to attain oneness, clarity, and purity. Now I will explain how the Buddha's Dhamma teachings can appear within the body and mind of us Buddhists, so that we clearly see that we have understood and that the teachings have manifestly arisen in our own minds. Having practiced according to his teachings, we will then follow in his footsteps, because Dhamma is abstract and cannot be distributed in handfuls or piles like external material objects. The Buddha possessed Dhamma through his clear, pure mind; we too must know it through a clear, pure mind. Even if not fully pure or as profound as his, merely tasting the flavor and seeing the peace enough to generate satisfaction and confidence is already an excellent fortune.</p>
+<p>Initially, do not regard the Buddha's teachings we have studied as something sacred or miraculous. Instead, develop satisfaction and confidence in his teachings: The Dhamma he taught us arose and was known in his clear, pure mind. Therefore, that Dhamma is pure and leads practitioners to true peace. Then incline your mind to firm belief in his teaching that "doing good yields good results, bringing happiness; doing evil yields evil results, bringing suffering and distress." Do this by taking interest and testing it—first by doing good, such as observing the five precepts and paying homage to the Buddha daily for a month, etc. Later, test it by doing evil (or not, since we have already done much evil) and compare the results by your own feeling: which brings more happiness and joy?</p>
+<p>Since no one else can know that inner feeling, when you test the truth and see it with your own mind, your faith and confidence in the Buddha's teachings will multiply. Then you will clearly see for yourself the great difference between "holding Buddhism" and "practicing Buddhism."</p>
+<p>"Holding" means accepting what one wants and keeping it—such as taking the Buddha's teachings as written texts and scriptures, revering and worshipping them, along with Buddhist-related amulets and objects, hoping that sacred miracles will grant what one desires (superstitious omens). But one does not practice the Dhamma teachings, only pays homage and prays to those sacred things. When those things do not fulfill one's wishes, faith wavers, one considers them ineffective or not sacred, and then discards them outright.</p>
+<p>Buddhism does not teach "holding" but teaches "practicing according to": doing good yields good results—happiness—through one's own actions; doing evil yields evil results—suffering—through one's own actions. Not by others, devas, Indra, Brahma, or any god anywhere.</p>
+<p>The phrase "Buddhaṃ saraṇaṃ gacchāmi" (I go to the Buddha as my refuge) means: before attaining, one aspires to attain—that is, to practice as the Buddha practiced, then to attain or receive the taste of that Dhamma. This is scriptural language. In truth, the Buddha's Buddhism is not something that can be requested and granted like material objects. Rather, faith and confidence arise from hearing correct instruction from others, then willingly practicing until results are evident in one's own mind, like the light of a lamp: when a craftsman assembles it correctly and lights it, the light shines forth by itself, not brought from elsewhere or sent by anything else. As the Buddha said: "The Tathāgata is only one who points out and teaches. The teachings I have pointed out and taught—if you take them and practice accordingly, you will know and see for yourselves and be freed from suffering."</p>
+<p>When Buddhists have tested the truth and seen clearly as described, and have established themselves in the Buddha's teachings, abandoning all evil actions of body, speech, and mind, always engaging only in wholesome deeds, seeing the painful results of past evil deeds as a lesson, taking it as a teacher, never forgetting—then they are called "Buddhist followers firmly established in the Buddha's teachings," having deeply rooted Buddhism within their own bodies and minds. Not like those who only hold and practice his teachings when there is a problem—suffering from something—then go to the temple or ordain, only to disrobe when the suffering passes, or not practice at all. Like alcoholics who abstain only during the Rains Retreat, then immediately drink again afterward—some even demand interest! That is useless; it deceives oneself and others.</p>
+<p>One who is truly established in the Triple Gem and deserves to be called a genuine Buddhist must possess five qualities:</p>
+<ol>
+<li>Firm faith in the Buddha—that he himself is a self-awakened One, truly enlightened, without criticism, disparagement, or contempt.</li>
+<li>His Dhamma teachings are conducive to liberation, leading practitioners to become good people according to their capacities, worthy of practice, to be honored and followed without negligence.</li>
+<li>The noble Saṅgha—those who have heard his teachings, practiced accordingly, and realized the truth—truly exist, thus are heirs of Dhamma, transmitting his teachings to us, worthy of honor and reverence.</li>
+<li>Belief in karma and the results of karma: that doing good yields good, doing evil yields evil, by oneself—not by devas, Indra, Brahma, or any external sacred power granting results (superstitious omens). The Triple Gem is held and practiced not for miracles or luck, but to become a good person and ultimately be freed from suffering.</li>
+<li>Not performing merit-making outside Buddhism. If necessary for social reasons, do it as assistance, not as merit beyond the Buddhist field. For a lay noble person, perpetual precepts are required.</li>
+</ol>
+<p>To be a complete Buddhist, one must constantly possess these five qualities. Even those who ordain as novices or monks must first fully possess these five qualities for their ordination to be complete.</p>
+<p><strong>Buddhism is a Free Socialism</strong></p>
+<p>Speaking of the world means speaking of the society of all beings. Humans and all types of animals are born into this world by chance, without prior appointment. Everyone has the full right and freedom to be born as they please, in any kind of birth (it's a type of product; when produced in excess, quality gradually declines—it may become unsellable, then the factory closes). Whether as humans or animals—even to be born as pigs or fish for humans to kill and eat—no one forbids it. To be born as a tiger that devours animals and humans for food—no one can prevent it. Thus this world is completely free. But each group has its own party, society, and ideology. If ideologies happen to conflict with each other's interests, quarrels and fights occur, sometimes using force to attack one another. Especially humans are more vicious than others. Therefore, humans are in turmoil, fighting and killing each other all over the world, every single day. This brings suffering and distress not only among humans but also affects other animals. The dead are dead; the living continue to suffer until their last breath.</p>
+<p>The Buddha, with great compassion, observed the world's society—beings born seeking happiness according to their own abilities, but instead oppressed by a society lacking morality and good order, receiving bitter suffering and disappointment. So he accumulated perfections with the aspiration to become a Buddha to save them. After becoming a Buddha, he taught society—especially humans—to have good moral order, to know their own status, position, duties, and occupations, not to encroach, compete, or exploit one another, which undermines mutual benefits, income, and morale.</p>
+<p>His teachings are impartial. He taught people to have loving-kindness, to consider that all humans born into this world together are like children of the same parents, thus to unite, be generous, empathetic, and forgiving. Since no one can live alone, everyone has some degree of benefit to others. When people benefit one another, see that benefit, and reciprocate, then society can have happiness. If they do not benefit one another, or if one side does not see the benefit and does not reciprocate, then that society will find happiness difficult. He taught from small societies upward to large societies—from husband-wife, parent-child relationships up to national society—for the peace and happiness of all people, so that governance can survive and prosper. For example, he taught the seven principles of non-decline to the Licchavi princes:</p>
+<ol>
+<li>The Vajjians shall hold frequent and regular assemblies.</li>
+<li>They shall meet in harmony, break up in harmony, and conduct their business in harmony.</li>
+<li>They shall not enact new decrees nor abolish existing ones, but shall proceed in accordance with their ancient traditions.</li>
+<li>They shall honor, respect, revere, and salute their elders and heed their advice.</li>
+<li>They shall not forcibly abduct women or girls from their families.</li>
+<li>They shall honor, respect, revere, and salute their shrines, both those within and outside the city, and shall not withdraw the proper offerings made to them.</li>
+<li>They shall provide proper protection, security, and support for the arahants who have come to their realm and for those yet to come.</li>
+</ol>
+<p>When we consider the truth of his teachings as described thus far, we can see that his teachings are not a threat to the world nor an obstacle to national governance in any way. Nor are they outdated, as some people think.</p>
+<p>On the contrary, his teachings are truly natural socialism. But humans, covered by the power of defilements with insatiable desires, cannot see the needs of others or even their own. They all struggle to escape suffering and obtain the happiness they desire, but that struggle is entirely misguided, increasing suffering more than before. Even the happiness they receive does not seem like happiness, so they struggle further for unattained happiness, becoming more frantic.</p>
+<p>Therefore, the Buddha, with his vast wisdom skilled in both worldly and spiritual matters, taught the way of life to all people according to Dhamma, including methods for managing groups and nations as described above. When people of all levels practice accordingly, there will be no harm or distress to society—only increased progress bringing all forms of peace. Thus Buddhism, the Buddha's teachings, is always modern. Selfish, dark-minded humans who do not even know their own desired happiness are like blind chickens, unable to practice his teachings, yet they falsely blame his teachings as "outdated."</p>
+<p>In truth, it is they themselves who are "outdated." Unable to practice his teachings, they then invent new forms of socialism using coercive rules that force mind and body to submit to their ideas, requiring compliance without belief in karma and its results—believing only in physical action (kāyakamma). They try to fill and pile up material things like a garbage basket; when it breaks, they discard it and find a new one to use again.</p>
+<p>Modern socialism favors materialism, rejecting karma and its results. Born, one must earn a living to satisfy one's desires to obtain happiness (believing only in physical action). Death ends everything; all is annihilated. Bodily happiness and mental happiness are seen as identical because they do not know the true mind. Yet they constantly speak of the mind: pleased, glad, sad, troubled, sorrowful, dry-hearted, joyful-hearted, "brother's/sister's heart," always having affection—all these refer to the mind, distinct from the body. But not knowing or seeing the true mind, while actually seeking happiness for the mind, they mistakenly think they seek only bodily happiness.</p>
+<p>The Buddha's teachings teach belief in karma's results: humans are born with both body and mind, sharing happiness and suffering, but the mind is greater than the body because the mind is the commander of all (cells and nerves are material aspects of the body). If there were no mind at all, the body would be worthless (a dead person can do nothing). Therefore, while alive, body and mind are most intimately related.</p>
+<p>Those who have not trained themselves according to the Buddha's Dhamma teachings cannot separate body from mind. What manifests through the body is called bodily action (kāyakamma), through speech verbal action (vacīkamma), and internally mental action (manokamma). Since body and mind are thus composed, mental happiness arises from recollecting the good deeds one has done. That good—whether done with body and mind or speech and mind, or even just with the mind alone (e.g., recollecting the Buddha's virtues)—even if a long time has passed, or even if one has not yet acted but intends to do good, when that recollection generates emotion, rapture, and happiness, that is called seeking mental happiness. When the mind receives satisfying happiness, that mind becomes diligent and eager, attracting both body and speech to participate harmoniously and spontaneously.</p>
+<p>Thus the mind is chief and primary in directing body and speech at all times. This goodness is none other than for the benefit and happiness of oneself and others as mentioned. Speaking of oneself and others in relation is speaking of society itself. A society that will have happiness must rely on mutual support, especially when one has done good, benefited others, and does not forget that kindness, reciprocating it. Otherwise, human society becomes like animal society, unable to find happiness.</p>
+<p>So it is clear that the Buddha's teachings do not look only at the body but see the importance of both body and mind together while they are still interrelated. Therefore, Buddhism, his Dhamma teachings, is suitable for beings born with body and mind. When one desires happiness for society or oneself, one should take his teachings and practice them, because his teachings are appropriate for the world in every era, and for humans of all genders, ages, classes, and capacities. I am not speaking here about evil, as everyone likely knows that evil deeds bring no benefit or happiness to world society.</p>
+<p><strong>Benefits Arising from Practicing the Buddha's Teachings</strong></p>
+<p>Buddhism teaches actions compatible with worldly conditions because the Buddha accumulated perfections for the benefit of the world. Humans and beings born into this world cannot remain still; they must act in some way according to their duties and rules. But some of their actions lack order and righteousness, causing society distress and suffering.</p>
+<p>In truth, the Buddha knew well from the beginning of his accumulation of perfections that this world is full of suffering. But he accumulated perfections precisely to relieve that suffering—to alleviate it for those in great suffering, and to eliminate it entirely for those with little suffering.</p>
+<p>Therefore, Buddhism is the original form of socialism, also possessing complete freedom. Buddhism is not something so supreme and unreachable that ordinary people cannot take it up and practice, as those who misunderstand his teachings imagine. Nor is it something so easy that one can practice anytime because it depends on oneself, as those lost in suffering think, believing they already have enough happiness.</p>
+<p>In truth, Buddhism teaches natural world society, not artificial society as in the present age.</p>
+<p>His teachings instruct humans and all beings to live together peacefully, without oppression, violence, or harm. Even though humans and animals are of different races, languages, and species—not the same bloodline—having been born together in this world, they are all fellow travelers sharing the same raw and cooked food. Since we are born together by chance, let us love one another and regard it as everyone's fortune.</p>
+<p>Just as a skilled craftsman collects flowers of various colors and arranges them beautifully, so too the Buddha's teachings: he taught people of all classes, capacities, and groups to know their duties and livelihoods, to live orderly and righteously, without needing to use power to oppress or coerce hearts into distress. Each person understands their own duties and pursues their livelihood with honesty and sincerity. Those with great wisdom and ability do much; when they gain much, they should empathize with the ignorant and less capable, sharing and assisting with loving-kindness, without disparaging or belittling others, as shown in the lay practice example above.</p>
+<p>When everyone follows the Buddha's teachings, they will live together in goodness and peace. This teaching is not difficult; people of all classes can do it. The Buddha did not teach only one person—everyone naturally has full freedom and ability to do it. Buddhism can thus be called the original ancient model of society, which no one had prescribed before. It is simply the natural need of humans born into this world who want that. So the Buddha taught blind humans who did not know their own needs to practice correctly according to truth.</p>
+<p>People today, even if they know their true needs, cannot teach others to know their proper duties and occupations. Therefore, some intelligent humans with good intentions, desiring the world's social progress, seeing no way to teach society to unite harmoniously in willingly performing their duties without harming each other to achieve peace, have invented doctrines and regulations using rules to coerce small societies, then larger societies, up to nations, to comply.</p>
+<p>But those actions, even if somewhat beneficial, instead of bringing happiness, cause distress and suffering. Using force and coercion, not done willingly—whatever the matter, wherever—it inevitably brings distress, as everyone knows. Sometimes it is necessary, but the Buddha's teachings instruct one to know through the mind: doing good yields good, doing evil yields evil, by oneself—no one else or any sacred thing can bring it about. Then all engage only in wholesome deeds with sincere hearts, which brings happiness with satisfaction.</p>
+<p>Work accomplished with honesty and willingness—even if one's health is not perfect—when body and mind together perform blameless wholesome deeds, and the mind later recollects that pure achievement, it fills and gladdens the heart, can invigorate and strengthen a weak body, and may even heal it. The happiness that arises in the mind from recollecting one's own good deeds is unparalleled.</p>
+<p>Furthermore, this karma must have this characteristic: any action done—whether by body, speech, or mind—must not cause distress or suffering to oneself or others to be called good karma. Conversely, any action done—by body, speech, or mind—that causes distress and suffering to oneself and others is called bad karma.</p>
+<p>Do not act selfishly. If you gain benefit from an action, you consider it good, but others suffer. Those who create good karma according to the Buddha's teachings do not act that way.</p>
+<p>Even animals—consider them all as our relatives and friends. Their suffering is like our suffering; their happiness is like our happiness. Who could deny wanting this? People of every era, class, group, and even all kinds of animals want and desire this. So in what way are the Buddha's teachings outdated? It is those who do not understand and refuse to practice who are outdated, unable to keep up with his teachings.</p>
+<p>Regarding occupation and work: although the Buddha taught belief in karma and its results, he did not teach one to lie down and wait to receive happiness or suffering from the results of karma, as some people misunderstand. Instead, he taught diligence and effort, praised effort, condemned laziness, and encouraged right effort, abiding in righteous conduct, not causing distress to oneself or others.</p>
+<p>If one becomes wealthy through one's own past meritorious deeds, do not be complacent. Be satisfied with one's own meritorious results, then increase the yield by giving away the profit as further capital. "One who is rich due to merit but does not continue to make merit is said to be consuming the old, original capital which will only diminish; there is no profit."</p>
+<p>For the poor who struggle but only suffer losses and ruin, he taught not to despair. Be diligent and persistent; only persistence can overcome suffering. Even if one does not become rich like those with merit who easily find wealth from any direction, still one can sustain life happily day by day. Recognize the suffering resulting from one's own past evil deeds, and do not commit more evil deeds. "Evil deeds we do not do—constantly being mindful and restrained—can eventually be exhausted, like opening a tap on a water tank. If you close the lid and let it flow out, the old water can dry up. When the old water is gone, close the tap, open the lid to catch new rainwater (i.e., create good deeds). In time, the water will become full."</p>
+<p>Thus his teachings instruct loving-kindness, generosity, and a mind that progresses higher than the level of animal minds that do not recognize each other's kindness and only oppress one another. He also teaches orderly occupation and work, protecting one's own rights, freedoms, and duties within proper boundaries. Even if not wealthy, that is called progress, bringing happiness to oneself and others. If human society practices according to his teachings as described, that society is called advanced in both body and mind. That society is truly a "civilized human society." If humans only nourish and increase the body's abundance and health, delighting only in that physical happiness while neglecting mental happiness, then what difference would human society have from animal society?</p>
+<p>The Buddha's teachings show that the mind is the most important thing in the human body—greater than all else. Because if there were no mind at all, what use would any organ have? (Consider a dead person.) A person who loves, has compassion, and cares for others will sacrifice even physical strength and life itself. Whatever honest work or occupation, when the mind approves and is pleased, the body can be commanded to do anything—coarse or fine, good or bad, even to kill one's own parents. When the mind commands, we call it "freedom and rights," not "authority." But if others command, we call it "authority."</p>
+<p>In the Buddha's teachings, this is called "being a slave to defilements, a slave to others." Therefore, if Buddhism were called a universal religion, it would not be wrong, because the Buddha's teachings are complete: they teach people without discrimination of class, caste, gender, age, or occupation—from the lowest to the highest (devas, Indra, Brahma)—to abide in their duties, boundaries, work, and occupations, not to encroach, oppress, or harm one another. They should regard each other as siblings of the same family. Even if occupations, work, doctrines, and behaviors differ—coarse or refined, not identical in ideology—he taught not to be hostile, disparaging, or to infringe on each other's freedom.</p>
+<p>The Buddha set an example while still teaching. When Māgandiyā reviled him personally and then hired the people of Kosambī to revile him throughout the city, Ānanda was annoyed and invited the Buddha to flee to another city. The Buddha told Ānanda: They have the right to revile; let them revile. Where would we flee? If we go to that city and they revile us again, we would flee again and never have a place to stay. He said: Wherever a fire arises, it must be extinguished there. This matter will settle itself within seven days. And it happened exactly as he said. He said: "Dhamma indeed conquers adhamma." This is true in any age. Adhamma cannot last long; inevitably it will end sooner or later. But he taught equanimity, patience, not to counter hatred with hatred. One who acts thus is called one who follows his teachings.</p>
+<p>His teachings instruct one to consider causes and conditions. When seeing the cause of evil, abandon that cause oneself. If others do not abandon it because they don't know or for other reasons, that is their affair. When we cannot help them, leave them to their own course. Therefore we should not act like them. If we act like them, we become worse than they are (competing in evil until no one is good). If we can endure, even if others call us bad, we are not actually bad anywhere. One who has faith in the Buddha's Dhamma teachings must have such faith in oneself.</p>
+<p>Whatever anyone's opinions or political ideologies may be, if they think that Buddhism, the Buddha's teachings, is outdated and cannot lead practitioners to progress in this era, that view is not in accordance with the truth. Perhaps they have not yet studied and practiced the Buddha's teachings sufficiently to verify the true facts, or they see only some people who consider themselves Buddhists but do not practice correctly, then generalize that Buddhism is outdated—that is completely unjust.</p>
+<p>As for the claim that Buddhism is a narcotic, I admit the truth and do not deny it. It is a type of narcotic that provides benefits to the user, completely devoid of harmful effects. Because Buddhism is paired with the life of humans born with a complete body and mind. Buddhism teaches us to maintain physical health through diligence and effort for a proper livelihood, while also teaching not to use force to oppress or harm one another, to regard all humans and beings born together in this world as siblings of the same family. It also teaches mental health—to recollect the good deeds one has done and that others have done for oneself, and to find ways to reciprocate that kindness.</p>
+<p>If people engage in deeds for both themselves and others, recognize others' kindness, and reciprocate, then human society will be happy, certainly superior to other animal societies. When practitioners of Buddhism receive happiness and see such benefits, they become addicted to Buddhism even more than to drugs, because their health is good in both body and mind. Therefore, I wish to invite those who have never tried this drug to come and try it, to taste it for yourselves.</p>
+<p>Those who believe in karma and its results according to the Buddha's teaching—that doing good yields good results, bringing happiness—whatever they do will succeed. If earning money seems difficult, they still succeed, becoming wealthy and established, gaining fame and renown. If working as a government official, police, military, or civil servant, superiors love and trust them, granting ranks and high positions—because past good deeds were done well, and in the present they diligently do even more good, not using wealth or position to oppress or harm others, not passively waiting for past karma to yield results alone. They take the results of past karma and sow them again by helping the poor, supporting those who are progressing, or assisting those on the rise to advance further—whether with funds or any skillful means. This is correct according to the Buddha's teachings.</p>
+<p>Some think: Why help others? If they become successful, they might be ungrateful. Such thinking shows they do not truly believe in karma and its results. Because the good we do is already good. We do good, we are righteous according to his teachings, and we are joyful and happy. Do not hold onto others' bad behavior—whether we helped them or not—as a reason to demand gratitude. Consider instead that they may have done little good in the past, or none at all, which is why they cannot see the kindness others have done for them.</p>
+<p>Between two people, one having Dhamma and the other not—that is excellent, better than neither having Dhamma. One who does good deeds possesses wealth, rank, followers, wisdom, and morality, with a generous heart spreading goodness to both those who have benefited oneself and those who have not, without expecting return. This is fitting: good deeds create good people in both past and present. Good deeds thus have value for both the individual and the world.</p>
+<p>Doing evil yields evil results, bringing suffering. Whatever business or work one does, it all leads to ruin. Trading or commerce—investing much that should yield much profit instead yields little, and eventually the capital is lost. Agriculture or any commerce leads only to ruin. As a government official, military, police, or civil servant, no matter how well one does, superiors never see one's goodness, making the future completely dark. Old close friends withdraw and distance themselves. One cannot look anyone in the face; even one's own wife and children grow distant.</p>
+<p>Those who have done evil tend to do more evil when the results ripen. As we see, some people, distressed, drink alcohol to intoxication, losing mindfulness and forgetting their sorrow, or else seek revenge against those they blame for their disappointment, or rob and steal to cause others the same loss and distress they suffer. This is not the right way to escape evil deeds; it only multiplies evil. Those who believe in the Buddha's teaching do not act like that. They accept the suffering resulting from evil deeds as a lesson, and engage only in wholesome deeds, relinquishing pride and wrong views that cause evil. They strive to live out the results of evil deeds along the path of Dhamma, enduring others' insults and contempt, not allowing the results of evil deeds to overwhelm the heart, by being patient and constantly recollecting the evil deeds they have done.</p>
+<p>All humans and beings born into this world have created both good and evil deeds, more or less according to their defilements' commands. Therefore, some have great happiness, sharp and profound wisdom; some have moderate; some are inferior—unequal. This is because the agent—their defilements—are not the same, in the past, present, and future. No one other than the karma each has created can cause things to happen by their own power. Therefore, his teachings instruct those who have karma and are experiencing its results to use those results in a good way. When good deeds accumulate and no more evil is done, evil's power fades away.</p>
+<p>Those who do good deeds see it as happiness and should teach those still doing evil to follow suit. If they cannot yet follow because their evil is still dense, do not become resentful or angry, taking their evil to pile on top of your own good. As said, beings born create karma unequally. If everything were equal, this world would not be called the world as it is today. This inequality is what allows human society to live happily, alleviating distress day by day. If inequality were seen as an obstacle to mutual coexistence, this world would become a hot world without happiness.</p>
+<p>Our ten fingers, born in the same place, are not equal—some long, some short. But each finger faithfully performs its own duty without any exploitation. The middle and ring fingers, even though they are adorned with diamond rings daily, never feel jealous or inferior to the point of striking or going on strike like workers or government officials in Thailand. Look at the thumb—it works harder than the others. The middle and ring fingers wear diamond rings, but the thumb never even gets to try one on. Yet it smiles like an adult toward them, like parents adorning their children.</p>
+<p>The Buddha accumulated perfections for countless aeons specifically to awaken in this unequal, rough world that is putting on a drama. When he came to watch the world's drama until his heart was satisfied (awakening), he earned the title "Lokavidū" (Knower of the World). "Behold this world, which is in darkness..." In truth, Dhamma is the world itself. Without the world, where would Dhamma come from?</p>
+<p>This world can live together in peace because of the Buddha's Dhamma teachings, which teach belief in karma and its results, not allowing karma to use its power to coerce arbitrarily, but striving to improve evil deeds, always feeling shame for evil deeds, knowing that we are currently experiencing their results. Then one should know moderation, adapt to circumstances, and constantly perform only wholesome deeds. Only then can we live together in this world in peace.</p>
+<p><strong>How Can Buddhism Decline and Disappear?</strong></p>
+<p>Having reached the origin and source of Buddhism and the dissemination of its teachings to all people, as well as the faith of those who have been trained—there is no way for the Buddha's Buddhism to become extinct. Whatever religion or doctrine, when it teaches people to understand and practice accordingly, that is called the following of that doctrine or religion. Later, if someone considers that religion's or doctrine's teachings and finds them insubstantial, unworthy of holding, believing, or practicing, and refuses to accept and practice them, then that person is said to have declined from that religion or doctrine.</p>
+<p>Buddhism teaches a fundamental truth found in its teachings: belief in karma and its results. A person who does good deeds—whether by body, speech, or mind—receives good results and happiness from those deeds. Conversely, a person who does evil deeds—whether by body, speech, or mind—receives evil results and suffering from those deeds. No other person grants them. One who believes in their own heart through practice until seeing results for themselves—that person has the Buddha's Dhamma teachings deeply embedded in their heart. That person is a true Buddhist. Their faith (heart) need not be mentioned; no one can pull it out, nor can anyone even see it. So who could destroy their faith and make it disappear from their heart?</p>
+<p>Sometimes, the teachings and practices of a worthless doctrine or one contrary to their established faith, when heard or seen, may actually strengthen their faith even more. "Bad, insubstantial things serve to support those who have encountered good, substantial things, making them even more confident in their goodness."</p>
+<p>Therefore, those who have faith in Buddhism, the Buddha's teachings, down to the fundamental truth, have no fear that anyone or any doctrine can destroy their Buddhism into decline and disappearance.</p>
+<p>Those who fear that some political ideology does not allow religion—because those people do not understand the principles of Buddhism and have not penetrated its teachings, seeing only superficial Buddhism, clinging to temples, halls, and even misbehaving monks and novices as Buddhism—when those things decay or those people behave badly, they think Buddhism has declined and disappeared.</p>
+<p>In truth, those things are not Buddhism; they are merely symbols of Buddhism. The word "Buddhism" already clearly means the Buddha's teachings. "Buddhist" or "Buddha's disciple" means one who hears the Buddha's teachings, understands, is confident, and willingly practices. The ascetic Gotama is the one who realized the true reality and then taught that true Dhamma to others. That teaching of his is Buddhism.</p>
+<p>If those things or those people were Buddhism, then when temples and those things or those people pass away or die, would Buddhism completely decline and disappear? But that is not the case. Jetavana monastery where the Buddha resided and taught, the Buddha himself, the eighty great disciples, Anāthapiṇḍika the great layman, Visākhā the great laywoman—all those things have dissolved, the Buddha himself, the supreme teacher, along with his disciples, laymen, and laywomen, have passed into Nibbāna and died. Yet Buddhism, his teachings, remains firmly established in the hearts of Buddhists to this very day, having neither declined nor disappeared in any way.</p>
+<p>The Buddha said: "The Tathāgata is only one who points out and teaches. Having heard, you practice according to my teachings and will free yourselves from suffering." This shows that Buddhism is his teaching, not that he himself is the religion. The Buddha is merely one who brings the knowledge he personally realized and saw of the ultimate truth to teach others. He is called the "Supreme Teacher."</p>
+<p>The words "decline" and "disappear" have different characteristics.</p>
+<p>"Decline" means changing from the original condition to a worse state—like a machine that once ran smoothly but over time becomes sluggish, a house that over time leaks and rots, an aging person whose strength wanes, etc.</p>
+<p>"Disappear" means something that existed is lost and no longer appears—like a watch lost, money lost, cattle lost, sold and becoming another's property, or a fever that goes away after an injection—called "disappear."</p>
+<p>As for the decline of Buddhism: if we speak of decline, it has come along with growth itself. Everything in this world, when it grows, decline inevitably follows. When we speak of "growth," we speak only of the present and look from one side—e.g., the country's growth and splendor in construction—buildings, houses, roads, alleys—everywhere clean, beautiful, new, and novel.</p>
+<p>But we forget to look at the forests and jungles where trees were cut for construction. The mountains of sandstone and iron that were mined to build ten- or twenty-story buildings—those places become bare and flat, but we do not look or speak of them. Even our houses—the wood we used to build them—before they are even finished, after a day or two they are already called "old" (i.e., declining).</p>
+<p>When the Buddha first proclaimed his religion, many heard, were trained, and attained fruits. The monastic rules (Vinaya) had not yet been laid down because everyone was already restrained and proper in their monastic conduct. As time passed, more people entered ordination in the religion. Among them were arahants, non-returners, once-returners, stream-enterers, and ordinary persons. Their defilements and discipline were not the same, so they behaved in various ways, even exceeding the bounds of monastic propriety. Thus the Buddha gradually laid down Vinaya rules to manage the community.</p>
+<p>Speaking of decline: the Buddha's monastic disciples who behaved improperly, unsuitably for ascetics of the Sakyan son—that is called decline. Later, even Devadatta, a genuine disciple, tried to violently overthrow the Buddha. After the Buddha's Nibbāna, several councils were held—meaning to correct declines in the Dhamma and Vinaya.</p>
+<p>Now in the present day, when we recall the causes of Buddhism's decline cited in each council, we see that some actions by our own genuine Buddhists today are far more severe and serious than the causes cited in ancient councils. Yet we are very afraid that some doctrine or politics will erase Buddhism from Thailand, while we Buddhists ourselves cause the religion to decline even before those feared doctrines or politics have arrived.</p>
+<p>Speaking of growth: his teachings spread rapidly in all directions. Many became confident, accepted them, and practiced, forming a solid, strong foundation that could refute previous wrong doctrines and views. Thus the decline of those with defilements who practiced incorrectly and missed the goal occurred simultaneously with the growth of Buddhism. But the core of his teachings, being ultimate truth, retains its original efficacy: he taught that doing good yields good results and happiness—even if others do not see it, one sees and knows it oneself. Doing evil yields evil results and suffering—even if others agree or not, one sees it and suffers oneself. Birth, aging, illness, death are suffering for those with clinging; for those without clinging, they are not suffering, etc.</p>
+<p>This true Dhamma—whether others know it or not, whether they practice it or not—remains true as ever. The Buddha's teachings teach truth according to reality. Therefore, his teachings remain as normal ultimate truth; they have not disappeared anywhere. It is merely that Buddhists who do not understand and practice contrary to Buddhist principles, following their own defilements, going off-track, missing the goal—they are said to take his teachings and destroy them to fit their defilements, so others see them as using religion to destroy religion—that is decline.</p>
+<p><strong>Conclusion</strong></p>
+<p>Whatever doctrine, religion, or politics may think that Buddhism is hostile to them, or that it is outdated, unable to lead its followers to progress and prosperity, that it is a narcotic causing only harm to users, and thus seek to destroy it—such views are greatly mistaken regarding the facts and misunderstand the true principles of Buddhism.</p>
+<p>In truth, Buddhism is not hostile to any doctrine, religion, or any political or domestic affairs in the world. The Buddha practiced and accumulated perfections to become an awakened Buddha, then to help all humans born into this world who do not know the way to live together happily, so that they may see the path. For example, he taught people of all classes and groups without discrimination of "us" and "them." He taught with a pure heart, loving and caring for them all equally like his own relatives. Whatever good order and system were suitable for their capacities and how much they could adopt, he taught accordingly, appropriate to their status. But he did not use force to compel them to follow.</p>
+<p>He taught understanding and knowledge of the meaning until they were satisfied and voluntarily accepted to practice—which is the right and freedom of every person to do—and specifically for their own benefit and happiness. As shown earlier in the lay practice example, when we examine those practices, we see that among the involved parties—from husband and wife down to servant and master—nowhere does one exploit, disparage, or despise another. Each respects the other's rights, assists, empathizes, and reciprocates kindness with a pure, sincere heart.</p>
+<p>For leaders administering the country, he taught them to govern in a unified manner, such as presenting the seven principles of non-decline to the Licchavi kings. What then is hostile to world society? He only teaches already declining and deteriorating societies to improve, without expecting any return—not even praise.</p>
+<p>Moreover, while he was teaching them, many became confident and satisfied, accepting and practicing his teachings. Some groups or sects became jealous of him because their own groups could not attract people's minds to have confidence in and practice their worthless doctrines. Some even sought ways to harm him or his monastic disciples.</p>
+<p>Yet he never devised any method or taught anyone to retaliate. He was equanimous and taught equanimity. In the end, enemies defeat themselves. "In this world, hatred never ceases by hatred in any way; hatred ceases only by non-hatred. This is an ancient truth. The victor breeds hatred; the defeated lies down in suffering. Giving up victory and defeat, one dwells peacefully and at ease."</p>
+<p>Furthermore, the view that Buddhism is outdated and cannot lead practitioners to progress is false. Buddhism teaches freedom as described—to have loving-kindness, compassion, generosity among all humans born together in this world, including animals, not only for personal benefit. How can that be called outdated?</p>
+<p>In this world, every era wants just this, doesn't it? Whatever age or time, studying history, we have never heard that the world wants enemies to kill, be hostile, or oppress and harm one another.</p>
+<p>Those who think Buddhism is outdated—in truth, they themselves still hold weapons and use power and authority, yet their mouths say Buddhism is outdated.</p>
+<p>Those who say Buddhism is a narcotic—the speakers themselves are addicted to doctrines and politics far more dangerously than heroin. Because heroin, even if people are addicted, in each country probably does not exceed half a percent of the population. But those addicted to doctrines and politics—that is truly dangerous, splitting the world in half.</p>
+<p>People who are addicted to Buddhism do so because they see the Buddha's teachings as a medicine for the inner world (mental suffering) that can completely cure it—something no doctor in the world can heal. Sometimes, when the inner world is healed, outer physical illnesses may also disappear. Any age or era, without this narcotic (the Dhamma teachings of ultimate truth), this world cannot find peace.</p>
+<p>If any age or era is highly addicted to this narcotic, that era will have great peace. If any era is lowly addicted, that era will have little happiness. If there is no addiction at all, this world may become an age of chaos and possibly perish.</p>
+<p>Therefore, Buddhism is a narcotic paired with the life of the wise, and they are even more addicted than to food, which humans are daily addicted to without realizing it. Because those who have tasted the flavor of the Buddha's teachings feel rapture and fullness within their hearts. Even without any food in the stomach, they can live for days. The Buddha praised mental food as more beneficial, tastier, and receivable through more channels than physical food.</p>
+<p><strong>The Four Nutriments</strong></p>
+<ol>
+<li><em>Kabaḷīkārāhāra</em> (physical food) — consumed in morsels through the mouth.</li>
+<li><em>Phassāhāra</em> (contact as nutriment) — the impression when the body contacts external objects that give pleasure.</li>
+<li><em>Manosañcetanāhāra</em> (volition as nutriment) — the mind's thinking and composing on agreeable objects.</li>
+<li><em>Viññāṇāhāra</em> (consciousness as nutriment) — the feeling of pleasure when internal and external sense bases meet.</li>
+</ol>
+<p>Considering this, we see that physical food is less important than mental food. A person may have a normal, healthy body and excellent food, but if the mind dislikes and rejects it, what benefit does it have? Conversely, when the mind likes it, even if the food is extremely poor, one can eat it with joy.</p>
+<p>Dear readers, have you ever read that the laws used by all humans in the world today to govern countries were originally established by righteous universal monarchs to administer people—from small groups to countries and the world—before anyone else? The laws we study worldwide today come from the Dhammaśāstra texts. When we graduate and receive a diploma, we are called Dhammaśāstra graduates. What is that but Dhamma? Those who suffer distress cry out for justice, but do they themselves behave justly? Unknown.</p>
+<p>The Buddha's Dhamma teachings are true, genuine Dhamma, not varying for anyone. Therefore, he taught humans in this world to conduct themselves in accordance with the truth.</p>
+<p>Whatever rules, regulations, or laws that all humans use in this world—if those rules, regulations, or laws are righteous, they remain stable and last long. If not righteous, they quickly decline and can be abolished.</p>
+<p>Among the various religions—excluding Brahmanism, such as Christianity, Islam, Hinduism, Sikhism, etc.—Buddhism has outlived them all. It is the only religion that teaches practitioners to attain Nibbāna in this very life. It has few followers because Buddhism has no coercion or enticement. Therefore, practitioners must use wisdom to reflect until they see the truth clearly, then accept and practice. That is natural. Those with wisdom, when uncertain about something and not seeing it clearly with their own wisdom, will find it difficult to accept and hold it.</p>
+<p>[End: How Can Buddhism Decline? - Luang Pu Thate Desaraṅsī]</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="07._Good_Things_Exist_in_Buddhism.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">07</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">07. Good Things Exist in Buddhism</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Books">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Books</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="09._People_only_Know_How_to_Tie_the_Knot,_but_not_How_to_Untie_it.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">09</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">09. People only Know How to Tie the Knot, but not How to Untie it</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

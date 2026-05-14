@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12. Steps Along the Path</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="11._Samādhi_by_Practicing_Buddho.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(11)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex justify-center items-center" title="Return to Dhamma Books">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+    </div>
+</div>
+
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <h3>12. Steps Along the Path</h3>
+<p><strong>Phra Nirōdharaṅsī Gambhirapaññāvisiṭṭha</strong><br />
+<strong>Luang Pu Thate Desaraṅsī</strong><br />
+<strong>Wat Hin Mak Peng, Si Chiang Mai District, Nong Khai Province</strong>  </p>
+<h2>Preface to the Fifth Printing</h2>
+<p>This small book you hold in your hands has come into being through the faith of a Westerner of Jewish descent, Dr. Phillip, who came to study Buddhism in Thailand in 1963. During that time, I was still residing for the Rains Retreat on Phuket Island. He came to study and practice meditation with me for a full six months, and I felt that he gained much tranquility and came to greatly appreciate the value of Buddhism.</p>
+<p>When he was about to return to Hawaii, he asked me to write down some simple and concise Dhamma topics that he could take for his practice, as a companion to his own efforts. So I wrote down just ten points and gave them to him. Later I learned that he had published those Dhamma topics in some magazine overseas (I don't know which one, nor do I clearly remember). Then a group of my disciples in Bangkok arranged to have them printed as a small booklet for free distribution, as described in the preface to the first edition. Subsequently, two more people printed and distributed the booklet at funeral ceremonies. Disciples in Vientiane, Laos, also printed and distributed it as a Dhamma gift. I think this small book can still be of some benefit to those interested in Dhamma practice. It is small, easy to hold, quick to read, and also doesn't require much mental strain.</p>
+<p>I have revised some wording and phrasing, and added more Dhamma points, especially an eleventh point: a method for dealing with visions and signs (<em>nimitta</em>) in meditation, in order to make the book more complete, suitable as a manual for Dhamma practice. It now explains the value of the practice, the method of practice, how to practice correctly vs. incorrectly, and how to correct what needs correcting, making it thorough.</p>
+<p>I hope this small book will prove beneficial and worthwhile for those interested. If there are any errors or deviations from the Dhamma in any way, I alone confess and accept responsibility, as I am still inexperienced in study, practice, writing, and various kinds of discernment. When learned people see these errors, please kindly correct them and guide me, shedding light for me. I will be deeply grateful.</p>
+<p>Furthermore, I wish to thank all my disciples, both in Bangkok and upcountry, who have united in providing assistance for the printing of this book as a Dhamma gift, bringing it to successful completion. May all the merit and wholesome results arising from this be a condition for everyone to encounter all forms of happiness, prosperity, and blessings, fulfilling all their wholesome desires in every way.</p>
+<p><em>Desaraṅsī</em></p>
+<p><strong>01</strong></p>
+<ol>
+<li>The Buddhist perspective holds that body and mind work together, but the body is under the control of the mind. The mind is what directs the body to perform various actions. However, when the body deteriorates, the mind also suffers along with it. The mind is not under the control of the nervous system; the brain is like the main office. The body begins to break up and disintegrate according to the nature of its elements. But as long as the causal factors (i.e., ignorance, craving, attachment, and kamma) still exist, the mind must be reborn in various realms and continue experiencing pleasure and pain.</li>
+</ol>
+<p><strong>02</strong></p>
+<ol>
+<li>To extinguish ignorance, craving, attachment, and kamma (the root causes), one must train in abandoning evil actions of body and speech as a preliminary step. This is done by observing precepts according to one's station in life. For example, laypeople should observe the Five Precepts and the Uposatha precepts on holy days. Novices should observe the Ten Precepts (or the twenty as a novice). Monks must first fully observe the 227 rules of the Pātimokkha restraint, as well as the precepts regarding purity of livelihood, restraint of the senses, and proper use of the four requisites, as laid down by the Buddha. If one's precepts are not pure, the mind is not yet fit for training. Even if trained, it will not progress in the Dhamma because the mind's foundation is not yet stable enough to walk the Noble Eightfold Path. Such a person is also not yet considered to have truly taken refuge in the Triple Gem. A true Buddhist must first be established in the Triple Gem and in virtue.</li>
+</ol>
+<p>The Three Teachings (the Buddha's fundamental instructions) or the Noble Eightfold Path must begin with this virtue. Therefore, virtue is the beginning of the holy life, according to the Buddha's teaching. Only after that should one train in the development of jhāna and samādhi (what is called samatha — tranquility). When the mind is well established and skilled, one then develops vipassanā (insight) based on the knowledge of the Three Characteristics as the core, until one sees clearly with pure knowledge and vision. Only then does one attain liberation, freed from all defilements and evil states.</p>
+<p><strong>03</strong></p>
+<ol>
+<li>The true purpose of practicing samatha (called jhāna or samādhi) in Buddhism is to achieve mental tranquility, to gather mental energy and make it powerfully focused on a single point (called <em>ekaggatārammaṇa</em> — unified object), which serves as the foundation for wisdom and discernment to arise, enabling one to know and see clearly the true nature of all conditioned phenomena with knowledge and vision, and to completely eradicate all defilements and evil states. It is not merely for other external purposes, such as using it in various branches of science, etc. Rather, it is specifically for purifying the mind, overcoming the Five Hindrances, etc. But once one is skilled, one can apply it to any purpose as desired, provided that such use does not cause harm to oneself or others.</li>
+</ol>
+<p><strong>04</strong></p>
+<ol>
+<li>Regarding this training of the mind, which is abstract (nāma-dhamma), one cannot use physical tools or models to train it. It must be trained through cultivation: listening to an expert explain the method, and then diligently practicing accordingly, with faith and devotion as the prerequisite.</li>
+</ol>
+<p>If one tries to succeed through one's own reasoning alone, one generally does not achieve the intended goal because one lacks the correct principles and the proper approach, and instead tends to lean towards bias in one's own favor.</p>
+<p>If one first cultivates faith, confidence, and devotion in the teacher who provides the training and in the Dhamma being taught, until the mind becomes firm and steady, and then uses reasoning to investigate the truth of things, the results are satisfactory.</p>
+<p>Because reasoning that comes first, as mentioned, tends to be extroverted, such as "So-and-so says this," "This person says that," etc. But if one reasons only within one's own body: "What are the components of this body? How did it come to be so complete and functional, performing its duties so well? For what purpose did this body arise? By what does it survive? Does it progress and decline? Is it really ours?" and so on. Furthermore, investigate into the abstract mind itself: "Do greed, hatred, delusion, love, and aversion arise in the body or in the mind? What is their root cause? When they arise, are they pleasant or painful?" Investigating inwardly with reason like this is itself a training of the mind.</p>
+<p>However, when the mind's tranquility is still not strong enough, do not investigate based on things read in books or the words of others. Even if you investigate, you will not reach the truth (i.e., the truth that leads to disenchantment and relinquishment). Instead, investigate based on the causes and conditions that actually arise in the present moment from your own mind.</p>
+<p><strong>05</strong></p>
+<ol>
+<li>When the mind is thus investigating with its own reasoning, it will develop a tendency to contemplate fixedly on a single point, on a single object (<em>ekaggatārammaṇa</em>). This gathers the mind's energy, making it powerful enough to uproot attachment and wrong views, and to purify the mind, making it bright and clear in that very moment. At the very least, one will experience great physical and mental peace and happiness. Some insight may arise in that moment, and that insight is wonderfully extraordinary because it does not arise from imagination, but from a present-moment knowledge that comes from reasoning based on truth — something never experienced before. Even if it is a knowing that touches on things previously thought or known, that knowledge is <em>paccattaṃ</em> (personal, individual), illuminating the mind and eliminating doubt and uncertainty about the object that had been troubling the mind. One may spontaneously exclaim within with rapture: "So this is it!" But for those with dull wisdom, they may only feel bold and joyful when they find confirmation in the Buddha's teachings as recorded in texts, bearing witness to that knowledge — this depends on the disposition of each disciple.</li>
+</ol>
+<p>That knowledge, whether much or little, broad or narrow, does not disturb the nerves; rather, it brings true peace and happiness and greatly improves one's nervous clarity. At the same time, it makes the person's mind and character more refined, gentle, and inspiring of confidence. Whether speaking, acting, or thinking, mindfulness is constant; one is rarely forgetful. One should maintain all the characteristics described above; do not be negligent. This is a matter for each individual; not everyone will experience exactly the same. But in any case, when we train the mind as described, even if we don't attain full results, we will still gain a wonderful peace and happiness, in accordance with our practice. Then maintain the mind, not letting it become greedy, ambitious, or sorrowful, disappointed, or dejected. Keep the mind neutral, and continue practicing along the lines described from the beginning, with faith and devotion. Use mindfulness to observe carefully at every stage of the practice, and you will achieve the desired results.</p>
+<p><strong>06</strong></p>
+<ol>
+<li>If training the mind as described in sections 4 and 5 does not yet produce results, then firmly establish mindfulness and focus on a single sign (<em>nimitta</em>) as the mind's target. For example, contemplate the characteristics of this body: focus on a skeleton or any internal body part, seeing it as repulsive, etc. Or you can focus solely on the mind itself. The mind is invisible to the eye; if you don't fix your attention on a specific point, you won't know whether the mind exists or not. The mind is like wind: if wind does not touch things, you won't know whether wind exists or not. The mind is the same. Beginners without a target cannot grasp the mind itself. However, the target or <em>nimitta</em> should not be external to this body; let it be a target or <em>nimitta</em> within this body, as described. When focusing, choose only one object that suits your disposition; do not greedily take this one and that one. Focusing should be done in line with the framework of the Four Foundations of Mindfulness: analyzing phenomena until they are seen as mere "suchness" — not "me," not "mine." The contemplation that leads to such seeing can be done in two ways:</li>
+</ol>
+<p>a) While focusing on that target, do not think about what the target is or who is focusing. Let there be only the knowing and the act of focusing, without any sense of importance or ownership in anything. Then there will only be something that has the quality of being an object felt as connected to the target.
+b) While focusing on that target, simultaneously know that: "That is the target of the mind, that is the mind that is contemplating, that is mindfulness that remembers, that is wisdom that knows things as they really are."</p>
+<p>Both methods are valid, but method (a) is suitable for those with dull wisdom and beginners, while method (b) is suitable for those with keen intelligence and who are already skilled. If those who come to train practice with non-negligence, they will achieve the same results: samādhi and wisdom.</p>
+<p><strong>07</strong></p>
+<ol>
+<li>Regarding the training of the mind as explained — whichever method — do not hesitate wondering whether you will attain samādhi and wisdom. Abandon all desires based on hearsay and various stories. Simply practice correctly according to the guidelines in section 6. At the same time, observe the approach you have been using: "How did I apply a method and bring up the mind to investigate? How did I sustain mindfulness? Why did my mind become like that?" If, while practicing in that way, your mind is clear and good, then keep doing it regularly until you are skilled. If not — i.e., the opposite occurs — then use the same observation and quickly correct it anew. Some people can observe the method of mental training simultaneously with the mind's ongoing state. Others observe it after the mind has withdrawn and become established. Both ways are valid; it depends on each person's faculty. But if one does not observe at all, training the mind becomes difficult, and even if one progresses, it is hard to maintain it permanently.</li>
+</ol>
+<p><strong>08</strong></p>
+<ol>
+<li>While we are training the mind, something strange and wonderful may occur even though we did not intend for it to happen.</li>
+</ol>
+<p>That thing is: the mind will withdraw from external objects and gather into a single unified mass. It lets go of memories and attachments to various things in the past or future. Only the knowing remains, paired with a single present-moment object. This is something that is neither external nor internal, but a state with its own unique mental characteristic. It is like a revolution of everything — the mind has entered <em>bhavaṅga</em> (the life-continuum). At that moment, everything becomes solely a matter of the mind alone. Even though this life continues, when the mind reaches this stage, it abandons all attachment to the body and enjoys its own object separately. This is called <em>bhava-citta</em> (rebirth-linking consciousness). This <em>bhava-citta</em> still has the five aggregates in a subtle, complete form internally. Therefore, the mind at this stage still has becoming (<em>bhava</em>) and birth (<em>jāti</em>), which can condition further continuation.</p>
+<p>The characteristic described above resembles a person sleeping and dreaming. Thus, the mind entering <em>bhavaṅga</em> through this training differs only in the degree of mindfulness present. Those with good mindfulness and faculties, when it first occurs, are aware: "What am I? What am I seeing?" They are not startled or frightened. Those with less mindfulness are easily deluded; it can be like sleeping and dreaming. Upon waking up, they might be startled or become attached to the vision. But by practicing repeatedly until skilled, mindfulness improves, those symptoms disappear, and wisdom gradually arises to investigate causes and conditions in those phenomena, leading to clear understanding of the true nature of conditioned things.</p>
+<p><strong>09</strong></p>
+<ol>
+<li>The characteristics described in section 8, even if they do not produce broad wisdom or analytical reasoning, are still a preliminary stage of mental training. They can suppress the Five Hindrances and give rise to peace and happiness in the present moment. If the training is correct and does not deteriorate, it can also lead to a favorable rebirth in the next life, according to one's capacity.</li>
+</ol>
+<p>Moreover, various images and signs (<em>nimitta</em>) often arise during this stage of mind. But that does not mean that every time or for everyone who reaches this stage, images and signs necessarily arise. Some people, some times, they arise; others, other times, they do not. This depends on the person and the circumstances. In truth, visions and signs that arise in meditation are good only for those who are wise regarding them: seeing them without getting attached, without taking them as self or as truly belonging to oneself, regarding them as merely visions or signs, using them as tools or temporary supports, and then letting them go. For those who are unwise, with poor mindfulness, and of a faithful temperament, when a vision arises, they can become very excited, possibly losing themselves to the point of madness, misunderstanding the vision to be absolutely real. (The method for dealing with signs will be explained in section 11.)</p>
+<p>Furthermore, those whose mental training reaches this stage often become stubborn due to the power of mental energy. When they think something, they see only that one side, unwilling to believe others easily, because they consider their own view reasonable and believable. Yet that view is self-serving and still lacks much reasoning. Thus, they easily fall into perverted perceptions and wrong views. Whether signs arise or not, that is not the real goal here, because apart from being defilements (<em>upakkilesa</em>) that obscure wisdom, signs also obstruct the development of insight (<em>vipassanā</em>). The purpose of this mental training is to abandon the Five Hindrances, then to clearly investigate the aggregates, seeing them as they truly are until disenchantment, fading of lust, and letting go, without further clinging to the aggregates.</p>
+<p><strong>10</strong></p>
+<ol>
+<li>When the mind is trained to be firmly established in jhāna and samādhi, so that the Five Hindrances are suppressed, then one should develop insight (<em>vipassanā</em>).</li>
+</ol>
+<p>This insight may arise simultaneously with the practice of tranquility (<em>samatha</em>). That is, while the mind is developing tranquility, wisdom may generate a light of clear knowing and seeing: "All conditioned phenomena that appear are impermanent, subject to disintegration, unable to persist. They are not me, not mine. They are merely natural states in themselves. They arise and then break up and cease according to their nature." When such knowledge arises, it causes the mind to become disenchanted and dispassionate toward all conditioned phenomena. A sense of urgency (<em>saṃvega</em>) becomes one's dwelling place. Whenever one sees or hears anything anywhere, this quality persists. This is called insight arising simultaneously with the development of tranquility.</p>
+<p>If that does not occur, then after developing tranquility until the mind is firmly established, one should take up any bodily part — such as bones, large or small intestines — or take up whatever mental object the mind is currently attached to, and investigate: "All these things that the mind clings to as permanent and real, as providing true happiness — in truth, all conditioned phenomena fall under the Three Characteristics. What we conventionally label as 'this is that, this is this' according to our imagination — none of it is ultimately real. All conditioned phenomena arise from their own causes and conditions (ignorance, craving, attachment, and kamma). When those causes and conditions cease, they cease according to their own nature; no one forces them to cease. Even this physical body of ours that we dwell in — it persists because of conditions such as air and food. When these things run out, it has no meaning whatsoever."</p>
+<p>When one investigates in this way, relying on the full power of mental tranquility, then one will reach the goal of mental training: the light of wisdom will arise, accompanied by reasoning that the mind has discovered on its own. It is not based on memory from others but arises from one's own internal reasoning. Then the mind will no longer be deluded into clinging, lusting, or being pleased or displeased with any conditioned phenomena.</p>
+<p>Furthermore, if the mind does not clearly know and see the meditation object it is investigating, it cannot truly unify. What is not yet called insight before that is because wisdom is still weak in reasoning and lacking thoroughness.</p>
+<p><em>(Summary)</em></p>
+<p>In summary of the above explanation: Purifying body and speech requires first training in virtue. Purifying the mind requires training to attain jhāna and samādhi (tranquility) until the mind has sufficient power to suppress the Five Hindrances. When the mind is skilled and fluent in jhāna and samādhi — able to enter, remain, and emerge as desired — then wisdom, the light of knowing things as they truly are, will arise accompanied by the causes and conditions for the arising and ceasing of those phenomena, wonderfully.</p>
+<p>Such knowledge may arise only for some individuals and in some cases. But in any case, if a practitioner's mind reaches this stage, they should recognize: "The mind has reached this stage; it is now suitable to develop insight wisdom." Then they should take up a physical object or a mental object to which the mind is attached, and investigate it using the knowledge of the Three Characteristics as the core, as described earlier. Then they will attain the same light of wisdom, clearly seeing all conditioned phenomena, and will be able to abandon all attachment to name-and-form (<em>nāma-rūpa</em>).</p>
+<p><em>(The Mind)</em></p>
+<p>Although the mind has no substance and cannot be touched, it has influence over the body and all things in the world. It can bring everything in this world under its influence. Yet the mind is not so cruel and tyrannical that it knows nothing of right and wrong. When a well-intentioned person trains the mind correctly according to the Buddha's teachings as shown above, the mind becomes tame, quick-witted, and wise, capable of reforming a wayward body. Moreover, it can purify itself, becoming bright, clean, and free from defilements, able to know and see clearly the deep and subtle Dhamma by itself. Simultaneously, it can illuminate this world, which is shrouded in darkness and gloom, making it bright and radiant. For the essential nature of the mind is originally bright and clear. But because of mental objects that seep in and obscure it, the mind's light is darkened temporarily, and consequently the world also becomes dark. If the mind were inherently dark, no one would be able to purify it to become bright and generate the light of wisdom.</p>
+<p>Therefore, whether this world is dark or bright, whether it experiences happiness or suffering, depends on each individual's mind. People should first train their own minds well before training others. Only then will this world cease to be troubled.</p>
+<p><strong>11</strong></p>
+<ol>
+<li>Regarding visions and signs that arise from the meditation practice of those doing <em>bhāvanā</em>: they are one kind of strange and wondrous phenomenon. They can cause those with light, gullible intelligence to become deluded and grasp them as absolutely real, losing themselves and their sanity. Therefore, those training in meditation should be careful and examine them as I will explain below.</li>
+</ol>
+<p>Signs arising from meditation are of two types:</p>
+<p>a) <em>Image (phāp)</em><br />
+b) <em>Sign (nimitta)</em></p>
+<p>a) <em>Image</em>: When an image appears as a form. For example, someone contemplating their own body as foul (<em>asubha</em>). When the mind gathers into <em>bhavaṅga</em>, sometimes they may see the body they are contemplating as entirely foul and rotting, or as just a skeleton, or as a heap of ashes, etc., to the point of becoming disenchanted and committing suicide. Sometimes they may see images of devas, Indra, Brahmā, hell, or hungry ghosts and spirits.</p>
+<p>b) <em>Sign</em>: When the mind gathers thus, there may appear a whispering voice — perhaps a respected person's voice warning to consider Dhamma or beware of events. Or it could be the voice of an enemy with ill intent, who might later harm us, showing the flow of mind-connections. Likewise, those who wish us well. Sometimes it is just a disembodied voice expressing Dhamma worth contemplating, known among meditators as Dhamma that hints, warns, or is a form of higher knowledge (<em>abhiññā</em>).</p>
+<p><em>(Jhāna as Mundane)</em></p>
+<p>These images and signs do not occur for all meditators. No matter how refined the mind's unification, some people never experience images or signs. Others may unify briefly and many signs appear (be careful not to artificially create too many). This depends on one's tendencies. Those with a gullible nature who do not often consider reasoning — signs tend to arise quickly and expand beyond bounds, sometimes causing loss of self and mindfulness, leading to madness. Therefore, caution is needed.</p>
+<p>Are images and signs real? One can say they are both real and unreal, because these signs arise from jhāna. Jhāna is mundane (<em>lokiya</em>), hence uncertain. When meditators gather their mind into <em>bhavaṅga</em> as jhāna, they themselves may not know what the mind has reached, on what level it abides, or how to determine and release the object. Whether signs arise intentionally or not, they are still heavily imbued with conditioned formations (<em>saṅkhāra</em>) and attachment (<em>upādāna</em>), so they are unreliable. Signs arising in <em>bhavaṅga</em> are like sleeping or dozing and dreaming. Therefore, especially when they first occur, they may be somewhat true, but only to a small degree.</p>
+<p>Is jhāna mundane or supramundane? The jhāna factors themselves number only 12 or 13, and they are all mundane. But if a noble person (<em>ariya</em>) who has attained jhāna uses it as a tool or a dwelling, they can indeed use that mundane jhāna as they wish and reliably, just as a skilled marksman differs from a novice shooter, or as a king wields a sword differently from a commoner.</p>
+<p>Are images and signs good? They are good only for those who use them properly, in the right way and context, and who do not become attached to them. They are not good for those who use them improperly or incorrectly, leading to grasping them as absolutely real. Once attachment (<em>upādāna</em>) takes hold, conditioned formations (<em>saṅkhāra</em>) expand the image or sign widely, making it impossible for the meditator to maintain mindfulness. Therefore, one should be careful and restrained with images and signs, as will be explained.</p>
+<p>Images and signs arise through the power of mundane jhāna, with <em>saṅkhāra</em> and <em>upādāna</em> as their basis. Consequently, they fall under the Three Characteristics: they are impermanent, unable to persist, suffering, and not self or belonging to anyone — they are <em>anattā</em>, a state of arising and ceasing constantly. One should contemplate them in this way, seeing them as they truly are, and then let go. Do not be deluded into grasping images and signs, which are merely secondary effects. Train the root cause — jhāna — to become skilled, able to attain it repeatedly as desired, and signs will arise on their own. Furthermore, see the danger of signs: once they arise, we may become delighted and attached, and then our jhāna will deteriorate. Like sound waves obstructing someone seeking quiet and investigating subtle, deep Dhamma; or like ripples in clear water preventing us from seeing reflections.</p>
+<p>When these signs arise for those newly attaining jhāna through meditation, they are very strange and wonderful. <em>Saṅkhāra</em> and <em>upādāna</em> will grasp them tightly. The signs will stick to the (inner) eye and the mind continuously. If the above methods for abandoning them don't work, try to prevent the mind from reaching jhāna: don't pay attention, don't let the mind become calm, don't delight in the signs. Eat, sleep, live comfortably, engage in many other activities, tire the body out. Direct thoughts toward objects that generate defilements, such as beautiful forms and pleasant sounds, to cause lust and desire. When the mind declines and withdraws from jhāna, all signs will disappear on their own. If a student cannot resolve it themselves as described, the teacher should help in the same manner. The best and quickest method is for the teacher to find a way to make the student attached to the sign lose that jhāna or become very angry — the sign will vanish immediately.</p>
+<p><em>(Access Concentration and Absorption Concentration)</em></p>
+<p>The foundation for generating knowledge of Dhamma is access concentration (<em>upacāra-samādhi</em>), which has two aspects:</p>
+<p>a) Meditators practicing any meditation subject: the mind gradually calms down from external objects and gathers exclusively at the mind itself, but does not completely detach from all objects. There is still feeling, thinking, pondering, trying to abandon subtle objects but not yet able to do so completely. This is access before reaching absorption (<em>appanā</em>).</p>
+<p>b) The mind becomes more refined until it completely abandons the object being contemplated; even the in-and-out breath disappears. This is called <em>appanā</em> (absorption). Yet there is full mindfulness with a state of emptiness, not clinging to any external object as a support; it enjoys its own internal object separately. When the mind withdraws from that and then contemplates objects, reasoning, and Dhamma, this is access after emerging from <em>appanā</em>.</p>
+<p>Both of these serve as excellent foundations for knowing Dhamma and events, distinct from the knowledge arising from images and signs mentioned earlier. Because images and signs arise from mundane jhāna and thus give unreliable results. Whereas the knowledge mentioned here, even if arising from mundane concentration, gives reliable results (scientists use this level as a tool for discovery). If it is supramundane concentration, it leads to the progressive destruction of the defilements (<em>āsava</em>).</p>
+<p>In summary, knowledge arising from images/signs differs from knowledge arising from access concentration both in value and in the basis from which they arise, as explained.</p>
+<p>What should be further explained here is absorption concentration (<em>appanā-samādhi</em>). Absorption concentration is supramundane. Most often, those who enter <em>appanā</em> use the breath (<em>ānāpāna</em>) as their object. While focusing on the in-and-out breath, they see arising and ceasing, or see only ceasing, and the mind gradually becomes more refined until it sequentially abandons all objects and unifies into <em>appanā</em> as described. In this <em>appanā</em>, the cessation of breathing is the measure. Some call it <em>appanā-jhāna</em> because it focuses on the breath as object.</p>
+<p>It is called <em>appanā-samādhi</em> because when the mind unifies into that state, there is no in-and-out breathing, yet full, abundant mindfulness remains. At that point, one cannot investigate anything at all, because the mind is completely pure. Only when the mind withdraws and stands in access concentration as described can one investigate anything, and then one knows and sees clearly all knowable things (<em>sabbaññeyya-dhamma</em>) as well as other matters. There are no images or signs as described earlier; instead, knowledge is supported by reasoning and evidence, with analogies that completely dispel doubt.</p>
+<p>This <em>appanā-jhāna</em>: sometimes meditators contemplating other meditation subjects can also reach <em>appanā-jhāna</em> just as with mindfulness of breathing, because they focus on the breath as object. But they do not reach <em>appanā-jhāna</em> until the mind unifies and breathing ceases.</p>
+<p>This is my perspective. Meditators should not take my perspective as absolute, because people's thoughts and views in this world — even when knowing and seeing the same thing in the same place — may understand or conventionally label it differently, leading to endless disputes. Instead, let everyone train themselves in meditation to reach <em>appanā</em> as described, then compare it with the canonical texts explained in various places, with a mind of Dhamma, free from bias. Then it becomes <em>paccattaṃ</em>, personally realized. That is what I intend here.</p>
+<p><strong>Conclusion</strong></p>
+<p>All supramundane Dhamma are established upon the foundation of all mundane Dhamma. The 37 factors of enlightenment (<em>bodhipakkhiya-dhamma</em>), which are entirely supramundane, must begin with name-and-form — the body — which is mundane. Images and signs, as well as various knowledges and views arising from jhāna, are obstacles for those with one eye (i.e., developing only jhāna), but they are causes for developing wisdom for those with two eyes (i.e., developing both samādhi and wisdom as complementary factors).</p>
+<p>A knife and an axe, both blade and edge, are made for different uses. If a person uses them not according to their proper function, not only will they fail to benefit, but they may harm the work or the user.</p>
+<p><em>Vipassanūpakkilesa</em> (defilements of insight) and <em>vipassanā</em> (true insight) arise from the same base. When a person lacking wisdom investigates incorrectly, it becomes a defilement of insight. But when investigating correctly using wise attention (<em>yoniso manasikāra</em>), it becomes true insight.</p>
+<p>When mundane things are investigated until one clearly knows and sees the truth of the world, sees their danger, becomes disenchanted, and does not deludedly cling to them, they become Dhamma. But when one deludedly clings tightly, unwilling to let go — yet that world does not remain that way forever. The Brahmā world may descend to the Deva world; the Deva world may descend to the human world; the human world may descend to the planes of deprivation.</p>
+<p>Just as liquids flow downward, so too the minds of beings easily flow downward (toward evil). Practicing meditation, even though it is a form of self-revolution, still requires one to risk one's life. At the very least, if one does not succeed, one must be prepared for self-exile. Anyone who has not made such a resolution must expect to be a slave to others (i.e., defilements) forever.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="11._Samādhi_by_Practicing_Buddho.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">11</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">11. Samādhi by Practicing Buddho</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Books">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Books</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>

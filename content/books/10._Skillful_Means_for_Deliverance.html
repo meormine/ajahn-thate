@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10. Skillful Means for Deliverance</title>
+	<link rel="icon" href="../../static/favicon.svg" type="image/x-icon">
+    <script src="../../static/tailwind-3.4.17.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dhamma: {
+                            light: '#FAF7F2',
+                            dark: '#121212',
+                            paper: '#FDFBF7',
+                            saffron: '#D97706',
+                            ink: '#292524',
+                            inkDark: '#E7E5E4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base transitions and typography overrides */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .prose strong { color: #D97706; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-dhamma-light text-dhamma-ink dark:bg-dhamma-dark dark:text-dhamma-inkDark min-h-screen flex flex-col">
+    
+   <nav class="border-b border-stone-200 dark:border-stone-800 bg-white/50 dark:bg-black/50 backdrop-blur sticky top-0 z-10">
+        <div class="w-[92%] md:max-w-4xl mx-auto py-4 flex justify-between items-center">
+            
+            <div class="flex items-center gap-1 sm:gap-4 relative min-w-0">
+                <button id="menu-btn" class="p-1.5 sm:p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors shrink-0" aria-label="Open Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+
+                <div id="dropdown-menu" class="hidden absolute top-full left-0 mt-2 w-56 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl shadow-lg overflow-hidden flex flex-col z-50">
+                    <a href="../../autobiography.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="text-sm font-medium">Autobiography</span>
+                    </a>
+                    <a href="../../dhamma_talks.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Talks</span>
+                    </a>
+                    <a href="../../dhamma_books.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Books</span>
+                    </a>
+					<a href="../../dhamma_quotes.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <span class="text-sm font-medium">Dhamma Quotes</span>
+                    </a>
+					<a href="../../download.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors border-b border-stone-100 dark:border-stone-800">
+    <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+    </svg>
+    <span class="text-sm font-medium">Downloads</span>
+</a>
+                    <a href="../../about.html" class="flex items-center gap-3 px-4 py-3 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+                        <svg class="w-5 h-5 text-dhamma-saffron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-sm font-medium">About</span>
+                    </a>
+                </div>
+
+                <a href="../../index.html" class="flex items-center gap-1.5 sm:gap-3 group ml-1 sm:ml-0 min-w-0 shrink-0">
+                    <img src="../../static/logo.svg" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform shrink-0" alt="Logo">
+                    <span class="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">Ajahn Thate Desaraṅsī</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-0.5 sm:gap-2 shrink-0">
+                <a id="rss-link" href="https://meormine.github.io/ajahn-thate/ajahnThate.xml" target="_blank" title="RSS Feed" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors text-stone-600 dark:text-stone-400 hover:text-dhamma-saffron dark:hover:text-dhamma-saffron">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                </a>
+
+                <button id="theme-toggle" class="p-1.5 sm:p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1-0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-[90%] md:max-w-3xl mx-auto py-10">
+        
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-stone-200 dark:border-stone-800 text-sm">
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="09._People_only_Know_How_to_Tie_the_Knot,_but_not_How_to_Untie_it.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="font-medium">(09)</span>
+        </a>
+        
+    </div>
+    
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex justify-center items-center" title="Return to Dhamma Books">
+            <img src="../../static/logo.svg" class="w-6 h-6 opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" alt="Archive">
+        </a>
+    </div>
+    
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="11._Samādhi_by_Practicing_Buddho.html" class="flex items-center gap-1.5 text-stone-500 hover:text-dhamma-saffron transition-colors group">
+            <span class="font-medium">(11)</span>
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        
+    </div>
+</div>
+
+
+
+<article class="prose dark:prose-invert max-w-none mb-16 text-lg">
+    <h3>10. Skillful Means for Deliverance</h3>
+<p><strong>Phra Nirōdharaṅsī Gambhirapaññāvisiṭṭha</strong><br />
+<strong>Luang Pu Thate Desaraṅsī</strong><br />
+<strong>Wat Hin Mak Peng, Si Chiang Mai District, Nong Khai Province</strong>  </p>
+<hr />
+<h2>Preface</h2>
+<p>The practice guide titled "Skillful Means for Deliverance" which has now been completed as this small volume appearing in your hands has come about due to the preface of those well-wishing in the path of practice, both monastics and laypeople. In particular, His Holiness Somdet Phra Mahāvīraṅgsa, abbot of Wat Phra Si Mahathat, Bang Khen, Bangkok—at the time when he held the ecclesiastical rank of Phra Ñāṇadilok, acting abbot of Wat Chedi Luang, Chiang Mai Province—requested that I write a practice guide. However, I was unable to fulfill his good intentions, knowing well that I am not a writer, compounded by my lack of education. Nevertheless, afterward, there continued to be well-wishing people who requested me to write such a guide.</p>
+<p>When I considered the passage of time, reaching a fairly advanced age in the rains retreats, with only a few years left before death, I thought I should leave some benefit in the Buddhist religion. Additionally, in this era, there are many practitioners making great progress. So I decided to write this piece. After writing and reading it, I found it deviating from traditional forms and texts—this again comes from limited study or lack of education. But the well-wishers still pressed me to write in that manner, so I had to comply. After finishing, I sent the manuscript to His Holiness Somdet Phra Mahāvīraṅgsa, requesting his kindness to correct the meanings and phrasing where appropriate. He kindly made corrections, additions, and arranged the wording to be more polished.</p>
+<p>This "Skillful Means for Deliverance" presents a particular practice path that all practitioners have been following in this lineage. However, some people, upon seeing it, cannot speak or explain it to others because they lack skill, or lack interest, or are annoyed and don't wish to speak. As for those interested but not knowing what is what—whether it is correct or not, whether to adopt it or abandon it—they cannot decide because it is something arising in the mind, difficult to do with the body or speak with words. If there is no teacher, or if the teacher has never practiced it themselves, they do not know what to do. Sometimes, seeing it as something strange, they mistake it for something good and encourage each other until they lose themselves.</p>
+<p>Therefore, I have compiled the practice path, along with the results arising from practice and methods of correction as far as I was able to compile them, hoping that this may serve as a tool for correction to some extent. If there are any deviations from the principles of the scriptures, I ask wise scholars and those knowledgeable in the principles to forgive me, because the field of practice is very vast, and it is difficult for one not well-versed in study to correctly comprehend the scriptural principles.</p>
+<p>As for His Holiness Somdet Phra Mahāvīraṅgsa, who kindly helped correct, improve, and arrange for this "Skillful Means for Deliverance" to be successfully completed as a book, I record his kindness in my heart without forgetting. Whatever benefit may arise from this "Skillful Means for Deliverance," I humbly offer in homage to his kindness with great respect.</p>
+<p><strong>Phra Nirōdharaṅsī Gambhirapaññācariya</strong><br />
+Wat Charoen Samanasikkhā<br />
+Phuket Province<br />
+March 1, 1962</p>
+<hr />
+<h2>Introduction</h2>
+<p><em>Sussūsaṃ labhate paññaṃ</em><br />
+"One who listens well gains wisdom."</p>
+<hr />
+<p>Buddhism, the entire teaching of the Buddha, is well known by all Buddhists that the Buddha proclaimed it for 45 years. In terms of the Piṭaka, there are three Piṭakas; in terms of dharma aggregates, there are 84,000. But when condensed into principal points, there are three: He taught to abandon all evil, He taught to cultivate goodness, and He taught to purify one's own mind. All wise people universally accept these three principles as correct and applicable.</p>
+<p>It is a great joy for Buddhists that they have a marvelous Teacher by birth—He was a king of noble double lineage, of the Gotama clan. When He went forth into homelessness, it was not because He lacked relatives or friends or could not support Himself and His family. In truth, He was endowed with abundant royal wealth, complete with all five strands of sensual pleasures available in this world. He went forth amidst the flowing tears of His father and His very own relatives.</p>
+<p>As for learning and skills, from His youth He was supreme among His royal lineage, worthy of being crown prince. His physical appearance perfectly matched the 32 marks of a Great Man, which Brahmins of that time highly esteemed, believing that one with all these marks has two destinies:</p>
+<ul>
+<li>If remaining as a householder, He would become a Universal Monarch, ruling over Jambudvīpa with the four oceans as His boundary.</li>
+<li>If going forth, He would become the supreme teacher in the world, with no other teacher among humans or gods equal to Him.</li>
+</ul>
+<p>He went forth because He contemplated the problem of life that faced the teachers of that era: aging, sickness, and death—reasons so important that no scholar could criticize. He raised that life problem, pondering and seeking a solution, trying and testing according to the principles He had studied by Himself, and practicing asceticism that teachers believed was a genuine method to solve life's problems.</p>
+<p>With mindful composure, He tried practicing severe asceticism in various ways: restraining His breath in and out. When the air could not move easily through His nostrils and mouth, it made a loud rumbling sound through His ears, causing headache, abdominal pain, and intense internal heat. Even so, the painful sensations could not overwhelm His heart to agitation; His mindfulness remained steady and unshaken, He aroused persistence without slackening. But as He continued, He saw that this was not the path to enlightenment. So He changed His method to fasting, as it was understood that food is the cause of defilements. He gradually ate only a little each day, then took only refined food, until His body withered, His complexion dulled, His bones showed throughout His body. When He rubbed His body, the hair roots rotted and hair fell out from the follicles. His strength diminished; wherever He tried to go, He would collapse.</p>
+<p>Having practiced asceticism and tormented His body with difficulty—a feat that no faithful person past, present, or future could surpass—He concluded that this was certainly not the path to enlightenment. He recalled the time when His relatives performed the first plowing ceremony. In the afternoon, while sitting cross-legged, practicing mindfulness of breathing behind a screen under a rose-apple tree, without any attendants or nurses, He attained the first jhāna, so wonderfully that the shadow of the rose-apple tree remained steady as at noon. He thought, "This might be the path to enlightenment." So He completely abandoned all ascetic practices and returned to taking normal food: cooked rice and milk-rice porridge.</p>
+<p>The five ascetics, who believed that when He went forth He would certainly become the Buddha, had been attending on Him morning and evening, hoping that whatever realization He attained, He would teach them so they could attain it too. But when they saw Him abandon asceticism and return to taking food as before, they lost faith and hope, and all left that place.</p>
+<p>After eating and restoring His body to its former strength, He began the practice of the mind, sequentially attaining the four jhānas and three knowledges, and then realized Supreme Perfect Enlightenment, becoming the Perfectly Enlightened Buddha in the year 45 before the Buddhist Era. Then He proclaimed the truth to teachable beings, with the three principles mentioned above. In summary, the Perfectly Enlightened Buddha is the supreme teacher because He possesses six qualities:</p>
+<ol>
+<li>He is supreme in birth and lineage.</li>
+<li>He has supreme ability.</li>
+<li>He went forth for appropriate reasons.</li>
+<li>He personally tested various methods according to the principles until free from doubt.</li>
+<li>Upon enlightenment, it was not because of those principles, but through self-arisen knowledge (sayambhu-ñāṇa), by His own wisdom.</li>
+<li>Even after enlightenment, He was not selfish; He set forth the three great principles of teaching and also a five-step systematic program for reaching those principles.</li>
+</ol>
+<p>What is most admirable is that our Teacher has a verifiable history. People of the world, whether they have faith in Him or not, all know well whose son and grandson He was, what lineage He was born into, what race, and after going forth, what His conduct was. If someone asks, we can answer immediately without difficulty, because His history is not only well-documented but also engaging to read, containing both worldly and spiritual dimensions.</p>
+<p>The teachings He proclaimed are reasonable and suitable for practice, withstand the investigation of the wise, are leading teachings (niyyānika dhamma) that guide those who understand and practice accordingly to become good people in this very life. But it is truly regrettable that Buddhism is like a precious diamond—excellent and of extraordinary value—yet few people revere it, not matching the fact that people today are intelligent, believing only in things with reason. And among those who do revere it, if we filter out only those who truly reach the three principles, the number becomes exceedingly small. It is very strange that something so good is so little esteemed.</p>
+<p>In truth, the Teacher is supreme, and His teachings are leading teachings that guide those who understand and practice accordingly to attain the path and fruit. But the number of believers who attain the path and fruit is small because of the wrong views of the believers—they practice in a way that does not align with the teaching. If His teaching were wrong, all Buddhist disciples practicing accordingly would be without result. But there are still those who have attained the path and fruit, both in the past and present, and the teaching has endured for over two thousand years. All this bears witness that His teaching is not counterfeit but is true, good, and intrinsically stable forever.</p>
+<p>Therefore, the important problem lies with the listeners and trainees: they have wrong views, they don't understand the truth of the principles. For example, the Buddha taught that this human body is a mass of suffering, with birth as its beginning and death as its end; it is ugly, should be disenchanted with, should be let go, should not be clung to as self because it is not under one's control. But how many people hear correctly and understand according to that truth? Because of wrong views, they hear wrongly and think outside the path, devoting themselves to pampering the mass of suffering, going against nature with various delusions and intoxications, dreaming of happiness within suffering in the wrong way, and experiencing multiplied suffering. Since we already have wrong views as capital, even when hearing the Buddha's true teachings, they become completely distorted; we cannot correctly understand the truth. "Counterfeit things, whether objects or anyone's teachings, are worthless. If someone has many counterfeits, they suffer much..."</p>
+<p>Therefore, proclaiming the truth so that it reaches people's minds is difficult in every era because the three factors (sampadā) are not complete:</p>
+<ol>
+<li>The teacher does not understand the essence of the Dhamma and has no method to teach others to understand that Dhamma.</li>
+<li>The listener does not set their mind firmly enough to reach the level to receive that teaching, and moreover has wrong views as capital.</li>
+<li>The teaching being presented is counterfeit.</li>
+</ol>
+<p>Indeed, when the Buddha was about to proclaim the truth, He was concerned that no one would understand the truth, because it is extremely profound and subtle, difficult for those with thick defilements to follow. But due to His great compassion, after thorough consideration, He knew that the three factors were still present. So He proclaimed the truth about things that exist within every one of us: suffering, the cause of suffering, the cessation of suffering, and the path leading to the cessation of suffering. After that, He summarized all the teachings and proclaimed them in the midst of 1,250 noble disciples, as will be described below.</p>
+<hr />
+<h2>The Buddha's Teachings</h2>
+<p>The initial teachings when He established the religion, and those He would continue to proclaim—the Buddha laid down principles for study to know what is what, and established a practice framework to know what should be abandoned and what should be cultivated, and what transcends both abandoning and cultivating. Those principles are the knowledge of the three characteristics (tilakkhaṇa-ñāṇa), which all of us should know. When known, it is called the religion.</p>
+<h3>Knowledge of the Three Characteristics (Tilakkhaṇa-ñāṇa)</h3>
+<p>The principles for study to know that:</p>
+<ul>
+<li>All conditioned things are impermanent (anicca).</li>
+<li>All conditioned things are suffering (dukkha).</li>
+<li>All things, whether conditioned or unconditioned, are not-self (anattā).</li>
+</ul>
+<p>This is called the knowledge of the three characteristics.</p>
+<p><strong>Impermanence (anicca)</strong> means all things constantly change; nothing remains itself even for a moment.</p>
+<p><strong>Suffering (dukkha)</strong> means all things have the characteristic of being unable to endure; they inherently dissolve and perish—they are inherently ugly, wearisome, and disgusting.</p>
+<p><strong>Not-self (anattā)</strong> means there is nothing that the mind should cling to as self or as belonging to self. If one clings, one will suffer because all things are worse than fire. Ordinary fire, when blazing, we see with our eyes and know it is fire, so we cannot approach it. But all things are a fire invisible as fire, enticing us to willingly embrace the fire, so we all suffer endlessly.</p>
+<h3>The Buddha's Three Principal Teachings</h3>
+<p>After studying the principles laid down to know what is what, how should we practice to align with the true nature of all things? So the Buddha laid down a practice framework summarized into three principles:</p>
+<ol>
+<li>He taught to abandon all evil.</li>
+<li>He taught to cultivate all good.</li>
+<li>He taught to purify one's own mind.</li>
+</ol>
+<h3>The Five Steps of Teaching (Anupubbikathā)</h3>
+<p>After summarizing the teachings into these three principles, the Buddha laid down a five-step teaching approach to reach those three principles, called the progressive discourse (anupubbikathā), for teaching practitioners to gradually transform their lives and minds step by step:</p>
+<ol>
+<li>
+<p><strong>Dānakathā</strong> — Discourse on giving: explaining that giving is a virtue, making one generous, able to give one's wealth to share happiness with others, not selfish, showing loving-kindness and compassion according to one's ability.</p>
+</li>
+<li>
+<p><strong>Sīlakathā</strong> — Discourse on virtue: explaining the observance of precepts, how to improve oneself, to have polite speech and conduct, free from both great and small faults, as a sequence from giving.</p>
+</li>
+<li>
+<p><strong>Saggakathā</strong> — Discourse on heaven: explaining the desirable sensual pleasures to be attained through good deeds—giving and virtue—so that one knows to practice those good deeds until the mind is satiated, as a sequence from virtue.</p>
+</li>
+<li>
+<p><strong>Kāmādīnavakathā</strong> — Discourse on the drawbacks of sensual pleasures: explaining that they are impermanent and fraught with trouble, so that one knows the dangers of sensual pleasures—that even though name-and-form may be obtained through the results of good deeds, providing some happiness, as long as one is still entangled in the sensual realm, one will continue to experience suffering. One who still has existence and birth is compared to someone who is stabbed with 100 spears daily, suffering torment for 100 years and then dying, freed from suffering in this world—that is still better than one with existence and birth who must die and be reborn endlessly.</p>
+</li>
+<li>
+<p><strong>Nekkhammānisaṃsakathā</strong> — Discourse on the benefits of renunciation: explaining the advantages of renouncing sensual pleasures, so that one knows how to cleanse the mind to become distant from delight in sensual pleasures and abandon sensuality—the seed that produces endless existence and birth. Therefore, one should listen to this teaching to develop the eye of Dhamma, like a clean white cloth ready to absorb dye.</p>
+</li>
+</ol>
+<p>Among those born in the sensual realm, the foolish delight in the sensual sphere, take pleasure in sensual defilements, desire and desire again with sensual craving, are attached to sensual pleasures and cannot lift themselves out—like frogs and turtles that remain sunk in mud and mire forever. But the wise who contemplate according to the Buddha's teaching see the opposite: they abandon, renounce, and give up everything, not sinking in the mud like lotuses—even though their roots are in the mud, they are not stained by the mud and mire, and raise their blossoms, opening petals, releasing fragrance above the mud and mire. Therefore, I invite you, discerning readers, to contemplate and see impartially.</p>
+<h3>Summary of the Three Principal Teachings</h3>
+<p>In summary, the three principal teachings are: abandon all evil, cultivate all good, and purify one's own mind.</p>
+<p>The five-step teaching approach for practitioners to follow is called the progressive discourse (anupubbikathā): discourse on giving (dānakathā), discourse on virtue (sīlakathā), discourse on heaven (saggakathā), discourse on the drawbacks of sensual pleasures (kāmādīnavakathā), and discourse on the benefits of renunciation (nekkhammānisaṃsakathā).</p>
+<p>Indeed, there are three teaching principles and five teaching steps—not equal in number, but the content harmoniously integrates without excess or deficiency. The first three teaching steps teach abandoning evil, the middle step teaches establishing in goodness, and the final step teaches purifying the defiled mind to become bright and pure.</p>
+<hr />
+<h2>Sensual Pleasures (Kāma) as the Primary Obstacle to Concentration</h2>
+<p>We are born in the sensual realm; our body and mind are situated in the sensual sphere, with sensual objects as nourishment. Even this body is provided with material sensual pleasures for comfort. Without wisdom to know and understand according to reality, we cannot escape the bonds of sensuality. The Buddha compared ordinary worldlings to birds caught in a hunter's net—few can escape. We ordinary worldlings are the same: few can escape the bonds of sensuality.</p>
+<p>Another example: the turtle and the fish were two friends. The turtle is both aquatic and terrestrial and told the fish about the landscape and events on land—how beautiful, delightful, and abundant with various kinds of food it was. No matter how much the turtle explained, the fish, being an aquatic creature who had never seen land, would not believe it, thinking that in this world there is only water, no land. In the same way, sensuality is a defilement of the mind; those under the power of sensuality cannot see or know the truth. Even if someone points out the drawbacks—that sensuality has many faults and few benefits—they will not acknowledge it, because they see sensuality as a virtue, which is called "sensual pleasures" (kāmaguṇa). When sensuality gives such intense, harsh punishment, one should see that sensuality is inflicting punishment, but instead one sees something else as the cause of trouble.</p>
+<p>There are five strands of sensual pleasure (kāmaguṇa): forms, sounds, smells, tastes, and tactile objects. Those under the power of sensuality become infatuated and intoxicated, attached to these five strands, thinking that as long as they exist, they can provide happiness and benefit, or if these five strands disappear, they still hope to get them again. Therefore, after death, beings must be reborn again because the hope and attachment to the five strands still have remaining seeds. How can one who is muddy wash with mud and become clean? When the mind is clouded with defilements, including sensual desire (kāmacchanda), it cannot attain concentration. A concentrated mind must be clean, free from defilements.</p>
+<p>This can be seen in the example of the five jhāna factors. To attain jhāna, one must abandon the five hindrances (nīvaraṇa) with the five jhāna factors:</p>
+<ul>
+<li>Abandons sensual desire (kāmacchanda) with one-pointedness (ekaggatā)</li>
+<li>Abandons ill-will (vyāpāda) with rapture (pīti)</li>
+<li>Abandons sloth-and-torpor (thīnamiddha) with applied thought (vitakka)</li>
+<li>Abandons restlessness-and-remorse (uddhaccakukkucca) with happiness (sukha)</li>
+<li>Abandons doubt (vicikicchā) with sustained thought (vicāra)</li>
+</ul>
+<p>When contemplating this, we see that sensuality is the primary obstacle that blocks the mind from becoming concentrated. In fact, sensuality already manifests as mental agitation. When the mind delights in desirable objects (vatthukāma), it is overpowered by the defilement of craving (kilesakāma). Pleasant and unpleasant things both exist abundantly. When encountering an unpleasant object, the mind gives rise to aversion (paṭigha), hatred (dosa), ill-will (vyāpāda). While the mind has aversion, hatred, and ill-will, restlessness and worry follow. Drowsiness, sluggishness, and yawning come flooding in, causing hesitation—unable to decide anything. Even if a decision is made, it doesn't truly decide. The result is mental distress, leading to agitation among various objects. Therefore, the Buddha taught to train the mind in concentration to abandon these defilements, and then one will attain true happiness.</p>
+<p>Indeed, we are born in the sensual realm, attached to the sensual sphere, with sensual objects as nourishment. When we think about it, it is daunting—abandoning sensuality to become distant, so that the mind is not saturated and immersed in sensual objects, seeing the drawbacks, becoming disenchanted, and decisively withdrawing, becoming "without attachment" (analayo), free from clinging—it seems impossible. But practitioners who sincerely and resolutely follow the Buddha's teachings until they reach the truth will find that daunting feeling turns into ease, and the doubt that it seems impossible will completely disappear, because the truth is a leading teaching (niyyānika dhamma) that guides practitioners correctly to attain the desired result.</p>
+<p>One should understand that our physical body is resultant aggregate (vipākakhandha). Whether it is well-formed or not, it cannot change into something else. The mind that dwells in this physical body as its house, when not yet knowing the truth of the body, will conform to it and take it over through the power of defilements. But when trained to know and become wise enough, it will see the body as merely a dwelling, not taking it over through defilements. The noble ones are examples: they used this very body to perfect their perfections (pāramī) until attaining supramundane Dhamma, and still use this body as a dwelling for the Dhamma.</p>
+<p>Sensuality is like water constantly flooding over the body and mind of beings. Deluded and intoxicated people are like fish. Those with mindfulness and clear comprehension are like turtles, which are both terrestrial and aquatic—even if they don't go down into the water at all, they can still live happily without dying. Householders immersed in sensuality, if they don't see sensuality as an obstacle to concentration, cannot detach the mind from sensuality and train the mind in concentration. But when they see sensuality as an obstacle to concentration and know that the mind merely dwells in the physical body, which is resultant aggregate—the mind is not the body, the body is not the mind—then they seek opportunities to leave sensuality, such as observing the Uposatha, withdrawing from sensuality, training in concentration, calming the mind away from sensuality and defilements occasionally. By practicing repeatedly, they can certainly detach the mind from sensuality. One should take the saying: "When the water is high, the fish eat the ants; when the water recedes, the ants eat the fish." But while we are in the position of fish, we should not wait only to eat ants when the flood comes; or when it becomes the ants' turn, we should not wait only to eat fish when the water dries up.</p>
+<hr />
+<h2>Training in Concentration with Mindfulness of the Body (Kāyagatāsati)</h2>
+<p>The body is the meeting place of the meditation devices (kammaṭṭhāna)—or the assembly point of all meditation subjects: the ten repulsive objects (asubha), the ten devices (kasiṇa), etc. When we bring our contemplation inward to the body, we will see that all of these exist completely within this body. This serves as a method for the mind to gradually relinquish conceit (asmimāna) naturally, and to generate a sense of urgency (saṃvega), calming agitation and converging into concentration. Moreover, this body is the basis for clinging (upādāna), the root of all defilements. If we do not know it according to reality, it becomes the seed for existence, birth, and endless masses of suffering. In terms of truth, this body is not a thing of happiness as ordinary worldlings understand, but rather a mass of suffering that constantly produces affliction.</p>
+<p>The Buddha declared that this body is a mass of suffering because it is filled with four kinds of suffering: birth (jāti), aging (jarā), sickness (vyādhi), and death (maraṇa). But ordinary worldlings do not know this body according to reality; they deludedly cling to it as self and as belonging to self, and mistake this mass of suffering for happiness. They go about seeking things they understand will, when added to this body, increase happiness. Ultimately, the more they add, the more suffering multiplies. When suffering accumulates and increases, some people without the lamp of Dhamma to light their way, unable to find a clear way out, escape through suicide—not a few.</p>
+<p>Therefore, those who desire true happiness, while the world is in turmoil struggling to find a way out, should raise up this body—the root of all suffering and defilements—for contemplation, analyzing to see according to reality until doubt about the body is eliminated, abandoning clinging and letting go, without attachment, and then they will encounter true peace and happiness.</p>
+<p>The truth is that this body we consider ours is merely the elements of earth, water, fire, and air; it belongs to no one. It naturally disintegrates and perishes and is under no one's control. Even though we nurture, care for, and pamper it to make it follow our wishes, it does the opposite. If one knows how to use it according to its proper function, one gains great benefit and happiness. If one does not know how to use it, one experiences trouble, suffering, and distress. Furthermore, this body is a heavy burden to maintain. When the unwise cling to it with the view of self (attānudiṭṭhi), they must carry this heavy burden, causing intense suffering, as the Buddha said:</p>
+<p><em>Bhārā have pañcakkhandhā</em> — The five aggregates are indeed heavy.<br />
+<em>Bhārahāro ca puggalo</em> — Yet the person likes to carry the heavy load.<br />
+<em>Bhārādānaṃ dukkhaṃ loke</em> — Taking up the load is suffering in the world.<br />
+<em>Bhāranikkhepanaṃ sukhaṃ</em> — Putting down the load is happiness.<br />
+<em>Nikkhipitvā garu bhāraṃ</em> — Having put down the heavy load,<br />
+<em>Anyaṃ bhāraṃ anādiya</em> — Not taking up another load,<br />
+<em>Samūlaṃ taṇhaṃ abbuyha</em> — Having uprooted craving with its root,<br />
+<em>Nicchāto parinibbuto</em> — One is quenched and fully extinguished.</p>
+<p>Contemplating this saying of the Buddha, we see that the five aggregates, condensed into form aggregate (rūpakkhandha) and name aggregate (nāma-kkhandha)—body and mind—are what people like to cling to tightly, even though they see that it is an unbearably heavy burden. But the wise contemplate and see that body and mind are separate, not the same. They abandon the clinging that attaches to the body, and resolutely train the mind in concentration, relinquishing the part of the body that should not be clung to. Because this form aggregate and name aggregate—especially the form aggregate, which people can easily see with their own eyes—should be examined clearly: the form aggregate, which arises initially from the combination of the four elements, changes in the middle, and finally disintegrates. No one can cling to it as "me" or "him," "mine" or "his." Its nature follows its own power, not our power. When we cling to what is not us and not ours, the only result is suffering and distress.</p>
+<p>If contemplating in that way is still not clear—not serving as a method to generate urgency and calm the mind into concentration—then one should contemplate it as unattractive (asubha) by taking one of the 32 parts of the body—hair of the head, hair of the body, nails, teeth, skin, etc.—and contemplate it as repulsive and ugly. Or one can take the entire body as a lump and contemplate it in that way. Alternatively, focus on any particular part of the body that can easily be seen as unattractive, such as bones, mucus, saliva, blood, pus, etc., until the mind sees it clearly with knowledge (ñāṇa) and generates disenchantment (saṃvega), weariness, loosening of sensual passion (kāmarāga), abandoning clinging (upādāna). Then one can attain jhāna concentration. Therefore, those training in concentration should direct the mind to contemplate the body, trusting that the objects of all meditation devices are contained within this bodily lump. Do not be uncertain that this meditation device is good, that one is better. In truth, the purpose of practicing meditation is for the mind to know and see the truth about this bodily lump, until doubt is eliminated and one lets go, not clinging to the aggregates of clinging (upādānakkhandha), which is the method leading the mind to attain jhāna concentration.</p>
+<p>Furthermore, while focusing on any object, one should arouse strong faith and devotion (saddhāpāsāda), establish mindfulness firmly and steadily, not doing it intermittently or in fragments. Do not pre-reflect with mental formations (saṅkhāra) about whether the practice will succeed or not. Do not pre-arrange that when you do it, it must be like this, you must abandon that, then this will arise, fitting the textbook—like wanting to ripen before its time—because the mind will not be steady, knowledge will not be clear, persistence will decline, faith will wane, and ultimately one will become disgusted, lazy, and heedless. Instead, persistently focus on that object continuously, skillfully, until it becomes a one-pointed object (ekaggatārammaṇa).</p>
+<hr />
+<h2>Characteristics of the Mind Reaching Calm (Samatha)</h2>
+<p>The characteristic of the mind becoming calm and fixed at a certain point in the body, as a one-pointed object (ekaggatārammaṇa) fixed solely at that point, is called calm (samatha). The human mind naturally has many objects, wandering among various objects, never staying still. The mind of one who has not trained in calm has no time for rest and does not know the taste of happiness born from stillness. This calm does not arise only for those training in calm; it can also arise for ordinary people in certain circumstances. For example, when we encounter some object that can stimulate the agitated mind to contract and fix on a single object—such as seeing a dead person. If there is no fear, at that moment the mind will withdraw from various objects it was thinking and wandering about, converge on the single matter of death with bewilderment, then turn inward, generating a sense of urgency (dhammasaṃvega) and becoming still. This is calm that arises by chance.</p>
+<p>As for calm that arises through training, it means taking up a meditation subject as object until the mind experiences that meditation object, leading the mind to feel wonder and become fixed on that single object. It is like a traveler who stumbles on a stone or piece of wood, causing great pain and injury—the mind then withdraws from delight and wandering among other objects and returns to fixate solely on the pain. In summary, the characteristic of the mind withdrawing from external objects and converging into one-pointedness internally—whether by chance or through training—is called calm (samatha).</p>
+<hr />
+<h2>Distinguishing Jhāna from Samādhi</h2>
+<p>Calm (samatha) encompasses both jhāna and samādhi. The objects of jhāna and samādhi are the same; the initial training is the same. But the abandoning is different, and the attainment of their respective levels is different. At the same time, they support each other, providing mutual strength. Those who have attained will know clearly for themselves. I will lead interested readers to investigate according to reasoning and evidence for reference, so that you may consider and choose as a basis for further practice.</p>
+<p><strong>Jhāna</strong> refers to focusing and remaining fixed on a single object, whether a kasiṇa or anything else. The important point is to have the mind fixated solely on that object. Initially, one must establish mindfulness to control the mind, making it steady and firmly fixed on a single object. When the mind withdraws from other objects and converges on one object, that is called one-pointed object (ekaggatārammaṇa). Experiencing happiness never before experienced, the mind delights and inclines strongly toward that one-pointed object—this is called focusing on the happiness born from the one-pointed object as the jhāna object. This continues until one loses mindfulness, clinging to that one-pointedness as pure and supreme. At this point, the mind converges suddenly into the life-continuum (bhavaṅga), which resembles losing mindfulness or being unconscious for a while, then regaining awareness. Those who have done it often and become skilled will have a similar characteristic but not as strong. Any visions (nimitta) or knowledge (ñāṇa) that arise usually arise during this period. When visions and knowledge arise, the mind in that one-pointed state will follow them easily because the mind in one-pointedness is light and very sensitive to objects—this is called "mind projecting inward" (citta-saṃsaya), which is extremely dangerous for those developing jhāna; sometimes it can cause them to lose themselves. Jhāna ultimately has one-pointedness as its measure, but it lacks the wisdom to contemplate formations (saṅkhāra) as the three characteristics. The defilements of one who attains jhāna are: hardened conceit (māna) and stubborn wrong view (diṭṭhi), holding that one's own view is completely correct and that others cannot match it. The extent of this depends on the steadiness of the jhāna or the individual's inherent tendency toward wrong view. Only those who have been through it together, or have a higher mind, can correct and show them the truth according to reality. If they cannot be corrected, they are lost.</p>
+<p><strong>First jhāna (paṭhamajhāna)</strong> has five factors:
+- <strong>Vitakka</strong> (applied thought): lifting the mind to the object, or holding the object with the mind, or placing the mind on the meditation object until firmly unified.
+- <strong>Vicāra</strong> (sustained thought): investigating and examining that object in some way—for example, investigating unattractiveness (asubha).
+- <strong>Pīti</strong> (rapture): when the mind sees the object clearly, rapture arises.
+- <strong>Sukha</strong> (happiness): when rapture arises, happiness arises.
+- <strong>Ekaggatā</strong> (one-pointedness): when the mind has happiness, it is refreshed, with one-pointedness steady in that happiness.</p>
+<p><strong>Second jhāna (dutiyajhāna)</strong> has three factors, relying on the firm foundation of the first jhāna. The tasks requiring applied and sustained thought are no longer needed, so only rapture, happiness, and one-pointedness remain. (One should understand that without first establishing the first jhāna as a foundation, one cannot absolutely step up to the second jhāna.)</p>
+<p><strong>Third jhāna (tatiyajhāna)</strong> has two factors, because relying on the first two jhānas to refine and cleanse the mind gradually, rapture disappears and is no longer needed, so only happiness and one-pointedness remain.</p>
+<p><strong>Fourth jhāna (catutthajhāna)</strong> has two factors. At this stage, the mind is extremely refined. Focusing on a form-based meditation object (rūpakammaṭṭhāna) with form as object—the form is almost invisible. Even if one focuses on form as object until the mind is one-pointed in that form, due to the refinement of the form object, the mind still cannot let go. One must further establish equanimity (upekkhā) in that form object—this counts as subtle clinging to form. Thus, the fourth jhāna still has one factor: one-pointedness (ekaggatā), plus equanimity (upekkhā) as an additional special factor, making two factors total. In total, these four form-sphere jhānas have six factors. The formless-sphere jhānas (arūpajhāna) will not be discussed here, because the form-sphere jhānas alone serve as a basis for walking the path to attain the supramundane.</p>
+<h3>The Power of Abandoning of Jhāna</h3>
+<p>Jhāna abandons five defilements that belong to the sense-sphere (kāmāvacara):
+1. <strong>Kāmacchanda</strong> (sensual desire): delight in the five strands of sensual pleasure.
+2. <strong>Vyāpāda</strong> (ill-will): malice toward others.
+3. <strong>Thīnamiddha</strong> (sloth-and-torpor): drowsiness, sluggishness, yawning arising from an unclear mind without a dwelling.
+4. <strong>Uddhaccakukkucca</strong> (restlessness-and-remorse): mental agitation wandering to external objects causing worry.
+5. <strong>Vicikicchā</strong> (doubt): uncertainty about the qualities of the Triple Gem.</p>
+<p>To speak truthfully, this should not be called "abandoning" but rather "temporarily suppressed by the power of jhāna." It is like a stone pressing down on grass—when jhāna declines, these five defilements return to their usual place. All these jhāna factors are also in the mundane sphere (lokiya).</p>
+<h3>The True Nature of Jhāna: Bhavaṅga</h3>
+<p>The life-continuum (bhavaṅga) arises at the moment the mind attains jhāna. There are three types:</p>
+<ol>
+<li><strong>Bhavaṅga-pāta</strong>: The mind converges into the bhavaṅga for a single moment, then withdraws.</li>
+<li><strong>Bhavaṅga-calana</strong>: The mind stirs and converges into the bhavaṅga, then refuses to come out to receive external objects, instead experiencing an internal object of the mind itself—which resembles external objects but has a special taste. Or the mind is about to let go and converge into bhavaṅgupaccheda but is not yet fully able to let go—this is also called bhavaṅga-calana.</li>
+<li><strong>Bhavaṅgupaccheda</strong>: The mind converges into a single lump, with no separation whatsoever. To say it another way: while the mind still depends on the body, it separates existence (bhava) from the body, standing alone independently, experiencing its own object separately.</li>
+</ol>
+<hr />
+<h2>On Samādhi</h2>
+<p>The state of establishing mindfulness to control the mind, focusing on a meditation object until it converges at a single point, with mindfulness knowing: "This is mindfulness, this is samādhi, this is object"—with the remaining entirely gone, constantly governed by the knowledge of the three characteristics (tilakkhaṇa-ñāṇa)—this is the characteristic of samādhi, which differs from the jhāna described above. There are three types of samādhi:</p>
+<h3>1. Khaṇikasamādhi (Momentary Concentration)</h3>
+<p>The state where the mind converges at a single point, but converges momentarily, flashing briefly and then disappearing, unable to grasp anything continuous.</p>
+<h3>2. Upacārasamādhi (Access Concentration)</h3>
+<p>The state where the mind is about to converge into absorption (appanā)—it is on the verge of converging but not fully; it does not wander or scatter to external objects; it takes the object as clinging (upādāna)—neither abandoning it nor fully taking it, with hesitation as its basis.</p>
+<h3>3. Appanāsamādhi (Attainment Concentration)</h3>
+<p>The state where the mind withdraws and relinquishes all clinging, then converges the power of mindfulness, samādhi, and wisdom to full completeness. One could almost say that although the aggregates (khandha), elements (dhātu), and sense-bases (āyatana) still exist in the world according to conventional truth, at that moment the mind has no world attached to it at all—it cannot be called "world" nor exactly "Dhamma," because absorption has no conventions there.</p>
+<p>At that moment, what is easy to observe is that there is no breathing. If someone questions: "When there is no breathing, why don't you die? Don't people live by breathing?" The answer is: breathing is not only exhaled and inhaled through the nose; it can be exhaled and inhaled generally, even through every pore. Consider those who have trained the mind to be refined until they have let go of clinging to form—those who enter the cessation of perception and feeling (saññāvedayitanirodha) as an example: perception and feeling have completely ceased, and there is no breathing for seven days, yet they can live. Since we have not yet reached that point, we should not use our own opinions to measure it.</p>
+<h3>The Power of Abandoning of Samādhi</h3>
+<p>Samādhi is the path (magga) that abandons the defilements of ordinary worldlings, transforming people into noble ones (ariya) according to the level of that path. There are four paths:</p>
+<ul>
+<li><strong>First path</strong> (Sotāpatti-magga) abandons three defilements:</li>
+<li><strong>Sakkāyadiṭṭhi</strong> (personality view): the view that holds to self, stubbornly clinging to this bodily lump as truly substantial, without using wisdom to contemplate it through the three characteristics.</li>
+<li><strong>Vicikicchā</strong> (doubt): uncertainty about the qualities of the Triple Gem, causing faith in the religion to be unsteady, wavering faith.</li>
+<li>
+<p><strong>Sīlabbata-parāmāsa</strong> (clinging to rites and rituals): grasping at precept-observance and practices—observing precepts and practices due to other reasons, not as noble-preferred virtue (ariyakantha-sīla) and noble-preferred practice (ariyakantha-vatta).</p>
+</li>
+<li>
+<p><strong>Second path</strong> (Sakadāgāmi-magga) abandons the same three as the first path, and weakens:</p>
+</li>
+<li><strong>Rāga</strong> (passion) through the power of sensual defilement (kilesakāma)</li>
+<li><strong>Dosa</strong> (hatred): the mind's tendency to harm</li>
+<li>
+<p><strong>Moha</strong> (delusion): confusion, lack of reason</p>
+</li>
+<li>
+<p><strong>Third path</strong> (Anāgāmi-magga) abandons the five lower fetters (orambhāgiyasaṃyojana):</p>
+</li>
+<li>
+<p>Sakkāyadiṭṭhi, vicikicchā, sīlabbata-parāmāsa, kāmarāga (sensual passion through the power of sensual defilement), and paṭigha (aversion through the power of hatred).</p>
+</li>
+<li>
+<p><strong>Fourth path</strong> (Arahatta-magga) completely abandons those five lower fetters and also abandons the five higher fetters (uddhambhāgiyasaṃyojana):</p>
+</li>
+<li><strong>Rūparāga</strong> (attachment to form-sphere)</li>
+<li><strong>Arūparāga</strong> (attachment to formless-sphere)</li>
+<li><strong>Māna</strong> (conceit): the notion "I am this or that"</li>
+<li><strong>Uddhacca</strong> (restlessness): thoughts wandering to agreeable and disagreeable objects</li>
+<li><strong>Avijjā</strong> (ignorance): delusion causing lack of true knowledge of the Four Noble Truths</li>
+</ul>
+<hr />
+<h2>Jhāna and Samādhi Have Different Ultimate Points</h2>
+<p>Jhāna has bhavaṅga as its ultimate point; samādhi has samādhi as its ultimate point. Bhavaṅga has three types: bhavaṅga-pāta, bhavaṅga-calana, and bhavaṅgupaccheda.</p>
+<ul>
+<li>The state where the mind falls into bhavaṅga with a flash or a single moment then withdraws is called <strong>bhavaṅga-pāta</strong>.</li>
+<li>The state where the mind stirs and falls into bhavaṅga then refuses to come out to receive external objects, instead experiencing an internal object of the mind itself—which resembles external objects but has a special taste—or the mind is about to let go and converge into bhavaṅgupaccheda but is not yet fully able to let go, is called <strong>bhavaṅga-calana</strong>.</li>
+<li>The state where the mind completely cuts off both internal and external objects, converging into a single lump with no separation whatsoever, is called <strong>bhavaṅgupaccheda</strong>.</li>
+</ul>
+<p>Bhavaṅga is the name for the "existence" of the mind. When the mind takes conception in this body, and as long as this body still exists, the mind that has been trained to abandon and relinquish clinging will converge into bhavaṅga, established in its own level. If this body breaks apart and can no longer serve as a support, that mind becomes its own existence, not needing to receive contacts connected with the physical senses. When the mind moves within these three bhavaṅgas, it is called "the mind moving in its own stream." As for the four formless-sphere jhānas, the mind has fully attained bhavaṅgupaccheda, taking formless objects. For the level of these jhānas, there is insufficient wisdom to raise the three characteristics for contemplation to clearly see the Four Noble Truths; therefore, they are not a path to the end of existence and birth.</p>
+<p>Samādhi has three types: khaṇikasamādhi, upacārasamādhi, and appanāsamādhi.</p>
+<ul>
+<li>The state where the mind, with mindfulness, converges and is established in a single object, but only momentarily, flashing briefly and then disappearing, unable to grasp anything continuous, is called <strong>khaṇikasamādhi</strong>.</li>
+<li>The state where the mind is about to converge into absorption (appanā)—which would completely cut off objects—on the verge of converging but not fully, not scattering to external objects, taking the object as clinging (upādāna), is called <strong>upacārasamādhi</strong>.</li>
+<li>The state where the mind converges fully and intimately, completely cutting off all objects, withdrawing and relinquishing clinging, then converging the power of mindfulness, samādhi, and wisdom to full completeness, bright, radiant, shining alone, without any clinging, is called <strong>appanāsamādhi</strong>.</li>
+</ul>
+<p>When the mind withdraws from appanā and then contemplates Dhamma, not to the point of withdrawing into khaṇika or scattering, that is also called upacārasamādhi—just as the access (upacāra) withdrawing from appanā is initially called "access reaching appanā."</p>
+<h3>Jhāna and Samādhi as Mutual Conditions</h3>
+<p>Jhāna and samādhi serve as conditions supporting each other, giving each other strength. Sometimes the mind enters jhāna (i.e., bhavaṅga), absent from coarse external objects, focusing only on the jhāna object to a moderate degree, then emerges to mindfully contemplate the jhāna object or other objects, causing mindfulness to become stronger, contemplating the three characteristics more clearly than before; the mind then attains samādhi quickly and more firmly. Sometimes the mind attains samādhi, with clear, bright, joyful mindfulness and wisdom, proceeding along the path of the three characteristics. If mindfulness weakens, wisdom becomes sluggish, samādhi dulls, and the mind enters jhāna (bhavaṅga) silently, or inclines toward the happiness of jhāna (i.e., the one-pointed object) and experiences that happiness.</p>
+<p>In summary, for those still unskilled, jhāna and samādhi alternate arising with the same or different meditation objects. One cannot prevent them from occurring like that. Even those who have become skilled must dwell in that Dhamma-dwelling (vihāradhamma) or use it in certain circumstances—except for those exclusively attached to jhāna, who will not emerge and change to experience other objects.</p>
+<hr />
+<h2>Special Knowledges Arising from Jhāna</h2>
+<p>The six direct knowledges (abhiññā) are:
+1. <strong>Iddhividhi</strong> (psychic powers): displaying various marvels.
+2. <strong>Dibbasota</strong> (divine ear): clairaudience.
+3. <strong>Cetopariya-ñāṇa</strong> (knowledge of others' minds): knowing the thoughts of others.
+4. <strong>Pubbenivāsānussati-ñāṇa</strong> (recollection of past lives): remembering former existences.
+5. <strong>Dibbacakkhu</strong> (divine eye): clairvoyance.
+6. <strong>Āsavakkhaya-ñāṇa</strong> (knowledge of the destruction of defilements): knowing how to end the influxes.</p>
+<p>The first five arise through the power of jhāna and arise only for those with the appropriate disposition and latent tendencies (vāsanā). As for the last one, those who have both jhāna and samādhi in sufficient strength, supporting each other as conditions, without clinging or delusion in jhāna, can end the influxes (through both mind-liberation and wisdom-liberation—cetovimutti, paññāvimutti).</p>
+<p>One should understand that the knowledge of the destruction of defilements (āsavakkhaya-ñāṇa) is not directly a direct knowledge (abhiññā), nor is it exclusively insight (vipassanā); it arises from the combination of both powers. Jhāna is mundane (lokiya) and cannot alone end the influxes. Samādhi alone cannot produce direct knowledges either, because direct knowledges arise only through the power of jhāna. For ease of understanding: one who has samādhi established in the supramundane level then uses jhāna (which is mundane) as a tool to know the direct knowledges—that jhāna then becomes supramundane jhāna accordingly, like a pair of sandals worn by a king called "royal footwear" rather than simply "sandals."</p>
+<h3>Special Knowledges Arising from Samādhi</h3>
+<ol>
+<li><strong>Cakkhu udapādi</strong> (the eye arose): the eye of clear knowledge of the truth, seen clearly with the inner eye (paññācakkhu).</li>
+<li><strong>Ñāṇaṃ udapādi</strong> (knowledge arose): the internal path of knowledge, not only the eye, but all six sense-bases arise simultaneously.</li>
+<li><strong>Paññā udapādi</strong> (wisdom arose): clear knowledge of the three characteristics arises until doubt disappears; there is no more "What is this?" in the mind.</li>
+<li><strong>Vijjā udapādi</strong> (true knowledge arose): the special knowledge that causes the destruction of the influxes has arisen.</li>
+<li><strong>Āloko udapādi</strong> (light arose): the light of all knowledge has shone throughout the world; nothing can obscure the mind's heart that would cause delusion again.</li>
+</ol>
+<p>These five special knowledges arise solely through samādhi. For example, when the Buddha's disciples sat listening to Dhamma in the Buddha's presence—such as Aññā Koṇḍañña—these knowledges arose right there in that seat, showing that they had not previously attained jhāna, but attained samādhi while listening attentively. Therefore, samādhi and the knowledge arising from samādhi are classified as supramundane (lokuttara) and are also right path (sammāmagga).</p>
+<h3>The Nine Insight Knowledges (Vipassanā-ñāṇa) Arising from Jhāna</h3>
+<ol>
+<li><strong>Udayabbaya-ñāṇa</strong>: knowledge contemplating both arising and passing away.</li>
+<li><strong>Bhaṅga-ñāṇa</strong>: knowledge contemplating only the passing away of formations.</li>
+<li><strong>Bhayatupaṭṭhāna-ñāṇa</strong>: knowledge contemplating formations as fearful.</li>
+<li><strong>Ādīnava-ñāṇa</strong>: knowledge contemplating the drawbacks of formations.</li>
+<li><strong>Nibbidā-ñāṇa</strong>: knowledge contemplating disenchantment with formations.</li>
+<li><strong>Muñcitukamyatā-ñāṇa</strong>: knowledge contemplating the desire to be released from formations.</li>
+<li><strong>Paṭisaṅkhā-ñāṇa</strong>: knowledge contemplating the search for a way.</li>
+<li><strong>Saṅkhārupekkhā-ñāṇa</strong>: knowledge contemplating equanimity toward formations.</li>
+<li><strong>Saccānulomika-ñāṇa</strong>: knowledge conforming to the determination of the Noble Truths.</li>
+</ol>
+<p>Among these nine insight knowledges, the first eight do not arise for all yogis, and when they arise, they do not necessarily arise in the numerical order listed. They may arise for a particular knowledge, and then proceed to the ninth knowledge directly. Because these nine knowledges arise directly from jhāna, the first eight are not of greater or lesser special quality; they all have jhāna as their basis, not using the knowledge of the three characteristics for contemplation, but focusing only on one aspect according to the nature of jhāna.</p>
+<p>Furthermore, with many things, any can be counted first—no problem. As for the last knowledge, it only has the special quality of conforming to the determination of the Noble Truths. However, if the foundational jhāna is very strong, it can easily cause perversion of perception (vipallāsa). One should understand that if it is insight-wisdom (vipassanā-paññā) arising from samādhi, it must ascend to the three characteristics, taking the three characteristics as its object.</p>
+<h3>The Seven Purifications (Visuddhi) Arising from Samādhi</h3>
+<ol>
+<li><strong>Sīlavisuddhi</strong>: purification of virtue.</li>
+<li><strong>Cittavisuddhi</strong>: purification of mind.</li>
+<li><strong>Diṭṭhivisuddhi</strong>: purification of view.</li>
+<li><strong>Kaṅkhāvitaraṇavisuddhi</strong>: purification by overcoming doubt.</li>
+<li><strong>Maggāmagga-ñāṇadassanavisuddhi</strong>: purification by knowledge and vision of what is path and not-path.</li>
+<li><strong>Paṭipadā-ñāṇadassanavisuddhi</strong>: purification by knowledge and vision of the practice path.</li>
+<li><strong>Ñāṇadassanavisuddhi</strong>: purification by knowledge and vision.</li>
+</ol>
+<p>These seven purifications can only arise with samādhi as the foundation; without it, they will not arise at all. The first purification, virtue, cannot be purification of virtue without samādhi as a stable foundation. These seven purifications are like the nine insight knowledges: when they arise, they do not necessarily arise in order. Any one of the purifications may arise first, and then they will be linked together through all seven like a chain, because the seven purifications are classified as path (magga), supramundane. But if samādhi is weak, the mind will incline toward jhāna, and the ten corruptions of insight (vipassanūpakkilesa) may arise during any of the purifications. When that happens, insight-wisdom cannot contemplate the three characteristics, and the mind will cling to the object of that corruption.</p>
+<h3>The Ten Corruptions of Insight (Upakkilesa)</h3>
+<ol>
+<li><strong>Obhāsa</strong>: light</li>
+<li><strong>Ñāṇa</strong>: knowledge of various things</li>
+<li><strong>Pīti</strong>: rapture</li>
+<li><strong>Passaddhi</strong>: calm, seclusion from external objects</li>
+<li><strong>Sukha</strong>: happiness</li>
+<li><strong>Adhimokkha</strong>: resolution, faith in the vision and that cause</li>
+<li><strong>Paggāha</strong>: strong effort</li>
+<li><strong>Upaṭṭhāna</strong>: strong mindfulness</li>
+<li><strong>Upekkhā</strong>: equanimity, neutral mind</li>
+<li><strong>Nikanti</strong>: delight, satisfaction</li>
+</ol>
+<p>All ten of these corruptions are obstacles for the yogi walking the path.</p>
+<h3>The Danger of the Ten Corruptions</h3>
+<p>The characteristics, manifestations, and abandoning of defilements in jhāna and samādhi differ as shown. Jhāna has strong resolution, strong effort and rapture, strong mental energy, excitement in everything. In summary, when the mind inclines toward jhāna objects, if one is heavily attached and deluded by jhāna, one's own mind almost ceases to be one's own. In truth, when jhāna arises, it is exciting, so beginners like it very much. But jhāna is easily gained and quickly lost because it is under the power of the eight worldly conditions (lokadhamma). As for samādhi, when it arises, it proceeds calmly, with mindfulness circumspect according to its level, taking the three characteristics as object, not losing oneself, gradually attaining and gradually becoming more refined, and once attained, it rarely declines—it is supramundane Dhamma. Some people do not feel excited when they attain samādhi because they do not reflect on the state they have attained, but only aim to make that samādhi steady and refined. Jhāna is fun, with many entertainments, many strange things, causing those who do not know according to reality to become attached and sink into jhāna. The state of being attached and sinking in is the danger of the ten corruptions. Observe further:</p>
+<ul>
+<li><strong>Obhāsa (light)</strong> appears in the mind-door path (manodvāravīthi) when the mind attains jhāna (bhavaṅga). When the mind resolves toward the light, that light expands widely, with various strange manifestations beyond description.</li>
+<li><strong>Ñāṇa (knowledge)</strong> of various things—sometimes so fast one cannot keep up, not knowing what one knows—both things known and seen before and things never known or seen. It is not knowledge staying with what is known, but wandering among phenomena, extending to other people, other beings. At first partly true, partly false; over time, it becomes erratic.</li>
+<li><strong>Pīti (rapture)</strong> causes such satisfaction that one loses oneself.</li>
+<li><strong>Passaddhi (calm)</strong> causes seclusion from external objects, turning inward to become busy with internal objects, so that one cannot eat or sleep. When this continues long, the elements become disturbed, the mind becomes agitated among various objects.</li>
+<li><strong>Sukha (happiness)</strong> causes comfort with all the aforementioned manifestations—to the point of not needing to eat or drink.</li>
+<li><strong>Adhimokkha (resolution)</strong> causes the mind to resolve toward visions and light; the more knowledge there is, the more the ten corruptions become stronger and multiply.</li>
+<li><strong>Paggāha (strong effort)</strong> causes persistent effort without stopping or discouragement, with knowledge whispering and urging constantly.</li>
+<li><strong>Upaṭṭhāna (strong mindfulness)</strong> helps mindfulness stay strong only on that object, but lacks clear comprehension (sampajañña), not knowing what is appropriate and inappropriate.</li>
+</ul>
+<p>If the aforementioned eight corruptions, or any one of them, are still present, equanimity (upekkhā) will not arise. When those eight calm down even for a moment, then equanimity and delight (nikanti) arise.</p>
+<p>These ten corruptions are not only dangerous for insight; they can also cause various perversions (vipallāsa) to the point of losing oneself. Such cases have occurred in the past. If the teacher does not understand and encourages the student to take them as real, the student will be lost beyond correction. When such perversion occurs, only those who know and have been through it can correct it.</p>
+<hr />
+<h2>Methods for Correcting Perversion (Vipallāsa)</h2>
+<p>Both the teacher and the student practicing meditation, when understanding the mind's process of entering jhāna, should beware of the ten corruptions. If the mind attains jhāna, either all or at least one of the corruptions will arise for some dispositions, but for some people none arise. If they arise, we should practice as follows:</p>
+<h3>Method 1</h3>
+<p>When a corruption arises, know it as it is: "This is a corruption, an obstacle to insight-wisdom, and this corruption arises from jhāna, not the noble path." Even the nine insight knowledges, the first eight, are the same. Do not incline the mind to follow them, thinking they are real and true. Understand that they are merely images arising from mental formations (manosaṅkhāra)—the mind's concoctions through the power of jhāna. Raise the knowledge of the three characteristics (tilakkhaṇa-ñāṇa) to decide: all these corruptions arise because of jhāna; jhāna is mundane, corruptions are mundane; all mundane things are impermanent. What is impermanent is suffering, because it cannot endure permanence, and then it breaks apart and ceases according to its own nature, which no one has the power to prevent—this is called not-self (anattā). When one raises the knowledge of the three characteristics to decide, if the mind gives rise to wisdom inclining to see according to the three characteristics, the mind will withdraw from the clinging that has grasped that corruption, and then wisdom-knowledge will arise, walking the path of the noble path very well. However, if one cannot correct oneself in this way, and others cannot help because the deluded person has already grasped it as real—sometimes to the point of complete bewilderment—then one should use Method 2 or the final Method 3.</p>
+<h3>Method 2</h3>
+<p>When you know and see the danger thus, constantly watch the mind. Do not let the mind incline toward the happiness of one-pointedness, converging into one. Do not cling to any internal mental happiness. Then change the four postures equally; do not unify the faculties (indriya) that would cause the mind to converge. Instead, engage in work to make it forget the state of calm happiness. But if the mind has already converged and perversion has arisen, the mind has grasped it so firmly that it considers itself a special person in various ways, with stubborn wrong view refusing to listen to anyone. At this stage, it is difficult to correct oneself. Even a teacher who is not skilled in knowing the student's weaknesses, or who has never been through it, will find it difficult to correct them. Therefore, one should use...</p>
+<h3>Method 3 (Final Method)</h3>
+<p>Use intimidation to make them afraid, or generate extreme anger, to the point where they cannot stand steady—the better. But be careful not to let them escape. If they run away, there will be no way to correct them. After the perversion has passed, then come to a new understanding.</p>
+<p>This final method is most often used with those attached to visions (nimitta) and works excellently. Those deluded by visions are more extreme than those with perverted views. Therefore, the correction method is not much different.</p>
+<hr />
+<h2>Appendix</h2>
+<p>The Buddha's teachings, when summarized, are three: teach to abandon evil, teach to cultivate wholesome deeds, and teach to purify one's own mind. And He laid down a five-step teaching approach to reach those three principles—all teaching one to become one who renounces both material objects and defilements, which are the cause of constant trouble for animals and humans.</p>
+<p>The development of jhāna and samādhi, though walking the same path, when attained have different characteristics, manifestations, and benefits. This is training to become one whose mind renounces what is extremely difficult to renounce, namely the aggregates of clinging (upādānakkhandha). Therefore, whichever meditation device (kammaṭṭhāna) one uses as a method—such as the ten recollections (anussati) or the ten unattractive objects (asubha)—if one can let go of both external and internal clinging to the aggregates, it works. If one cannot let go, it is fruitless (mogha).</p>
+<p>The Teacher appeared in existence and in aggregates, and the disciples likewise. But His teaching teaches to abandon mundane (lokiya) existence and aggregates until attaining the supramundane (lokuttara). Therefore, the skillful means (dhammupāya) for abandoning includes both mundane and supramundane. Even the wisdom arising from training is similarly both mundane and supramundane. Thus, it is difficult for those with insufficient attainment (i.e., jhāna and samādhi) and insufficiently refined wisdom to extract the essential benefit from this life. If one mistakenly understands and clings to what is not essential as essential, then it ends in disaster (evaṁ).</p>
+<p>Practitioners should always remember: the bodily existence is easy to delude but hard to abandon; the mental existence is hard to delude and hard to abandon. Visions and knowledges arising from jhāna are easy to delude and hard to abandon. But those arising from samādhi are hard to delude and easy to abandon, because they arise from samādhi as the skillful means of wisdom for directly abandoning the substrata (upadhi) and attaining the essential Dhamma.</p>
+</article>
+
+<hr class="border-stone-200 dark:border-stone-800 mb-8">
+
+<div class="flex flex-row justify-between items-center gap-2 mt-12 py-6 border-t border-stone-200 dark:border-stone-800">
+    
+    <div class="w-1/3 flex justify-start">
+        
+        <a href="09._People_only_Know_How_to_Tie_the_Knot,_but_not_How_to_Untie_it.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Prev</span>
+                <span class="text-xs font-mono text-stone-500">09</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Previous</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">09. People only Know How to Tie the Knot, but not How to Untie it</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <div class="w-1/3 flex justify-center">
+        <a href="../../dhamma_books.html" class="group flex flex-col items-center">
+            <img src="../../static/logo.svg" class="w-6 h-6 sm:w-10 sm:h-10 mb-1 group-hover:rotate-45 transition-transform duration-500" alt="Dhamma Books">
+            
+            <span class="text-[10px] uppercase tracking-widest font-bold text-dhamma-saffron sm:hidden">Index</span>
+            
+            <span class="hidden sm:block text-xs font-bold tracking-widest uppercase text-dhamma-saffron mt-1">Dhamma Books</span>
+        </a>
+    </div>
+
+    <div class="w-1/3 flex justify-end">
+        
+        <a href="11._Samādhi_by_Practicing_Buddho.html" class="group">
+            <div class="flex flex-col items-center sm:hidden">
+                <span class="text-sm font-bold text-stone-400 group-hover:text-dhamma-saffron transition-colors">Next</span>
+                <span class="text-xs font-mono text-stone-500">11</span>
+            </div>
+            
+            <div class="hidden sm:flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-all text-right">
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400">Next</span>
+                    <span class="text-sm font-semibold truncate max-w-[150px]">11. Samādhi by Practicing Buddho</span>
+                </div>
+                <svg class="w-5 h-5 text-dhamma-saffron group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </a>
+        
+    </div>
+</div>
+
+    </main>
+
+    <footer class="border-t border-stone-200 dark:border-stone-800 py-6 mt-10">
+        <div class="w-[90%] md:max-w-4xl mx-auto text-center text-sm text-stone-500 dark:text-stone-400">
+            May all beings be happy and peaceful.
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+		
+		// Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+		
+    </script>
+</body>
+</html>
