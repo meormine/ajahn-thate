@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="mb-12 flex flex-col items-center text-center">
+    <div class="mb-6 w-24 h-24 md:w-32 md:h-32">
+        <img src="{{ root_path }}static/logo.svg" alt="Dhamma Wheel" class="w-full h-full drop-shadow-sm">
+    </div>
+    
+    <h1 class="text-3xl md:text-5xl font-bold mb-4 text-dhamma-saffron tracking-tight">
+        Ajahn Thate Desaraṅsī Archive
+    </h1>
+    <p class="text-lg md:text-xl text-stone-600 dark:text-stone-400 max-w-2xl leading-relaxed">
+        A digital collection of the teachings, writings, and life history of Phra Rajanirodharangsee (1902–1994), a revered founding master of the Thai Forest Tradition.
+    </p>
+</header>
+
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-16 bg-white dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800 p-6 md:p-8 shadow-sm">
+    <div class="md:col-span-5 flex justify-center">
+        <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-dhamma-saffron to-amber-500 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+            <img src="{{ root_path }}static/ajahn_thate_home.jpg" alt="Venerable Ajahn Thate Desaraṅsī" class="relative w-64 h-64 md:w-full md:h-auto object-cover rounded-xl border border-stone-100 dark:border-stone-800 shadow-md transition-all duration-500">
+        </div>
+    </div>
+        
+        <div class="md:col-span-7 space-y-4">
+            <span class="text-xs font-bold uppercase tracking-widest text-dhamma-saffron">Legacy of Stillness</span>
+            <h2 class="text-2xl font-bold tracking-tight text-stone-800 dark:text-stone-100">
+                The Path of a Forest Monk
+            </h2>
+            <p class="text-stone-600 dark:text-stone-400 leading-relaxed text-sm md:text-base">
+                Venerable Ajahn Thate Desaraṅsī (1902–1994) was one of the foundational pillars of the modern Thai Forest Tradition. As a direct disciple of Ajahn Mun Bhūridatta, his life epitomized radical simplicity, deep meditative stabilization, and compassionate teaching.
+            </p>
+            <p class="text-stone-600 dark:text-stone-400 leading-relaxed text-sm md:text-base">
+                For over seventy years in the robes, he traversed remote wildernesses, subdued the mind through isolated practice, and built communities centered around pure monastic discipline (Vinaya).
+            </p>
+            <div class="pt-2">
+                <a href="{{ root_path }}autobiography.html" class="inline-flex items-center gap-2 text-sm font-semibold text-dhamma-saffron hover:underline group">
+                    Read his full Autobiography 
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <blockquote class="border-l-4 border-dhamma-saffron bg-stone-50 dark:bg-stone-900/40 px-6 py-5 rounded-r-xl mb-16 shadow-inner text-center md:text-left">
+        <p class="text-lg italic font-medium text-stone-700 dark:text-stone-300">
+            "Direct mindfulness so that it keeps closely aware of the mind. Let wisdom's only function be to purge the out-wanderings of the heart and return it to a state of complete stillness."
+        </p>
+        <cite class="block text-xs font-bold uppercase tracking-widest text-dhamma-saffron mt-3 not-italic">
+            — Ajahn Thate Desaraṅsī, Steps Along the Path
+        </cite>
+    </blockquote>
+<section class="space-y-6">
+        <h3 class="text-xl font-bold tracking-tight text-stone-800 dark:text-stone-100 px-1 border-b border-stone-200 dark:border-stone-800 pb-2">
+            Explore the Archive
+        </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a href="{{ root_path }}autobiography.html" class="block p-5 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl hover:border-dhamma-saffron dark:hover:border-dhamma-saffron transition-all group shadow-sm">
+                <div class="flex items-center gap-3 mb-2 text-dhamma-saffron">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    <h2 class="text-xl font-bold text-stone-800 dark:text-stone-200 group-hover:text-dhamma-saffron transition-colors">Autobiography</h2>
+                </div>
+                <p class="text-stone-600 dark:text-stone-400">Explore the life and journey of Ajahn Thate, from his early years to his time as a wandering forest monk.</p>
+            </a>
+
+            <a href="{{ root_path }}dhamma_talks.html" class="block p-5 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl hover:border-dhamma-saffron dark:hover:border-dhamma-saffron transition-all group shadow-sm">
+                <div class="flex items-center gap-3 mb-2 text-dhamma-saffron">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                    <h2 class="text-xl font-bold text-stone-800 dark:text-stone-200 group-hover:text-dhamma-saffron transition-colors">Dhamma Talks</h2>
+                </div>
+                <p class="text-stone-600 dark:text-stone-400">An archive of recorded teachings, transcripts, and practical meditation advice given to his disciples.</p>
+            </a>
+
+            <a href="{{ root_path }}dhamma_books.html" class="block p-5 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl hover:border-dhamma-saffron dark:hover:border-dhamma-saffron transition-all group shadow-sm">
+                <div class="flex items-center gap-3 mb-2 text-dhamma-saffron">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <h2 class="text-xl font-bold text-stone-800 dark:text-stone-200 group-hover:text-dhamma-saffron transition-colors">Dhamma Books</h2>
+                </div>
+                <p class="text-stone-600 dark:text-stone-400">
+                    Published writings, essays, and complete books translated into English.
+                </p>
+            </a>
+
+            <a href="{{ root_path }}dhamma_quotes.html" class="block p-5 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl hover:border-dhamma-saffron dark:hover:border-dhamma-saffron transition-all group shadow-sm">
+                <div class="flex items-center gap-3 mb-2 text-dhamma-saffron">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                    <h2 class="text-xl font-bold text-stone-800 dark:text-stone-200 group-hover:text-dhamma-saffron transition-colors">Dhamma Quotes</h2>
+                </div>
+                <p class="text-stone-600 dark:text-stone-400">Brief, impactful reflections and daily inspiration excerpted from his lifelong teachings.</p>
+            </a>
+			
+			<a href="{{ root_path }}download.html" class="block p-5 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-xl hover:border-dhamma-saffron dark:hover:border-dhamma-saffron transition-all group shadow-sm">
+    <div class="flex items-center gap-3 mb-2 text-dhamma-saffron">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+        </svg>
+        <h2 class="text-xl font-bold text-stone-800 dark:text-stone-200 group-hover:text-dhamma-saffron transition-colors">Downloads</h2>
+    </div>
+    <p class="text-stone-600 dark:text-stone-400">Access the full audio archive and the mobile application for offline listening.</p>
+</a>
+        </div>
+		</section>
+{% endblock %}

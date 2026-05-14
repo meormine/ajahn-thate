@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="mb-12 flex flex-col items-center text-center">
+    <div class="mb-6 w-32 h-32 md:w-48 md:h-48 overflow-hidden rounded-full shadow-lg border-4 border-dhamma-saffron bg-stone-100">
+        <img src="{{ root_path }}static/ajahn_thate.jpg" alt="Ajahn Thate Desaransi at Wat Hin Maak Peng" class="w-full h-full object-cover object-top">
+    </div>
+    
+    <h1 class="text-3xl md:text-5xl font-bold mb-2 text-dhamma-saffron tracking-tight">
+        {{ title }}
+    </h1>
+    <p class="text-lg md:text-xl text-stone-500 dark:text-stone-400 font-medium">
+        Phra Rajanirodharangsee (1902–1994)
+    </p>
+</header>
+
+<div class="bg-white dark:bg-stone-900 rounded-xl shadow-sm border border-stone-200 dark:border-stone-800 p-6 md:p-10">
+    <article class="prose dark:prose-invert max-w-none text-lg">
+        <p>
+            Phra Ajahn Thate Desaransi, also widely known as Luangpu Thet Thetrangsi, was a highly venerated meditation master and Buddhist monk. Born in northern Thailand in 1902, he became a first-generation student and close disciple of Ajahn Mun Bhuridatto, establishing him as one of the founding teachers of the Thai Forest Tradition. 
+        </p>
+        
+        <p>
+            Following the passing of Ajahn Mun in 1949, Ajahn Thate was widely recognized as the <em>Ajahn Yai</em>—the head of the Thai Forest Tradition lineage—a position he held until his death in 1994. Known for his profound humility and deep dedication to mental development through Buddhist meditation, he attracted a vast following not only across all layers of the Thai population but internationally, actively training many Western meditation students.
+        </p>
+
+        <h3>Wat Hin Mak Peng</h3>
+        <p>
+            Ajahn Thate served as the abbot of Wat Hin Mark Peng in Nong Khai province. In May 1982, his significant contributions to the Dhamma were formally honored when the Supreme Patriarch of Thai Buddhism officially named the temple a "model monastery," officially recognizing Ajahn Thate's high status within the monastic community. 
+        </p>
+
+        <h3>Written Works and Legacy</h3>
+        <p>
+            Throughout his life, Ajahn Thate emphasized the practical, lived application of the Dhamma over theoretical speculation. A prolific teacher, his legacy is preserved in several key texts that have been translated into English for global practitioners. Some of his most notable works include:
+        </p>
+        <ul>
+            <li><strong>The Autobiography of a Forest Monk</strong></li>
+            <li><strong>Buddho</strong></li>
+            <li><strong>Steps Along the Path</strong></li>
+            <li><strong>Meditation in Words</strong></li>
+        </ul>
+        
+        <p>
+            Upon his passing in 1994, his cremation ceremony was an event of immense scale. It was attended by an estimated one hundred thousand laypeople and ten thousand monks, led directly by King Bhumibol Adulyadej and the Thai Royal Family. During the ceremony, half a million books commemorating his teachings were distributed freely to attendees, a testament to his enduring spiritual impact.
+        </p>
+    </article>
+</div>
+{% endblock %}
