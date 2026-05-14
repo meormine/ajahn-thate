@@ -23,12 +23,11 @@ A digital collection of the teachings, writings, and life history of Phra Rajani
 
 ## Explore the Archive
 
-- [**Autobiography**](./autobiography.html) — Explore the life and journey of Ajahn Thate, from his early years to his time as a wandering forest monk.
-- [**Dhamma Talks**](./dhamma_talks.html) — An archive of recorded teachings, transcripts, and practical meditation advice given to his disciples.
-- [**Dhamma Books**](./dhamma_books.html) — Published writings, essays, and complete books translated into English.
-- [**Dhamma Quotes**](./dhamma_quotes.html) — Brief, impactful reflections and daily inspiration excerpted from his lifelong teachings.
-- [**Downloads**](./download.html) — Downloadable PDFs and other resources.
-- [**About**](./about.html) — Learn more about this project and its mission.
+- [**Autobiography**]([./autobiography.html](https://meormine.github.io/ajahn-thate/autobiography.html)) — Explore the life and journey of Ajahn Thate, from his early years to his time as a wandering forest monk.
+- [**Dhamma Talks**]([./dhamma_talks.html](https://meormine.github.io/ajahn-thate/dhamma_talks.html)) — An archive of recorded teachings, transcripts, and practical meditation advice given to his disciples.
+- [**Dhamma Books**]([./dhamma_books.html](https://meormine.github.io/ajahn-thate/dhamma_books.html)) — Published writings, essays, and complete books translated into English.
+- [**Dhamma Quotes**]([./dhamma_quotes.html](https://meormine.github.io/ajahn-thate/dhamma_quotes.html)) — Brief, impactful reflections and daily inspiration excerpted from his lifelong teachings.
+- [**Downloads**]([./download.html](https://meormine.github.io/ajahn-thate/download.html)) — Access the full audio archive and the mobile application for offline listening.
 
 ---
 
