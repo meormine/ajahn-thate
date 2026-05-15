@@ -10,7 +10,7 @@ A digital collection of the teachings, writings, and life history of Phra Rajani
 
 ### The Path of a Forest Monk
 
-| <img src="./static/ajahn_thate_home.jpg" width="200" alt="Venerable Ajahn Thate Desaraṅsī"> | Venerable Ajahn Thate Desaraṅsī (1902–1994) was one of the foundational pillars of the modern Thai Forest Tradition. As a direct disciple of Ajahn Mun Bhūridatta, his life epitomized radical simplicity, deep meditative stabilization, and compassionate teaching.<br><br>For over seventy years in the robes, he traversed remote wildernesses, subdued the mind through isolated practice, and built communities centered around pure monastic discipline (Vinaya).<br><br>[Read his full Autobiography →](https://meormine.github.io/ajahn-thate/autobiography.html) |
+| <img src="./static/ajahn_thate_home.jpg" width="600" alt="Venerable Ajahn Thate Desaraṅsī"> | Venerable Ajahn Thate Desaraṅsī (1902–1994) was one of the foundational pillars of the modern Thai Forest Tradition. As a direct disciple of Ajahn Mun Bhūridatta, his life epitomized radical simplicity, deep meditative stabilization, and compassionate teaching.<br><br>For over seventy years in the robes, he traversed remote wildernesses, subdued the mind through isolated practice, and built communities centered around pure monastic discipline (Vinaya).<br><br>[Read his full Autobiography →](https://meormine.github.io/ajahn-thate/autobiography.html) |
 | --- | --- |
 
 ---
